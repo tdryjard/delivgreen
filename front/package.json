@@ -88,5 +88,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "npx eslint --fix",
+      "git add"
+    ]
   }
 }
