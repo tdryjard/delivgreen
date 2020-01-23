@@ -1,0 +1,21 @@
+.logoPartenaire {
+    width: 50px;
+}
+
+.logoChoice {
+    width: 50px;
+}
+
+.logoSalary {
+    width: 50px;
+}
+
+.becomeContainer {
+    background-color: #A1A1A1;
+}
+
+.becomePartnairContainer {
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+}
