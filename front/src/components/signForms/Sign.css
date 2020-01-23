@@ -4,6 +4,7 @@
     background: url("../images/sign_background.png");
     background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
