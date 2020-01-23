@@ -25,7 +25,8 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "lint-staged": "^9.5.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -72,6 +73,7 @@
       "react/forbid-prop-types": "off",
       "no-plusplus": "off",
       "no-shadow": "off",
+      "global-require": "off",
       "no-nested-ternary": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-noninteractive-element-interactions": "off",
