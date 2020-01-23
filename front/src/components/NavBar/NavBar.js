@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
@@ -14,7 +13,6 @@ const NavBar = () => {
     <div>
       <div className={`${toggle ? 'listNavBar' : 'closedMenuBurger'}`}>
         <div className="burgerMenuContainer">
-          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <div
             onClick={() => setToggle(!toggle)}
             className={`burgerMenu ${toggle ? 'change' : null}`}
