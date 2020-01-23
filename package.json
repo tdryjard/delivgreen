@@ -19,5 +19,9 @@
     "hooks": {
       "pre-commit": "npx lerna run --concurrency 1 --stream precommit"
     }
+  },
+  "dependencies": {
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.3.0"
   }
 }
