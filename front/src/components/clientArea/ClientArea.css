@@ -1,0 +1,60 @@
+.commandesEnCoursContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border: 2px solid black;
+    margin: 15px;
+}
+
+.commandesEnCours {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoLivreur {
+    width: 50px;
+    height: 50px;
+}
+
+.commandesRealContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: lightslategray;
+    padding: 15px;
+    margin: 15px;
+}
+
+.commandesReal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logoColis {
+    width: 50px;
+    height: 50px;
+}
+
+.myInformations {
+    background-color: darkgrey;
+    margin: 15px;
+    padding: 20px;
+}
+
+.profileIcon {
+    width: 80px;
+}
+
+.inputAndEdit {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.editInfo {
+    width: 30px;
+}
