@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Switch, Route } from 'react-router-dom';
+import Accueil from './components/accueil/Accueil';
+import Signin from './components/signForms/signin/Signin';
+import Signup from './components/signForms/signup/Signup';
+import Adhesion from './components/adhesion/Adhesion';
+import AdhesionPro from './components/adhesionPro/AdhesionPro';
 import './App.css';
+import Form from './components/contactPage/Form';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Accueil} />
+      <Route path="/signin" component={Signin} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/adhesion" component={Adhesion} />
+      <Route path="/adhesion-pro" component={AdhesionPro} />
+    </Switch>
   );
 }
 
