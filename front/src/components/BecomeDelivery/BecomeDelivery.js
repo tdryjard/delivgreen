@@ -34,9 +34,21 @@ const BecomeDelivery = () => {
       </div>
       <h1>Devenir livreur DelivGreen</h1>
       <div>
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        <img
+          className="particulierVelo"
+          src="https://zupimages.net/up/20/04/mk05.jpg"
+          alt="particulier"
+        />
+        <img
+          className="coursierScooter"
+          src="https://zupimages.net/up/20/04/tzt8.jpg"
+          alt="coursier"
+        />
+        <img
+          className="transporteurImage"
+          src="https://zupimages.net/up/20/04/zt2w.jpg"
+          alt="transporteur"
+        />
       </div>
     </div>
   );
