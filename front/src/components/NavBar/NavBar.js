@@ -22,20 +22,22 @@ const NavBar = () => {
             <div className="bar3" />
           </div>
         </div>
+        {toggle ? (
+          <div className="itemListContainer">
+            <NavLink
+              style={{ textDecoration: 'none' }}
+              activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
+              to="/"
+            >
+              <h3 className="itemListNavBar" onClick={closeMenu}>
+                Home
+              </h3>
+            </NavLink>
+            <h1 className="itemListNavBar">Shop</h1>
+            <h1 className="itemListNavBar">About</h1>
+          </div>
+        ) : null}
       </div>
-      {toggle ? (
-        <div>
-          <NavLink
-            style={{ textDecoration: 'none' }}
-            activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
-            to="/"
-          >
-            <h3 className="itemListNavBar" onClick={closeMenu}>
-              Home
-            </h3>
-          </NavLink>
-        </div>
-      ) : null}
     </div>
   );
 };

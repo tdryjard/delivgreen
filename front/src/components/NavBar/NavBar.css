@@ -1,24 +1,24 @@
 .listNavBar {
     position: fixed;
-    padding: 15px;
-    top: 8%;
-    right: 2%;
-    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+    top: 16px;
+    right: 16px;
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    border: solid 2px #282c34;
 }
 
 .closedMenuBurger {
     background-color: black;
     position: fixed;
     padding: 10px;
-    top: 8%;
-    right: 2%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    top: 16px;
+    right: 16px;
+}
+
+.itemListContainer {
+
 }
 
 .itemListNavBar {
@@ -26,7 +26,7 @@
     padding: 15px;
     color: white;
     text-decoration: none;
-    margin: 5px;
+    margin: 0;
 }
 
 .itemListNavBar:active, .itemListNavBar:focus {
