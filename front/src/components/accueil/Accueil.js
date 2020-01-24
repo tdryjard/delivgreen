@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './accueil.css';
 import Footer from '../footer/Footer';
+import NavBar from '../NavBar/NavBar';
 
 const Accueil = () => {
   const [co2Counter, setCo2Counter] = useState(0);
@@ -18,6 +19,7 @@ const Accueil = () => {
 
   return (
     <div className="contentAccueil">
+      <NavBar />
       <head className="headAccueil">
         <div className="beClient">
           <button type="button" className="headText1">

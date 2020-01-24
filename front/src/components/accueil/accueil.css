@@ -251,18 +251,6 @@
     width: auto;
 }
 
-.bande{
-    width: 100%;
-    height: auto;
-}
-
-.bandeRotate{
-    margin-top: 35px;
-    width: 100%;
-    height: auto;
-    transform: scale(-1);
-}
-
 .clientButton{
     border: none;
         border-bottom: solid grey 3px;
@@ -286,6 +274,10 @@
 }
 
 .article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-image: url('./image/backArticle.png');
     margin-bottom: 50px;
     background-color: rgb(255, 255, 255);
