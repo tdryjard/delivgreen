@@ -15,8 +15,14 @@ const Footer = () => {
         <a href="/" className="urlFooter">
           Blog
         </a>
-        <Link to="/signin" className="urlFooter">
+        <Link to="/" className="urlFooter">
           contact
+        </Link>
+        <Link to="/adhesion" className="urlFooter">
+          adhésion
+        </Link>
+        <Link to="/adhesion-pro" className="urlFooter">
+          adhésion Pro
         </Link>
       </div>
     </footer>
