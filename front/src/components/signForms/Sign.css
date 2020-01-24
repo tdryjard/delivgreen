@@ -18,7 +18,14 @@
     padding: 20px 0;
 }
 
+.sign-form label {
+    display: flex;
+    flex-direction: column;
+}
+
 .sign-form input {
+    text-align: center;
+    min-width: 250px;
     font-size: 1rem;
     padding: .5rem;
     margin: 5px;
