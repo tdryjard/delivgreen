@@ -11,10 +11,10 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={Accueil} />
-      <Route path="/signin" component={Signin} />
-      <Route path="/signup" component={Signup} />
       <Route path="/adhesion" component={Adhesion} />
       <Route path="/adhesion-pro" component={AdhesionPro} />
+      <Route path="/signin" component={Signin} />
+      <Route path="/signup" component={Signup} />
     </Switch>
   );
 }
