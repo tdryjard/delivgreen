@@ -26,11 +26,14 @@
     color: white;
     text-decoration: none;
     margin: 5px;
-    background-color: #282c34;
 }
 
 .itemListNavBar:active, .itemListNavBar:focus {
     outline: none;
+}
+
+.itemListNavBar:hover {
+    background-color: #282c34;
 }
 
 .burgerMenu {

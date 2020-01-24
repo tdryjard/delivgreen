@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer className="footerAccueil">
       <div className="containerUrlFooter">
-        <a href="/" className="urlFooter">
+        <Link to="signup" className="urlFooter">
           connexion
-        </a>
+        </Link>
         <Link to="/signin" className="urlFooter">
           inscription
         </Link>
