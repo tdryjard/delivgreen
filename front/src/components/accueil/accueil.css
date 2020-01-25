@@ -1,0 +1,322 @@
+.contentAccueil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    min-height: 100%;
+    width: 100%;
+}
+
+.headAccueil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+    width: 100%;
+    height: 65vh;
+}
+
+.beClient{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    background-image: url('./image/backDeliv7.png');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: rgb(156, 156, 156) 0px 0px 3px 1px;
+}
+
+@media screen and (min-width: 1280px){
+    .beClient{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+        height: 50%;
+        background-image: url('./image/backDeliv2Pc.png');
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        box-shadow: rgb(156, 156, 156) 0px 0px 3px 1px;
+    }
+}
+
+.headText1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border: solid rgb(255, 255, 255) 3px;
+        border-radius: 3px;
+        padding: .5rem 1rem;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 15%;
+        margin-left: 40%;
+        max-width: 40%;
+        max-height: 40%;
+        background-color: rgba(255, 255, 255, 0.6);
+        box-shadow: rgb(0, 0, 0) 1px 1px 2px 1px;
+}
+
+@media screen and (min-width: 1280px){
+    .headText1{
+        margin-top: 0;
+        width: 20%;
+        height: 25%;
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 25px;
+    }
+}
+
+.beDeliver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    background-image: url('./image/backDeliv5.png');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: rgb(156, 156, 156) 0px 0px 3px 1px;
+    margin-top : 25px;
+}
+
+@media screen and (min-width: 1280px){
+    .beDeliver{
+        background-image: url('./image/backDeliv1Pc.png');
+        background-size: 100%;
+        width: 90%;
+    }
+}
+
+.headText2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid rgb(255, 255, 255) 3px;
+        border-radius: 3px;
+        padding: .5rem 1rem;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 15%;
+        margin-right: 35%;
+        max-width: 40%;
+        max-height: 40%;
+        background-color: rgba(255, 255, 255, 0.6);
+        box-shadow: rgb(0, 0, 0) 1px 1px 2px 1px;
+}
+
+@media screen and (min-width: 1280px){
+    .headText2{
+        margin-bottom: 0;
+        width: 20%;
+        height: 25%;
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 25px;
+    }
+}
+
+
+.numberCo2Content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #3a3a3a;
+    z-index: 3;
+    box-shadow: rgb(0, 0, 0) 0px -3px 8px inset, rgb(0, 0, 0) 0px 3px 8px inset;
+}
+
+.contentNumberType{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid rgb(196, 196, 196);
+    box-shadow: white 0px 0px 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+    width: 150px;
+}
+
+.numberCo2{
+    font-size: 20px;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: white 0px 0px 3px;
+}
+
+.contentNumber{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+@media screen and (min-width: 1280px){
+    .contentNumberType{
+       width: 200px;
+    }
+    .numberCo2Content{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 90%;
+    }
+}
+
+.ecoLogo{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.typeCo2{
+    margin-top : 5px;
+    color: white;
+}
+
+.describeCo2{
+    color: white;
+}
+
+.delivryStep{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    margin-top: -5px;
+    z-index: 2;
+    box-shadow: rgb(0, 0, 0) 0px 1px 5px;
+    background-image: url('./image/backStep.png');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 110%;;
+    width: 100%;
+}
+
+@media screen and (min-width: 1280px){
+    .delivryStep{
+        width: 900px;
+        height: 600px;
+    }
+}
+
+.titleDelivryStep{
+    margin-top: 30px;
+    font-size: 25px;;
+}
+
+.stepDelivry{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    width: 85%;
+}
+
+@media screen and (min-width: 1280px){
+    .titleDelivryStep{
+        font-size: 35px;
+    }
+}
+
+.describeDelivry{
+    font-weight: bold;
+    font-size: 15px;
+    text-align: start;
+}
+
+.iconDelivry{
+    height: 100px;
+    width: auto;
+}
+
+.clientButton{
+    border: none;
+        border-bottom: solid grey 3px;
+        border-radius: 3px;
+        background: black;
+        padding: .5rem 1rem;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 55%;
+}
+
+.articleContent{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('./image/backArticle.png');
+    margin-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    box-shadow: rgb(97, 97, 97) 0px 0px 2px 2px;
+}
+
+.imgArticle{
+    width: 100%;
+    height: auto;
+}
+
+.buttonArticle{
+    border: none;
+        border-bottom: solid grey 3px;
+        border-radius: 3px;
+        background: black;
+        padding: .5rem 1rem;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-bottom: 5%;
+        width: 35%;
+        margin-top: 10px;
+}
+
+.articleContentTitle{
+    font-size: 25px;
+}
+
+@media screen and (min-width: 1280px){
+    .articleContentTitle{
+        font-size: 35px;
+    }
+    .articleContent{
+        width: 700px;
+    }
+}
+.iconDeliv{
+    height: 100px;
+    width: auto;
+}
