@@ -13,7 +13,7 @@ function Signin() {
                 <input type='text' name='lastname' placeholder='Nom' />
                 <input type='text' name='firstname' placeholder='Prénom' />
                 <input type='email' name='email' placeholder='Email' />
-                <input type='text' name='tel' placeholder='Téléphone' />
+                <input type='tel' name='tel' placeholder='Téléphone' />
                 <input type='password' name='password' placeholder='Mot de passe' />
                 <input type='password' name='password-verification' placeholder='Retapez votre mot de passe' />
                 <button type='submit' className='btn'>S'inscrire</button>
