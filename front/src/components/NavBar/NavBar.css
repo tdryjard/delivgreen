@@ -4,6 +4,8 @@
 
 .submitAndSignIn {
     color: greenyellow;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .listNavBar {

@@ -6,8 +6,6 @@ import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
 import AdhesionPro from './components/adhesionPro/AdhesionPro';
 import './App.css';
-import Form from './components/contactPage/Form';
-import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
