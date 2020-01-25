@@ -11,7 +11,7 @@ const NavBar = () => {
 
   return (
     <div className="navBarMainContainer">
-      <div className="barreDeNav">
+      <div className="navigationBar">
         <img
           className="logoNavBar"
           src={require('./images/delivgreen.png')}
