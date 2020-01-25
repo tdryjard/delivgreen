@@ -20,4 +20,7 @@
       "pre-commit": "npx lerna run --concurrency 1 --stream precommit"
     }
   },
+  "dependencies": {
+    "react-router-dom": "^5.1.2"
+  }
 }
