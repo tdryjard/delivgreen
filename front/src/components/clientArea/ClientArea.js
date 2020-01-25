@@ -4,8 +4,10 @@ import './ClientArea.css';
 const ClientArea = () => {
   return (
     <div>
-      <h1>Mon espace perso</h1>
-      <button type="button">Nouvelle commande</button>
+      <div className="headerClientArea">
+        <h1>Mon espace perso</h1>
+        <h1 className="nouvelleCommandeBoutton">Nouvelle commande</h1>
+      </div>
       <div className="commandesEnCoursContainer">
         <img
           className="logoLivreur"

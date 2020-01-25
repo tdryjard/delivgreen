@@ -1,3 +1,22 @@
+.headerClientArea {
+    background-color: cadetblue;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nouvelleCommandeBoutton {
+    cursor: pointer;
+    margin: 0;
+    width: 25%;
+    font-size: 18px;
+    border-radius: 5px;
+    display: inline;
+    background-color: greenyellow;
+    padding: 15px;
+}
+
 .commandesEnCoursContainer {
     display: flex;
     flex-direction: row;
@@ -51,10 +70,14 @@
 
 .inputAndEdit {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin: 10px;
 }
 
 .editInfo {
     width: 30px;
+}
+
+@media (max-width: 1060px) {
+
 }
