@@ -4,9 +4,9 @@ import './historical.css';
 
 const Historical = () => {
   return (
-    <div className="contentHistorique">
-      <h4 className="titleHistorique">Historique de commande</h4>
-      <div className="numberHistorique">
+    <div className="contentHistorical">
+      <h4 className="titleHistorical">Historique de commande</h4>
+      <div className="numberHistorical">
         <img
           className="iconNumberHisto"
           src={require('./image/iconNumber.svg')}
