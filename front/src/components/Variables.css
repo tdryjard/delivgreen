@@ -1,0 +1,11 @@
+:root {
+    /* Colors */
+  --black: #222;
+  --light-black: #444;
+  --gray: #A1A1A1;
+  --white: #FFFFFF;
+
+  /* Dimensions */
+  --vh: 0px;
+  --mobile-full-height: calc(var(--vh) * 100);
+}
