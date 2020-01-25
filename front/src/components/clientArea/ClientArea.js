@@ -3,7 +3,7 @@ import './ClientArea.css';
 
 const ClientArea = () => {
   return (
-    <div>
+    <div className="clientAreaContainer">
       <div className="headerClientArea">
         <h1>Mon espace perso</h1>
         <h1 className="nouvelleCommandeBoutton">Nouvelle commande</h1>
@@ -27,11 +27,11 @@ const ClientArea = () => {
           alt="logo by Freepik"
         />
         <div className="commandesReal">
-          <h1>$nb commandes réalisées</h1>
+          <h1 className="nbCommandesRealTitle">$nb commandes réalisées</h1>
           <button type="button">Historique des commandes</button>
         </div>
       </div>
-      <div>
+      <div className="infosContainer">
         <div className="myInformations">
           <img
             className="profileIcon"

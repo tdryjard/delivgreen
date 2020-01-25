@@ -1,9 +1,17 @@
-.headerClientArea {
-    background-color: cadetblue;
-    padding: 35px;
+.clientAreaContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.headerClientArea {
+    background-color: lightgrey;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .nouvelleCommandeBoutton {
@@ -14,17 +22,19 @@
     border-radius: 5px;
     display: inline;
     background-color: greenyellow;
+    box-shadow: grey 2px 2px 2px;
     padding: 15px;
 }
 
 .commandesEnCoursContainer {
+    margin: 25px;
+    background-color: lightgray;
+    width: 50%;
+    height: 40vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: 15px;
-    border: 2px solid black;
-    margin: 15px;
+    justify-content: space-around;
 }
 
 .commandesEnCours {
@@ -33,18 +43,19 @@
 }
 
 .logoLivreur {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 
 .commandesRealContainer {
     display: flex;
+    margin-bottom: 25px;
+    width: 50%;
+    height: 40vh;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: lightslategray;
-    padding: 15px;
-    margin: 15px;
 }
 
 .commandesReal {
@@ -53,15 +64,23 @@
     justify-content: center;
 }
 
+.nbCommandesRealTitle {
+    font-size: 36px;
+}
+
 .logoColis {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
+}
+
+.infosContainer {
+    width: 50%;
+    margin-bottom: 25px;
 }
 
 .myInformations {
     background-color: darkgrey;
-    margin: 15px;
-    padding: 20px;
+    padding: 25px;
 }
 
 .profileIcon {
@@ -79,5 +98,23 @@
 }
 
 @media (max-width: 1060px) {
+    .commandesEnCoursContainer {
+        width: 90%;
+        height: 30vh;
+    }
 
+    .headerClientArea {
+        width: 100%;
+    }
+
+    .commandesRealContainer {
+        width: 90%;
+    }
+
+    .myInformations {
+        padding: 20px;
+    }
+    .infosContainer {
+        width: 90%;
+    }
 }
