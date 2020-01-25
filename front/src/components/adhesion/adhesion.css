@@ -33,7 +33,7 @@
 .fileInput{
     display: none;
 }
-.localisationAdd{
+.locationAdd{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
     margin-bottom: 15px;
 }
 
-.localisationAdd .localisationInput{
+.locationAdd .locationInput{
     width: 80px;
     margin: 0;
     margin-left: 5px;
@@ -55,6 +55,10 @@
     margin-left: 5px;
 }
 
-.contentAdhesion .longInput{
-
+.containerPro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 140px;
 }
