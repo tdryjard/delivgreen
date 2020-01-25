@@ -1,8 +1,8 @@
 import React from 'react';
 import Footer from '../footer/Footer';
-import './historique.css';
+import './historical.css';
 
-const Historique = () => {
+const Historical = () => {
   return (
     <div className="contentHistorique">
       <h4 className="titleHistorique">Historique de commande</h4>
@@ -132,4 +132,4 @@ const Historique = () => {
   );
 };
 
-export default Historique;
+export default Historical;
