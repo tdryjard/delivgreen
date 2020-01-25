@@ -14,7 +14,7 @@
     justify-content: center;
 }
 
-.nouvelleCommandeBoutton {
+.newCommandButton {
     cursor: pointer;
     margin: 0;
     width: 25%;
@@ -26,7 +26,7 @@
     padding: 15px;
 }
 
-.commandesEnCoursContainer {
+.actualCommandsContainer {
     margin: 25px;
     background-color: lightgray;
     width: 50%;
@@ -37,12 +37,12 @@
     justify-content: space-around;
 }
 
-.commandesEnCours {
+.actualCommands {
     display: flex;
     flex-direction: column;
 }
 
-.logoLivreur {
+.deliveryManLogo {
     width: 70px;
     height: 70px;
 }
@@ -98,7 +98,7 @@
 }
 
 @media (max-width: 1060px) {
-    .commandesEnCoursContainer {
+    .actualCommandsContainer {
         width: 90%;
         height: 30vh;
     }

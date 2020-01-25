@@ -6,15 +6,15 @@ const ClientArea = () => {
     <div className="clientAreaContainer">
       <div className="headerClientArea">
         <h1>Mon espace perso</h1>
-        <h1 className="nouvelleCommandeBoutton">Nouvelle commande</h1>
+        <h1 className="newCommandButton">Nouvelle commande</h1>
       </div>
-      <div className="commandesEnCoursContainer">
+      <div className="actualCommandsContainer">
         <img
-          className="logoLivreur"
+          className="deliveryManLogo"
           src="https://zupimages.net/up/20/04/1djh.png"
           alt="logo by Eucalyp"
         />
-        <div className="commandesEnCours">
+        <div className="actualCommands">
           <h2>$nb commandes en cours</h2>
           <p>Statut de la commande</p>
           <button type="button">Voir détails</button>
@@ -93,7 +93,7 @@ const ClientArea = () => {
               <input
                 id="mail"
                 value="jean.dutronc@gmail.com"
-                type="text"
+                type="email"
                 placeholder="Prénom"
               />
               <img
