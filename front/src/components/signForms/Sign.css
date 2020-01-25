@@ -21,6 +21,7 @@
 .sign-form label {
     display: flex;
     flex-direction: column;
+    font-weight: bold;
 }
 
 .sign-form input {
