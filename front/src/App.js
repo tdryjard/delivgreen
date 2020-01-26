@@ -5,9 +5,9 @@ import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
 import AdhesionPro from './components/adhesionPro/AdhesionPro';
+import ViewInvoice from './components/invoice/ViewInvoice';
+import DownloadPdf from './components/invoice/DownloadPdf';
 import './App.css';
-import Form from './components/contactPage/Form';
-import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
@@ -17,6 +17,8 @@ function App() {
       <Route path="/signup" component={Signup} />
       <Route path="/adhesion" component={Adhesion} />
       <Route path="/adhesion-pro" component={AdhesionPro} />
+      <Route path="/facture" component={ViewInvoice} />
+      <Route path="/facture-download" component={DownloadPdf} />
     </Switch>
   );
 }

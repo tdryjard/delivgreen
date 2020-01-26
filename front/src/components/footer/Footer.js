@@ -24,6 +24,12 @@ const Footer = () => {
         <Link to="/adhesion-pro" className="urlFooter">
           adhésion Pro
         </Link>
+        <Link to="/facture" className="urlFooter">
+          facture
+        </Link>
+        <Link to="/facture-download" className="urlFooter">
+          facture-download
+        </Link>
       </div>
     </footer>
   );
