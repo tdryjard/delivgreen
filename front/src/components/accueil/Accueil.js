@@ -35,7 +35,7 @@ const Accueil = () => {
 
       <div className="numberCo2Content">
         <div className="contentNumberType">
-          <div className="contentNumber">
+          <div className="contentNumberCo2">
             <p className="numberCo2">{co2Counter}</p>
             <div>
               <img
