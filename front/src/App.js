@@ -5,7 +5,7 @@ import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
 import AdhesionPro from './components/adhesionPro/AdhesionPro';
-import Contact from './components/contactPage/contact';
+import Contact from './components/contactPage/Contact';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 
