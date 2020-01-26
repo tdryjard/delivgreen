@@ -5,8 +5,8 @@ import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
 import AdhesionPro from './components/adhesionPro/AdhesionPro';
+import Contact from './components/contactPage/contact';
 import './App.css';
-import Form from './components/contactPage/Form';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Route path="/signup" component={Signup} />
       <Route path="/adhesion" component={Adhesion} />
       <Route path="/adhesion-pro" component={AdhesionPro} />
-      <Route path="/Form" component={Form} />
+      <Route path="/contact" component={Contact} />
     </Switch>
   );
 }

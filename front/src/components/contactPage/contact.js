@@ -1,7 +1,7 @@
 import React from 'react';
-import './contactPage.css';
+import './contact.css';
 
-const Form = () => {
+const contact = () => {
   return (
     <div className="FormContact">
       <h1>Contactez-nous !</h1>
@@ -9,7 +9,7 @@ const Form = () => {
         <input type="text" name="lastname" placeholder="Nom" />
         <input type="text" name="firstname" placeholder="Prénom" />
         <input type="email" name="email" placeholder="Email" />
-        <input type="text" name="tel" placeholder="Téléphone" />
+        <input type="tel" name="tel" placeholder="Téléphone" />
         <textarea
           className="messageContact"
           type="text"
@@ -24,4 +24,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default contact;
