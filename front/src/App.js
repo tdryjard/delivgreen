@@ -5,7 +5,8 @@ import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
 import AdhesionPro from './components/adhesionPro/AdhesionPro';
-import Contact from './components/contactPage/contact';
+import Contact from './components/contact/contact';
+import Historical from './components/historique/Historical';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/adhesion" component={Adhesion} />
       <Route path="/adhesion-pro" component={AdhesionPro} />
       <Route path="/contact" component={Contact} />
+      <Route path="/historical" component={Historical} />
     </Switch>
   );
 }

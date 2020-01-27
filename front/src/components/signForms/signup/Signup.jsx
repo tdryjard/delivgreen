@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../footer/Footer';
 import './Signup.css';
 import '../Sign.css';
 
@@ -11,6 +12,7 @@ function Signup() {
                 <input type='password' name='password' placeholder='Mot de passe' />
                 <button type='submit' class='btn'>Se connecter</button>
             </form>
+            <Footer />
         </div>
     )
 }
