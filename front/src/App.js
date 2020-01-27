@@ -4,7 +4,10 @@ import Accueil from './components/accueil/Accueil';
 import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
+import Historical from './components/historique/Historical';
 import './App.css';
+import Form from './components/contactPage/Form';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
@@ -13,6 +16,7 @@ function App() {
       <Route path="/adhesion" component={Adhesion} />
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
+      <Route path="/historical" component={Historical} />
     </Switch>
   );
 }

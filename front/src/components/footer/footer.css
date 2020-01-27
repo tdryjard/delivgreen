@@ -20,3 +20,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+footer{
+    margin-top: 50px;
+}

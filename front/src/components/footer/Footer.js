@@ -21,6 +21,9 @@ const Footer = () => {
         <Link to="/adhesion" className="urlFooter">
           adhésion
         </Link>
+        <Link to="/historical" className="urlFooter">
+          historique
+        </Link>
       </div>
     </footer>
   );
