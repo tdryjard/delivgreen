@@ -4,9 +4,7 @@ import Footer from '../footer/Footer';
 import './adhesion.css';
 
 const Adhesion = () => {
-  const [pro, setPro] = useState(true);
-
-  setPro(true);
+  const [pro] = useState(true);
 
   return (
     <div className="contentAdhesion">

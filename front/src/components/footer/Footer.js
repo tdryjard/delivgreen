@@ -21,9 +21,6 @@ const Footer = () => {
         <Link to="/adhesion" className="urlFooter">
           adhésion
         </Link>
-        <Link to="/adhesion-pro" className="urlFooter">
-          adhésion Pro
-        </Link>
       </div>
     </footer>
   );
