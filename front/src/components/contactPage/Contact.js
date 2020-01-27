@@ -1,7 +1,7 @@
 import React from 'react';
-import './contact.css';
+import './Contact.css';
 
-const contact = () => {
+const Contact = () => {
   return (
     <div className="FormContact">
       <h1>Contactez-nous !</h1>
@@ -24,4 +24,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;
