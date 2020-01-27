@@ -30,6 +30,9 @@ const Footer = () => {
         <Link to="/facture-download" className="urlFooter">
           facture-download
         </Link>
+        <Link to="/historical" className="urlFooter">
+          historique
+        </Link>
       </div>
     </footer>
   );
