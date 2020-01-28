@@ -8,6 +8,7 @@ import Contact from './components/contactPage/Contact';
 import ViewInvoice from './components/invoice/ViewInvoice';
 import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
+import Admin from './components/admin/Admin';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/facture" component={ViewInvoice} />
       <Route path="/facture-download" component={DownloadPdf} />
       <Route path="/historical" component={Historical} />
+      <Route path="/admin" component={Admin} />
     </Switch>
   );
 }
