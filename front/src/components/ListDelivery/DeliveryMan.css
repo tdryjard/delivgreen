@@ -4,13 +4,13 @@
     width: 100%;
 }
 
-.noteStyle{
+.note-style{
     display:flex;
     flex-direction: initial;
     font-weight: 200;
     margin-left:20px;
 }
-.nameStyle{
+.name-style{
     display:flex;
     flex-direction: initial;
     font-weight: 200;
@@ -57,7 +57,7 @@
     font-size: 1rem;
 }
 
-.Allbtn{
+.all-btn{
     margin-left: 40%;
 }
 
@@ -97,7 +97,7 @@
         cursor: pointer;
         font-size: 1rem;
     }
-    .Allbtn{
+    .btn{
         align-items: center;
         justify-content: center;
         display: flex;

@@ -4,10 +4,10 @@ const DeliveryMan = ({ name, note }) => {
   return (
     <div className="delivery-container">
       <div className="delivery-header">
-        <p className="nameStyle">{name}</p>
-        <p className="noteStyle">{note}</p>
+        <p className="name-style">{name}</p>
+        <p className="note-style">{note}</p>
       </div>
-      <div className="Allbtn">
+      <div className="all-btn">
         <button type="button" className="btn">
           Supprimer compte
         </button>
