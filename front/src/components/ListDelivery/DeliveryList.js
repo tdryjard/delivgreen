@@ -2,7 +2,7 @@ import React from 'react';
 import './DeliveryMan.css';
 import DeliveryMan from './DeliveryMan';
 
-const deliveryList = () => {
+const DeliveryList = () => {
   const deliveryMans = [
     {
       name: 'Kylian Mbappé',
@@ -38,4 +38,4 @@ const deliveryList = () => {
   );
 };
 
-export default deliveryList;
+export default DeliveryList;
