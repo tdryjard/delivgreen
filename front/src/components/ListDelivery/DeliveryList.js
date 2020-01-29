@@ -2,8 +2,8 @@ import React from 'react';
 import './DeliveryMan.css';
 import DeliveryMan from './DeliveryMan';
 
-const DeliveryListe = () => {
-  const DeliveryMans = [
+const deliveryList = () => {
+  const deliveryMans = [
     {
       name: 'Kylian Mbappé',
       note: '4/5'
@@ -30,7 +30,7 @@ const DeliveryListe = () => {
     <div className="content-delivery">
       <div className="title">Liste des livreurs</div>
       <div className="delivery-box">
-        {DeliveryMans.map(deliveryMan => (
+        {deliveryMans.map(deliveryMan => (
           <DeliveryMan name={deliveryMan.name} note={deliveryMan.note} />
         ))}
       </div>
@@ -38,4 +38,4 @@ const DeliveryListe = () => {
   );
 };
 
-export default DeliveryListe;
+export default deliveryList;
