@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom';
 import './NavBarDashboardMobile.css';
 
 const NavBarDashboardMobile = ({ toggleNavbar }) => {
-  // const [toggleNavbar, setToggleNavbar] = useState(true);
-
   if (toggleNavbar) {
     return (
       <div

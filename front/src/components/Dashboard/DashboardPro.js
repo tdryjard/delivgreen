@@ -6,7 +6,6 @@ import useWindowDimensions from './useWindowDimensions';
 
 const DashboardPro = () => {
   const { height, width } = useWindowDimensions();
-  // const { innerWidth: width, innerHeight: height } = window;
   return (
     <div className="mySpaceMainContainer">
       {/*                   Pro Nav Bar                   */}

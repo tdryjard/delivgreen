@@ -29,21 +29,16 @@ const MyOrders = () => {
       ) : null}
       <div className="dashboardBody">
         <div className="headerDashboardOrders">
-          {toggleNavBarMobile ? (
-            <p
-              className="closeButtonNavBarMobile"
-              onClick={() => setToggleNavBarMobile(false)}
-            >
-              Close
-            </p>
-          ) : (
-            <p
-              className="openButtonNavBarMobile"
-              onClick={() => setToggleNavBarMobile(true)}
-            >
-              Open
-            </p>
-          )}
+          <p
+            className={
+              toggleNavBarMobile
+                ? 'closeButtonNavBarMobile'
+                : 'openButtonNavBarMobile'
+            }
+            onClick={() => setToggleNavBarMobile(!toggleNavBarMobile)}
+          >
+            {toggleNavBarMobile ? 'Close' : 'Open'}
+          </p>
           <HeaderDashboard />
         </div>
         {/*           Order Cards         */}
