@@ -10,6 +10,7 @@ import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
 import DeliveryList from './components/ListDelivery/DeliveryList';
 import './App.css';
+import DashboardPro from './components/Dashboard/DashboardPro';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/facture-download" component={DownloadPdf} />
       <Route path="/historical" component={Historical} />
       <Route path="/delivery-man" component={DeliveryList} />
+      <Route path="/dashboard-pro" component={DashboardPro} />
     </Switch>
   );
 }
