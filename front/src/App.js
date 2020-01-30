@@ -7,6 +7,7 @@ import Adhesion from './components/adhesion/Adhesion';
 import ViewInvoice from './components/invoice/ViewInvoice';
 import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
+import MappingClient from './components/mapping/MappingClient';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/facture" component={ViewInvoice} />
       <Route path="/facture-download" component={DownloadPdf} />
       <Route path="/historical" component={Historical} />
+      <Route path="/map-client" component={MappingClient} />
     </Switch>
   );
 }
