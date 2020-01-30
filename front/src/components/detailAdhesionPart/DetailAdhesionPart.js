@@ -11,7 +11,7 @@ const DetailAdhesionPart = ({
   adress,
   deliveryArea,
   typeDeliveryGuy,
-  typeVehicle
+  vehicle
 }) => {
   return (
     <div className="delivery-container">
@@ -48,16 +48,16 @@ const DetailAdhesionPart = ({
         {adress}
       </p>
       <p className="delivery_area-style">
-        <p className="the_delivery_area">Zone de livraison: </p>
+        <p className="the_delivery_area">Zone livraison: </p>
         {deliveryArea}
       </p>
       <p className="type_delivery_guy-style">
-        <p className="the_type_delivery_guy">Type de livreur: </p>
+        <p className="the_type_delivery_guy">Type livreur: </p>
         {typeDeliveryGuy}
       </p>
-      <p className="type_vehicle-style">
-        <p className="the_type_vehicle">Type de véhicule: </p>
-        {typeVehicle}
+      <p className="vehicle-style">
+        <p className="the_vehicle">Véhicule: </p>
+        {vehicle}
       </p>
       <div className="the-btn">
         <button type="submit" className="validation-cmd">

@@ -15,13 +15,13 @@ const DetailListAdhesionPart = () => {
       adress: 'Orléans',
       deliveryArea: 'Orléans 20KM',
       typeDeliveryGuy: 'Particulier',
-      typeVehicle: 'Véhicule thermique'
+      vehicle: 'Thermique'
     }
   ];
 
   return (
     <div className="content-delivery">
-      <div className="title">Détail de l'adhésion du partiulier</div>
+      <div className="title">Détail adhésion partiulier</div>
       <div className="delivery-box">
         {detailAdhesionPart.map(detailAdhesionPart => (
           <DetailAdhesionPart
@@ -35,7 +35,7 @@ const DetailListAdhesionPart = () => {
             adress={detailAdhesionPart.adress}
             deliveryArea={detailAdhesionPart.deliveryArea}
             typeDeliveryGuy={detailAdhesionPart.typeDeliveryGuy}
-            typeVehicle={detailAdhesionPart.typeVehicle}
+            vehicle={detailAdhesionPart.vehicle}
           />
         ))}
       </div>

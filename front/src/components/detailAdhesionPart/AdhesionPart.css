@@ -1,7 +1,6 @@
 .content-delivery{
     background-color: lightgrey;
-    height: 100vh;
-  }
+}
   
 .title{
     font-size: 25px;
@@ -106,6 +105,7 @@
   
 .the_delivery_area{
     font-weight: 500;
+    margin-right: 10px;
 }
   
 .type_delivery_guy-style{
@@ -119,14 +119,15 @@
     font-weight: 500;
 }
   
-.type_vehicle-style{
+.vehicle-style{
     display:flex;
     justify-content: left;
     align-items: center;
 }
   
-.the_type_vehicle{
+.the_vehicle{
     font-weight: 500;
+    margin-right: 10px;
 }
   
 .delivery-container{
@@ -177,13 +178,28 @@
 }
 
 
-@media screen and (max-width:300px){
+@media screen and (max-width:900px){
     .content-delivery{
         background-color: lightgrey;
         height: 100%;
-        padding: 5%;
-        width: 100%;
     }
-   
+    .delivery-container{
+        background-color: white;
+        padding-top:2%;
+        padding-bottom:2%;
+        border-radius: 25px;
+        width:auto;
+        padding-left:5%;
+        padding-right:5%;
+    }
+      
+    .delivery-box{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        line-height: 1%;
+    }
+    
    
 }
