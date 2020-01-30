@@ -1,0 +1,34 @@
+
+.mySpaceNavBarMobile {
+    position: absolute;
+    height: 100vh;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    animation: fade-in-open 5s;
+    left: 150px;
+}
+
+.mySpaceNavBarMobileOut {
+    animation: fade-out 1s;
+    left: -100%;
+}
+
+@keyframes fade-in-open {
+    from {
+        left: 0px;
+    }
+    to {
+        left: 150px;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}

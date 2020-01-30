@@ -10,7 +10,9 @@ import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
 import DeliveryList from './components/ListDelivery/DeliveryList';
 import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
+import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
+import DashboardPro from './components/Dashboard/DashboardPro';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         path="/detail-adhesion-particulier"
         component={DetailListAdhesionPart}
       />
+      <Route path="/dashboard-pro" component={DashboardPro} />
+      <Route path="/detail-list" component={DetailList} />
     </Switch>
   );
 }
