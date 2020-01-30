@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './MyOrders.css';
 import NavBarDashboard from './NavBarDashboard';
 import HeaderDashboard from './HeaderDashboard';
@@ -8,7 +10,7 @@ import NavBarDashboardMobile from './NavBarDashboardMobile';
 
 const MyOrders = () => {
   const { width } = useWindowDimensions();
-  const [toggleNavBarMobile, setToggleNavBarMobile] = useState(true);
+  const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
 
   const orderExample = {
     departure: '18 rue de la Choppe 45000 Orléans',
@@ -23,22 +25,18 @@ const MyOrders = () => {
       {width > 1060 ? <NavBarDashboard /> : null}
       {toggleNavBarMobile ? (
         <NavBarDashboardMobile
-          toggle={toggleNavBarMobile}
-          setToggle={setToggleNavBarMobile}
+          setToggleNavbar={setToggleNavBarMobile}
+          toggleNavbar={toggleNavBarMobile}
         />
-      ) : null}
+      ) : (
+        <FontAwesomeIcon
+          icon={faBars}
+          className="fa-2x burgerMenuIconDashboard"
+          onClick={() => setToggleNavBarMobile(true)}
+        />
+      )}
       <div className="dashboardBody">
         <div className="headerDashboardOrders">
-          <p
-            className={
-              toggleNavBarMobile
-                ? 'closeButtonNavBarMobile'
-                : 'openButtonNavBarMobile'
-            }
-            onClick={() => setToggleNavBarMobile(!toggleNavBarMobile)}
-          >
-            {toggleNavBarMobile ? 'Close' : 'Open'}
-          </p>
           <HeaderDashboard />
         </div>
         {/*           Order Cards         */}

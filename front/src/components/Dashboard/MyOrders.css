@@ -18,12 +18,19 @@
 }
 
 .title1 {
-    color: plum;
+    color: gray();
 }
 
 .title2 {
     text-align: center;
     color: orange;
+}
+
+.burgerMenuIconDashboard {
+    color: #17B994;
+    position: absolute;
+    left: 5%;
+    top: 5%;
 }
 
 .ordersContainer {
@@ -56,8 +63,8 @@
 }
 
 .ordersContainerTitle {
-    width: 25%;
-    margin: -240px 0 0 0;
+    width: 35%;
+    margin: -20% 0 0 0;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -83,6 +90,7 @@
 @media (max-width: 1060px) {
     .ordersCardContainer {
         flex-direction: column;
+        width: 100%;
         align-items: center;
         justify-content: center;
     }
@@ -94,6 +102,11 @@
         color: black;
     }
 
+    .titleContainer {
+        width: 100%;
+        text-align: center;
+    }
+
     .closeButtonNavBarMobile {
         display: initial;
     }
@@ -102,10 +115,16 @@
         display: initial;
     }
 
+    .ordersContainer {
+        width: 70%;
+    }
+
     .ordersContainerTitle {
         margin: 15px;
-        width: 60%;
+        width: 95%;
+        align-items: center;
     }
+
     .title1 {
         margin-top: -190px;
     }

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.orderCardMainContainer {
+    font-family: Roboto;
+}
+
+.showDetailsDashboard {
+    border: none;
+    width: 70%;
+    background-color: #17B994;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+}
+
+.orderCardTitle {
+    font-size: 24px;
+    margin: 5px;
+}

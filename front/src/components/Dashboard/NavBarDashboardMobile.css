@@ -1,26 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-.mySpaceNavBarMobile {
+.navBarMobileContainer {
+    font-family: Roboto;
     position: absolute;
-    height: 100vh;
+    height: 70vh;
     width: 80%;
+    border-bottom: solid gray 1px;
+    border-right: solid gray 1px;
+    box-sizing: border-box;
     background-color: white;
     display: flex;
     justify-content: center;
-    animation: fade-in-open 5s;
-    left: 150px;
 }
 
-.mySpaceNavBarMobileOut {
+.showedNav {
+    animation: fade-in 1s;
+}
+
+.hiddenNav {
     animation: fade-out 1s;
-    left: -100%;
 }
 
-@keyframes fade-in-open {
+.crossIconNavBarDashboard {
+    color: #17B994;
+    position: absolute;
+    left: 80%;
+    top: 4%;
+}
+
+@keyframes fade-in {
     from {
-        left: 0px;
+        left: -100%;
     }
     to {
-        left: 150px;
+        left: 0;
     }
 }
 
