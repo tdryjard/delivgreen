@@ -8,7 +8,7 @@ import Contact from './components/contactPage/Contact';
 import ViewInvoice from './components/invoice/ViewInvoice';
 import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
-import DeliveryList from './components/ListDelivery/DeliveryList';
+import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
 import DashboardPro from './components/Dashboard/DashboardPro';
 
@@ -26,6 +26,7 @@ function App() {
       <Route path="/historical" component={Historical} />
       <Route path="/delivery-man" component={DeliveryList} />
       <Route path="/dashboard-pro" component={DashboardPro} />
+      <Route path="/detail-list" component={DetailList} />
     </Switch>
   );
 }
