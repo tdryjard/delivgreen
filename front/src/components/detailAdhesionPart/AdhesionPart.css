@@ -1,0 +1,189 @@
+.content-delivery{
+    background-color: lightgrey;
+    height: 100vh;
+  }
+  
+.title{
+    font-size: 25px;
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+  
+.state-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_state{
+    margin-right: 10px;
+    font-weight: 500;
+}
+  
+.last_name-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_last_name{
+    margin-right: 10px;
+    font-weight: 500;
+}
+  
+.first_name-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_first_name{
+    margin-right: 10px;
+    font-weight: 500;
+}
+  
+.mail-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_mail{
+    margin-right: 10px;
+    font-weight: 500;
+}
+  
+.phone-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_phone{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.rib-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_rib{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.id-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_id{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.adress-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_adress{
+    margin-right: 10px;
+    font-weight: 500;
+}
+  
+.delivery_area-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_delivery_area{
+    font-weight: 500;
+}
+  
+.type_delivery_guy-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_type_delivery_guy{
+    margin-right: 10px;
+    font-weight: 500;
+}
+  
+.type_vehicle-style{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+  
+.the_type_vehicle{
+    font-weight: 500;
+}
+  
+.delivery-container{
+    background-color: white;
+    padding-top:2%;
+    padding-bottom:2%;
+    border-radius: 25px;
+    width:auto;
+    padding-left:5%;
+    padding-right:5%;
+}
+  
+.delivery-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 1%;
+}
+
+.the-btn{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.validation-cmd{
+    margin: 5px;
+    border-radius: 20px;
+    background: #17B994;
+    padding: .5rem 1rem;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom:5%;
+}
+  
+.refuse-cmd{
+    margin: 5px;
+    border-radius: 20px;
+    background: red;
+    padding: .5rem 1rem;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom:5%;
+}
+
+
+@media screen and (max-width:300px){
+    .content-delivery{
+        background-color: lightgrey;
+        height: 100%;
+        padding: 5%;
+        width: 100%;
+    }
+   
+   
+}
