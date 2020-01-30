@@ -94,7 +94,7 @@ const ClientArea = () => {
                 id="mail"
                 value="jean.dutronc@gmail.com"
                 type="email"
-                placeholder="Prénom"
+                placeholder="Mail"
               />
               <img
                 className="editInfo"

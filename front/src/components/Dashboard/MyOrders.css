@@ -1,0 +1,112 @@
+/*              My orders style         */
+
+
+.myOrders {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    background-color: lightgrey;
+}
+
+.titleContainer {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.title1 {
+    color: plum;
+}
+
+.title2 {
+    text-align: center;
+    color: orange;
+}
+
+.ordersContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    margin: 0 0 15px 0;
+    width: 100%;
+}
+
+.ordersCardContainer {
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.headerDashboardOrders {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 45vh;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ordersContainerTitle {
+    width: 25%;
+    margin: -240px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ordersContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    color: black;
+    border-radius: 15px;
+}
+
+.closeButtonNavBarMobile {
+    display: none;
+}
+
+.openButtonNavBarMobile {
+    display: none;
+}
+
+@media (max-width: 1060px) {
+    .ordersCardContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .closeButtonNavBarMobile {
+        position: absolute;
+        left: 65%;
+        top: 5%;
+        color: black;
+    }
+
+    .closeButtonNavBarMobile {
+        display: initial;
+    }
+
+    .openButtonNavBarMobile {
+        display: initial;
+    }
+
+    .ordersContainerTitle {
+        margin: 15px;
+        width: 60%;
+    }
+    .title1 {
+        margin-top: -190px;
+    }
+}

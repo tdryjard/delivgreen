@@ -6,8 +6,9 @@ import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
 import AdhesionPro from './components/adhesionPro/AdhesionPro';
 import './App.css';
-import Form from './components/contactPage/Form';
-import NavBar from './components/NavBar/NavBar';
+import ClientArea from './components/clientArea/ClientArea';
+import DashboardPro from './components/Dashboard/DashboardPro';
+import MyOrders from './components/Dashboard/MyOrders';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
       <Route path="/signup" component={Signup} />
       <Route path="/adhesion" component={Adhesion} />
       <Route path="/adhesion-pro" component={AdhesionPro} />
+      <Route path="/espace-perso" component={ClientArea} />
+      <Route path="/dashboard-pro" component={DashboardPro} />
+      <Route path="/my-orders" component={MyOrders} />
     </Switch>
   );
 }
