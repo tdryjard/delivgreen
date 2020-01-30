@@ -8,7 +8,7 @@ import Contact from './components/contactPage/Contact';
 import ViewInvoice from './components/invoice/ViewInvoice';
 import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
-import DetailList from './components/ deliverymanDetail/DetailList';
+import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
 
 function App() {
