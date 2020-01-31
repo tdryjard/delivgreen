@@ -9,7 +9,9 @@ import ViewInvoice from './components/invoice/ViewInvoice';
 import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
 import Admin from './components/admin/Admin';
+import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
+import DashboardPro from './components/Dashboard/DashboardPro';
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
       <Route path="/facture-download" component={DownloadPdf} />
       <Route path="/historical" component={Historical} />
       <Route path="/admin" component={Admin} />
+      <Route path="/delivery-man" component={DeliveryList} />
+      <Route path="/dashboard-pro" component={DashboardPro} />
+      <Route path="/detail-list" component={DetailList} />
     </Switch>
   );
 }
