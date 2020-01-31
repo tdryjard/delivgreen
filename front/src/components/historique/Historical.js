@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './historical.css';
 import NavBarDashboard from '../Dashboard/NavBarDashboard';
 import HeaderDashboard from '../Dashboard/HeaderDashboard';
+import useWindowDimensions from '../Dashboard/useWindowDimensions';
+import NavBarDashboardMobile from '../Dashboard/NavBarDashboardMobile';
 
 const Historical = () => {
+  const { width } = useWindowDimensions();
+  const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+
   return (
     <div className="historicalMainContainer">
-      <NavBarDashboard />
+      {width > 1060 ? <NavBarDashboard /> : null}
+      {toggleNavBarMobile ? (
+        <NavBarDashboardMobile
+          setToggleNavbar={setToggleNavBarMobile}
+          toggleNavbar={toggleNavBarMobile}
+        />
+      ) : (
+        <FontAwesomeIcon
+          icon={faBars}
+          className="fa-2x burgerMenuIconDashboard"
+          onClick={() => setToggleNavBarMobile(true)}
+        />
+      )}
       <div className="contentHistorical">
         <HeaderDashboard />
         <div className="historicalSmallContainer">
