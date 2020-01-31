@@ -8,13 +8,13 @@ const HeaderDashboard = () => {
   return (
     <div className="headerDashboard">
       <div className="topHeaderBarMySpace">
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: 'none' }}>
           <div className="backToHome">
             <p className="backToHomeText">Accueil</p>
             <FontAwesomeIcon className="fas fa-2x fa-home" icon={faHome} />
           </div>
         </Link>
-        <Link to="/contact">
+        <Link to="/contact" style={{ textDecoration: 'none' }}>
           <div className="getHelpDashboardContainer">
             <p className="needHelpText">Besoin d'aide </p>
             <p className="getHelpDashboard">?</p>

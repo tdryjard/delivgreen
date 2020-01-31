@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './DashboardPro.css';
+import { Link } from 'react-router-dom';
 import NavBarDashboard from './NavBarDashboard';
 import Chart from './Chart';
 import useWindowDimensions from './useWindowDimensions';
@@ -26,18 +27,22 @@ const DashboardPro = () => {
           {/*         Icons in the top of the dashboard       */}
 
           <div className="topHeaderBarMySpace">
-            <div className="backToHome">
-              <p className="backToHomeText">Accueil</p>
-              <FontAwesomeIcon
-                style={{ color: '#17B994' }}
-                className="fas fa-2x"
-                icon={faHome}
-              />
-            </div>
-            <div className="getHelpDashboardContainer">
-              <p className="needHelpText">Besoin d'aide </p>
-              <p className="getHelpDashboard">?</p>
-            </div>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div className="backToHome">
+                <p className="backToHomeText">Accueil</p>
+                <FontAwesomeIcon
+                  style={{ color: '#17B994' }}
+                  className="fas fa-2x"
+                  icon={faHome}
+                />
+              </div>
+            </Link>
+            <Link to="/contact" style={{ textDecoration: 'none' }}>
+              <div className="getHelpDashboardContainer">
+                <p className="needHelpText">Besoin d'aide </p>
+                <p className="getHelpDashboard">?</p>
+              </div>
+            </Link>
           </div>
 
           {/*           Stats of the dashboard            */}
