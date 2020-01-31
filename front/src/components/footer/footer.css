@@ -6,7 +6,7 @@
     flex-direction: column;
     background-color: rgb(46, 46, 46);
     height: 100px;
-    max-width: 100%;
+    width: 100%;
 }
 
 .urlFooter{
@@ -19,4 +19,8 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+footer{
+    margin-top: 50px;
 }
