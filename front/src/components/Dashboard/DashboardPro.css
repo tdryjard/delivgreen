@@ -37,7 +37,7 @@
     border-radius: 15px;
     width: 30%;
     padding: 5px;
-    height: 15vh;
+    height: 100%;
 }
 
 .cardHeaderDashboard .p {
@@ -143,15 +143,17 @@
 }
 
 .moreDetailsButton {
-    background-color: #17B994;
-    color: gray();
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 25px;
-    box-shadow: grey 1px 1px 1px;
-    width: 100px;
-    height: 40px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border: solid 2px #17B994;
+    margin-right: 5px;
+    box-sizing: border-box;
+    width: 25%;
+    color: #17B994;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
 }
 
 .backToHome {
@@ -199,7 +201,7 @@
     border-radius: 50%;
 }
 .getHelpDashboardContainer:hover {
-    width: 120px;
+    width: 140px;
     border-radius: 25px;
 }
 .getHelpDashboardContainer:hover .needHelpText {

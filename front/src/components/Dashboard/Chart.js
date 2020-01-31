@@ -8,11 +8,11 @@ const Chart = ({ width }) => {
     datasets: [
       {
         label: 'Nombre de livraisons réalisées',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(23, 185, 148, 0.6)',
+        borderColor: 'rgba(23, 185, 148, 1)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        hoverBackgroundColor: 'rgba(23, 185, 148, 0.3)',
+        hoverBorderColor: 'rgba(23, 185, 148, 1)',
         data: [31, 48, 57, 28, 87, 78, 95]
       }
     ]

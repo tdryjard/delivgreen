@@ -19,15 +19,29 @@ const OrdersDashboard = ({ status, order }) => {
             <p>Largeur :</p>
             <p>{order.weight}</p>
           </div>
-        ) : (
-          <button
-            className="showDetailsDashboard"
-            type="button"
-            onClick={() => setDetailsNeeded(true)}
-          >
-            Détails
+        ) : null}
+        <div className="buttonContainerOrders">
+          {detailsNeeded ? (
+            <button
+              className="showDetailsDashboard"
+              type="button"
+              onClick={() => setDetailsNeeded(false)}
+            >
+              Moins
+            </button>
+          ) : (
+            <button
+              className="showDetailsDashboard"
+              type="button"
+              onClick={() => setDetailsNeeded(true)}
+            >
+              Détails
+            </button>
+          )}
+          <button type="button" className="getTheDelivery">
+            Colis récupéré
           </button>
-        )}
+        </div>
       </div>
     );
   }
@@ -44,15 +58,29 @@ const OrdersDashboard = ({ status, order }) => {
           <p>Largeur :</p>
           <p>{order.weight}</p>
         </div>
-      ) : (
-        <button
-          className="showDetailsDashboard"
-          type="button"
-          onClick={() => setDetailsNeeded(true)}
-        >
-          Détails
+      ) : null}
+      <div className="buttonContainerOrders">
+        {detailsNeeded ? (
+          <button
+            className="showDetailsDashboard"
+            type="button"
+            onClick={() => setDetailsNeeded(false)}
+          >
+            Moins
+          </button>
+        ) : (
+          <button
+            className="showDetailsDashboard"
+            type="button"
+            onClick={() => setDetailsNeeded(true)}
+          >
+            Détails
+          </button>
+        )}
+        <button type="button" className="getTheDelivery">
+          Livrer le colis
         </button>
-      )}
+      </div>
     </div>
   );
 };

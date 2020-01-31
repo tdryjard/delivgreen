@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../footer/Footer';
 import './historical.css';
 import NavBarDashboard from '../Dashboard/NavBarDashboard';
 import HeaderDashboard from '../Dashboard/HeaderDashboard';
@@ -133,7 +132,6 @@ const Historical = () => {
               </div>
             </div>
           </div>
-          <Footer />
         </div>
       </div>
     </div>
