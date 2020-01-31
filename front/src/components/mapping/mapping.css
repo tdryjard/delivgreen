@@ -11,10 +11,10 @@
 .takeAdress{
     font-size: 1rem;
     padding: .5rem;
-    margin: 5px;
     border-radius: 3px;
     border: solid var(--gray) 1px;
     box-shadow: 0px 0px 2px var(--gray) inset;
+    
 }
 
 .contentAdress{
@@ -26,13 +26,12 @@
 }
 
 .resultAdress{
+    font-size: 1rem;
+    padding: .5rem;
+    margin: 0;
+    border-top: solid rgb(116, 116, 116) 2px;
+    width: 200px;
     text-align: center;
-    width: 220px;
-    background-color: rgba(255, 255, 255, 1);
-    z-index: 2;
-    margin:0;
-    border: 1px solid black;
-    padding: 5px;
 }
 
 .contentResult{
@@ -40,11 +39,11 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 215px;
     position: absolute;
     z-index: 450;
-    border-radius: 5px;
-    margin-top: 35px;
+    margin-top: 40px;
+    background-color: white;
 }
 
 .searchAdress{
@@ -53,9 +52,10 @@
     align-items: center;
     flex-direction: row;
     margin-top: 2%;
-    margin-right: 20px;
+    margin-bottom: 0px;
     position: absolute;
     z-index: 451;
+    text-align: center;
 }
 
 .buttonSearchAdress{
@@ -89,16 +89,21 @@
 }
 
 .contentMapping .leaflet-marker-icon{
-    content: url("./image/markerStartRadius.png");
-    width: 80px !important;
+    content: url("./image/markerIcon.png");
+    width: 50px !important;
     height: auto !important;
     left: -15px !important;
     top: -17px !important;
     height: 50px;
 }
 
+.contentMapping{
+    height: 100vh;
+    width: 100%;
+}
+
 .markerEnd{
-    background-image: url("./image/markerEnd.png") !important;
+    background-image: url("./image/markerIcon.png") !important;
 }
 
 .validPos{
@@ -138,6 +143,15 @@
     animation: enterAdressDiv 2s;
 }
 
+@keyframes enterAdressDivPc{
+    from{
+        left: -10%;
+    }
+    to{
+        left: 165px;
+    }
+}
+
 .divEnterAdressMapClientEnd{
     display: flex;
     justify-content: center;
@@ -173,6 +187,17 @@
     box-shadow: 0px 0px 2px var(--gray) inset;
     width: 200px;
     animation: enterAdress 2s;
+}
+
+@media screen and (min-width: 1280px){
+    .divEnterAdressMapClient{
+        left: 165px;
+        animation: enterAdressDivPc 2s;
+    }
+    .divEnterAdressMapClientEnd{
+        left: 165px;
+        animation: enterAdressDivPc 2s;
+    }
 }
 
 @keyframes enterAdress{

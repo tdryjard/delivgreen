@@ -15,8 +15,8 @@ const MappingClient = () => {
   const [adressStartEnter, setAdressStartEnter] = useState(false);
   const [adressEndEnter, setAdressEndEnter] = useState(false);
 
-  const validPosStart = () => {
-    setValidStartPosition(true);
+  const validPosStart = async function valiPos() {
+    await setValidStartPosition(true);
   };
 
   const validStartAdress = () => {
@@ -43,10 +43,10 @@ const MappingClient = () => {
       res => ++res.y > 42.5 && ++res.y < 51 && ++res.x < 8 && ++res.x > -5
     );
 
-    setResults(resultFr);
+    setResults(resultFr.splice(5));
   };
 
-  const onMapClick = async function whenClickMap(e) {
+  const onMapClick = async function onMapClicked(e) {
     const position = [e.latlng.lat, e.latlng.lng];
     setPos(position);
     if (validStartPosition === false) {
@@ -56,7 +56,7 @@ const MappingClient = () => {
     }
     await setTimeout(function timeout() {
       setZooming(12);
-    }, 1000);
+    }, 2000);
   };
 
   const putMarker = async function placeMarker(event) {
@@ -89,7 +89,7 @@ const MappingClient = () => {
   };
 
   return (
-    <div className="contentMap" onClick={onMapClick}>
+    <div className="contentMap">
       <input
         placeholder="entrer adresse"
         className="takeAdress searchAdress"
@@ -126,6 +126,7 @@ const MappingClient = () => {
 
       <LeafletMap
         className="contentMapping"
+        onClick={onMapClick}
         center={pos}
         zoom={zooming}
         maxZoom={19}
@@ -157,6 +158,7 @@ const MappingClient = () => {
           </div>
         ) : null}
       </LeafletMap>
+
       {validStartPosition === false ? (
         <div className="divEnterPosMapClient">
           <p
@@ -173,7 +175,6 @@ const MappingClient = () => {
         </div>
       ) : validStartPosition === true ? (
         <div className="divEnterAdressMapClient">
-          <p className="messageMap">écrivez cette adresse</p>
           <form onSubmit={validStartAdress}>
             <input
               className="enterAdressMapClient"
@@ -183,7 +184,14 @@ const MappingClient = () => {
         </div>
       ) : adressStartEnter === true ? (
         <div className="divEnterPosMapClient">
-          <p className="messageMap">Placez votre point d'arrivé</p>
+          <p
+            className="messageMap"
+            onAnimationEnd={event => {
+              event.currentTarget.remove();
+            }}
+          >
+            Placez votre point d'arrivé
+          </p>
           <button
             className="validPosEnd"
             onClick={validEndAdress}
@@ -194,7 +202,6 @@ const MappingClient = () => {
         </div>
       ) : adressEndEnter === true ? (
         <div className="divEnterAdressMapClientEnd">
-          <p className="messageMap">écrivez cette adresse</p>
           <form onSubmit={validEndAdress}>
             <input
               className="enterAdressMapClient"
