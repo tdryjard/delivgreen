@@ -9,7 +9,12 @@ import ViewInvoice from './components/invoice/ViewInvoice';
 import DownloadPdf from './components/invoice/DownloadPdf';
 import Historical from './components/historique/Historical';
 import Admin from './components/admin/Admin';
+import MappingClient from './components/mapping/MappingClient';
+import DeliveryList from './components/ListDelivery/DeliveryList';
+import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
+import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
+import DashboardPro from './components/Dashboard/DashboardPro';
 
 function App() {
   return (
@@ -24,6 +29,14 @@ function App() {
       <Route path="/facture-download" component={DownloadPdf} />
       <Route path="/historical" component={Historical} />
       <Route path="/admin" component={Admin} />
+      <Route path="/map-client" component={MappingClient} />
+      <Route path="/delivery-man" component={DeliveryList} />
+      <Route
+        path="/detail-adhesion-particulier"
+        component={DetailListAdhesionPart}
+      />
+      <Route path="/dashboard-pro" component={DashboardPro} />
+      <Route path="/detail-list" component={DetailList} />
     </Switch>
   );
 }
