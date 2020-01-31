@@ -1,29 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './DashboardPro.css';
+import { Link } from 'react-router-dom';
 import NavBarDashboard from './NavBarDashboard';
 import Chart from './Chart';
 import useWindowDimensions from './useWindowDimensions';
+import NavBarDashboardMobile from './NavBarDashboardMobile';
 
 const DashboardPro = () => {
   const { height, width } = useWindowDimensions();
+  const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
   return (
     <div className="mySpaceMainContainer">
       {/*                   Pro Nav Bar                   */}
       {width > 1060 ? <NavBarDashboard /> : null}
+      {width < 1060 ? (
+        <NavBarDashboardMobile
+          setToggleNavbar={setToggleNavBarMobile}
+          toggleNavbar={toggleNavBarMobile}
+        />
+      ) : null}
       {/*                 Else Client Nav bar              */}
       <div className="dashboardBody">
         <div className="headerDashboard">
           {/*         Icons in the top of the dashboard       */}
 
           <div className="topHeaderBarMySpace">
-            <div className="backToHome">
-              <p className="backToHomeText">Accueil</p>
-              <i className="fas fa-2x fa-home" />
-            </div>
-            <div className="getHelpDashboardContainer">
-              <p className="needHelpText">Besoin d'aide </p>
-              <p className="getHelpDashboard">?</p>
-            </div>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div className="backToHome">
+                <p className="backToHomeText">Accueil</p>
+                <FontAwesomeIcon
+                  style={{ color: '#17B994' }}
+                  className="fas fa-2x"
+                  icon={faHome}
+                />
+              </div>
+            </Link>
+            <Link to="/contact" style={{ textDecoration: 'none' }}>
+              <div className="getHelpDashboardContainer">
+                <p className="needHelpText">Besoin d'aide </p>
+                <p className="getHelpDashboard">?</p>
+              </div>
+            </Link>
           </div>
 
           {/*           Stats of the dashboard            */}
@@ -31,31 +50,21 @@ const DashboardPro = () => {
           <div className="doubleCardHeaderDashboard">
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
-                <p style={{ fontWeight: 'bold', fontSize: '18px' }}>
-                  Commandes réalisées
-                </p>
-                <p className="nbCommandesReal">6</p>
+                <p className="titleStatsCardDashboard">Commandes réalisées</p>
+                <p className="nbCommandesReal">76</p>
               </div>
             </div>
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
-                <p>
-                  <span style={{ fontWeight: 'bold', fontSize: '18px' }}>
-                    Revenus générés
-                  </span>
-                  ce mois
-                </p>
+                <p className="titleStatsCardDashboard">Revenus générés</p>
+                <p className="subtitleStatsCardDashboard">ce mois</p>
                 <p className="generatedCash">340,3€</p>
               </div>
             </div>
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
-                <p>
-                  <span style={{ fontWeight: 'bold', fontSize: '18px' }}>
-                    Nouvelles commandes
-                  </span>
-                  ce mois
-                </p>
+                <p className="titleStatsCardDashboard">Nouvelles commandes</p>
+                <p className="subtitleStatsCardDashboard">ce mois</p>
                 <p className="percentPlus">+67%</p>
               </div>
             </div>

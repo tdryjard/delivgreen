@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import './OrdersDashboard.css';
 
 const OrdersDashboard = ({ status, order }) => {
   const [detailsNeeded, setDetailsNeeded] = useState(false);
   if (status === 0) {
     return (
-      <div>
-        <p>Départ :</p>
+      <div className="orderCardMainContainer">
+        <p className="orderCardTitle">Départ :</p>
         <p>{order.departure}</p>
-        <p>Destination :</p>
+        <p className="orderCardTitle">Destination :</p>
         <p>{order.arrival}</p>
-        <p>Date limite :</p>
+        <p className="orderCardTitle">Date limite :</p>
         <p>{order.limit_date}</p>
         {detailsNeeded ? (
           <div>
@@ -19,7 +20,11 @@ const OrdersDashboard = ({ status, order }) => {
             <p>{order.weight}</p>
           </div>
         ) : (
-          <button type="button" onClick={() => setDetailsNeeded(true)}>
+          <button
+            className="showDetailsDashboard"
+            type="button"
+            onClick={() => setDetailsNeeded(true)}
+          >
             Détails
           </button>
         )}
@@ -27,13 +32,10 @@ const OrdersDashboard = ({ status, order }) => {
     );
   }
   return (
-    <div>
-      <h1>Banane</h1>
-      <p>Départ :</p>
-      <p>{order.departure}</p>
-      <p>Destination :</p>
+    <div className="orderCardMainContainer">
+      <p className="orderCardTitle">Destination :</p>
       <p>{order.arrival}</p>
-      <p>Date limite :</p>
+      <p className="orderCardTitle">Date limite :</p>
       <p>{order.limit_date}</p>
       {detailsNeeded ? (
         <div>
@@ -43,7 +45,11 @@ const OrdersDashboard = ({ status, order }) => {
           <p>{order.weight}</p>
         </div>
       ) : (
-        <button type="button" onClick={() => setDetailsNeeded(true)}>
+        <button
+          className="showDetailsDashboard"
+          type="button"
+          onClick={() => setDetailsNeeded(true)}
+        >
           Détails
         </button>
       )}

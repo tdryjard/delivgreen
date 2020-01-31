@@ -29,6 +29,7 @@
 
 .backToHome:hover {
     border-radius: 25px;
+    width: 140px;
     border-color: #17B994;
 }
 
@@ -62,7 +63,7 @@
     border-radius: 50%;
 }
 .getHelpDashboardContainer:hover {
-    width: 120px;
+    width: 140px;
     border-radius: 25px;
 }
 .getHelpDashboardContainer:hover .needHelpText {

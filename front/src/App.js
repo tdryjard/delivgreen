@@ -14,6 +14,7 @@ import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAd
 import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
 import DashboardPro from './components/Dashboard/DashboardPro';
+import MyOrders from './components/Dashboard/MyOrders';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         component={DetailListAdhesionPart}
       />
       <Route path="/dashboard-pro" component={DashboardPro} />
+      <Route path="/my-orders" component={MyOrders} />
       <Route path="/detail-list" component={DetailList} />
     </Switch>
   );

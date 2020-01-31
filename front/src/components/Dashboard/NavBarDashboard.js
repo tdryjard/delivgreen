@@ -1,3 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTachometerAlt,
+  faTruckLoading,
+  faAddressCard,
+  faFileAlt
+} from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './NavBarDashboard.css';
 import { NavLink } from 'react-router-dom';
@@ -14,6 +21,7 @@ const NavBarDashboard = () => {
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
+              <FontAwesomeIcon className="fas fa-2x" icon={faTachometerAlt} />
               <i className="fas fa-2x fa-tachometer-alt" />
             </div>
             <p className="itemDashboardNavBar">Tableau de bord</p>
@@ -26,9 +34,8 @@ const NavBarDashboard = () => {
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
-              <i className="fas fa-2x fa-truck-loading" />
+              <FontAwesomeIcon className="fas fa-2x" icon={faTruckLoading} />
             </div>
-
             <p className="itemDashboardNavBar">Commandes</p>
           </div>
         </NavLink>
@@ -39,9 +46,8 @@ const NavBarDashboard = () => {
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
-              <i className="far fa-2x fa-file-alt" />
+              <FontAwesomeIcon className="far fa-2x" icon={faFileAlt} />
             </div>
-
             <p className="itemDashboardNavBar">Livraisons effectuées</p>
           </div>
         </NavLink>
@@ -52,9 +58,8 @@ const NavBarDashboard = () => {
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
-              <i className="far fa-2x fa-address-card" />
+              <FontAwesomeIcon className="far fa-2x" icon={faAddressCard} />
             </div>
-
             <p className="itemDashboardNavBar">Informations</p>
           </div>
         </NavLink>
