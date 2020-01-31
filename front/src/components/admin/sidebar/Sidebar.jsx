@@ -1,28 +1,31 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'; 
+import { faIdCard, faBars, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Sidebar.css';
 
 function Sidebar() {
 
-	const sidebarRef = useRef(null);
+	const [sidebarOpened, setSidebarOpened] = useState(false);
 
 	const bringSidebar = function () {
-		sidebarRef.current.classList.toggle('open');
-		sidebarRef.current.children[0].classList.toggle('fa-bars');
-		sidebarRef.current.children[0].classList.toggle('fa-times-circle');
+		setSidebarOpened(!sidebarOpened);
 	}
 
 	return (
-		<div ref={sidebarRef} className="sidebar-ctn">
-			<i className="fas fa-bars fa-2x icon" onClick={bringSidebar}></i>
-			<div className="sidebar-content">
-				<ul className="sidebar-content-list" onClick={bringSidebar}>
-					<NavLink to="/admin/adhesion" activeClassName="active-link">
-						<li>Demandes adhésion</li>
-					</NavLink>
-				</ul>
+		<>
+			<FontAwesomeIcon className="icon" size="2x" icon={sidebarOpened ? faTimesCircle : faBars} onClick={bringSidebar}/>
+			<div className={`sidebar-ctn ${sidebarOpened ? 'open' : ''}`}>
+				<div className="sidebar-content">
+					<ul className="sidebar-content-list" onClick={bringSidebar}>
+						<NavLink to="/admin/adhesion" activeClassName="active-link" className="sidebar-link">
+							<FontAwesomeIcon icon={faIdCard} />
+							<li>Demandes adhésion</li>
+						</NavLink>
+					</ul>
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

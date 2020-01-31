@@ -1,15 +1,16 @@
 @import '../../Variables.css';
 
 .sidebar-ctn {
-    width: 100%;
+    width: var(--sidebar-width);
     height: var(--mobile-full-height);
     position: fixed;
-    left: 0;
-    transition: background .25s;
+    left: -300px;
+    top: 0;
+    transition: left .35s;
 }
 
-.sidebar-ctn .icon {
-    position: absolute;
+.icon {
+    position: fixed;
     left: 16px;
     top: 16px;
     cursor: pointer;
@@ -17,12 +18,11 @@
     z-index: 11;
 }
 .sidebar-ctn .sidebar-content {
-    max-width: 300px;
+    max-width: var(--sidebar-width);
     display: flex;  
     flex-direction: column;
     position: absolute;
     background: var(--white);
-    left: -10%;
     height: 100%;   
     transition: left .5s, opacity .25s;
     opacity: 0;
@@ -30,11 +30,10 @@
 }
 
 .sidebar-ctn.open {
-    background: var(--dark-overlay);
+    left: 0;
 }
 
 .sidebar-ctn.open .sidebar-content {
-    left: 0;
     opacity: 1;
     box-shadow: 1px 0px 6px var(--black);
 }
@@ -48,26 +47,40 @@
     word-wrap: break-word;
 }
 
+.sidebar-content-list a {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-font-color);
+}
+
 .sidebar-content-list li {
     word-break: keep-all;
     word-wrap: break-word;
     margin: 12px 8px;
 }
 
-.sidebar-content-list a li {
+.sidebar-content-list .sidebar-link {
     word-wrap: keep-all;
     font-size: 20px;
-    color: var(--secondary-font-color);
     transition: all .25s;
     cursor: pointer;
     padding: 12px 8px;
     border-radius: 6px;
 }
 
-.sidebar-content-list a li:hover {
+.sidebar-content-list .sidebar-link:hover {
+    color: var(--black);    
+}
+
+.sidebar-content-list .active-link {
     color: var(--black);
 }
 
-.sidebar-content-list .active-link li {
-    color: var(--black);
+@media screen and (max-width: 1024px) {
+    .sidebar-ctn.open {
+        width: 100%;
+        transition: background 1s;
+        transition-delay: .1s;
+        background: var(--dark-overlay);
+    }
 }
