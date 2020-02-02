@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Sidebar from './sidebar/Sidebar';
 import Adhesion from './adhesion/Adhesion';
+import Announcement from './announcement/Announcement';
 import setFullMobileHeight from '../../utils/setFullMobileHeightProperty';
 import './Admin.css';
 
@@ -18,6 +19,7 @@ function Admin() {
 				<Sidebar />
 				<div className="admin-element-ctn">
 					<Route path="/admin/adhesion" component={Adhesion}/>
+					<Route path="/admin/annonces" component={Announcement} />
 				</div>
 		</div>
 	)
