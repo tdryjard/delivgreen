@@ -1,0 +1,17 @@
+#canvas{
+    width:200px;
+    height:150px;
+    border:1px solid #000;
+}
+#capture{
+    border:1px solid grey;
+    width:200px;
+    height:150px;
+}
+
+/* MISE EN PAGE*/
+.mise-en-page{}
+.bloc-mise-en-page{margin:10px;
+    flex:1 0 0;
+    min-width:500px;
+}
