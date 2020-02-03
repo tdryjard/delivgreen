@@ -28,6 +28,7 @@ function App() {
       <Route path="/contact" component={Contact} />
       <Route path="/facture" component={ViewInvoice} />
       <Route path="/facture-download" component={DownloadPdf} />
+      <Route path="/livraisons-effectuees" component={Historical} />
       <Route path="/historical" component={Historical} />
       <Route path="/admin" component={Admin} />
       <Route path="/map-client" component={MappingClient} />

@@ -19,15 +19,19 @@ const OrdersDashboard = ({ status, order }) => {
             <p>Largeur :</p>
             <p>{order.weight}</p>
           </div>
-        ) : (
+        ) : null}
+        <div className="buttonContainerOrders">
           <button
             className="showDetailsDashboard"
             type="button"
-            onClick={() => setDetailsNeeded(true)}
+            onClick={() => setDetailsNeeded(!detailsNeeded)}
           >
-            Détails
+            {detailsNeeded ? 'Moins' : 'Détails'}
           </button>
-        )}
+          <button type="button" className="getTheDelivery">
+            Colis récupéré
+          </button>
+        </div>
       </div>
     );
   }
@@ -44,15 +48,19 @@ const OrdersDashboard = ({ status, order }) => {
           <p>Largeur :</p>
           <p>{order.weight}</p>
         </div>
-      ) : (
+      ) : null}
+      <div className="buttonContainerOrders">
         <button
           className="showDetailsDashboard"
           type="button"
-          onClick={() => setDetailsNeeded(true)}
+          onClick={() => setDetailsNeeded(!detailsNeeded)}
         >
-          Détails
+          {detailsNeeded ? 'Moins' : 'Détails'}
         </button>
-      )}
+        <button type="button" className="getTheDelivery">
+          Livrer le colis
+        </button>
+      </div>
     </div>
   );
 };

@@ -51,6 +51,7 @@ const DashboardPro = () => {
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
                 <p className="titleStatsCardDashboard">Commandes réalisées</p>
+                <p className="subtitleStatsCardDashboard">ce mois</p>
                 <p className="nbCommandesReal">76</p>
               </div>
             </div>

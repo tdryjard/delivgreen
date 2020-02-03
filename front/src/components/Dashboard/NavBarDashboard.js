@@ -42,7 +42,7 @@ const NavBarDashboard = () => {
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
-          to="my-deliveries"
+          to="/livraisons-effectuees"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
