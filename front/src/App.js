@@ -16,6 +16,7 @@ import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
+import SignatureZone from './components/SignatureZone/SignatureZone';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
       <Route path="/dashboard-pro" component={DashboardPro} />
       <Route path="/my-orders" component={MyOrders} />
       <Route path="/detail-list" component={DetailList} />
+      <Route path="/signature" component={SignatureZone} />
     </Switch>
   );
 }
