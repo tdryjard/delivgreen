@@ -1,6 +1,9 @@
 .contentMap{
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 }
 
 .leaflet-container {
@@ -23,6 +26,7 @@
     align-items: center;
     flex-wrap: wrap;
     z-index: 5;
+    width: 70%;
 }
 
 .resultAdress{
@@ -335,4 +339,125 @@
     padding: 3px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.advert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    flex-direction: column;
+    width: 350px;
+    height: 60vh;
+    z-index: 465;
+    background-color: rgb(250, 250, 250);
+    border-radius: 15px;
+    top: 25%;
+}
+
+.textAdvert{
+    font-size: 15px;
+    margin: 0px;
+}
+
+.adressAdvert{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.priceAdvert{
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.contentPrice{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 70%;
+    height: 40px;
+}
+
+.contentAdressWaze{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    height: 120px;
+}
+
+.dash{
+    width: 50%;
+    border-bottom: black 1px solid;
+    margin: 0;
+    animation: dashed 2s;
+}
+
+@keyframes dashed{
+    from{
+        width: 0;
+    }
+    to{
+        width: 50%;
+    }
+}
+
+.contentAdress{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+
+
+.iconWaze{
+    height: 40px;
+    width: auto;
+    border-radius: 50%;
+    border: rgb(0, 188, 235) 2px solid;
+    box-shadow: 1px 1px 3px rgb(0, 136, 170);
+    cursor: pointer;
+}
+
+.goAdvert{
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+    width: 100px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
+.goAdvert:hover{
+    background-color: white;
+    border: solid black 2px;
+    color: black;
+}
+
+.popupButton{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border: none;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1280px){
+    .contentAdressWaze{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    .titleAdvert{
+        margin-bottom: 30px;
+    }
 }
