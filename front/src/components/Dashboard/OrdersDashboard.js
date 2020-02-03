@@ -21,23 +21,13 @@ const OrdersDashboard = ({ status, order }) => {
           </div>
         ) : null}
         <div className="buttonContainerOrders">
-          {detailsNeeded ? (
-            <button
-              className="showDetailsDashboard"
-              type="button"
-              onClick={() => setDetailsNeeded(false)}
-            >
-              Moins
-            </button>
-          ) : (
-            <button
-              className="showDetailsDashboard"
-              type="button"
-              onClick={() => setDetailsNeeded(true)}
-            >
-              Détails
-            </button>
-          )}
+          <button
+            className="showDetailsDashboard"
+            type="button"
+            onClick={() => setDetailsNeeded(!detailsNeeded)}
+          >
+            {detailsNeeded ? 'Moins' : 'Détails'}
+          </button>
           <button type="button" className="getTheDelivery">
             Colis récupéré
           </button>
@@ -60,23 +50,13 @@ const OrdersDashboard = ({ status, order }) => {
         </div>
       ) : null}
       <div className="buttonContainerOrders">
-        {detailsNeeded ? (
-          <button
-            className="showDetailsDashboard"
-            type="button"
-            onClick={() => setDetailsNeeded(false)}
-          >
-            Moins
-          </button>
-        ) : (
-          <button
-            className="showDetailsDashboard"
-            type="button"
-            onClick={() => setDetailsNeeded(true)}
-          >
-            Détails
-          </button>
-        )}
+        <button
+          className="showDetailsDashboard"
+          type="button"
+          onClick={() => setDetailsNeeded(!detailsNeeded)}
+        >
+          {detailsNeeded ? 'Moins' : 'Détails'}
+        </button>
         <button type="button" className="getTheDelivery">
           Livrer le colis
         </button>
