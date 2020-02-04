@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Accueil from './components/accueil/Accueil';
 import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
@@ -17,11 +16,13 @@ import './App.css';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
 import SignatureZone from './components/SignatureZone/SignatureZone';
+import InfosDashboard from './components/Dashboard/InfosDashboard';
+import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={Accueil} />
+      <Route exact path="/" component={LandingPage} />
       <Route path="/adhesion" component={Adhesion} />
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
@@ -42,6 +43,7 @@ function App() {
       <Route path="/my-orders" component={MyOrders} />
       <Route path="/detail-list" component={DetailList} />
       <Route path="/signature" component={SignatureZone} />
+      <Route path="/mes-infos" component={InfosDashboard} />
     </Switch>
   );
 }

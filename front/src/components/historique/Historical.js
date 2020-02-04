@@ -37,11 +37,11 @@ const Historical = () => {
               alt="iconNumber"
             />
             <div className="contentNumber">
-              <p className="titleNumberHisto">Déja</p>
+              <p className="titleNumberHisto">Déjà</p>
               <div className="numberHisto">
                 <p>35</p>
               </div>
-              <p className="titleNumberHisto">commandes réalisés !</p>
+              <p className="titleNumberHisto">commandes réalisées !</p>
             </div>
           </div>
           <div className="containerHisto">

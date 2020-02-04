@@ -2,10 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    flex-direction: column;
-    background-color: rgb(46, 46, 46);
-    height: 100px;
+    background-color: rgba(46, 46, 46);
+    height: 25vh;
     width: 100%;
 }
 

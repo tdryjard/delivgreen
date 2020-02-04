@@ -24,12 +24,11 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 50%;
+    height: 70vh;
     background-image: url('./image/backDeliv7.png');
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
-    box-shadow: rgb(156, 156, 156) 0px 0px 3px 1px;
 }
 
 @media screen and (min-width: 1280px){
@@ -174,11 +173,6 @@
 @media screen and (min-width: 1280px){
     .contentNumberType{
        width: 200px;
-    }
-    .numberCo2Content{
-        margin-top: 50px;
-        margin-bottom: 50px;
-        width: 90%;
     }
 }
 
