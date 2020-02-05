@@ -1,16 +1,16 @@
-.adhesion-ctn .title {
+.announcement-ctn .title {
     margin-left: 12px;
     font-size: 16px;
 }
 
-.adhesion-ctn header {
+.announcement-ctn header {
     display: flex;
     align-items: center;
     color: var(--secondary-font-color);
     width: 100%;
 }
 
-.adhesion-card-ctn {
+.announcement-card-ctn {
     width: 100%;
     margin-top: 32px;
     animation: fade-in 1s;
