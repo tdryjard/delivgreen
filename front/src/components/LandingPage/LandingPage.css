@@ -9,7 +9,6 @@
 
 .headerImageLandingPage {
     width: 100%;
-    height: 100vh;
 }
 
 .titleContainerLandingPage {
@@ -44,9 +43,66 @@
     color: white;
 }
 
+/*          CO2 saved           */
+
+.ecoLogo{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.typeCo2{
+    margin-top : 5px;
+    color: white;
+}
+
+.describeCo2{
+    color: white;
+}
+
+.numberCo2Content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #3a3a3a;
+    z-index: 3;
+    box-shadow: rgb(0, 0, 0) 0 -3px 8px inset, rgb(0, 0, 0) 0 3px 8px inset;
+}
+
+.contentNumberType{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid rgb(196, 196, 196);
+    box-shadow: white 0 0 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+    width: 150px;
+}
+
+.numberCo2{
+    margin: 0 0 20px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: white 0 0 3px;
+}
+
+.contentNumberCo2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/*          3 steps         */
+
 .threeStepsContainerLandingPage {
     width: 100%;
-    height: 30vh;
+    height: 80vh;
     background-color: #282c34;
     display: flex;
     flex-direction: column;
@@ -57,14 +113,14 @@
 
 .tripleStepsContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     justify-content: space-around;
 }
 
 .iconAndTextThreeSteps {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
@@ -72,6 +128,57 @@
 .iconThreeSteps {
     color: #17B994;
 }
+
+/*          Customer section section            */
+
+.customerServiceContainer {
+    background-color: whitesmoke;
+    background-image: url("https://zupimages.net/up/20/06/gq23.png");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.cardCustomerServiceContainer {
+    width: 60%;
+    height: 80%;
+    background-color: rgba(255,255,255, 1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.customerServicesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.itemCustomer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 45px;
+}
+
+.customerServicesTitle {
+    color: #17B994;
+    font-family: "Fredoka One";
+}
+
+.textCustomerLandingPage {
+    margin: 5px;
+    font-size: 18px;
+}
+
+/*          Partner section*/
 
 .becomePartnaireBoxContainer {
     display: flex;
