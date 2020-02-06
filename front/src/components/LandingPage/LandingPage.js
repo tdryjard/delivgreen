@@ -29,15 +29,16 @@ const LandingPage = () => {
 
       {/*     Slider      */}
 
-      <div>
+      <div className="sliderContainerLandingPage">
         <div className="titleContainerLandingPage">
-          <div>
-            <h1 className="titleLandingPage">La livraison de colis</h1>
-            <h1 className="titleLandingPage">éco-responsable</h1>
+          <div className="textSliderLandingPage">
+            <h1 className="titleLandingPage">
+              La livraison de colis éco-responsable
+            </h1>
+            <button type="button" className="buttonHeaderHomePage">
+              Proposer une course
+            </button>
           </div>
-          <button type="button" className="buttonHeaderHomePage">
-            Proposer une course
-          </button>
         </div>
         <img
           className="headerImageLandingPage"
@@ -47,42 +48,40 @@ const LandingPage = () => {
         />
       </div>
 
-      {/*     Stats     */}
+      {/*     3 steps attempt     */}
 
-      <div className="numberCo2Content">
-        <div className="contentNumberType">
-          <div className="contentNumberCo2">
-            <p className="numberCo2">{co2Counter}</p>
-            <div>
-              <img
-                className="ecoLogo"
-                src={require('./images/ecoLogo.png')}
-                alt="ecologie logo"
-              />
+      <div className="threeStepsMainContainer">
+        <h1 className="threeStepsTitle">3 étapes pour livrer un colis</h1>
+        <div className="steps3MainContainer">
+          <div className="steps3Container">
+            <div className="svgLandingPage1" />
+            <div className="textThreeStepContainer">
+              <h1 className="numberThreeStepsAttempt">1</h1>
+              <h1 className="textThreeStepsAttempt">Je renseigne mon colis</h1>
             </div>
           </div>
-          <p className="typeCo2">Kg de Co2</p>
-        </div>
-        <p className="describeCo2">économisés avec Deliv'green</p>
-      </div>
-
-      {/*     3 steps     */}
-      <div className="threeStepsContainerLandingPage">
-        <h1>3 étapes pour faire livrer votre colis</h1>
-        <div className="tripleStepsContainer">
-          <div className="iconAndTextThreeSteps">
-            <h1 style={{ color: '#17B994', fontSize: '64px' }}>1</h1>
-            <h3>Je renseigne mon colis</h3>
+          <div className="steps3Container">
+            <div className="svgLandingPage2" />
+            <div className="textThreeStepContainer">
+              <h1 className="numberThreeStepsAttempt">2</h1>
+              <h1 className="textThreeStepsAttempt">
+                Je choisis un point de départ et d'arrivée
+              </h1>
+            </div>
           </div>
-          <div className="iconAndTextThreeSteps">
-            <h1 style={{ color: '#17B994', fontSize: '64px' }}>2</h1>
-            <h3>Je choisis un point de départ et d'arrivée</h3>
-          </div>
-          <div className="iconAndTextThreeSteps">
-            <h1 style={{ color: '#17B994', fontSize: '64px' }}>3</h1>
-            <h3>Mon colis est pris en charge</h3>
+          <div className="steps3Container">
+            <div className="svgLandingPage3" />
+            <div className="textThreeStepContainer">
+              <h1 className="numberThreeStepsAttempt">3</h1>
+              <h1 className="textThreeStepsAttempt">
+                Mon colis est pris en charge
+              </h1>
+            </div>
           </div>
         </div>
+        <button type="button" className="buttonThreeSteps">
+          Proposer une course
+        </button>
       </div>
 
       {/*     Customer service     */}
@@ -116,46 +115,51 @@ const LandingPage = () => {
               <p className="textCustomerLandingPage">2h maxi</p>
             </div>
           </div>
-          <button type="button" className="buttonHeaderHomePage">
+          <button type="button" className="buttonCustomerServices">
             Contactez-nous
           </button>
         </div>
       </div>
 
-      {/*     Become partnaire      */}
+      {/*     Stats     */}
+
+      <div className="numberCo2Content">
+        <div className="contentNumberType">
+          <div className="contentNumberCo2">
+            <p className="numberCo2">{co2Counter}</p>
+            <div>
+              <img
+                className="ecoLogo"
+                src={require('./images/ecoLogo.png')}
+                alt="ecologie logo"
+              />
+            </div>
+          </div>
+          <p className="typeCo2">Kg de Co2</p>
+        </div>
+        <p className="describeCo2">économisés avec Deliv'green</p>
+      </div>
+
+      {/*     Become partner      */}
 
       <div className="becomePartnaireSection">
-        <h1>Devenir partenaire</h1>
-        <div className="becomePartnaireBoxContainer">
-          <div className="becomePartnaireBox box1">
-            <div className="textPartnaireBox">
-              <h3>Coursier</h3>
-              <p>
-                Rentabilisez vos déplacements en regardant si des colis sont sur
-                votre route
-              </p>
-              <button type="button">Devenir coursier</button>
-            </div>
-          </div>
-          <div className="becomePartnaireBox box2">
-            <div className="textPartnaireBox">
-              <h3>Livreur</h3>
-              <p>
-                Rentabilisez vos déplacements en regardant si des colis sont sur
-                votre route
-              </p>
-              <button type="button">Devenir coursier</button>
-            </div>
-          </div>
-          <div className="becomePartnaireBox box3">
-            <div className="textPartnaireBox">
-              <h3>Transporteur</h3>
-              <p>
-                Rentabilisez vos déplacements en regardant si des colis sont sur
-                votre route
-              </p>
-              <button type="button">Devenir coursier</button>
-            </div>
+        <div className="cardBecomePartner">
+          <img
+            src="https://zupimages.net/up/20/06/vb4g.jpg"
+            alt="van become partner"
+            className="vanImagePartner"
+          />
+          <div className="becomePartnerTextAndButton">
+            <h1 style={{ margin: '15px', color: '#17B994' }}>
+              Devenir partenaire
+            </h1>
+            <p className="textBecomePartner">
+              Particuliers, coursiers ou transporteur rejoignez le réseau
+              Deliv'Green et profitez d'une rémunération attractive
+            </p>
+            <button type="button" className="buttonBecomePartner">
+              Devenir partenaire
+            </button>
           </div>
         </div>
       </div>

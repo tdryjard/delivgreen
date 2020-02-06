@@ -104,6 +104,7 @@
 
 @media (max-width: 1060px) {
     .submitAndSignIn {
+        margin: 0;
         font-size: 16px;
     }
 
