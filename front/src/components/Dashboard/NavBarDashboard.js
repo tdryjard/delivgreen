@@ -3,7 +3,8 @@ import {
   faTachometerAlt,
   faTruckLoading,
   faAddressCard,
-  faFileAlt
+  faFileAlt,
+  faBullhorn
 } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './NavBarDashboard.css';
@@ -30,13 +31,28 @@ const NavBarDashboard = () => {
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
+          to="/annonces"
+        >
+          <div className="containerItemNavBarDashboard">
+            <div className="logoContainerDashboardNavBar">
+              <FontAwesomeIcon
+                className="fas fa-2x fa-bullhorn"
+                icon={faBullhorn}
+              />
+            </div>
+            <p className="itemDashboardNavBar">Annonces disponnibles</p>
+          </div>
+        </NavLink>
+        <NavLink
+          className="navLinkDashboard"
+          activeClassName="itemListNavBarDashboard"
           to="my-orders"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
               <FontAwesomeIcon className="fas fa-2x" icon={faTruckLoading} />
             </div>
-            <p className="itemDashboardNavBar">Commandes</p>
+            <p className="itemDashboardNavBar">Commandes réalisées</p>
           </div>
         </NavLink>
         <NavLink
