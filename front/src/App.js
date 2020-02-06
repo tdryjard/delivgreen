@@ -18,6 +18,7 @@ import './App.css';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
 import SignatureZone from './components/SignatureZone/SignatureZone';
+import Announcement from './components/Dashboard/Announcement/Announcement';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
       <Route path="/my-orders" component={MyOrders} />
       <Route path="/detail-list" component={DetailList} />
       <Route path="/signature" component={SignatureZone} />
+      <Route path="/annonces" component={Announcement} />
     </Switch>
   );
 }
