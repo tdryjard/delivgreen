@@ -54,7 +54,7 @@ const NavBarDashboard = () => {
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
-          to="mes-infos"
+          to="/mes-infos"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">

@@ -42,8 +42,7 @@ const LandingPage = () => {
         </div>
         <img
           className="headerImageLandingPage"
-          src="https://zupimages.net/up/20/06/5v8z.jpg"
-          // src="https://zupimages.net/up/20/06/5z44.jpg"
+          src={require('./images/sliderDelivGreen.jpg')}
           alt="header"
         />
       </div>
@@ -145,7 +144,7 @@ const LandingPage = () => {
       <div className="becomePartnaireSection">
         <div className="cardBecomePartner">
           <img
-            src="https://zupimages.net/up/20/06/vb4g.jpg"
+            src={require('./images/truckDelivgreen.jpg')}
             alt="van become partner"
             className="vanImagePartner"
           />

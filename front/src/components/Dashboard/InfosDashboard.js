@@ -37,7 +37,7 @@ const InfosDashboard = () => {
               <input
                 className="inputMyInfosDashboard"
                 id="eMail"
-                type="text"
+                type="email"
                 value="franckdubois@gmail.com"
               />
               <FontAwesomeIcon className="far editIcon fa-2x" icon={faEdit} />
@@ -47,7 +47,7 @@ const InfosDashboard = () => {
               <input
                 className="inputMyInfosDashboard"
                 id="phone"
-                type="text"
+                type="tel"
                 value="06 51 78 52 48"
               />
               <FontAwesomeIcon className="far editIcon fa-2x" icon={faEdit} />
