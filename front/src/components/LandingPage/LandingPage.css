@@ -259,7 +259,7 @@
 
 .customerServiceContainer {
     background-color: whitesmoke;
-    background-image: url("https://zupimages.net/up/20/06/6z8f.png");
+    /*background-image: url("https://zupimages.net/up/20/06/6z8f.png");*/
     display: flex;
     flex-direction: column;
     justify-content: center;
