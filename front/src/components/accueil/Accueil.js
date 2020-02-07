@@ -23,12 +23,7 @@ const Accueil = () => {
       <head className="headAccueil">
         <div className="beClient">
           <button type="button" className="headText1">
-            Je veux faire livrer un colis
-          </button>
-        </div>
-        <div className="beDeliver">
-          <button type="button" className="headText2">
-            Devenir livreur DelivGreen
+            Faire livrer un colis
           </button>
         </div>
       </head>
@@ -40,7 +35,7 @@ const Accueil = () => {
             <div>
               <img
                 className="ecoLogo"
-                src={require('./image/ecoLogo.png')}
+                src={require('../LandingPage/images/ecoLogo.png')}
                 alt="ecologie logo"
               />
             </div>
