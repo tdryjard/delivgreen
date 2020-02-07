@@ -1,0 +1,39 @@
+@import '../Variables.css';
+
+.admin-ctn {
+    min-height: var(--mobile-full-height);
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
+}
+
+/* Partie droite (contenu) du dashboard */
+.admin-element-ctn {
+    padding-top: 64px;
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding-left: 16px;
+    padding-right: 64px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px) {
+    .admin-element-ctn {
+        width: 100%;
+        margin: 0;
+        padding: 64px 16px 0px 16px;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

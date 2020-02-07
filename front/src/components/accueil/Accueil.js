@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './accueil.css';
 import Footer from '../footer/Footer';
+import NavBar from '../NavBar/NavBar';
 
 const Accueil = () => {
   const [co2Counter, setCo2Counter] = useState(0);
@@ -18,27 +19,23 @@ const Accueil = () => {
 
   return (
     <div className="contentAccueil">
+      <NavBar />
       <head className="headAccueil">
         <div className="beClient">
           <button type="button" className="headText1">
-            Je veux faire livrer un colis
-          </button>
-        </div>
-        <div className="beDeliver">
-          <button type="button" className="headText2">
-            Devenir livreur DelivGreen
+            Faire livrer un colis
           </button>
         </div>
       </head>
 
       <div className="numberCo2Content">
         <div className="contentNumberType">
-          <div className="contentNumber">
+          <div className="contentNumberCo2">
             <p className="numberCo2">{co2Counter}</p>
             <div>
               <img
                 className="ecoLogo"
-                src={require('./image/ecoLogo.png')}
+                src={require('../LandingPage/images/ecoLogo.png')}
                 alt="ecologie logo"
               />
             </div>

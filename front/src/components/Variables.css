@@ -2,10 +2,16 @@
     /* Colors */
   --black: #222;
   --light-black: #444;
+  --secondary-font-color: #999;
   --gray: #A1A1A1;
+  --light-gray: #F1F1F1;
   --white: #FFFFFF;
+  --green: #66DD66;
+  --red: #FF5555;
+  --dark-overlay: rgba(0, 0, 0, 0.2);
 
   /* Dimensions */
   --vh: 0px;
   --mobile-full-height: calc(var(--vh) * 100);
+  --sidebar-width: 300px;
 }
