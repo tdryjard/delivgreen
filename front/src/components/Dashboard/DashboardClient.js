@@ -71,7 +71,7 @@ const DashboardClient = () => {
         <div className="bodyMySpaceContainer">
           {/*          Chart section               */}
 
-          <div className="cardBodyMySpace1">
+          <div className="cardBodyMySpace1Client">
             <h1>Commandes en cours</h1>
             <p>
               Commande n°1562 à destination: Tours. Statut: Pris en charge par
