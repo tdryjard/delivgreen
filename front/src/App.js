@@ -1,4 +1,7 @@
 import React from 'react';
+import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import DeliveryClientForm from './components/deliveryClientForm/DeliveryClientForm';
 import { Switch, Route } from 'react-router-dom';
 import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
