@@ -15,7 +15,7 @@ const NavBarDashboardClient = () => {
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
-          to="dashboard-client"
+          to="/dashboard-client"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
@@ -28,7 +28,7 @@ const NavBarDashboardClient = () => {
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
-          to="mes-commandes-client"
+          to="/mes-commandes-client"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">

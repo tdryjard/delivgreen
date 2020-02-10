@@ -14,7 +14,7 @@ const Footer = () => {
           <Link to="/signin" className="urlFooter">
             Inscription
           </Link>
-          <Link to="signup" className="urlFooter">
+          <Link to="/signup" className="urlFooter">
             Connexion
           </Link>
           <Link to="/" className="urlFooter">
