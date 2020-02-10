@@ -1,15 +1,22 @@
-.footerAccueil{
+.footerContainer {
+    width: 100%;
+    background-color: #3a3a3a;
     display: flex;
     justify-content: center;
+}
+
+.footerAccueil{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
     align-items: center;
-    background-color: rgba(46, 46, 46);
-    height: 25vh;
-    width: 100%;
+    width: 70%;
+    height: 30vh;
 }
 
 .urlFooter{
-    margin-left: 20px;
-    color: white
+    color: white;
+    margin: 2px 0 2px 0;
 }
 
 .containerUrlFooter{
@@ -17,4 +24,26 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.column1Footer {
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+}
+
+.column2Footer {
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+}
+
+.logoFooter {
+    width: 200px;
+}
+
+@media (max-width: 1060px) {
+    .logoFooter {
+        width: 120px;
+    }
 }

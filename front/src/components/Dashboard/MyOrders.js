@@ -20,6 +20,7 @@ const MyOrders = () => {
     weight: 1700,
     length: 190
   };
+
   return (
     <div className="mySpaceMainContainer">
       {width > 1060 ? <NavBarDashboard /> : null}
@@ -73,8 +74,8 @@ const MyOrders = () => {
             </div>
           </div>
         </div>
-        {/*       End of the Order Cards          */}
       </div>
+      {/*       End of the Order Cards          */}
     </div>
   );
 };

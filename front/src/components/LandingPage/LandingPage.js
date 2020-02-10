@@ -157,7 +157,7 @@ const LandingPage = () => {
               Deliv'Green et profitez d'une rémunération attractive
             </p>
             <button type="button" className="buttonBecomePartner">
-              Devenir partenaire
+              Plus d'infos
             </button>
           </div>
         </div>
