@@ -138,7 +138,7 @@ const MappingClient = () => {
         animate
         easeLinearity={0.35}
       >
-        <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
+        <TileLayer />
         {validStartPosition === false || validStartPosition === true ? (
           <Marker className="marker" position={posStart}>
             <Popup>Demande de livraison</Popup>

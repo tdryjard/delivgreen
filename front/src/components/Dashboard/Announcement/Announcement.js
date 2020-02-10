@@ -5,6 +5,7 @@ import NavBarDashboard from '../NavBarDashboard';
 import NavBarDashboardMobile from '../NavBarDashboardMobile';
 import useWindowDimensions from '../useWindowDimensions';
 import HeaderDashboard from '../HeaderDashboard';
+import Order from './Order';
 
 const Announcement = () => {
   const { width } = useWindowDimensions();
@@ -28,6 +29,7 @@ const Announcement = () => {
         <div className="headerDashboardOrders">
           <HeaderDashboard />
         </div>
+        <Order />
       </div>
     </div>
   );
