@@ -17,6 +17,7 @@ import DeliveryList from './components/ListDelivery/DeliveryList';
 import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
 import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
+import Partner from './components/partner/Partner';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
 import SignatureZone from './components/SignatureZone/SignatureZone';
@@ -42,6 +43,7 @@ function App() {
       <Route path="/admin" component={Admin} />
       <Route path="/map-client" component={MappingClient} />
       <Route path="/delivery-man" component={DeliveryList} />
+      <Route path="/partner" component={Partner} />
       <Route
         path="/detail-adhesion-particulier"
         component={DetailListAdhesionPart}
