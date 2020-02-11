@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-function Input({ label = {}, attributes }) {
+function Input({ label = {}, attributes, reference }) {
     return (
         <>
             <label htmlFor={label.for}>
                 {label.text}
-                <input {...attributes}/>
+                <input {...attributes} ref={reference} />
             </label>
         </>
     )

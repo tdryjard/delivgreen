@@ -7,7 +7,7 @@
   --light-gray: #F1F1F1;
   --white: #FFFFFF;
   --green: #66DD66;
-  --red: #FF5555;
+  --red: rgb(255, 85, 85);
   --dark-overlay: rgba(0, 0, 0, 0.2);
 
   /* Dimensions */
