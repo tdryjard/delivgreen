@@ -41,6 +41,15 @@ const NavBar = () => {
                   Home
                 </h3>
               </NavLink>
+              <NavLink
+                style={{ textDecoration: 'none' }}
+                activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
+                to="/dashboard-pro"
+              >
+                <h3 className="itemListNavBar" onClick={closeMenu}>
+                  Mon espace
+                </h3>
+              </NavLink>
               <h1 className="itemListNavBar" onClick={closeMenu}>
                 Accueil
               </h1>
