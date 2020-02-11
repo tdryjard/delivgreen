@@ -1,5 +1,4 @@
 const db = require('./database');
-
 const Orders = orders => {
   this.name = orders.name;
 };

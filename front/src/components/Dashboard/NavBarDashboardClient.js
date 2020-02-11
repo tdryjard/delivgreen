@@ -1,24 +1,21 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faTachometerAlt,
-  faTruckLoading,
   faAddressCard,
-  faFileAlt,
-  faBullhorn
+  faTachometerAlt,
+  faTruckLoading
 } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
-import './NavBarDashboard.css';
-import { NavLink } from 'react-router-dom';
 
-const NavBarDashboard = () => {
+const NavBarDashboardClient = () => {
   return (
     <div className="mySpaceNavBar">
       <div className="navBarListContainer">
-        <h1 className="titleDashboardNavBar">Mon espace livreur</h1>
+        <h1 className="titleDashboardNavBar">Mon espace perso</h1>
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
-          to="dashboard-pro"
+          to="/dashboard-client"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
@@ -31,40 +28,13 @@ const NavBarDashboard = () => {
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
-          to="/annonces"
-        >
-          <div className="containerItemNavBarDashboard">
-            <div className="logoContainerDashboardNavBar">
-              <FontAwesomeIcon
-                className="fas fa-2x fa-bullhorn"
-                icon={faBullhorn}
-              />
-            </div>
-            <p className="itemDashboardNavBar">Annonces disponnibles</p>
-          </div>
-        </NavLink>
-        <NavLink
-          className="navLinkDashboard"
-          activeClassName="itemListNavBarDashboard"
-          to="my-orders"
+          to="/mes-commandes-client"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
               <FontAwesomeIcon className="fas fa-2x" icon={faTruckLoading} />
             </div>
-            <p className="itemDashboardNavBar">Commandes réalisées</p>
-          </div>
-        </NavLink>
-        <NavLink
-          className="navLinkDashboard"
-          activeClassName="itemListNavBarDashboard"
-          to="/livraisons-effectuees"
-        >
-          <div className="containerItemNavBarDashboard">
-            <div className="logoContainerDashboardNavBar">
-              <FontAwesomeIcon className="far fa-2x" icon={faFileAlt} />
-            </div>
-            <p className="itemDashboardNavBar">Livraisons effectuées</p>
+            <p className="itemDashboardNavBar">Commandes</p>
           </div>
         </NavLink>
         <NavLink
@@ -84,4 +54,4 @@ const NavBarDashboard = () => {
   );
 };
 
-export default NavBarDashboard;
+export default NavBarDashboardClient;
