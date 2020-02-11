@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './order.css';
+import url from '../../api/api';
 
 const Order = () => {
   const [order, setOrder] = useState([]);
@@ -7,10 +8,11 @@ const Order = () => {
   const [view, setView] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/orders`)
+    fetch(`${url}/api/orders`)
       .then(res => res.json())
       .then(res => {
         setOrder(res);
+        console.log(order);
       });
   }, []);
 
