@@ -17,11 +17,14 @@ import DeliveryList from './components/ListDelivery/DeliveryList';
 import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
 import DetailList from './components/deliverymanDetail/DetailList';
 import './App.css';
+import Partner from './components/partner/Partner';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
 import SignatureZone from './components/SignatureZone/SignatureZone';
 import InfosDashboard from './components/Dashboard/InfosDashboard';
 import LandingPage from './components/LandingPage/LandingPage';
+import DashboardClient from './components/Dashboard/DashboardClient';
+import MyOrdersClient from './components/Dashboard/MyOrdersClient';
 
 function App() {
   return (
@@ -40,12 +43,15 @@ function App() {
       <Route path="/admin" component={Admin} />
       <Route path="/map-client" component={MappingClient} />
       <Route path="/delivery-man" component={DeliveryList} />
+      <Route path="/partner" component={Partner} />
       <Route
         path="/detail-adhesion-particulier"
         component={DetailListAdhesionPart}
       />
       <Route path="/dashboard-pro" component={DashboardPro} />
+      <Route path="/dashboard-client" component={DashboardClient} />
       <Route path="/my-orders" component={MyOrders} />
+      <Route path="/mes-commandes-client" component={MyOrdersClient} />
       <Route path="/detail-list" component={DetailList} />
       <Route path="/signature" component={SignatureZone} />
       <Route path="/mes-infos" component={InfosDashboard} />
