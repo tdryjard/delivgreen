@@ -12,7 +12,6 @@ const Order = () => {
       .then(res => res.json())
       .then(res => {
         setOrder(res);
-        console.log(order);
       });
   }, []);
 
