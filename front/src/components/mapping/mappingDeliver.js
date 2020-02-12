@@ -149,12 +149,17 @@ const MappingDeliver = () => {
               <p className="textAdvert">address de départ : </p>
               <p className="adressAdvert">{adressStart}</p>
             </div>
-            <img
-              className="iconWaze"
-              src={require('./image/iconWaze.png')}
-              alt="icon_waze"
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
               href={`https://www.waze.com/livemap/directions?latlng=${positionMarkerStart[0]}%2C${positionMarkerStart[1]}&navigate=yes&zoom=17`}
-            />
+            >
+              <img
+                className="iconWaze"
+                src={require('./image/iconWaze.png')}
+                alt="icon_waze"
+              />
+            </a>
           </div>
           <p className="dash" />
 
@@ -163,18 +168,22 @@ const MappingDeliver = () => {
               <p className="textAdvert">addresse d'arrivé : </p>
               <p className="adressAdvert">{adressEnd}</p>
             </div>
-            <img
-              className="iconWaze"
-              src={require('./image/iconWaze.png')}
-              alt="icon_waze"
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
               href={`https://www.waze.com/livemap/directions?latlng=${positionMarkerEnd[0]}%2C${positionMarkerEnd[1]}&navigate=yes&zoom=17`}
-            />
+            >
+              <img
+                className="iconWaze"
+                src={require('./image/iconWaze.png')}
+                alt="icon_waze"
+              />
+            </a>
           </div>
           <button className="goAdvert" type="button">
             s'engager
           </button>
         </div>
-      )}
       )}
     </div>
   );

@@ -21,6 +21,7 @@ import Partner from './components/partner/Partner';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
 import SignatureZone from './components/SignatureZone/SignatureZone';
+import Announcement from './components/Dashboard/Announcement/Announcement';
 import InfosDashboard from './components/Dashboard/InfosDashboard';
 import LandingPage from './components/LandingPage/LandingPage';
 import DashboardClient from './components/Dashboard/DashboardClient';
@@ -54,6 +55,7 @@ function App() {
       <Route path="/mes-commandes-client" component={MyOrdersClient} />
       <Route path="/detail-list" component={DetailList} />
       <Route path="/signature" component={SignatureZone} />
+      <Route path="/annonces" component={Announcement} />
       <Route path="/mes-infos" component={InfosDashboard} />
     </Switch>
   );
