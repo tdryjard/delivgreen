@@ -3,7 +3,7 @@ import './order.css';
 import url from '../../api/api';
 
 const Order = () => {
-  const [order, setOrder] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [buttonView, setButtonView] = useState(true);
   const [view, setView] = useState(false);
 
@@ -11,23 +11,18 @@ const Order = () => {
     fetch(`${url}/api/orders`)
       .then(res => res.json())
       .then(res => {
-        setOrder(res);
+        setOrders(res);
       });
   }, []);
 
   const viewMore = () => {
-    if (buttonView === true) {
-      setButtonView(false);
-      setView(true);
-    } else if (buttonView === false) {
-      setButtonView(true);
-      setView(false);
-    }
+    setButtonView(!buttonView);
+    setView(!view);
   };
 
   return (
     <div className="ordersContent">
-      {order.map(order => {
+      {orders.map(order => {
         return (
           <div className="contentOrder">
             <div className="contentPrincipalInfoOrder">
