@@ -73,21 +73,6 @@
     margin-right: 5px;
 }
 
-.iconWaze{
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    z-index: 455;
-    margin-top : 145%;
-    margin-left: 32%;
-    border: rgb(0, 188, 235) 4px solid;
-    box-shadow: 1px 1px 5px rgb(0, 136, 170);
-    background-image: url('./image/iconWaze.png');
-    background-size: 100%;
-    background-position: cover;
-}
-
 .leaflet-marker-icon .leaflet-zoom-animated .leaflet-interactive{
     background-color: rgb(255, 255, 255);
 }
