@@ -19,7 +19,39 @@
     background-color: white;
 }
 
+.buttonContainerSignature {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonSignature {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 18px;
+    border: none;
+    width: 150px;
+    height: 65px;
+    border-radius: 10px;
+}
+
+.clearButtonSignature {
+    background-color: rgba(190,0,0,0.9);
+}
+
+.saveButtonSignature {
+    background-color: rgba(0,190,0,0.9);
+}
+
 @media (max-width: 1060px) {
+    .buttonContainerSignature {
+        width: 80%;
+    }
     .signatureSave {
         width: 80%;
         height: 100%;

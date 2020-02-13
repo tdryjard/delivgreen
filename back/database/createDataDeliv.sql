@@ -53,11 +53,11 @@ CREATE TABLE orders (
     pick_up_date DATETIME,
     arrival_date DATETIME,
     price FLOAT NOT NULL,
-    start_address_id INT NULL,
-    end_address_id INT NULL,
-    user_id INT NULL,
-    delivery_man_id INT NULL,
-    signature VARCHAR NULL
+    start_address_id INT,
+    end_address_id INT,
+    user_id INT,
+    delivery_man_id INT,
+    signature VARCHAR(200)
 );
 
 CREATE TABLE orders_status (
@@ -75,8 +75,7 @@ CREATE TABLE address (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(250) NOT NULL,
     lat FLOAT NOT NULL,
-    lng FLOAT NOT NULL,
-    type 
+    lng FLOAT NOT NULL
 );
 
 ALTER TABLE users_roles
@@ -92,14 +91,6 @@ ALTER TABLE orders
     ADD CONSTRAINT fk_orders__user_id FOREIGN KEY (user_id) REFERENCES users(id),
     ADD CONSTRAINT fk_orders__delivery_man_id FOREIGN KEY (delivery_man_id) REFERENCES delivery_man(id);
 
-ALTER TABLE orders_status 
+ALTER TABLE orders_status
     ADD CONSTRAINT fk_orders_status__order_id FOREIGN KEY (order_id) REFERENCES orders(id),
     ADD CONSTRAINT fk_orders_status__status_id FOREIGN KEY (status_id) REFERENCES status(id);
-
-insert into address (name, lat, lng) values ('12 rue roger leclerc', 43, 1.2);
-insert into address (name, lat, lng) values ('9 rue roger leclerc', 45, 1.5);
-insert into orders (length, height, weight, limit_date, publish_date, price) values (5, 2, 1.5, '20/10/2020', '15/10/2020', 5);
-insert into orders (length, height, weight, limit_date, publish_date, price) values (12, 4, 13.5, '05/10/2020', '00/10/2020', 15);
-insert into orders (length, height, weight, limit_date, publish_date, price) values (123, 40, 3.5, '10/10/2020', '05/10/2020', 12);
-update orders set start_address_id = 4 where id = 2;
-update orders set end_address_id = 3 where id = 2;

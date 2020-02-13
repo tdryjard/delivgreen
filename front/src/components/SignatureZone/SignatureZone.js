@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
 import './SignatureZone.css';
 import SignatureCanvas from 'react-signature-canvas';
+import Axios from 'axios';
 import useWindowDimensions from '../Dashboard/useWindowDimensions';
 
 const SignatureZone = () => {
-  const [signatureImage, setSignatureImage] = useState(null);
   const { width } = useWindowDimensions();
   const [sigPad, setSigPad] = useState({});
 
@@ -12,8 +14,17 @@ const SignatureZone = () => {
     setSigPad(sigPad.clear);
   };
 
-  const trim = () => {
-    setSignatureImage(sigPad.getTrimmedCanvas().toDataURL('image/png'));
+  const testToSaveImage = () => {
+    const url = 'http://localhost:8000/api/signature';
+    Axios({
+      method: 'post',
+      url,
+      data: { image: sigPad.getTrimmedCanvas().toDataURL('image/png') }
+    })
+      .then(response => console.log(response))
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   return (
@@ -38,19 +49,24 @@ const SignatureZone = () => {
           />
         )}
       </div>
-      <button onClick={clear} type="button">
-        Effacer
-      </button>
-      <button onClick={trim} type="button">
-        Sauvegarder
-      </button>
-      {signatureImage ? (
-        <img
-          className="signatureSave"
-          src={signatureImage}
-          alt="signature png"
-        />
-      ) : null}
+      <div className="buttonContainerSignature">
+        <button
+          className="buttonSignature clearButtonSignature"
+          onClick={clear}
+          type="button"
+        >
+          <FontAwesomeIcon icon={faTrash} />
+          Effacer
+        </button>
+        <button
+          className="buttonSignature saveButtonSignature"
+          onClick={testToSaveImage}
+          type="button"
+        >
+          <FontAwesomeIcon icon={faCheckCircle} />
+          Sauvegarder
+        </button>
+      </div>
     </div>
   );
 };
