@@ -51,12 +51,14 @@ const LandingPage = () => {
 
       <div className="threeStepsMainContainer">
         <h1 className="threeStepsTitle">3 étapes pour livrer un colis</h1>
-        <div className="steps3MainContainer">
+        <div className="cardsContainerThreeSteps">
           <div className="steps3Container">
             <div className="svgLandingPage1" />
             <div className="textThreeStepContainer">
               <h1 className="numberThreeStepsAttempt">1</h1>
-              <h1 className="textThreeStepsAttempt">Je renseigne mon colis</h1>
+              <h1 className="textThreeStepsAttempt">
+                Je renseigne les informations de mon colis
+              </h1>
             </div>
           </div>
           <div className="steps3Container">
@@ -73,7 +75,7 @@ const LandingPage = () => {
             <div className="textThreeStepContainer">
               <h1 className="numberThreeStepsAttempt">3</h1>
               <h1 className="textThreeStepsAttempt">
-                Mon colis est pris en charge
+                Un partenaire Deliv'Green prend en charge la livraison
               </h1>
             </div>
           </div>
@@ -92,26 +94,26 @@ const LandingPage = () => {
             <div className="itemCustomer">
               <FontAwesomeIcon
                 icon={faCheckCircle}
-                className="far fa-5x iconThreeSteps"
+                className="far fa-5x iconCustomerSection"
               />
-              <p className="textCustomerLandingPage">Livraison satisfait</p>
-              <p className="textCustomerLandingPage">ou remboursé</p>
+              <p className="textCustomerLandingPage">Livraison garantie</p>
+              <p className="textCustomerLandingPage">satisfait ou remboursé</p>
             </div>
             <div className="itemCustomer">
               <FontAwesomeIcon
                 icon={faEnvelope}
-                className="far fa-5x iconThreeSteps"
+                className="far fa-5x iconCustomerSection"
               />
               <p className="textCustomerLandingPage">Service client</p>
-              <p className="textCustomerLandingPage">24/7</p>
+              <p className="textCustomerLandingPage"> disponible 24/7</p>
             </div>
             <div className="itemCustomer">
               <FontAwesomeIcon
                 icon={faClock}
-                className="far fa-5x iconThreeSteps"
+                className="far fa-5x iconCustomerSection"
               />
               <p className="textCustomerLandingPage">Réactivité garantie</p>
-              <p className="textCustomerLandingPage">2h maxi</p>
+              <p className="textCustomerLandingPage">en 2h maxi</p>
             </div>
           </div>
           <button type="button" className="buttonCustomerServices">
