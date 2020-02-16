@@ -48,4 +48,16 @@
     .logoFooter {
         width: 120px;
     }
+
+    .footerContainer {
+        height: 80vh;
+    }
+
+    .footerAccueil {
+        flex-direction: column;
+    }
+
+    .footerAccueil h1 {
+        font-size: 24px;
+    }
 }

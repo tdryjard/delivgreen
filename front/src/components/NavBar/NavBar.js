@@ -20,8 +20,8 @@ const NavBar = () => {
           />
           <h1 className="titleNavBarDelivgreen">DELIV'GREEN</h1>
         </Link>
+        <h3 className="submitAndSignIn connectButton">Connexion</h3>
         <h3 className="submitAndSignIn">Inscription</h3>
-        <h3 className="submitAndSignIn">Connexion</h3>
         <div className={`${toggle ? 'listNavBar' : 'closedMenuBurger'}`}>
           <div className="burgerMenuContainer">
             <div
@@ -44,7 +44,7 @@ const NavBar = () => {
                   Accueil
                 </h3>
               </NavLink>
-              <hr className="separatorNavBar" />
+              <hr className="separatorNavBar separator1" />
               <NavLink
                 style={{ textDecoration: 'none' }}
                 activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
