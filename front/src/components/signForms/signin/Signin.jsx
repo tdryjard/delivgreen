@@ -40,7 +40,7 @@ function Signin() {
             "firstname": inputsRef.firstname.current.value,
             "email": inputsRef.email.current.value,
             "password": inputsRef.password.current.value,
-            "password_verification": inputsRef.password_verification.current.value,
+            "passwordVerification": inputsRef.password_verification.current.value,
             "phone": inputsRef.phone.current.value
         }
         
