@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import url from '../api/api';
 import './historical.css';
 import NavBarDashboard from '../Dashboard/NavBarDashboard';
 import HeaderDashboard from '../Dashboard/HeaderDashboard';
@@ -9,7 +10,16 @@ import NavBarDashboardMobile from '../Dashboard/NavBarDashboardMobile';
 
 const Historical = () => {
   const { width } = useWindowDimensions();
+  const [orders, setOrders] = useState([]);
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+
+  const userId = 1;
+
+  useEffect(() => {
+    fetch(`${url}/api/orders/historique/${userId}`)
+      .then(res => res.json())
+      .then(res => setOrders(res));
+  });
 
   return (
     <div className="historicalMainContainer">
@@ -45,111 +55,31 @@ const Historical = () => {
             </div>
           </div>
           <div className="containerHisto">
-            <div className="contentHisto">
-              <div className="contentInfoHisto">
-                <div className="textHisto">
-                  <p>Commandé le : </p>
-                  <p className="dateHisto">25/10/2019</p>
+            {orders.map(order => {
+              return (
+                <div className="contentHisto">
+                  <div className="contentInfoHisto">
+                    <div className="textHisto">
+                      <p>Commandé le : </p>
+                      <p className="dateHisto">{order.publish_date}</p>
+                    </div>
+                    <div className="textHisto">
+                      <p>Reçu le : </p>
+                      <p className="dateHisto">{order.arrival_date}</p>
+                    </div>
+                    <div className="textHisto">
+                      <p>Commande : </p>
+                      <p className="dateHisto">n°{order.id}</p>
+                    </div>
+                  </div>
+                  <div className="detailHisto">
+                    <button type="button" className="detailHistoButton">
+                      Voir facture
+                    </button>
+                  </div>
                 </div>
-                <div className="textHisto">
-                  <p>Reçu le : </p>
-                  <p className="dateHisto">27/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Commande : </p>
-                  <p className="dateHisto">n°2457</p>
-                </div>
-              </div>
-              <div className="detailHisto">
-                <button type="button" className="detailHistoButton">
-                  Voir facture
-                </button>
-              </div>
-            </div>
-            <div className="contentHisto">
-              <div className="contentInfoHisto">
-                <div className="textHisto">
-                  <p>Commandé le : </p>
-                  <p className="dateHisto">25/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Reçu le : </p>
-                  <p className="dateHisto">27/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Commande : </p>
-                  <p className="dateHisto">n°2457</p>
-                </div>
-              </div>
-              <div className="detailHisto">
-                <button type="button" className="detailHistoButton">
-                  Voir facture
-                </button>
-              </div>
-            </div>
-            <div className="contentHisto">
-              <div className="contentInfoHisto">
-                <div className="textHisto">
-                  <p>Commandé le : </p>
-                  <p className="dateHisto">25/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Reçu le : </p>
-                  <p className="dateHisto">27/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Commande : </p>
-                  <p className="dateHisto">n°2457</p>
-                </div>
-              </div>
-              <div className="detailHisto">
-                <button type="button" className="detailHistoButton">
-                  Voir facture
-                </button>
-              </div>
-            </div>
-            <div className="contentHisto">
-              <div className="contentInfoHisto">
-                <div className="textHisto">
-                  <p>Commandé le : </p>
-                  <p className="dateHisto">25/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Reçu le : </p>
-                  <p className="dateHisto">27/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Commande : </p>
-                  <p className="dateHisto">n°2457</p>
-                </div>
-              </div>
-              <div className="detailHisto">
-                <button type="button" className="detailHistoButton">
-                  Voir facture
-                </button>
-              </div>
-            </div>
-            <div className="contentHisto">
-              <div className="contentInfoHisto">
-                <div className="textHisto">
-                  <p>Commandé le : </p>
-                  <p className="dateHisto">25/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Reçu le : </p>
-                  <p className="dateHisto">27/10/2019</p>
-                </div>
-                <div className="textHisto">
-                  <p>Commande : </p>
-                  <p className="dateHisto">n°2457</p>
-                </div>
-              </div>
-              <div className="detailHisto">
-                <button type="button" className="detailHistoButton">
-                  Voir facture
-                </button>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
