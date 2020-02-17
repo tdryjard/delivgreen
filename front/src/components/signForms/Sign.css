@@ -57,11 +57,8 @@
 }
 
 .sign-form .btn {
-    margin-top: 20px;
-}
-
-.btn {
     margin: 5px;
+    margin-top: 20px;
     border: none;
     border-radius: 3px;
     background: var(--green);
