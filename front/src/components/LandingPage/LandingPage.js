@@ -35,6 +35,10 @@ const LandingPage = () => {
             <h1 className="titleLandingPage">
               La livraison de colis éco-responsable
             </h1>
+            <h4 className="subtitleSliderLandingPage">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+              vitae varius turpis.
+            </h4>
             <button type="button" className="buttonHeaderHomePage">
               Proposer une course
             </button>
@@ -51,32 +55,37 @@ const LandingPage = () => {
 
       <div className="threeStepsMainContainer">
         <h1 className="threeStepsTitle">3 étapes pour livrer un colis</h1>
+        <h3>Faire livrer n'a jamais été aussi simple</h3>
         <div className="cardsContainerThreeSteps">
           <div className="steps3Container">
             <div className="svgLandingPage1" />
             <div className="textThreeStepContainer">
-              <h1 className="numberThreeStepsAttempt">1</h1>
-              <h1 className="textThreeStepsAttempt">
-                Je renseigne les informations de mon colis
-              </h1>
+              <h1 className="textThreeStepsAttempt">Informations du colis</h1>
+              <h3 className="subtitleThreeSteps">
+                Je renseigne les détails de mon colis (hauteur, longueur,
+                largeur et poids)
+              </h3>
             </div>
           </div>
           <div className="steps3Container">
             <div className="svgLandingPage2" />
             <div className="textThreeStepContainer">
-              <h1 className="numberThreeStepsAttempt">2</h1>
-              <h1 className="textThreeStepsAttempt">
-                Je choisis un point de départ et d'arrivée
-              </h1>
+              <h1 className="textThreeStepsAttempt">Départ et arrivée</h1>
+              <h3 className="subtitleThreeSteps">
+                Je renseigne les coordonnées de départ et d'arrivée ainsi que la
+                date maximale
+              </h3>
             </div>
           </div>
           <div className="steps3Container">
             <div className="svgLandingPage3" />
             <div className="textThreeStepContainer">
-              <h1 className="numberThreeStepsAttempt">3</h1>
               <h1 className="textThreeStepsAttempt">
-                Un partenaire Deliv'Green prend en charge la livraison
+                Mon colis est pris en charge
               </h1>
+              <h3 className="subtitleThreeSteps">
+                Un partenaire Deliv'Green accepte et réalise la livraison
+              </h3>
             </div>
           </div>
         </div>

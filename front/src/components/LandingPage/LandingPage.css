@@ -7,11 +7,11 @@
 
 .sliderContainerLandingPage {
     margin: 0;
+    height: 90vh;
 }
 
 .landingPageMainContainer {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 100%;
     height: 100%;
     letter-spacing: 0.05em;
 }
@@ -38,25 +39,25 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.9);
     height: 35%;
-    width: 35%;
+    width: 30%;
     left: 10%;
     top: 25%;
 }
 
 .titleLandingPage {
-    font-family: 'Fredoka One';
+    font-family: 'Archivo';
     margin: 5px 0 5px 0;
     font-size: 48px;
     color: #17B994;
 }
 
 .buttonHeaderHomePage {
-    font-family: 'Fredoka One';
+    font-family: 'Archivo';
     font-size: 20px;
     width: 250px;
     height: 60px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #17B994;
     color: white;
 }
@@ -139,7 +140,9 @@
 
 .steps3Container {
     background-color: white;
-    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 90%;
     width: 25%;
     box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
@@ -148,40 +151,46 @@
 .textThreeStepContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 0 0 25px 25px;
     font-size: 10px;
     background-color: white;
     height: 60%;
-    width: 100%;
+    width: 80%;
 }
 
 .textThreeStepsAttempt {
+    font-family: 'Archivo';
+    font-size: 28px;
     margin: 15px;
     color: black;
 }
 
+.subtitleThreeSteps {
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
 .threeStepsTitle {
     color: #17B994;
-    font-family: "Fredoka One";
+    font-family: 'Archivo';
 }
 
 .buttonThreeSteps {
-    font-family: 'Fredoka One';
+    font-family: 'Archivo';
     font-size: 24px;
     margin: 25px 0 25px 0;
     width: 250px;
     height: 70px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #17B994;
     color: white;
 }
 
 .svgLandingPage1 {
-    border-radius: 15px 15px 0 0;
+    width: 100%;
     height: 40%;
     background-image: url("../LandingPage/images/measure-steps.jpg");
     background-size: 120%;
@@ -189,7 +198,7 @@
 }
 
 .svgLandingPage2 {
-    border-radius: 15px 15px 0 0;
+    width: 100%;
     height: 40%;
     background-image: url("../LandingPage/images/adress-steps.jpg");
     background-size: 120%;
@@ -197,7 +206,7 @@
 }
 
 .svgLandingPage3 {
-    border-radius: 15px 15px 0 0;
+    width: 100%;
     height: 40%;
     background-image: url("../LandingPage/images/delivery-man-steps.jpg");
     background-size: 100%;
@@ -209,12 +218,6 @@
     color: #178db9;
 }
 
-.numberThreeStepsAttempt {
-    margin: 5px;
-    color: #178db9;
-    font-size: 64px;
-}
-
 
 /*          Customer section section            */
 
@@ -224,7 +227,7 @@
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
+    background-position: right;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -234,14 +237,18 @@
 }
 
 .buttonCustomerServices {
-    font-family: 'Fredoka One';
+    font-family: 'Archivo';
     font-size: 24px;
     width: 250px;
     height: 70px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #17B994;
     color: white;
+}
+
+.subtitleSliderLandingPage {
+    color: #3a3a3a;
 }
 
 .cardCustomerServiceContainer {
@@ -324,13 +331,13 @@
 }
 
 .buttonBecomePartner {
-    font-family: 'Fredoka One';
+    font-family: 'Archivo';
     font-size: 20px;
     width: 180px;
     height: 50px;
     border: none;
     margin-top: 25px;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #17B994;
     color: white;
 }
@@ -367,7 +374,6 @@
     }
 
     /*          Three steps         */
-
     .steps3Container {
         width: 70%;
         margin: 25px 0 25px 0;
@@ -395,7 +401,6 @@
     }
 
     /*          Customer services           */
-
     .cardsContainerThreeSteps {
         flex-direction: column;
     }
