@@ -4,7 +4,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './MyOrders.css';
 import NavBarDashboard from './NavBarDashboard';
 import HeaderDashboard from './HeaderDashboard';
-import OrdersDashboard from './OrdersDashboard';
 import useWindowDimensions from './useWindowDimensions';
 import NavBarDashboardMobile from './NavBarDashboardMobile';
 
@@ -12,14 +11,32 @@ const MyOrders = () => {
   const { width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
 
-  const orderExample = {
-    departure: '18 rue de la Choppe 45000 Orléans',
-    departure_date: '18/01/2020',
-    arrival: '12 rue de la Gare 45000 Orléans',
-    limit_date: '24/01/2020',
-    weight: 1700,
-    length: 190
-  };
+  const orderExample = [
+    {
+      number: '256157853',
+      pick_up_date: '13/01/2020',
+      departure: '18 rue de la Choppe 45000 Orléans',
+      departure_date: '18/01/2020',
+      arrival: '12 rue de la Gare 45000 Orléans',
+      limit_date: '24/01/2020',
+      weight: 170,
+      length: 190,
+      height: 155,
+      status: 'Pris en charge'
+    },
+    {
+      number: '256157853',
+      pick_up_date: '13/01/2020',
+      departure: '18 rue de la Choppe 45000 Orléans',
+      departure_date: '18/01/2020',
+      arrival: '12 rue de la Gare 45000 Orléans',
+      limit_date: '24/01/2020',
+      weight: 170,
+      length: 190,
+      height: 155,
+      status: 'Pris en charge'
+    }
+  ];
 
   return (
     <div className="mySpaceMainContainer">
@@ -40,42 +57,53 @@ const MyOrders = () => {
         <div className="headerDashboardOrders">
           <HeaderDashboard />
         </div>
-        {/*           Order Cards         */}
-
         <div className="ordersCardContainer">
-          {/*            Acceptées             */}
-          <div className="ordersContainerTitle">
-            <div className="titleContainer title1">
-              <h1 className="titleCardOrders">Acceptées</h1>
-            </div>
-            <div className="ordersContainer">
-              <OrdersDashboard status={0} order={orderExample} />
-            </div>
-            <div className="ordersContainer">
-              <OrdersDashboard status={0} order={orderExample} />
-            </div>
-            <div className="ordersContainer">
-              <OrdersDashboard status={0} order={orderExample} />
-            </div>
-            <div className="ordersContainer">
-              <OrdersDashboard status={0} order={orderExample} />
-            </div>
-          </div>
-          {/*            Prises en charge             */}
-          <div className="ordersContainerTitle box">
-            <div className="titleContainer title2">
-              <h1 className="titleCardOrders">Prises en charge</h1>
-            </div>
-            <div className="ordersContainer">
-              <OrdersDashboard status={1} order={orderExample} />
-            </div>
-            <div className="ordersContainer">
-              <OrdersDashboard status={1} order={orderExample} />
-            </div>
+          <div className="myOrdersContainerList">
+            <h1 className="titleMyOrders">Mes commandes en cours</h1>
+            {/* <div className="ordersArrayHeader"> */}
+            {/*  <h3 className="headerArray column1">N° commande</h3> */}
+            {/*  <h3 className="headerArray column2">Date réception</h3> */}
+            {/*  <h3 className="headerArray column3">Statut</h3> */}
+            {/*  <h3 className="headerArray column4">Date limite</h3> */}
+            {/*  <h3 className="headerArray column5">Details</h3> */}
+            {/*  <h3 className="headerArray column6">Action</h3> */}
+            {/* </div> */}
+            {/* <OrdersDashboard admin={1} order={orderExample[0]} /> */}
+            <table>
+              <thead>
+                <tr>
+                  <th colSpan="1">N° commande</th>
+                  <th>Date reception</th>
+                  <th colSpan="2">Statut</th>
+                  <th colSpan="2">Date limite</th>
+                  <th colSpan="2">Détails</th>
+                  <th colSpan="2">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <td>Coucou</td>
+                <td>C'est moi</td>
+                {orderExample.map(order => {
+                  return (
+                    <tr className="containerOrderInTable">
+                      <td className="itemTableOrders">{order.number}</td>
+                      <td className="itemTableOrders">{order.pick_up_date}</td>
+                      <td className="itemTableOrders">{order.status}</td>
+                      <td className="itemTableOrders">{order.limit_date}</td>
+                      {/* <div className="buttonContainerInOrders"> */}
+                      {/*  <p className="buttonDetailsOrder">Détails</p> */}
+                      {/* </div> */}
+                      {/* <div className="buttonContainerInOrders"> */}
+                      {/*  <p className="buttonActionOrder">Livrer le colis</p> */}
+                      {/* </div> */}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      {/*       End of the Order Cards          */}
     </div>
   );
 };

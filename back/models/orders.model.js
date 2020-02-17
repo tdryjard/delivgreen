@@ -1,4 +1,5 @@
 const db = require('./database');
+
 const Orders = orders => {
   this.name = orders.name;
 };
@@ -17,6 +18,23 @@ Orders.findOrders = result => {
       }
 
       return result(null, dbResult);
+    }
+  );
+};
+
+Orders.findOrdersByUser = (userId, result) => {
+  db.query(
+    'SELECT orders.publish_date, orders.arrival_date, orders.id from orders where orders.user_id = ?',
+    userId,
+    (error, dbResult) => {
+      if (error) {
+        return result(error, null);
+      }
+
+      if (dbResult.length) {
+        return result(null, dbResult);
+      }
+      return result({ kind: 'not_found' }, null);
     }
   );
 };

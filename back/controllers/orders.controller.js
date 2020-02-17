@@ -11,3 +11,21 @@ exports.findOrders = (request, response) => {
     }
   });
 };
+
+exports.findOrdersByUser = (request, response) => {
+  Orders.findOrdersByUser(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Not found order with id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `Error retrieving order with id ${request.params.userId}`
+        });
+      }
+    } else {
+      response.send(dbResult);
+    }
+  });
+};
