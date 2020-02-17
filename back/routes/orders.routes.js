@@ -5,4 +5,7 @@ const router = express.Router();
 
 router.get('/', orders.findOrders);
 
+// Create order
+router.post('/', orders.create);
+
 module.exports = router;

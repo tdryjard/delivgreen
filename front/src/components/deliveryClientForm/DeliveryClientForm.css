@@ -23,3 +23,18 @@
 .delivery-client-price .price-tip {
     text-decoration: underline;
 }
+
+.popup-info {
+    background-color: var(--red);
+  color: white;
+  font-weight: 500;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  }
+  
