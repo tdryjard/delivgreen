@@ -27,7 +27,6 @@ Orders.findOrdersByUser = (userId, result) => {
     'SELECT orders.publish_date, orders.arrival_date, orders.id from orders where orders.user_id = ?',
     userId,
     (error, dbResult) => {
-      console.log(userId);
       if (error) {
         return result(error, null);
       }

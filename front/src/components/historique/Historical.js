@@ -16,7 +16,7 @@ const Historical = () => {
   const userId = 1;
 
   useEffect(() => {
-    fetch(`${url}/api/orders/historique/${userId}`)
+    fetch(`${url}/api/orders/${userId}/historique`)
       .then(res => res.json())
       .then(res => setOrders(res));
   });

@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.get('/', orders.findOrders);
 
-router.get('/historique/:userId', orders.findOrdersByUser);
+router.get('/:userId/historique', orders.findOrdersByUser);
 
 module.exports = router;
