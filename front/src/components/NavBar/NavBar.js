@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -12,13 +12,16 @@ const NavBar = () => {
   return (
     <div className="navBarMainContainer">
       <div className="navigationBar">
-        <img
-          className="logoNavBar"
-          src={require('./images/delivgreen.png')}
-          alt="logo"
-        />
+        <Link to="/" className="logoAndTitleNavBar">
+          <img
+            className="logoNavBar"
+            src={require('../LandingPage/images/logo-delivgreen-notext.png')}
+            alt="logo"
+          />
+          <h1 className="titleNavBarDelivgreen">DELIV'GREEN</h1>
+        </Link>
+        <h3 className="submitAndSignIn connectButton">Connexion</h3>
         <h3 className="submitAndSignIn">Inscription</h3>
-        <h3 className="submitAndSignIn">Connexion</h3>
         <div className={`${toggle ? 'listNavBar' : 'closedMenuBurger'}`}>
           <div className="burgerMenuContainer">
             <div
@@ -38,9 +41,10 @@ const NavBar = () => {
                 to="/"
               >
                 <h3 className="itemListNavBar" onClick={closeMenu}>
-                  Home
+                  Accueil
                 </h3>
               </NavLink>
+              <hr className="separatorNavBar separator1" />
               <NavLink
                 style={{ textDecoration: 'none' }}
                 activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
@@ -50,15 +54,27 @@ const NavBar = () => {
                   Mon espace
                 </h3>
               </NavLink>
-              <h1 className="itemListNavBar" onClick={closeMenu}>
-                Accueil
-              </h1>
-              <h1 className="itemListNavBar" onClick={closeMenu}>
-                Blog
-              </h1>
-              <h1 className="itemListNavBar" onClick={closeMenu}>
-                Proposer une course
-              </h1>
+              <hr className="separatorNavBar" />
+              <NavLink
+                style={{ textDecoration: 'none' }}
+                activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
+                to="/dashboard-pro"
+              >
+                <h3 className="itemListNavBar" onClick={closeMenu}>
+                  Proposer une course
+                </h3>
+              </NavLink>
+              <hr className="separatorNavBar" />
+              <NavLink
+                style={{ textDecoration: 'none' }}
+                activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
+                to="/"
+              >
+                <h3 className="itemListNavBar" onClick={closeMenu}>
+                  Devenir partenaire
+                </h3>
+              </NavLink>
+              <hr className="separatorNavBar" />
             </div>
           ) : null}
         </div>

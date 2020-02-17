@@ -9,6 +9,7 @@ const Orders = function(orders) {
   this.limit_date = orders.limit_date;
   this.price = orders.price;
   this.publish_date = orders.publish_date;
+  this.delivery_man_id = orders.delivery_man_id;
 };
 
 Orders.findOrders = result => {
@@ -29,14 +30,27 @@ Orders.findOrders = result => {
   );
 };
 
-Orders.create = (newOrders, result) => {
-  db.query('INSERT INTO orders SET ?', newOrders, (error, dbResult) => {
     if (error) {
       return result(error, null);
     }
 
     return result(null, { id: dbResult.insertId, ...newOrders });
   });
+  db.query(
+    `UPDATE orders SET delivery_man_id = ? WHERE id = ?`,
+    [userId, orders],
+    (error, response) => {
+      if (error) {
+        return result(error, null);
+      }
+
+      if (response.affectedRows === 0) {
+        return result({ kind: 'not_found' }, null);
+      }
+
+      return result(null, { id: Number(userId), ...orders });
+    }
+  );
 };
 
 module.exports = Orders;

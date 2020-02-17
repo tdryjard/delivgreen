@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import './mapping.css';
+import apiUrl from '../api/api';
+import origin from '../api/origin';
 
 const MappingDeliver = () => {
   const [pos, setPos] = useState([47.9027336, 1.9086066]);
-  const [orderingStart, setOrderingStart] = useState([]);
-  const [orderingEnd, setOrderingEnd] = useState([]);
   const [anoncement, setAnoncement] = useState(false);
   const [price, setPrice] = useState();
   const [adressStart, setAdressStart] = useState('');
   const [adressEnd, setAdressEnd] = useState('');
   const [positionMarkerStart, setPositionMarkerStart] = useState([]);
   const [positionMarkerEnd, setPositionMarkerEnd] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [orderId, setOrderId] = useState(1);
+  const [userId] = useState(1);
 
   const onMapClick = async function onMapClicked(e) {
     const position = [e.latlng.lat, e.latlng.lng];
@@ -19,71 +22,46 @@ const MappingDeliver = () => {
     setAnoncement(false);
   };
 
-  const orders = [
-    {
-      number: 145,
-      marker_id: 5,
-      latStart: 48,
-      lngStart: 1.5,
-      latEnd: 45,
-      lngEnd: 1.3,
-      adressStart: '9 rue de la croix rouge',
-      adressEnd: '15 champs de mars',
-      price: 15
-    },
-    {
-      number: 146,
-      marker_id: 5,
-      latStart: 46,
-      lngStart: 1.4,
-      latEnd: 44,
-      lngEnd: 1.2,
-      adressStart: '90 rue des lubin',
-      adressEnd: '1 avenue deguin',
-      price: 10
-    },
-    {
-      number: 147,
-      marker_id: 5,
-      latStart: 49,
-      lngStart: 1.1,
-      latEnd: 46,
-      lngEnd: 1.5,
-      adressStart: '47 rue de rouge gorge',
-      adressEnd: '15 rue des carmes',
-      price: 12
-    }
-  ];
+  const engagementOrder = () => {
+    fetch(`${apiUrl}/api/orders/${orderId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': `${origin}`
+      },
+      body: JSON.stringify({
+        delivery_man_id: userId
+      })
+    })
+      .then(response => response.json())
+      .then(response => console.log(response));
+  };
 
   useEffect(() => {
-    const posTravelTotalStart = [];
-    const posTravelTotalEnd = [];
-    for (let i = 0; i < orders.length; i++) {
-      const { latStart } = orders[i];
-      const { lngStart } = orders[i];
-      const { latEnd } = orders[i];
-      const { lngEnd } = orders[i];
-      const { number } = orders[i];
-      const posTravelStart = [latStart, lngStart, number];
-      const posTravelEnd = [latEnd, lngEnd, number];
-      posTravelTotalStart.push(posTravelStart);
-      posTravelTotalEnd.push(posTravelEnd);
-    }
-    setOrderingStart([...orderingStart, ...posTravelTotalStart]);
-    setOrderingEnd([...orderingEnd, ...posTravelTotalEnd]);
-  }, [1]);
+    fetch(`${apiUrl}/api/orders`)
+      .then(res => res.json())
+      .then(res => {
+        setOrders(res);
+        console.log(res);
+      });
+  }, []);
 
   const markerClick = event => {
-    const marker = event.target.id;
-    for (let i = 0; i < orders.length; i++)
-      if (orders[i].number === parseInt(marker, 10)) {
-        setPrice(orders[i].price);
-        setAdressStart(orders[i].adressStart);
-        setAdressEnd(orders[i].adressEnd);
-        setPositionMarkerStart([orders[i].latStart, orders[i].lngStart]);
-        setPositionMarkerEnd([orders[i].latEnd, orders[i].lngEnd]);
+    const { id } = event.target;
+    orders.map(order => {
+      if (parseInt(order.id, 10) === parseInt(id, 10)) {
+        setPrice(order.price);
+        setAdressStart(order.start_address_name);
+        setAdressEnd(order.end_address_name);
+        setPositionMarkerStart([
+          order.start_address_lat,
+          order.start_address_lng
+        ]);
+        setPositionMarkerEnd([order.end_address_lat, order.end_address_lng]);
+        setOrderId(order.id);
         setAnoncement(true);
       }
+    });
   };
 
   return (
@@ -94,7 +72,7 @@ const MappingDeliver = () => {
         center={pos}
         zoom={7}
         maxZoom={19}
-        attributionControl
+        attributi3000onControl
         zoomControl
         doubleClickZoom
         scrollWheelZoom
@@ -104,14 +82,17 @@ const MappingDeliver = () => {
       >
         <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
 
-        {orderingStart.map(order => {
+        {orders.map(order => {
           return (
-            <Marker className="dalu" position={[order[0], order[1]]}>
+            <Marker
+              className="dalu"
+              position={[order.start_address_lat, order.start_address_lng]}
+            >
               <Popup>
                 <button
                   className="popupButton"
                   onClick={markerClick}
-                  id={order[2]}
+                  id={order.id}
                   type="button"
                 >
                   Voir annonce
@@ -120,14 +101,14 @@ const MappingDeliver = () => {
             </Marker>
           );
         })}
-        {orderingEnd.map(order => {
+        {orders.map(order => {
           return (
-            <Marker position={[order[0], order[1]]}>
+            <Marker position={[order.end_address_lat, order.end_address_lng]}>
               <Popup>
                 <button
                   className="popupButton"
                   onClick={markerClick}
-                  id={order[2]}
+                  id={order.id}
                   type="button"
                 >
                   Voir annonce
@@ -180,7 +161,7 @@ const MappingDeliver = () => {
               />
             </a>
           </div>
-          <button className="goAdvert" type="button">
+          <button onClick={engagementOrder} className="goAdvert" type="button">
             s'engager
           </button>
         </div>

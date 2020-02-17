@@ -31,6 +31,7 @@ function App() {
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route path="/adhesion" component={Adhesion} />
+      <Route path="/nouvelle-commande" component={DeliveryClientForm} />
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
       <Route path="/adhesion" component={Adhesion} />
@@ -57,8 +58,6 @@ function App() {
       <Route path="/annonces" component={Announcement} />
       <Route path="/mes-infos" component={InfosDashboard} />
       <Route path="/livraison" component={DeliveryClientForm} />
-    </Switch>
-  );
 }
 
 export default App;

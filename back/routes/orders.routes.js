@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', orders.findOrders);
 
-// Create order
 router.post('/', orders.create);
+router.put('/:orderId', orders.updateOrder);
 
 module.exports = router;
