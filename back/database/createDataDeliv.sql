@@ -105,4 +105,12 @@ insert into users (lastname, firstname, email, password, phone) values ('dubelle
 insert into users (lastname, firstname, email, password, phone) values ('duboss', 'robinette', 'robinette.duboss@gmail.com', 'kikouke154', '0678459412');
 insert into orders (length, height, weight, limit_date, publish_date, price, start_address_id, user_id, arrival_date) values (5, 2, 1.5, '20/10/2020', '15/10/2020', 5, 1, 1, "20/10/2020");
 insert into orders (length, height, weight, limit_date, publish_date, price, start_address_id, user_id, arrival_date) values (12, 4, 13.5, '05/10/2020', '00/10/2020', 15, 3, 2, '05/10/2020');
-insert into orders (length, height, weight, limit_date, publish_date, price, start_address_id, user_id, arrival_date) values (123, 40, 3.5, '10/10/2020', '05/10/2020', 12, 2, 1, "10/10/2020");
+insert into orders (length, height, weight, limit_date, publish_date, price, start_address_id, user_id, arrival_date) values (123, 40, 3.5, '10/10/2020', '05/10/2020', 12, 2, 1, "10/10/2020")
+insert into address (name, lat, lng) values ('9 rue roger leclerc', 45, 1.5);
+insert into orders (length, height, weight, limit_date, publish_date, price) values (5, 2, 1.5, '20/10/2020', '15/10/2020', 5);
+insert into orders (length, height, weight, limit_date, publish_date, price) values (12, 4, 13.5, '05/10/2020', '00/10/2020', 15);
+insert into orders (length, height, weight, limit_date, publish_date, price) values (123, 40, 3.5, '10/10/2020', '05/10/2020', 12);
+insert into delivery_man (city, perimeter, is_pro, rib, accepted) values ('orleans', 20, true, 'F4578164', true)
+insert into delivery_man (city, perimeter, is_pro, rib, accepted) values ('orleans', 25, true, 'F4578464', true)
+update orders set start_address_id = 1 where id = 1;
+update orders set end_address_id = 2 where id = 2;

@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
         <div className="column3Footer">
           <img
-            src={require('./images/logo-transparent-blanc.png')}
+            src={require('../LandingPage/images/LOGO-DELIVGREEN.png')}
             alt="logo"
             className="logoFooter"
           />

@@ -1,8 +1,10 @@
 .footerContainer {
+    height: 40vh;
     width: 100%;
     background-color: #3a3a3a;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .footerAccueil{
@@ -11,7 +13,7 @@
     flex-direction: row;
     align-items: center;
     width: 70%;
-    height: 30vh;
+    height: 100%;
 }
 
 .urlFooter{
@@ -45,5 +47,17 @@
 @media (max-width: 1060px) {
     .logoFooter {
         width: 120px;
+    }
+
+    .footerContainer {
+        height: 80vh;
+    }
+
+    .footerAccueil {
+        flex-direction: column;
+    }
+
+    .footerAccueil h1 {
+        font-size: 24px;
     }
 }
