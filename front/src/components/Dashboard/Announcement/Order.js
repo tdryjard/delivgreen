@@ -12,6 +12,7 @@ const Order = () => {
       .then(res => res.json())
       .then(res => {
         setOrders(res);
+        console.log(res);
       });
   }, []);
 
@@ -85,7 +86,7 @@ const Order = () => {
                 </h4>
                 <h4 className="textOrder">poid {order.weight}Kg</h4>
                 <h4 className="textOrder">hauteur {order.height}m</h4>
-                <h4 className="textOrder">largeur {order.length}m</h4>
+                <h4 className="textOrder">largeur {order.lngt}m</h4>
               </div>
             )}
           </div>

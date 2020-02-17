@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavBarDashboard from './NavBarDashboard';
 import HeaderDashboard from './HeaderDashboard';
+import apiUrl from '../api/api';
 import './InfosDashboard.css';
 
 const InfosDashboard = () => {
+  const [userInfo, setUserInfo] = useState({});
+  const userId = 1;
+
+  useEffect(() => {
+    fetch(`${apiUrl}/api/users/infos/${userId}`)
+      .then(res => res.json())
+      .then(res => {
+        setUserInfo(res[0]);
+        console.log(res);
+      });
+  }, []);
+
   return (
     <div className="infosDashboardContainer">
       <NavBarDashboard />
@@ -14,15 +27,8 @@ const InfosDashboard = () => {
         <div className="myInfosAndTitleContainer">
           <h1>Mes informations</h1>
           <div className="inputsContainerMyInfos">
-            <label className="inputLabelDashboard" htmlFor="lastName">
-              Nom
-              <input
-                className="inputMyInfosDashboard"
-                id="lastName"
-                type="text"
-                value="Dubois"
-              />
-            </label>
+            <p className="textInfo">{userInfo.firstname}</p>
+            <p className="textInfo">{userInfo.lastname}</p>
             <label className="inputLabelDashboard" htmlFor="firstName">
               Prénom
               <input
