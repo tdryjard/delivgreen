@@ -31,6 +31,7 @@ function App() {
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route path="/adhesion" component={Adhesion} />
+      <Route path="/nouvelle-commande" component={DeliveryClientForm} />
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
       <Route path="/adhesion" component={Adhesion} />
