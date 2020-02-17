@@ -1,28 +1,76 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/users.model.js');
+const verifyPassword = require('../middlewares/formValidity/verifyPassword');
+const noEmptyInputs = require('../middlewares/formValidity/noEmptyInputs');
+const verifyPhoneNumber = require('../middlewares/formValidity/verifyPhoneNumber');
+const regexValidity = require('../middlewares/formValidity/regexValidity');
 
 // Creer un nouvel utilisateur
 exports.create = function createUser(request, response) {
+  const {
+    lastname,
+    firstname,
+    email,
+    password,
+    passwordVerification,
+    phone
+  } = request.body;
+
   // Creer un utilisateur
   const user = new User({
-    lastname: request.body.lastname || null,
-    firstname: request.body.firstname || null,
-    email: request.body.email || null,
-    password: request.body.password || null,
-    phone: request.body.phone || null
+    lastname: lastname || null,
+    firstname: firstname || null,
+    email: email || null,
+    password: password || null,
+    phone: phone || null
   });
 
-  const emptyProperties = [];
+  // Verification qu'aucune entrée obligatoire n'est vide
+  const emptyInputsErrorHandler = noEmptyInputs(user);
+  if (emptyInputsErrorHandler) {
+    return response.status(400).send(emptyInputsErrorHandler);
+  }
 
-  Object.entries(user).forEach(element => {
-    const [key, value] = element;
-    if (!value) emptyProperties.push(key);
-  });
+  // Verification que des entrées n'ont que des lettres
+  const onlyLetters = new RegExp('^[A-Za-z]+$');
+  const invalidCharactersErrorHandler = regexValidity(
+    { lastname, firstname },
+    onlyLetters
+  );
+  if (invalidCharactersErrorHandler) {
+    return response.status(400).send(invalidCharactersErrorHandler);
+  }
 
-  if (emptyProperties.length) {
-    return response.status(500).send({
+  // Verification que des entrées n'ont que des lettres
+  const emailRegex = new RegExp(
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
+  );
+  const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
+  if (emailCharactersErrorHandler) {
+    return response.status(400).send(emailCharactersErrorHandler);
+  }
+
+  // Verification que le numéro de téléphone soit correctement écrit
+  const phoneErrorHandler = verifyPhoneNumber(phone, 9);
+  if (phoneErrorHandler) {
+    return response.status(400).send(phoneErrorHandler);
+  }
+
+  // Verification mot de passe
+  const passwordErrorHandler = verifyPassword(password, 8, 12);
+  if (passwordErrorHandler) {
+    return response.status(400).send(passwordErrorHandler);
+  }
+
+  // Entrée de vérification du mot de passe
+  if (passwordVerification !== password) {
+    return response.status(400).send({
       type: 'INPUT',
-      inputs: emptyProperties
+      inputs: ['password_verification'],
+      alert: {
+        type: 'error',
+        text: 'Mot de passe non identique'
+      }
     });
   }
 
@@ -36,7 +84,14 @@ exports.create = function createUser(request, response) {
         message: error.message || 'Some error occurred while creating the user.'
       });
     }
-    return response.send(data);
+    // Envoi de la réponse en status 201 soit (Created)
+    return response.status(201).send({
+      alert: {
+        type: 'success',
+        text: 'Vous êtes inscrit.'
+      },
+      data
+    });
   });
 
   return 0;
@@ -49,9 +104,9 @@ exports.findAll = (request, response) => {
       response.status(500).send({
         message: error.message || 'Some error occurred while retrieving users.'
       });
-    } else {
-      response.send(data);
     }
+    // Envoi de la réponse
+    return response.status(200).send(data);
   });
 };
 
@@ -68,9 +123,9 @@ exports.findById = (request, response) => {
           message: `Error retrieving user with id ${request.params.userId}`
         });
       }
-    } else {
-      response.send(dbResult);
     }
+    // Envoi de la réponse
+    return response.status(200).send(dbResult);
   });
 };
 
@@ -87,9 +142,9 @@ exports.update = (request, response) => {
           message: `Error updating user with id ${request.params.userId}`
         });
       }
-    } else {
-      response.send(data);
     }
+
+    return response.status(200).send(data);
   });
 };
 
@@ -106,8 +161,8 @@ exports.delete = (request, response) => {
           message: `Could not delete user with id ${request.params.userId}`
         });
       }
-    } else {
-      response.send({ message: `user was deleted successfully!` });
     }
+
+    return response.send({ message: `user was deleted successfully!` });
   });
 };

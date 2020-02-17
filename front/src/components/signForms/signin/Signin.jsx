@@ -1,15 +1,18 @@
 import React, { useState, useRef } from 'react';
 import '../Sign.css';
 import './Signin.css';
+import { Redirect } from 'react-router-dom';
+import { faInfoCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavBar from '../../NavBar/NavBar';
 import Footer from '../../footer/Footer'
 import Input from '../../formElements/Input';
-import AlertPopup from '../../alertPopup/AlertPopup';
-import verifyForm from '../../../utils/signFormVerification/verifyForm'; 
+import signIn from '../signFetch';
 
 function Signin() {
 
-    const [alertPopup, setAlertPopup] = useState([]);
+    const [infoMessage, setInfoMessage] = useState(null);
+    const [redirection, setRedirection] = useState(null);
     const inputsRef = {
         lastname: useRef(null),
         firstname: useRef(null),
@@ -19,72 +22,63 @@ function Signin() {
         password_verification: useRef(null)
     }
 
+    const checkSamePassword = function () {
+        const { password, password_verification } = inputsRef;
+        const samePassword = (password.current.value === password_verification.current.value);
+        const pwdClassList = password_verification.current.classList;
+        samePassword ? pwdClassList.remove('error') : pwdClassList.add('error');
+    }
+
     const formSubmit = function sendElementsInfoToVerifying (event) {
         event.preventDefault();
-        console.log(event.target.children)
-        // Initilisation du verificateur de formulaire
-        if (!verifyForm.checkInputsRef(inputsRef)) {
-            setAlertPopup([...alertPopup, {
-                    type: 'error',
-                    text: 'Veuillez réactualiser la page',
-                }
-            ])
-            return;
-        }
+        const form = event.currentTarget;
+        // Clean de tout les inputs (enlever les bordures rouges d'erreur)
+        Object.values(inputsRef).forEach(input => input.current.classList.remove('error'));
 
         const myBody = {
             "lastname": inputsRef.lastname.current.value,
             "firstname": inputsRef.firstname.current.value,
             "email": inputsRef.email.current.value,
             "password": inputsRef.password.current.value,
+            "password_verification": inputsRef.password_verification.current.value,
             "phone": inputsRef.phone.current.value
         }
-
-        const urlApi = 'http://localhost:8000/api';
-
-        // const response = await fetch(`${urlApi}/users`, {
-        //     method: 'POST',
-        //     body: JSON.stringify(myBody),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-
-        // const { status } = response;
-        // const result = await response.json();
-        // switch (status) {
-        //     case 500: {
-        //         if (result.inputs) return result.inputs
-        //     }
-        //     default: 
-        //         return result;
-        // }
-
-        fetch(`${urlApi}/users`, {
-            method: 'POST',
-            body: JSON.stringify(myBody),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json()).then(res => console.log(res))
         
-        setAlertPopup([...alertPopup, {
-                type: 'success',
-                text: 'Vous êtes inscrit.',
+        // Connexion (ref: signFetch.js)
+        signIn(myBody)
+        .then((result) => {
+            const { alert, status, type, inputs } = result;
+
+            setInfoMessage(alert);
+
+            if (status === 'ERROR') {
+                if (inputs) {
+                    inputs.forEach((input) => {
+                        inputsRef[input].current.classList.add('error');
+                    });
+                }
+            } else if (status === 'SUCCESS') {
+                form.remove();
+                setTimeout(() => setRedirection(<Redirect to="/signup" />), 2500)
             }
-        ])
+        });
     }
 
     return (
         <div className='sign-ctn'>
+            { redirection }
             <NavBar />
-            { alertPopup.map((popup, i) => <AlertPopup 
-                                        {...popup}
-                                        key={i}
-                                    />) 
-            }
             <h1>Inscription</h1>
-            <form className='sign-form' onSubmit={formSubmit}>
+            {
+                infoMessage && (
+                    <div className={`info--message ${infoMessage.type}`}>
+                        <FontAwesomeIcon icon={faInfoCircle} className="icon"/>
+                        <span>{infoMessage.text}</span>
+                        <FontAwesomeIcon icon={faTimes} className="close" onClick={() => setInfoMessage(null) } />
+                    </div>
+                )
+            }
+            <form className='sign-form' onSubmit={formSubmit} onChange={checkSamePassword}>
                 <Input 
                     label={{ for: 'signin-lastname', text: 'Nom :' }} 
                     attributes={{ type:'text', id:'signin-lastname', name:'lastname', placeholder:'Nom' }} 
@@ -102,7 +96,7 @@ function Signin() {
                 />
                 <Input 
                     label={{ for: 'signin-telephone', text: 'Téléphone :' }} 
-                    attributes={{ type:'text', id:'signin-telephone', name:'telephone', placeholder:'Téléphone' }} 
+                    attributes={{ type:'tel', id:'signin-telephone', name:'telephone', placeholder:'Téléphone' }} 
                     reference={inputsRef.phone}
                 />
                 <Input 
