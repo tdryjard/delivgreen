@@ -164,7 +164,7 @@
     font-family: 'Archivo';
     font-size: 28px;
     margin: 15px;
-    color: black;
+    color: #282c34;
 }
 
 .subtitleThreeSteps {
@@ -223,6 +223,7 @@
 
 .customerServiceContainer {
     background-color: #E3E4E6;
+    font-family: 'Archivo';
     background-image: url("./images/background-contact.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
