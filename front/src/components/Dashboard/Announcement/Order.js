@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './order.css';
-import url from '../../api/api';
+import apiUrl from '../../api/api';
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
@@ -8,7 +8,7 @@ const Order = () => {
   const [view, setView] = useState(false);
 
   useEffect(() => {
-    fetch(`${url}/api/orders`)
+    fetch(`${apiUrl}/api/orders`)
       .then(res => res.json())
       .then(res => {
         setOrders(res);
@@ -40,7 +40,7 @@ const Order = () => {
                   />
                 </a>
               </div>
-              <div className="contentAddressOrder">
+              <div className="contentAddressOrderEnd">
                 <h4 className="textOrderAddress">{order.end_address_name}</h4>
                 <a
                   rel="noopener noreferrer"

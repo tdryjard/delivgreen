@@ -54,6 +54,21 @@
     min-height: 80px;
 }
 
+.contentAddressOrderEnd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(218, 103, 103);
+    margin-right: 30px;
+    padding: 5px;
+    width: 30%;
+    border-radius: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    min-height: 80px;
+}
+
 .contentPrincipalInfoOrder{
     display: flex;
     justify-content: center;
