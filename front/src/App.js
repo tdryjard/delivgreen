@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import DeliveryClientForm from './components/deliveryClientForm/DeliveryClientForm';
 import { Switch, Route } from 'react-router-dom';
+import DeliveryClientForm from './components/deliveryClientForm/DeliveryClientForm';
 import Signin from './components/signForms/signin/Signin';
 import Signup from './components/signForms/signup/Signup';
 import Adhesion from './components/adhesion/Adhesion';
@@ -16,11 +15,12 @@ import MappingClient from './components/mapping/MappingClient';
 import DeliveryList from './components/ListDelivery/DeliveryList';
 import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
 import DetailList from './components/deliverymanDetail/DetailList';
-import './App.css';
+
 import Partner from './components/partner/Partner';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
 import SignatureZone from './components/SignatureZone/SignatureZone';
+import Announcement from './components/Dashboard/Announcement/Announcement';
 import InfosDashboard from './components/Dashboard/InfosDashboard';
 import LandingPage from './components/LandingPage/LandingPage';
 import DashboardClient from './components/Dashboard/DashboardClient';
@@ -31,6 +31,7 @@ function App() {
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route path="/adhesion" component={Adhesion} />
+      <Route path="/nouvelle-commande" component={DeliveryClientForm} />
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
       <Route path="/adhesion" component={Adhesion} />
@@ -54,6 +55,7 @@ function App() {
       <Route path="/mes-commandes-client" component={MyOrdersClient} />
       <Route path="/detail-list" component={DetailList} />
       <Route path="/signature" component={SignatureZone} />
+      <Route path="/annonces" component={Announcement} />
       <Route path="/mes-infos" component={InfosDashboard} />
     </Switch>
   );
