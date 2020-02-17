@@ -78,7 +78,7 @@ exports.create = function createUser(request, response) {
   user.password = bcrypt.hashSync(user.password, 10);
 
   // Enregistre un utilisateur
-  User.create(user, (error, data) => {
+  return User.create(user, (error, data) => {
     if (error) {
       return response.status(500).send({
         message: error.message || 'Some error occurred while creating the user.'
@@ -93,8 +93,6 @@ exports.create = function createUser(request, response) {
       data
     });
   });
-
-  return 0;
 };
 
 // Récuperez tout les utilisateurs
