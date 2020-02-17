@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import './mapping.css';
-import apiUrl from '../../config';
+import apiUrl from '../api/api';
+import origin from '../api/origin';
 
 const MappingDeliver = () => {
   const [pos, setPos] = useState([47.9027336, 1.9086066]);
@@ -13,7 +14,7 @@ const MappingDeliver = () => {
   const [positionMarkerEnd, setPositionMarkerEnd] = useState([]);
   const [orders, setOrders] = useState([]);
   const [orderId, setOrderId] = useState(1);
-  const [userId] = useState(2);
+  const [userId] = useState(1);
 
   const onMapClick = async function onMapClicked(e) {
     const position = [e.latlng.lat, e.latlng.lng];
@@ -22,23 +23,26 @@ const MappingDeliver = () => {
   };
 
   const engagementOrder = () => {
-    fetch(`${apiUrl}/orders/${orderId}`, {
-      method: 'PATCH',
+    fetch(`${apiUrl}/api/orders/${orderId}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:3000'
+        'Access-Control-Allow-Origin': `${origin}`
       },
       body: JSON.stringify({
         delivery_man_id: userId
       })
-    }).then(response => response.json());
+    })
+      .then(response => response.json())
+      .then(response => console.log(response));
   };
 
   useEffect(() => {
-    fetch(`${apiUrl}/orders`)
+    fetch(`${apiUrl}/api/orders`)
       .then(res => res.json())
       .then(res => {
         setOrders(res);
+        console.log(res);
       });
   }, []);
 
@@ -68,7 +72,7 @@ const MappingDeliver = () => {
         center={pos}
         zoom={7}
         maxZoom={19}
-        attributionControl
+        attributi3000onControl
         zoomControl
         doubleClickZoom
         scrollWheelZoom

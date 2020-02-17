@@ -35,7 +35,7 @@ Orders.updateOrder = (userId, orders, result) => {
         return result({ kind: 'not_found' }, null);
       }
 
-      return result(null, { id: orders });
+      return result(null, { id: Number(userId), ...orders });
     }
   );
 };

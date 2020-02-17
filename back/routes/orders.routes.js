@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.get('/', orders.findOrders);
 
-router.patch('/:orderId', orders.updateOrder);
+router.put('/:orderId', orders.updateOrder);
 
 module.exports = router;
