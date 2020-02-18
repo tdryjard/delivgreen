@@ -44,7 +44,7 @@ exports.create = (request, response) => {
           error.message || 'Some error occurred while creating the Order.'
       });
     }
-    return response.send(data);
+    return response.status(201).send(data);
   });
 };
 

@@ -57,7 +57,9 @@ function App() {
       <Route path="/signature" component={SignatureZone} />
       <Route path="/annonces" component={Announcement} />
       <Route path="/mes-infos" component={InfosDashboard} />
-      <Route path="/livraison" component={DeliveryClientForm} />
+      <Route path="/demande-livraison" component={DeliveryClientForm} />
+    </Switch>
+  );
 }
 
 export default App;

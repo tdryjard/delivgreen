@@ -1,5 +1,6 @@
 import React from 'react';
-import apiUrl from '../../config';
+import apiUrl from '../api/api';
+import apiOrigin from '../api/origin';
 import '../signForms/Sign.css';
 import './DeliveryClientForm.css';
 import Input from '../formElements/Input';
@@ -8,12 +9,7 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 
 function DeliveryClientForm() {
-	const [address_start, setAddress_start] = useState('1 Champs de univers');
-	const [arrival_point, setArrival_point] = useState('1 Champ du monde');
-	const [the_length, setThe_length] = useState('13cm');
-	const [weight, setWeight] = useState('3kl');
-	const [date, setDate] = useState('20.20.2020');
-	const [price_delivery, setPrice_delivery] = useState('8€');
+	
 	const [order, setOrder] = useState({})
 	const [sub, setSub]= useState(false);
 	const [infoMessage, setInfoMessage] = useState(null);
@@ -54,7 +50,7 @@ function DeliveryClientForm() {
 				method: 'POST',
 				headers: {
 					'Content-Type' :'application/json',
-					'Acces-Control-Allow-Origin' : 'http://localhost:3000'	
+					'Acces-Control-Allow-Origin' : {apiOrigin}	
 				},
 				body: JSON.stringify(myBody)
 			});
