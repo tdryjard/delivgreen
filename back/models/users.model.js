@@ -6,10 +6,59 @@ const Users = function(users) {
   this.phone = users.phone;
   this.email = users.email;
 };
+/*
+if(user is delivery)
+  if(user.role=== deliverypart ou user.role===deliverypro
+    deliveryman
+    if user.role===deliverypro
+else
+    user.role === part
 
-Users.findUserInfo = (userId, result) => {
+
+
+*/
+
+Users.findProfessionalInfo = (userId, result) => {
   db.query(
-    'SELECT users.lastname, users.firstname, users.phone, users.email from users where id = ?',
+    `SELECT users.lastname, users.firstname, users.email, users.phone, users.professionnal_id, users.delivery_man_id
+      FROM users
+      where users.id = ?`,
+    userId,
+    (error, dbResult) => {
+      if (dbResult.length) {
+        return result(null, dbResult);
+      }
+      return result({ kind: 'not_found' }, null);
+    }
+  );
+};
+
+Users.findDeliverInfo = (userId, result) => {
+  db.query(
+    `SELECT users.lastname, users.firstname, users.email, users.phone, users.professionnal_id, users.delivery_man_id,
+      professional.id, professional.kbis, professional.siret, professional.tva
+      FROM users
+      JOIN delivery_man ON delivery_man.id = users.delivery_man_id
+      where users.id = ?`,
+    userId,
+    (error, dbResult) => {
+      if (dbResult.length) {
+        return result(null, dbResult);
+      }
+      return result({ kind: 'not_found' }, null);
+    }
+  );
+};
+
+Users.findProfessionalInfo = (userId, result) => {
+  db.query(
+    `SELECT users.lastname, users.firstname, users.email, users.phone, users.professionnal_id, users.delivery_man_id,
+      professional.id, professional.kbis, professional.siret, professional.tva,
+      delivery_man.id, delivery_man.city, delivery_man.perimeter, delivery_man.is_pro, delivery_man.rib
+      FROM users
+      JOIN delivery_man ON delivery_man.id = users.delivery_man_id
+      JOIN professional ON professional.id = users.profesionnal_id
+      where users.id = ?`,
     userId,
     (error, dbResult) => {
       if (dbResult.length) {
