@@ -87,7 +87,7 @@ function DeliveryClientForm() {
 				<Input 
 					required
 					label={{for: 'delivery-weight', text: 'Poids (kg)'}} 
-					attributes={{type: 'number', id: 'delivery-weight', max: '150', name: 'delivery-weight', min:'0' }}
+					attributes={{type: 'number', id: 'delivery-weight', max: '30', name: 'delivery-weight', min:'0' }}
 					reference={inputsRef.weight} 
 				/>
 				<Input 
