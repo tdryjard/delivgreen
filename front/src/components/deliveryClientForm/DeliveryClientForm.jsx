@@ -38,12 +38,10 @@ function DeliveryClientForm() {
 		}
 
 		// Si un input n'a pas été rempli
-		console.log(myBody)
 		if (Object.values(myBody).includes(null)) setInfoMessage({ text: 'Champ(s) vide(s)' })
 
 		setOrder(myBody)
 
-		console.log(myBody.lngt)
 
 		try{
 			const response = await fetch(apiUrl + '/orders', {
@@ -55,7 +53,6 @@ function DeliveryClientForm() {
 				body: JSON.stringify(myBody)
 			});
 			const data = await response.json();
-			console.log(data);
 			inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
 		} catch (error)  {
 			console.log(error);
