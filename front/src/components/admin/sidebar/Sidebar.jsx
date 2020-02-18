@@ -14,7 +14,7 @@ function Sidebar() {
 
 	return (
 		<>
-			<FontAwesomeIcon className="icon" size="2x" icon={sidebarOpened ? faTimesCircle : faBars} onClick={bringSidebar}/>
+			<FontAwesomeIcon className="sidebar-icon" size="2x" icon={sidebarOpened ? faTimesCircle : faBars} onClick={bringSidebar}/>
 			<div className={`sidebar-ctn ${sidebarOpened ? 'open' : ''}`}>
 				<div className="sidebar-content">
 					<ul className="sidebar-content-list" onClick={bringSidebar}>

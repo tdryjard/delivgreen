@@ -1,6 +1,7 @@
 const db = require('./database');
 
-const Orders = function(orders) {
+const Orders = orders => {
+  this.name = orders.name;
   this.delivery_man_id = orders.delivery_man_id;
 };
 
