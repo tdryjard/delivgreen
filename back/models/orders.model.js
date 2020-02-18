@@ -28,12 +28,6 @@ Orders.findOrdersByUser = (userId, result) => {
     'SELECT orders.publish_date, orders.arrival_date, orders.id from orders where orders.user_id = ?',
     userId,
     (error, dbResult) => {
-      
-Orders.updateOrder = (userId, orders, result) => {
-  db.query(
-    `UPDATE orders SET delivery_man_id = ? WHERE id = ?`,
-    [userId, orders],
-    (error, response) => {
       if (error) {
         return result(error, null);
       }
@@ -42,12 +36,23 @@ Orders.updateOrder = (userId, orders, result) => {
         return result(null, dbResult);
       }
       return result({ kind: 'not_found' }, null);
-      
-      if (response.affectedRows === 0) {
-        return result({ kind: 'not_found' }, null);
+    }
+  );
+};
+
+Orders.updateOrder = (userId, orders, result) => {
+  db.query(
+    `UPDATE orders SET delivery_man_id = ? WHERE id = ?`,
+    [userId, orders],
+    (error, dbResult) => {
+      if (error) {
+        return result(error, null);
       }
 
-      return result(null, { id: Number(userId), ...orders });
+      if (dbResult.length) {
+        return result(null, dbResult);
+      }
+      return result({ kind: 'not_found' }, null);
     }
   );
 };
