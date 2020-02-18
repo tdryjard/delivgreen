@@ -9,14 +9,6 @@
     background-color: lightgrey;
 }
 
-.titleContainer {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    border-radius: 15px;
-    margin-bottom: 25px;
-}
-
 .title1 {
     color: gray();
 }
@@ -62,8 +54,12 @@
     align-items: center;
 }
 
+.tableMainContainerOrder {
+    width: 75%;
+}
+
 .myOrdersContainerList {
-    margin-top: -300px;
+    margin-top: -250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,6 +67,25 @@
     width: 90%;
     height: 75vh;
     border-radius: 5px;
+}
+
+.legendContainer {
+    position: absolute;
+    top: 5%;
+    left: 55%;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.legendIconAndText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 8px;
 }
 
 .titleMyOrders {
@@ -93,44 +108,13 @@
     flex-direction: row;
 }
 
-.buttonContainerInOrders {
-    border-left: 1px solid #3a3a3a;
-    box-sizing: border-box;
-}
-
-.itemTableOrders {
-    border: 1px solid #3a3a3a;
-    box-sizing: border-box;
-}
-
-.column1 {
+.itemListOrders {
     text-align: center;
-    width: 15%;
 }
 
-.column2 {
-    text-align: center;
-    width: 15%;
-}
-
-.column3 {
-    text-align: center;
-    width: 15%;
-}
-
-.column4 {
-    text-align: center;
-    width: 200px;
-}
-
-.column5 {
-    text-align: center;
-    width: 15%;
-}
-
-.column6 {
-    text-align: center;
-    width: 15%;
+.tableHeaderOrders {
+    width: 10%;
+    font-size: 24px;
 }
 
 .orderContainerInArray {
@@ -154,33 +138,50 @@
 
 .buttonActionOrder {
     color: white;
-    width: 120px;
-    height: 35px;
     display: flex;
+    padding: 5px;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    margin: 0 25px 0 25px;
+    border-radius: 15px;
     background-color: #17B994;
+    cursor: pointer;
+}
+.buttonActionOrder:hover {
+    transform: scale(1.1);
 }
 
 .buttonDetailsOrder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    width: 120px;
-    height: 35px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 0 25px 0 25px;
     box-sizing: border-box;
     border: #17B994 solid 1px;
     color: #17B994;
+    cursor: pointer;
+}
+.buttonDetailsOrder:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 1060px) {
+    .myOrdersContainerList {
+        margin-top: -170px;
+        height: 70vh;
+    }
     .ordersCardContainer {
         flex-direction: column;
         width: 100%;
+        height: 55vh;
         align-items: center;
         justify-content: center;
+    }
+
+    .legendContainer {
+        padding: 5px;
+        top: 11%;
+        left: 20%;
     }
 
     .closeButtonNavBarMobile {
@@ -190,9 +191,8 @@
         color: black;
     }
 
-    .titleContainer {
-        width: 100%;
-        text-align: center;
+    .titleMyOrders {
+        font-size: 26px;
     }
 
     .closeButtonNavBarMobile {
@@ -203,17 +203,25 @@
         display: initial;
     }
 
-    .ordersContainer {
-        width: 70%;
-    }
-
     .ordersContainerTitle {
         margin: 15px;
         width: 95%;
         align-items: center;
     }
 
-    .title1 {
-        margin-top: -190px;
+    .tableHeaderOrders {
+        width: 75px;
+        font-size: 14px;
+    }
+
+    .itemTableOrders {
+        font-size: 14px;
+    }
+
+    .buttonDetailsOrder {
+        margin: 0;
+    }
+    .buttonActionOrder {
+        margin: 0;
     }
 }
