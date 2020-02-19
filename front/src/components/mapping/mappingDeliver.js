@@ -48,7 +48,7 @@ const MappingDeliver = () => {
 
   const markerClick = event => {
     const { id } = event.target;
-    orders.map(order => {
+    orders.forEach(order => {
       if (parseInt(order.id, 10) === parseInt(id, 10)) {
         setPrice(order.price);
         setAdressStart(order.start_address_name);

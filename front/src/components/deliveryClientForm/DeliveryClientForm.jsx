@@ -5,13 +5,10 @@ import '../signForms/Sign.css';
 import './DeliveryClientForm.css';
 import Input from '../formElements/Input';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import { useRef } from 'react';
 
 function DeliveryClientForm() {
-	
-	const [order, setOrder] = useState({})
-	const [sub, setSub]= useState(false);
+
 	const [infoMessage, setInfoMessage] = useState(null);
 
 	const inputsRef={
@@ -40,11 +37,9 @@ function DeliveryClientForm() {
 		// Si un input n'a pas été rempli
 		if (Object.values(myBody).includes(null)) setInfoMessage({ text: 'Champ(s) vide(s)' })
 
-		setOrder(myBody)
-
 
 		try{
-			const response = await fetch(apiUrl + '/orders', {
+			const response = await fetch(apiUrl + '/api/orders', {
 				method: 'POST',
 				headers: {
 					'Content-Type' :'application/json',
@@ -106,7 +101,7 @@ function DeliveryClientForm() {
 					)
 				}
 
-				<button onClick={()=> {setSub(true)}} type='submit' className='btn'>Valider</button>
+				<button type='submit' className='btn'>Valider</button>
 			</form>
 		</div>
 	)
