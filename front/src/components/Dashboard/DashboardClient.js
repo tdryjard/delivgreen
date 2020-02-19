@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faHome } from '@fortawesome/free-solid-svg-icons';
 import NavBarDashboardMobile from './NavBarDashboardMobile';
 import useWindowDimensions from './useWindowDimensions';
 import NavBarDashboardClient from './NavBarDashboardClient';
@@ -10,6 +10,69 @@ import './DashboardClient.css';
 const DashboardClient = () => {
   const { width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+
+  const orderExample = [
+    {
+      number: '253',
+      pick_up_date: '13/01/2020',
+      departure: '18 rue de la Choppe 45000 Orléans',
+      departure_date: '18/01/2020',
+      arrival: '12 rue de la Gare 45000 Orléans',
+      limit_date: '24/01/2020',
+      weight: 170,
+      length: 190,
+      height: 155,
+      status: 'Pris en charge'
+    },
+    {
+      number: '898',
+      pick_up_date: '',
+      departure: '18 rue de la Choppe 45000 Orléans',
+      departure_date: '18/01/2020',
+      arrival: '12 rue de la Gare 45000 Orléans',
+      limit_date: '12/02/2020',
+      weight: 170,
+      length: 190,
+      height: 155,
+      status: 'Acceptée'
+    },
+    {
+      number: '853',
+      pick_up_date: '13/01/2020',
+      departure: '18 rue de la Choppe 45000 Orléans',
+      departure_date: '18/01/2020',
+      arrival: '12 rue de la Gare 45000 Orléans',
+      limit_date: '24/01/2020',
+      weight: 170,
+      length: 190,
+      height: 155,
+      status: 'Pris en charge'
+    },
+    {
+      number: '253',
+      pick_up_date: '13/01/2020',
+      departure: '18 rue de la Choppe 45000 Orléans',
+      departure_date: '18/01/2020',
+      arrival: '12 rue de la Gare 45000 Orléans',
+      limit_date: '24/01/2020',
+      weight: 170,
+      length: 190,
+      height: 155,
+      status: 'Acceptée'
+    },
+    {
+      number: '256',
+      pick_up_date: '13/01/2020',
+      departure: '18 rue de la Choppe 45000 Orléans',
+      departure_date: '18/01/2020',
+      arrival: '12 rue de la Gare 45000 Orléans',
+      limit_date: '24/01/2020',
+      weight: 56,
+      length: 80,
+      height: 125,
+      status: 'Pris en charge'
+    }
+  ];
 
   return (
     <div className="mySpaceMainContainer">
@@ -62,33 +125,87 @@ const DashboardClient = () => {
             </div>
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
-                <p className="titleStatsCardDashboard">Nouvelle commande</p>
-                <h1>+ button</h1>
+                <p className="titleStatsCardDashboard">Proposer une course</p>
+                <button type="button" className="buttonNewOrderDashboard">
+                  Nouvelle commande
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div className="bodyMySpaceContainer">
-          {/*          Chart section               */}
+        <div className="bodyMySpaceContainerClient">
+          <div className="myOrdersContainerDashboardClient">
+            <h1 className="titleMyOrdersDashboardClient">Commandes en cours</h1>
 
-          <div className="cardBodyMySpace1Client">
-            <h1>Commandes en cours</h1>
-            <p>
-              Commande n°1562 à destination: Tours. Statut: Pris en charge par
-              le livreur. Livraison éstimée le 27/02/2020.
-            </p>
-            <p>
-              Commande n°1542 à destination: Narbonne. Statut: En attente
-              d'acceptation. Livraison éstimée le 27/02/2020.
-            </p>
-            <p>
-              Commande n°1585 à destination: Nantes. Statut: Accepté. Livraison
-              éstimée le 27/02/2020.
-            </p>
-            <p>
-              Commande n°1624 à destination: Paris. Statut: Pris en charge par
-              le livreur. Livraison éstimée le 27/02/2020.
-            </p>
+            {/*     Légende      */}
+
+            <div className="legendContainerClient">
+              <div className="legendIconAndText">
+                <p>Acceptée</p>
+                <FontAwesomeIcon
+                  style={{ marginLeft: '2px', color: 'orange' }}
+                  icon={faCircle}
+                />
+              </div>
+              <div className="legendIconAndText">
+                <p>Prise en charge</p>
+                <FontAwesomeIcon
+                  style={{ marginLeft: '2px', color: '#3c9d9b' }}
+                  icon={faCircle}
+                />
+              </div>
+            </div>
+
+            {/*     Commandes     */}
+
+            <table className="tableContainerDashboardClient">
+              <thead>
+                <tr>
+                  <th className="tableHeaderOrders" colSpan="1">
+                    Numéro
+                  </th>
+                  <th className="tableHeaderOrders" colSpan="1">
+                    Statut
+                  </th>
+                  <th className="tableHeaderOrders" colSpan="1">
+                    Date limite
+                  </th>
+                  <th className="tableHeaderOrders" colSpan="1">
+                    Détails
+                  </th>
+                </tr>
+              </thead>
+              {orderExample.map(order => {
+                return (
+                  <tbody className="itemsContainerOrder">
+                    <td className="itemTableOrders">
+                      <p className="itemListOrders">{order.number}</p>
+                    </td>
+                    <td className="itemTableOrders">
+                      <p className="itemListOrders">
+                        {order.status === 'Pris en charge' ? (
+                          <FontAwesomeIcon
+                            style={{ color: 'orange' }}
+                            icon={faCircle}
+                          />
+                        ) : (
+                          <FontAwesomeIcon
+                            style={{ color: '#3c9d9b' }}
+                            icon={faCircle}
+                          />
+                        )}
+                      </p>
+                    </td>
+                    <td className="itemTableOrders">
+                      <p className="itemListOrders">{order.limit_date}</p>
+                    </td>
+                    <td className="itemTableOrders">
+                      <p className="buttonActionOrder">Détails</p>
+                    </td>
+                  </tbody>
+                );
+              })}
+            </table>
           </div>
         </div>
       </div>
