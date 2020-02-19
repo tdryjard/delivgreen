@@ -13,7 +13,8 @@ exports.create = function createUser(request, response) {
     email,
     password,
     passwordVerification,
-    phone
+    phone,
+    role
   } = request.body;
 
   // Creer un utilisateur
@@ -22,7 +23,8 @@ exports.create = function createUser(request, response) {
     firstname: firstname || null,
     email: email || null,
     password: password || null,
-    phone: phone || null
+    phone: phone || null,
+    role: role || null
   });
 
   // Verification qu'aucune entrée obligatoire n'est vide

@@ -71,20 +71,19 @@ const Partner = () => {
           <h3 className="subtitleThreeSteps2">
             Selon mon trajet et mes possibilités de déplacement
           </h3>
-
-          <div className="stepsContainer2">
-            <Link to="/adhesion" className="carrierimg">
-              Carrier
-            </Link>
-
-            <h3 className="subtitleThreeSteps2">
-              Livrez de manière sécuriser avec signature apres reception du
-              colis
-            </h3>
-          </div>
         </div>
-        <Footer />
+
+        <div className="stepsContainer2">
+          <Link to="/adhesion" className="carrierimg">
+            Carrier
+          </Link>
+
+          <h3 className="subtitleThreeSteps2">
+            Livrez de manière sécuriser avec signature apres reception du colis
+          </h3>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
