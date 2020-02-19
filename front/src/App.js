@@ -15,7 +15,6 @@ import MappingClient from './components/mapping/MappingClient';
 import DeliveryList from './components/ListDelivery/DeliveryList';
 import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
 import DetailList from './components/deliverymanDetail/DetailList';
-
 import Partner from './components/partner/Partner';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
