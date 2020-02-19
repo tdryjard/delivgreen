@@ -1,8 +1,17 @@
-const express = require('express');
-const dotenv = require('dotenv');
+const app = require('express')();
+require('dotenv').config();
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const api = require('./routes');
 
-dotenv.config();
+const port = process.env.PORT || 8000;
 
-const app = express();
+app.use(cors({ origin: 'http://localhost:3000' }));
 
-app.listen(process.env.PORT || 8000);
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/api', api);
+
+app.listen(port, () => console.log(`Server is running on port ${port}.`));

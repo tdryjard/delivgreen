@@ -6,11 +6,8 @@ const OrdersDashboard = ({ status, order }) => {
   if (status === 0) {
     return (
       <div className="orderCardMainContainer">
-        <p className="orderCardTitle">Départ :</p>
         <p>{order.departure}</p>
-        <p className="orderCardTitle">Destination :</p>
         <p>{order.arrival}</p>
-        <p className="orderCardTitle">Date limite :</p>
         <p>{order.limit_date}</p>
         {detailsNeeded ? (
           <div>
@@ -19,40 +16,48 @@ const OrdersDashboard = ({ status, order }) => {
             <p>Largeur :</p>
             <p>{order.weight}</p>
           </div>
-        ) : (
+        ) : null}
+        <div className="buttonContainerOrders">
           <button
             className="showDetailsDashboard"
             type="button"
-            onClick={() => setDetailsNeeded(true)}
+            onClick={() => setDetailsNeeded(!detailsNeeded)}
           >
-            Détails
+            {detailsNeeded ? 'Moins' : 'Détails'}
           </button>
-        )}
+          <button type="button" className="getTheDelivery">
+            Colis récupéré
+          </button>
+        </div>
       </div>
     );
   }
   return (
     <div className="orderCardMainContainer">
-      <p className="orderCardTitle">Destination :</p>
-      <p>{order.arrival}</p>
-      <p className="orderCardTitle">Date limite :</p>
-      <p>{order.limit_date}</p>
+      <p className="itemArrayMyOrders">{order.number}</p>
+      <p className="itemArrayMyOrders">{order.pick_up_date}</p>
+      <p className="itemArrayMyOrders">{order.status}</p>
+      <p className="itemArrayMyOrders">{order.limit_date}</p>
       {detailsNeeded ? (
         <div>
-          <p>Longueur :</p>
           <p>{order.length}</p>
-          <p>Largeur :</p>
           <p>{order.weight}</p>
+          <p className="itemArrayMyOrders">{order.departure}</p>
+          <p className="itemArrayMyOrders">{order.arrival}</p>
         </div>
-      ) : (
+      ) : null}
+      <div className="buttonContainerOrders">
         <button
           className="showDetailsDashboard"
           type="button"
-          onClick={() => setDetailsNeeded(true)}
+          onClick={() => setDetailsNeeded(!detailsNeeded)}
         >
-          Détails
+          {detailsNeeded ? 'Moins' : 'Détails'}
         </button>
-      )}
+        <button type="button" className="getTheDelivery">
+          Livrer le colis
+        </button>
+      </div>
     </div>
   );
 };

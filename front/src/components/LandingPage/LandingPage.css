@@ -1,0 +1,451 @@
+/*              Style of the landing page               */
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/*          Slider          */
+
+
+.sliderContainerLandingPage {
+    margin: 0;
+    height: 90vh;
+}
+
+.landingPageMainContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerImageLandingPage {
+    width: 100%;
+}
+
+.textSliderLandingPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    letter-spacing: 0.05em;
+}
+
+.titleContainerLandingPage {
+    position: absolute;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 35%;
+    width: 30%;
+    left: 10%;
+    top: 25%;
+}
+
+.titleLandingPage {
+    font-family: 'Archivo';
+    margin: 5px 0 5px 0;
+    font-size: 48px;
+    color: #17B994;
+}
+
+.buttonHeaderHomePage {
+    font-family: 'Archivo';
+    font-size: 20px;
+    width: 250px;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*          CO2 saved           */
+
+.ecoLogo {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.typeCo2 {
+    margin-top: 5px;
+    color: white;
+}
+
+.describeCo2 {
+    color: white;
+}
+
+.numberCo2Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #3a3a3a;
+    z-index: 3;
+    box-shadow: rgb(0, 0, 0) 0 -3px 8px inset, rgb(0, 0, 0) 0 3px 8px inset;
+}
+
+.contentNumberType {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid rgb(196, 196, 196);
+    box-shadow: white 0 0 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+    width: 150px;
+}
+
+.numberCo2 {
+    margin: 0 0 20px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: white 0 0 3px;
+}
+
+.contentNumberCo2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/*          3 steps attempt         */
+
+.threeStepsMainContainer {
+    background-color: #E3E4E6;
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardsContainerThreeSteps {
+    display: flex;
+    width: 80%;
+    height: 60%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.steps3Container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    width: 25%;
+    box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+}
+
+.textThreeStepContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    background-color: white;
+    height: 60%;
+    width: 80%;
+}
+
+.textThreeStepsAttempt {
+    font-family: 'Archivo';
+    font-size: 28px;
+    margin: 15px;
+    color: #282c34;
+}
+
+.subtitleThreeSteps {
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+.threeStepsTitle {
+    color: #17B994;
+    font-family: 'Archivo';
+}
+
+.buttonThreeSteps {
+    font-family: 'Archivo';
+    font-size: 24px;
+    margin: 25px 0 25px 0;
+    width: 250px;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svgLandingPage1 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../LandingPage/images/measure-steps.jpg");
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.svgLandingPage2 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../LandingPage/images/adress-steps.jpg");
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.svgLandingPage3 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../LandingPage/images/delivery-man-steps.jpg");
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.iconCustomerSection {
+    color: #178db9;
+}
+
+
+/*          Customer section section            */
+
+.customerServiceContainer {
+    background-color: #E3E4E6;
+    font-family: 'Archivo';
+    background-image: url("./images/background-contact.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.buttonCustomerServices {
+    font-family: 'Archivo';
+    font-size: 24px;
+    width: 250px;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitleSliderLandingPage {
+    color: #3a3a3a;
+}
+
+.cardCustomerServiceContainer {
+    width: 60%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.customerServicesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.itemCustomer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 45px;
+}
+
+.customerServicesTitle {
+    color: #17B994;
+    font-family: "Fredoka One";
+}
+
+.textCustomerLandingPage {
+    margin: 5px;
+    font-size: 18px;
+}
+
+/*          Partner section*/
+
+.becomePartnaireSection {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.cardBecomePartner {
+    background-color: #3a3a3a;
+    box-shadow: rgba(0, 0, 0, 0.6) 4px 4px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 70%;
+}
+
+.vanImagePartner {
+    height: 100%;
+    width: 50%;
+}
+
+.becomePartnerTextAndButton {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBecomePartner {
+    color: whitesmoke;
+    text-align: center;
+    margin: 15px;
+}
+
+.buttonBecomePartner {
+    font-family: 'Archivo';
+    font-size: 20px;
+    width: 180px;
+    height: 50px;
+    border: none;
+    margin-top: 25px;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1060px) {
+
+    /*          Slider          */
+    .headerImageLandingPage {
+        height: 35vh;
+    }
+
+    .titleContainerLandingPage {
+        flex-direction: column;
+        top: 20%;
+        height: 15%;
+        width: 60%;
+        border-radius: 20px;
+    }
+
+    .textSliderLandingPage {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 18px;
+    }
+
+    .titleLandingPage {
+        font-size: 24px;
+    }
+
+    .buttonHeaderHomePage {
+        width: 150px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    /*          Three steps         */
+    .steps3Container {
+        width: 70%;
+        margin: 25px 0 25px 0;
+    }
+
+    .threeStepsTitle {
+        text-align: center;
+    }
+
+    .threeStepsMainContainer {
+        height: 220vh;
+    }
+
+    .textThreeStepContainer {
+        padding: 15px 0 15px 0;
+    }
+
+    .steps3MainContainer {
+        height: 230vh;
+        flex-direction: column;
+    }
+
+    .buttonThreeSteps {
+        margin: 25px;
+    }
+
+    /*          Customer services           */
+    .cardsContainerThreeSteps {
+        flex-direction: column;
+    }
+
+    .cardCustomerServiceContainer {
+        margin: 25px 0 50px 0;
+        width: 70%;
+        height: 120%;
+        text-align: center;
+    }
+
+    .customerServicesContainer {
+        flex-direction: column;
+    }
+
+    .itemCustomer {
+        margin: 15px;
+    }
+
+    /*        Partner        */
+    .cardBecomePartner {
+        width: 90%;
+        height: 60vh;
+    }
+
+    .buttonCustomerServices {
+        width: 220px;
+        height: 50px;
+        margin: 15px 0 25px 0;
+    }
+
+    .becomePartnerTextAndButton {
+        text-align: start;
+    }
+}

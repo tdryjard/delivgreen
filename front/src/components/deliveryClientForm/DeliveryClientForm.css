@@ -1,0 +1,40 @@
+.delivery_heading {
+    display: flex;
+    align-items: center;
+}
+
+.delivery_heading img {
+    height: 64px;
+    margin-right: 20px;
+    filter: drop-shadow(2px 2px 1px var(--gray));
+}
+
+.delivery-client-price {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.delivery-client-price .price-tip {
+    text-decoration: underline;
+}
+
+.popup-info {
+    background-color: var(--red);
+  color: white;
+  font-weight: 500;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  }
+  

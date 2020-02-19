@@ -2,18 +2,74 @@
 
 .orderCardMainContainer {
     font-family: Roboto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.showDetailsDashboard {
+.getTheDelivery {
+    cursor: pointer;
     border: none;
-    width: 70%;
+    width: 60%;
     background-color: #17B994;
     padding: 10px;
     border-radius: 20px;
     color: white;
+    text-decoration: none;
+    margin-left: 5px;
+}
+.showDetailsDashboard::-moz-focus-inner {
+    outline: none;
+    border: 0;
+}
+
+.itemArrayMyOrders {
+
+}
+
+.showDetailsDashboard {
+    cursor: pointer;
+    border: solid 2px #17B994;
+    margin-right: 5px;
+    box-sizing: border-box;
+    width: 60%;
+    color: #17B994;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.getTheDelivery::-moz-focus-inner {
+    outline: none;
+    border: 0;
+}
+
+.buttonContainerOrders {
+    display: flex;
+    width: 250px;
+    height: 50px;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .orderCardTitle {
     font-size: 24px;
     margin: 5px;
+}
+
+@media (max-width: 1060px) {
+    .buttonContainerOrders {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .showDetailsDashboard {
+        margin: 0 0 5px 0;
+    }
+
+    .getTheDelivery {
+        margin: 5px 0 0 0;
+    }
 }

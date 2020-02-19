@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './accueil.css';
 import Footer from '../footer/Footer';
 import NavBar from '../NavBar/NavBar';
@@ -22,14 +23,9 @@ const Accueil = () => {
       <NavBar />
       <head className="headAccueil">
         <div className="beClient">
-          <button type="button" className="headText1">
-            Je veux faire livrer un colis
-          </button>
-        </div>
-        <div className="beDeliver">
-          <button type="button" className="headText2">
-            Devenir livreur DelivGreen
-          </button>
+          <Link to="/demande-livraison" className="headText1">
+            Faire livrer un colis
+          </Link>
         </div>
       </head>
 
@@ -40,7 +36,7 @@ const Accueil = () => {
             <div>
               <img
                 className="ecoLogo"
-                src={require('./image/ecoLogo.png')}
+                src={require('../LandingPage/images/ecoLogo.png')}
                 alt="ecologie logo"
               />
             </div>

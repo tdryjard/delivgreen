@@ -1,0 +1,176 @@
+.ordersContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -220px;
+}
+
+.contentOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: rgb(85, 85, 85);
+    border-radius: 15px;
+    width: 80%;
+    height: auto;
+    margin-top: 30px;
+}
+
+.buttonViewMore{
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 30px;
+    min-width: 130px;
+    cursor: pointer;
+}
+
+.textOrderAddress{
+    color: rgb(235, 235, 235);
+    width: 60%;
+ }
+
+ .textOrderAddressRapport{
+    color: rgb(235, 235, 235);
+    width: 60%;
+    font-weight: bold;
+    font-size: 20px;
+ }
+
+.textOrderAddressEnd{
+   color: #17B994;
+   width: 60%;
+}
+
+.contentAddressOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #17B994;
+    margin-right: 30px;
+    padding: 5px;
+    width: 30%;
+    border-radius: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    min-height: 80px;
+}
+
+.contentAddressOrderEnd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    margin-right: 30px;
+    padding: 5px;
+    width: 30%;
+    border-radius: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    min-height: 80px;
+}
+
+.contentPrincipalInfoOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+}
+
+.iconWazeOrder{
+    height: 50px;
+    width: auto;
+    background-color: rgb(109, 109, 109);
+    border-radius: 50px;
+    padding: 5px;
+    margin-left: 25%;
+}
+
+.contentSecondInfoOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    animation: secondInfo 1s;
+}
+
+@keyframes secondInfo{
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+.textOrder{
+    margin-left: 7%;
+    width: auto;
+    color: white;
+}
+
+.contentSeeMore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1280px){
+    .contentPrincipalInfoOrder{
+        flex-direction: column;
+        width: 100%;
+    }
+    .contentSeeMore{
+        flex-direction: column;
+        
+    }
+    .contentAddressOrder{
+        flex-direction: column;
+        width: 90%;
+        min-height: 100px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+    .buttonViewMore{
+        padding: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-weight: bold;
+        font-size: 13px;
+        margin-left: 0;
+        margin-bottom: 10px; 
+        margin-top: 10px;
+        width: 100px;
+    }
+    .iconWazeOrder{
+        margin: 0;
+        height: 40px;
+    }
+    .textOrderAddress{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+        min-height: 30px;
+    }
+    .textOrder{
+        text-align: center;
+        font-size: 12px;
+    }
+}

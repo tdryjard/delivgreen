@@ -1,0 +1,98 @@
+@import '../../../Variables.css';
+
+.announcement-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: solid var(--light-gray) 2px;
+    padding: 8px 16px;
+    margin: 16px;
+}
+
+.announcement-card .name {
+    font-size: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.minimum-info-ctn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.announcement-infos {
+    width: 100%;
+    display: none;
+    margin: 16px 0;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.announcement-infos.more-info {
+    display: block;
+    background: var(--light-gray);
+    padding: 24px;
+}
+
+.announcement-infos .info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.announcement-infos .manage-btn {
+    margin-top: 8px;
+    margin-right: 24px;
+}
+
+.announcement-card .info-title {
+    font-weight: bold;
+}
+
+.manage-btn-ctn {
+    flex-shrink: 0;
+}
+
+.manage-btn {
+    border: none;
+    padding: 8px 16px;
+    background: var(--light-black);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.accept-btn {
+    background: var(--green);
+}
+
+.refuse-btn {
+    background: var(--red);
+}
+
+.manage-btn:hover {
+    text-decoration: underline;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .announcement-infos .info {
+        display: flex;
+        flex-direction: column;
+        width: unset;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .manage-btn {
+        font-size: 14px;
+    }
+}

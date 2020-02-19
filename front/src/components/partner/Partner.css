@@ -1,0 +1,307 @@
+@font-face {
+    font-family: 'Fredoka One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Fredoka One'), local('FredokaOne-Regular'), url(https://fonts.gstatic.com/s/fredokaone/v7/k3kUo8kEI-tA1RRcTZGmTlHGCac.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.partner-container{
+    height:100vh;
+    width:100%;
+}
+.threeStepsMainContainer {
+    background-color: #E3E4E6;
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.threeStepsTitle {
+    color: #17B994;
+    font-family: 'Archivo';
+}
+
+.threecards {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.stepsContainer {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    width: 25%;
+    box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+}
+
+.img1 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../partner/images/img1.png");
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.img2 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../partner/images/img2.jpg");
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.img3 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../partner/images/img3.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.textTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    background-color: white;
+    height: 60%;
+    width: 80%;
+}
+
+.textContextOfTiltle {
+    font-family: 'Archivo';
+    font-size: 28px;
+    margin: 15px;
+    color: #282c34;
+}
+
+.subtitleThreeSteps {
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+.threeStepsTitle {
+    color: #17B994;
+    font-family: 'Archivo';
+}
+
+.buttonPartner {
+    font-family: 'Archivo';
+    font-size: 24px;
+    margin: 25px 0 25px 0;
+    width: 250px;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.threecards2 {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.stepsContainer2 {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    width: 25%;
+    box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.stepsContainer2:hover{
+	-webkit-transform: scale(1.3);
+    transform: scale(1.1);
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+.particularimg {
+    width: 100%;
+    height: 60%;
+    background-image: url("../partner/images/particulier.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size:25pt;
+    font-weight:800;
+    color:white;
+    padding-top:15%;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+
+.subtitleThreeSteps2 {
+    font-size: 16px;
+    color: #3a3a3a;
+    text-align: center;
+}
+
+.steedimg {
+    width: 100%;
+    height: 60%;
+    background-image: url("../partner/images/scooter.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size:25pt;
+    font-weight: 800;
+    color:white;
+    padding-top:15%;
+}
+
+.carrierimg {
+    width: 100%;
+    height: 60%;
+    background-image: url("../partner/images/transporter.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size:25pt;
+    font-weight: 800;
+    color:white;
+    padding-top:15%;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+
+
+.footerAccueil{
+    margin-top:-50px;
+}
+
+@media screen and (max-width: 1060px) {
+    
+    .partner-container{
+        height:150vh;
+        width:100%;
+    }
+
+    .threeStepsMainContainer {
+       display: none !important;
+    }
+
+    .threecards2 {
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        display: table;
+        align-items: center;
+    }
+
+    .stepsContainer2 {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 55%;
+        width: 100%;
+        box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+        -webkit-transform: none;
+        transform: none;
+        -webkit-transition: none;
+        transition: none;
+        -webkit-filter: none;
+        filter: none;
+        -webkit-transition: none;
+        transition: none;
+    }
+    .particularimg {
+        width: 100%;
+        height: 60%;
+        background-image: url("../partner/images/particulier.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size:25pt;
+        font-weight:800;
+        color:white;
+        padding-top:15%;
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    
+    
+    .steedimg {
+        width: 100%;
+        height: 60%;
+        background-image: url("../partner/images/scooter.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size:25pt;
+        font-weight: 800;
+        color:white;
+        padding-top:15%;
+    }
+    
+    .carrierimg {
+        width: 100%;
+        height: 60%;
+        background-image: url("../partner/images/transporter.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size:25pt;
+        font-weight: 800;
+        color:white;
+        padding-top:15%;
+    }
+    .footerContainer {
+        height: 50%;
+        margin-top: 170%;
+        align-content: center;
+    }
+    .footerAccueil {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+  }

@@ -24,8 +24,8 @@
 .crossIconNavBarDashboard {
     color: #17B994;
     position: absolute;
-    left: 80%;
-    top: 4%;
+    left: 85%;
+    top: 5%;
 }
 
 @keyframes fade-in {

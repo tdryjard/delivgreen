@@ -9,14 +9,6 @@
     background-color: lightgrey;
 }
 
-.titleContainer {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    border-radius: 15px;
-    margin-bottom: 25px;
-}
-
 .title1 {
     color: gray();
 }
@@ -62,37 +54,134 @@
     align-items: center;
 }
 
-.ordersContainerTitle {
-    width: 35%;
-    margin: -20% 0 0 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.tableMainContainerOrder {
+    width: 75%;
 }
 
-.ordersContainer {
+.myOrdersContainerList {
+    margin-top: -250px;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 90%;
+    height: 75vh;
+    border-radius: 5px;
+}
+
+.legendContainer {
+    position: absolute;
+    top: 5%;
+    left: 55%;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.legendIconAndText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 8px;
+}
+
+.titleMyOrders {
+    color: #17B994;
+    font-size: 38px;
+    text-align: center;
+}
+
+.headerArray {
+    border: 1px solid #3a3a3a;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.containerOrderInTable {
+    width: 90%;
+    border: solid 1px #3a3a3a;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.itemListOrders {
+    text-align: center;
+}
+
+.tableHeaderOrders {
+    width: 10%;
+    font-size: 24px;
+}
+
+.orderContainerInArray {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemArrayMyOrders {
+    padding: 15px;
+    border: 1px solid #3a3a3a;
+}
+
+.ordersArrayHeader {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    color: black;
+}
+
+.buttonActionOrder {
+    color: white;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 25px 0 25px;
     border-radius: 15px;
+    background-color: #17B994;
+    cursor: pointer;
+}
+.buttonActionOrder:hover {
+    transform: scale(1.1);
 }
 
-.closeButtonNavBarMobile {
-    display: none;
+.buttonDetailsOrder {
+    text-align: center;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 0 25px 0 25px;
+    box-sizing: border-box;
+    border: #17B994 solid 1px;
+    color: #17B994;
+    cursor: pointer;
 }
-
-.openButtonNavBarMobile {
-    display: none;
+.buttonDetailsOrder:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 1060px) {
+    .myOrdersContainerList {
+        margin-top: -170px;
+        height: 70vh;
+    }
     .ordersCardContainer {
         flex-direction: column;
         width: 100%;
+        height: 55vh;
         align-items: center;
         justify-content: center;
+    }
+
+    .legendContainer {
+        padding: 5px;
+        top: 11%;
+        left: 20%;
     }
 
     .closeButtonNavBarMobile {
@@ -102,9 +191,8 @@
         color: black;
     }
 
-    .titleContainer {
-        width: 100%;
-        text-align: center;
+    .titleMyOrders {
+        font-size: 26px;
     }
 
     .closeButtonNavBarMobile {
@@ -115,17 +203,25 @@
         display: initial;
     }
 
-    .ordersContainer {
-        width: 70%;
-    }
-
     .ordersContainerTitle {
         margin: 15px;
         width: 95%;
         align-items: center;
     }
 
-    .title1 {
-        margin-top: -190px;
+    .tableHeaderOrders {
+        width: 75px;
+        font-size: 14px;
+    }
+
+    .itemTableOrders {
+        font-size: 14px;
+    }
+
+    .buttonDetailsOrder {
+        margin: 0;
+    }
+    .buttonActionOrder {
+        margin: 0;
     }
 }
