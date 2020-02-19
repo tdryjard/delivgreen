@@ -7,7 +7,7 @@ const Orders = function(orders) {
 
 Orders.findOrders = result => {
   db.query(
-    `SELECT orders.length, orders.id, orders.height, orders.weight, orders.publish_date, orders.limit_date, orders.price,
+    `SELECT orders.lngt, orders.id, orders.height, orders.weight, orders.publish_date, orders.limit_date, orders.price,
               orders.start_address_id, start.name AS start_address_name, start.lat AS start_address_lat, start.lng AS start_address_lng,
               orders.end_address_id, end.name AS end_address_name, end.lat AS end_address_lat, end.lng AS end_address_lng
               FROM orders
@@ -49,8 +49,8 @@ Orders.updateOrder = (userId, orders, result) => {
         return result(error, null);
       }
 
-      if (dbResult.length) {
-        return result(null, dbResult);
+      if (dbResult.affectedRows) {
+        return result(null, { orders });
       }
       return result({ kind: 'not_found' }, null);
     }

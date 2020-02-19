@@ -42,17 +42,15 @@ exports.updateOrder = (request, response) => {
     (error, data) => {
       if (error) {
         if (error.kind === 'not_found') {
-          response.status(404).send({
+          return response.status(404).send({
             message: `pas d'ordre à numéro ${request.params.orderId}.`
           });
-        } else {
-          response.status(500).send({
-            message: `nous ne pouvons pas vous attribuer l'ordre n° ${request.params.orderId}`
-          });
         }
-      } else {
-        response.send(data);
+        return response.status(500).send({
+          message: `nous ne pouvons pas vous attribuer l'ordre n° ${request.params.orderId}`
+        });
       }
+      return response.status(200).send(data);
     }
   );
 };
