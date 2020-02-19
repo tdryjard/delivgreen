@@ -38,7 +38,6 @@ const Adhesion = () => {
               name="perimeter"
               placeholder="Périmètre"
             />
-            />
             {pro ? (
               <div className="containerPro">
                 <input
