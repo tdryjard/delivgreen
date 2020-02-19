@@ -52,6 +52,16 @@ const InfosDashboard = () => {
               />
               <FontAwesomeIcon className="far editIcon fa-2x" icon={faEdit} />
             </label>
+            <label className="inputLabelDashboard" htmlFor="phone">
+              N° TVA
+              <input
+                className="inputMyInfosDashboard"
+                id="phone"
+                type="tel"
+                value="06 51 78 52 48"
+              />
+              <FontAwesomeIcon className="far editIcon fa-2x" icon={faEdit} />
+            </label>
           </div>
         </div>
       </div>
