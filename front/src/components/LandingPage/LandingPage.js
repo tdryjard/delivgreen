@@ -58,7 +58,7 @@ const LandingPage = () => {
 
       {/*     3 steps attempt     */}
 
-      <div className="threeStepsMainContainer">
+      <div className="threeStepsBigContainer">
         <h1 className="threeStepsTitle">3 étapes pour livrer un colis</h1>
         <h3>Faire livrer n'a jamais été aussi simple</h3>
         <div className="cardsContainerThreeSteps">
