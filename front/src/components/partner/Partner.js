@@ -8,60 +8,83 @@ const Partner = () => {
   return (
     <div className="partner-container">
       <NavBar />
-      <div className="headband">
-        <div className="container-headband">
-          Devenir partenaire chez Deliv'green
-        </div>
-      </div>
-
-      <div className="steps">
-        <div className="steps-title">En 3 étapes</div>
-      </div>
-      <div className="the-logos">
-        <div className="logo-1" />
-        <div className="logo-2" />
-        <div className="logo-3" />
-      </div>
-
-      <div className="delivery-part">
-        <div className="delivery-title">Livrer avec Déliv'Green</div>
-        <div className="first-part">
-          <div className="image-1" />
-          <div className="text-part-1">
-            <div className="title-image-1">
-              <Link to="/adhesion">Pourquoi devenir particulier ?</Link>
-            </div>
-            <div className="text-image-1">
-              Grâce a Deliv'green vous pouvez faire autant de mission que vous
-              souhaitez
+      <div className="threeStepsMainContainer">
+        <h1 className="threeStepsTitle">
+          Devenir partenaire chez Deliv'green en 3 étapes
+        </h1>
+        <h3>Devenir partenaire chez Deliv'green n'a jamais été aussi simple</h3>
+        <div className="threecards">
+          <div className="stepsContainer">
+            <div className="img1" />
+            <div className="textTitle">
+              <h1 className="textContextOfTiltle">Demande d'adhésion</h1>
+              <h3 className="subtitleThreeSteps">
+                Je renseigne mes informations (nom, prénom, email, kbis de moins
+                de 3ans...)
+              </h3>
             </div>
           </div>
-        </div>
-        <div className="second-part">
-          <div className="image-2" />
-        </div>
-        <div className="text-part-2">
-          <div className="title-image-2">
-            <Link to="/adhesion">Pourquoi devenir coursier ?</Link>
+          <div className="stepsContainer">
+            <div className="img2" />
+            <div className="textTitle">
+              <h1 className="textContextOfTiltle">
+                Je choisis les courses qui me conviennent
+              </h1>
+              <h3 className="subtitleThreeSteps">
+                Selon mon trajet et mes possibilités de déplacement
+              </h3>
+            </div>
           </div>
-          <div className="text-image-2">
-            Exercez comme prestataire de service! Travaillez à votre rythme
+          <div className="stepsContainer">
+            <div className="img3" />
+            <div className="textTitle">
+              <h1 className="textContextOfTiltle">
+                Je livre la commande et je reçois mon argent
+              </h1>
+              <h3 className="subtitleThreeSteps">
+                Livrez de manière sécuriser avec signature apres reception du
+                colis
+              </h3>
+            </div>
           </div>
+        </div>
+        <Link to="/adhesion" type="button" className="buttonPartner">
+          Devenir partenaire
+        </Link>
+      </div>
+
+      <div className="threecards2">
+        <div className="stepsContainer2">
+          <Link to="/adhesion" className="particularimg">
+            Particular
+          </Link>
+          <h3 className="subtitleThreeSteps2">
+            Je renseigne mes informations (nom, prénom, email, kbis de moins de
+            3ans...)
+          </h3>
         </div>
 
-        <div className="third-part">
-          <div className="image-3" />
-        </div>
-        <div className="text-part-3">
-          <div className="title-image-3">
-            <Link to="/adhesion">Pourquoi devenir transporteur ?</Link>
+        <div className="stepsContainer2">
+          <Link to="/adhesion" className="steedimg">
+            Steed
+          </Link>
+          <h3 className="subtitleThreeSteps2">
+            Selon mon trajet et mes possibilités de déplacement
+          </h3>
+
+          <div className="stepsContainer2">
+            <Link to="/adhesion" className="carrierimg">
+              Carrier
+            </Link>
+
+            <h3 className="subtitleThreeSteps2">
+              Livrez de manière sécuriser avec signature apres reception du
+              colis
+            </h3>
           </div>
-          <div className="text-image-3">
-            A vous de transporter et de livrer les colis des clients!
-          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };

@@ -8,7 +8,7 @@ const Footer = () => {
       <footer className="footerAccueil">
         <div className="column1Footer">
           <h1>Deliv'Green</h1>
-          <Link to="/" className="urlFooter">
+          <Link to="/demande-livraison" className="urlFooter">
             Proposer une course
           </Link>
           <Link to="/signin" className="urlFooter">
@@ -17,7 +17,7 @@ const Footer = () => {
           <Link to="/signup" className="urlFooter">
             Connexion
           </Link>
-          <Link to="/" className="urlFooter">
+          <Link to="/partner" className="urlFooter">
             Devenez partenaire
           </Link>
         </div>
@@ -26,7 +26,7 @@ const Footer = () => {
           <Link to="/" className="urlFooter">
             Politique de confidentialité
           </Link>
-          <Link to="/" className="urlFooter">
+          <Link to="/contact" className="urlFooter">
             Nous contacter
           </Link>
           <Link to="/" className="urlFooter">
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
         <div className="column3Footer">
           <img
-            src={require('./images/logo-transparent-blanc.png')}
+            src={require('../LandingPage/images/LOGO-DELIVGREEN.png')}
             alt="logo"
             className="logoFooter"
           />

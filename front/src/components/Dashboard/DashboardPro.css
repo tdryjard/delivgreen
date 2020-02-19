@@ -290,4 +290,8 @@
     .announceContainerDashboard {
         height: 30%;
     }
+
+    .moreDetailsButton {
+        width: 75px;
+    }
 }
