@@ -6,6 +6,8 @@ import './DeliveryClientForm.css';
 import Input from '../formElements/Input';
 import { useState } from 'react';
 import { useRef } from 'react';
+import Navbar from '../NavBar/NavBar';
+import Footer from '../footer/Footer';
 
 function DeliveryClientForm() {
 
@@ -59,6 +61,7 @@ function DeliveryClientForm() {
 	
 	return (
 		<div className='sign-ctn'>
+			<Navbar/>
 			<div className="delivery_heading">
 				<img src={require('../images/delivery_client_form.svg')} alt="delivery logo" />
 				<h1>Faites-vous livrer un colis</h1>
@@ -103,6 +106,7 @@ function DeliveryClientForm() {
 
 				<button type='submit' className='btn'>Valider</button>
 			</form>
+			<Footer/>
 		</div>
 	)
 }
