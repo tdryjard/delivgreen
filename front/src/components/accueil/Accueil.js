@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './accueil.css';
 import Footer from '../footer/Footer';
 import NavBar from '../NavBar/NavBar';
@@ -22,9 +23,9 @@ const Accueil = () => {
       <NavBar />
       <head className="headAccueil">
         <div className="beClient">
-          <button type="button" className="headText1">
+          <Link to="/demande-livraison" className="headText1">
             Faire livrer un colis
-          </button>
+          </Link>
         </div>
       </head>
 

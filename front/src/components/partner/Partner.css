@@ -10,419 +10,279 @@
     height:100vh;
     width:100%;
 }
-
-.headband{
-    background-color: #00BA8E;
-    height:15%;
-    width:100%;
-    padding-top:5%;
+.threeStepsMainContainer {
+    background-color: #E3E4E6;
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.container-headband{
+
+.threeStepsTitle {
+    color: #17B994;
+    font-family: 'Archivo';
+}
+
+.threecards {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.stepsContainer {
     background-color: white;
-    height:auto;
-    width: 50%;
-    display:flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    width: 25%;
+    box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+}
+
+.img1 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../partner/images/img1.png");
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.img2 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../partner/images/img2.jpg");
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.img3 {
+    width: 100%;
+    height: 40%;
+    background-image: url("../partner/images/img3.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.textTitle {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    color: #00BA8E;
-    padding:5px;
-    font-size: xxx-large;
-    font-family: Fredoka One;
-    margin-left:25%;
-}
-
-.steps-title{
-    font-size: 30pt;
-    font-weight: none;
-    font-family: Fredoka One;
-    color: black;
     text-align: center;
-    margin-top:5%;
-}
-
-.the-logos{
-    height: 70%;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: -15%;
-}
-
-.logo-1{
-    background-image: url("./images/adhesion.png");
-    background-repeat: no-repeat;
-    height: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-position: center;
-}
-
-.logo-2{
-    background-image: url("./images/course.png");
-    background-repeat: no-repeat;
-    height: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-position: center;
-}
-.logo-3{
-    background-image: url("./images/cmd.png");
-    background-repeat: no-repeat;
-    height: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-position: center;
-}
-
-
-.delivery-title{
-    font-size: 30pt;
-    font-weight: none;
-    font-family: Fredoka One;
-    color: black;
-    text-align: center;
-    justify-content: center;
-    padding-top:2%;
-}
-
-.delivery-part{
-    background-color: #DADADA;
-    height: 100%;
-    width:100%;
-}
-
-.the-delivery{
+    font-size: 10px;
+    background-color: white;
     height: 60%;
-    width: 100%;
-    justify-content: flex-start;
-    margin-top: 2%;
+    width: 80%;
 }
 
-.first-part{
-    height:20%;
-    margin-right: auto;
-    line-height: 2rem;
-    text-align: center;
+.textContextOfTiltle {
+    font-family: 'Archivo';
+    font-size: 28px;
+    margin: 15px;
+    color: #282c34;
+}
+
+.subtitleThreeSteps {
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+.threeStepsTitle {
+    color: #17B994;
+    font-family: 'Archivo';
+}
+
+.buttonPartner {
+    font-family: 'Archivo';
+    font-size: 24px;
+    margin: 25px 0 25px 0;
+    width: 250px;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
+.threecards2 {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
 
-.image-1{
-    background-image: url("./images/bycicle.png");
+.stepsContainer2 {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    width: 25%;
+    box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.stepsContainer2:hover{
+	-webkit-transform: scale(1.3);
+    transform: scale(1.1);
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+.particularimg {
+    width: 100%;
+    height: 60%;
+    background-image: url("../partner/images/particulier.png");
+    background-size: cover;
     background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size:25pt;
+    font-weight:800;
+    color:white;
+    padding-top:15%;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+
+.subtitleThreeSteps2 {
+    font-size: 16px;
+    color: #3a3a3a;
+    text-align: center;
+}
+
+.steedimg {
     width: 100%;
-    height:110%;
-    justify-content: center;
-    background-position: center;
-    display:flex;
-    cursor: pointer;
-}
-
-
-.title-image-1{
-    font-size: 20pt;
-    font-weight: none;
-    font-family: Fredoka One;
-    color: black;
-    text-align: center;
-    cursor: pointer;
-}
-
-.title-image-1:hover{
-    color:#00BA8E;
-    cursor: pointer;
-}
-
-.text-part-1{
-    justify-content: center;
-    text-align: center;
-}
-.second-part{
-    height:20%;
-    margin-right: auto;
-    line-height: 2rem;
-    text-align: center;
-    justify-content: center;   
-}
-
-.image-2{
-    background-image: url("./images/scooter.png");
+    height: 60%;
+    background-image: url("../partner/images/scooter.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size:25pt;
+    font-weight: 800;
+    color:white;
+    padding-top:15%;
+}
+
+.carrierimg {
     width: 100%;
-    margin-top:5%;
-    justify-content: center;
-    background-position: center;
-    transform: scale(0.9);
-    display:flex;
-    cursor: pointer;
-}
-
-.title-image-2{
-    font-size: 20pt;
-    font-weight: none;
-    font-family: Fredoka One;
-    color: black;
-    text-align: center;
-}
-
-.title-image-2:hover{
-    color:#00BA8E;
-    cursor: pointer;
-}
-
-.text-part-2{
-    justify-content: center;
-    text-align: center;
-}
-
-.third-part{
-    height:20%;
-    margin-right: auto;
-    line-height: 2rem;
-    text-align: center;
-    justify-content: center;
-}
-
-.image-3{
-    background-image: url("./images/carrier.png");
+    height: 60%;
+    background-image: url("../partner/images/transporter.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    background-position: center;
-    transform: scale(0.9);
-    display:flex;
-    cursor: pointer;
-}
-
-.title-image-3{
-    font-size: 20pt;
-    font-weight: none;
-    font-family: Fredoka One;
-    color: black;
     text-align: center;
-}
-
-.title-image-3:hover{
-    color:#00BA8E;
-    cursor: pointer;
-}
-
-.text-part-3{
+    display: flex;
     justify-content: center;
-    text-align: center;
+    font-size:25pt;
+    font-weight: 800;
+    color:white;
+    padding-top:15%;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
-.footerAccueil{
-    margin-top:-50px;
-}
-
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1060px) {
 
     .partner-container{
-        height:100vh;
+        height:150vh;
         width:100%;
     }
 
-    .headband{
-        background-color: #00BA8E;
-        height:15%;
-        width:100%;
-        padding-top:5%;
+    .threeStepsMainContainer {
+       display: none !important;
     }
 
-    .container-headband{
-        background-color: white;
-        height:auto;
-        width: 40%;
-        display:flex;
-        justify-content: center;
+    .threecards2 {
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        display: table;
         align-items: center;
+    }
+
+    .stepsContainer2 {
+        background-color: white;
+        display: flex;
         flex-direction: column;
-        color: #00BA8E;
-        padding:5px;
-        font-size: 20pt;
-        font-family: Fredoka One;
-        margin-left:25%;
-    }
-
-    .steps-title{
-        display:none;
-    }
-    
-    .steps{
-        display:none
-    }
-    
-    .logo-1{
-        display:none;
-    }
-    
-    .logo-2{
-        display:none;
-        
-    }
-    .logo-3{
-        display:none;
-    }
-
-    .container-headband{
-        background-color: white;
-        height:auto;
-        width:100%;
-        justify-content: center;
-        display: table-row;
-        text-align: center;
         align-items: center;
-        color: #00BA8E;
-        padding:5px;
-        font-size: x-large;
-        font-family: Fredoka One;
-    }
-
-    .headband{
-        background-color: #00BA8E;
-        height:10%;
-        width:100%;
-        padding-top:5%;
-        align-content: center;
-    }
-
-    .delivery-part{
-        background-color: white;
-        height: 110%;
-        width:100%;
-        margin-top:-120%;
-        margin-bottom:10%;
-    }
-
-    .delivery-title{
-        font-size: 20pt;
-        font-weight: none;
-        font-family: Fredoka One;
-        color: black;
-        text-align: center;
-        justify-content: center;
-        padding-top:2%;
-    }
-
-    .first-part{
-        height:20%;
-        margin-right: auto;
-        line-height: 1.3rem;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .image-1{
-        background-image: url("./images/bycicle.png");
-        background-repeat: no-repeat;
-        width: 100%;     
-        height:110%;
-        justify-content: center;
-        background-position: center;
-        display:flex;
-        transform: scale(0.7);
-    }
-    
-    .title-image-1{
-        font-size: 15pt;
-        font-weight: none;
-        font-family: Fredoka One;
-        color:  #00BA8E;
-        text-align: center;
-        line-height: 1.5rem;
-        margin-top:-3%;
-    }
-
-    .text-part-1{
-        justify-content: center;
-        text-align: center;
-        font-size: 10pt;
-        width:90%;
-        margin-left:5%;
-    }
-
-    .second-part{
-        height:20%;
-        margin-right: auto;
-        line-height: 1.3rem;
-        text-align: center;
-        justify-content: center;   
-    }
-
-    .image-2{
-        background-image: url("./images/scooter.png");
-        background-repeat: no-repeat;
-        height: 150%;
+        height: 55%;
         width: 100%;
-        margin-top:15%;
-        justify-content: center;
-        background-position: center;
-        transform: scale(0.7);
-        display:flex;
-
+        box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+        -webkit-transform: none;
+        transform: none;
+        -webkit-transition: none;
+        transition: none;
+        -webkit-filter: none;
+        filter: none;
+        -webkit-transition: none;
+        transition: none;
     }
-
-    .title-image-2{
-        font-size: 15pt;
-        font-weight: none;
-        font-family: Fredoka One;
-        color:  #00BA8E;
-        text-align: center;
-        line-height: 1.5rem;
-        margin-top:13%;
-    }
-
-    .text-part-2{
-        justify-content: center;
-        text-align: center;
-        font-size: 10pt;
-        width:90%;
-        margin-left: 5%;
-    }
-
-    .third-part{
-        height:20%;
-        margin-right: auto;
-        line-height: 1.3rem;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .image-3{
-        background-image: url("./images/carrier.png");
-        background-repeat: no-repeat;
-        height: 120%;
+    .particularimg {
         width: 100%;
-        justify-content: center;
-        background-position: center;
-        transform: scale(0.7);
-        display:flex;
-        margin-top:2%;
-    }
-    
-    .title-image-3{
-        font-size: 15pt;
-        font-weight: none;
-        font-family: Fredoka One;
-        color:  #00BA8E;
+        height: 60%;
+        background-image: url("../partner/images/particulier.png");
+        background-size: cover;
+        background-repeat: no-repeat;
         text-align: center;
-        line-height: 1.5rem;
-        margin-top:3%;
-
+        display: flex;
+        justify-content: center;
+        font-size:25pt;
+        font-weight:800;
+        color:white;
+        padding-top:15%;
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
     }
 
-    .text-part-3{
-        justify-content: center;
+
+    .steedimg {
+        width: 100%;
+        height: 60%;
+        background-image: url("../partner/images/scooter.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
         text-align: center;
-        font-size: 10pt;
-        width:90%;
-        margin-left: 5%;
+        display: flex;
+        justify-content: center;
+        font-size:25pt;
+        font-weight: 800;
+        color:white;
+        padding-top:15%;
     }
-    
+
+    .carrierimg {
+        width: 100%;
+        height: 60%;
+        background-image: url("../partner/images/transporter.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size:25pt;
+        font-weight: 800;
+        color:white;
+        padding-top:15%;
+    }
   }

@@ -22,8 +22,10 @@ const NavBarDashboard = () => {
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
-              <FontAwesomeIcon className="fas fa-2x" icon={faTachometerAlt} />
-              <i className="fas fa-2x fa-tachometer-alt" />
+              <FontAwesomeIcon
+                className="fas fa-2x iconNavBarDashboard"
+                icon={faTachometerAlt}
+              />
             </div>
             <p className="itemDashboardNavBar">Tableau de bord</p>
           </div>
@@ -36,11 +38,11 @@ const NavBarDashboard = () => {
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
               <FontAwesomeIcon
-                className="fas fa-2x fa-bullhorn"
+                className="fas fa-2x fa-bullhorn iconNavBarDashboard"
                 icon={faBullhorn}
               />
             </div>
-            <p className="itemDashboardNavBar">Annonces disponnibles</p>
+            <p className="itemDashboardNavBar">Annonces disponibles</p>
           </div>
         </NavLink>
         <NavLink
@@ -50,9 +52,12 @@ const NavBarDashboard = () => {
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
-              <FontAwesomeIcon className="fas fa-2x" icon={faTruckLoading} />
+              <FontAwesomeIcon
+                className="fas fa-2x iconNavBarDashboard"
+                icon={faTruckLoading}
+              />
             </div>
-            <p className="itemDashboardNavBar">Commandes réalisées</p>
+            <p className="itemDashboardNavBar">Commandes en cours</p>
           </div>
         </NavLink>
         <NavLink
@@ -62,7 +67,10 @@ const NavBarDashboard = () => {
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
-              <FontAwesomeIcon className="far fa-2x" icon={faFileAlt} />
+              <FontAwesomeIcon
+                className="far fa-2x iconNavBarDashboard"
+                icon={faFileAlt}
+              />
             </div>
             <p className="itemDashboardNavBar">Livraisons effectuées</p>
           </div>
@@ -70,11 +78,14 @@ const NavBarDashboard = () => {
         <NavLink
           className="navLinkDashboard"
           activeClassName="itemListNavBarDashboard"
-          to="/mes-infos"
+          to="/informations-pro"
         >
           <div className="containerItemNavBarDashboard">
             <div className="logoContainerDashboardNavBar">
-              <FontAwesomeIcon className="far fa-2x" icon={faAddressCard} />
+              <FontAwesomeIcon
+                className="far fa-2x iconNavBarDashboard"
+                icon={faAddressCard}
+              />
             </div>
             <p className="itemDashboardNavBar">Informations</p>
           </div>

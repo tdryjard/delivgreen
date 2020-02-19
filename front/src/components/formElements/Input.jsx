@@ -1,11 +1,16 @@
 import React from 'react';
 
-function Input({ label = {}, attributes }) {
+function Input({ label = {}, attributes, reference }) {
+
+    const userTyping = function detectUserTyping (event) {
+        event.currentTarget.classList.remove('error');
+    }
+
     return (
         <>
             <label htmlFor={label.for}>
                 {label.text}
-                <input {...attributes}/>
+                <input {...attributes} ref={reference} onChange={userTyping} />
             </label>
         </>
     )

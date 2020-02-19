@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', orders.findOrders);
 
-router.get('/:userId/historique', orders.findOrdersByUser);
+router.post('/', orders.create);
 
 router.put('/:orderId', orders.updateOrder);
 

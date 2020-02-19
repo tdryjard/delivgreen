@@ -7,8 +7,8 @@ const Footer = () => {
     <div className="footerContainer">
       <footer className="footerAccueil">
         <div className="column1Footer">
-          <h1>Deliv'Green</h1>
-          <Link to="/" className="urlFooter">
+          <h1 style={{ color: '#17B994' }}>Deliv'Green</h1>
+          <Link to="/demande-livraison" className="urlFooter">
             Proposer une course
           </Link>
           <Link to="/signin" className="urlFooter">
@@ -17,16 +17,16 @@ const Footer = () => {
           <Link to="/signup" className="urlFooter">
             Connexion
           </Link>
-          <Link to="/" className="urlFooter">
+          <Link to="/partner" className="urlFooter">
             Devenez partenaire
           </Link>
         </div>
         <div className="column2Footer">
-          <h1>A propos</h1>
+          <h1 style={{ color: '#17B994' }}>A propos</h1>
           <Link to="/" className="urlFooter">
             Politique de confidentialité
           </Link>
-          <Link to="/" className="urlFooter">
+          <Link to="/contact" className="urlFooter">
             Nous contacter
           </Link>
           <Link to="/" className="urlFooter">

@@ -6,7 +6,6 @@
 }
 
 .submitAndSignIn {
-    color: #3a3a3a;
     font-size: 18px;
     font-family: 'Archivo', sans-serif;
     cursor: pointer;
@@ -44,9 +43,9 @@
 }
 
 .itemListContainer {
-    background-color: white;
+    background-color: whitesmoke;
     position: absolute;
-    top: 10%;
+    top: 15%;
     animation: slidein;
     z-index: 3;
     animation-duration: 1s;

@@ -15,7 +15,6 @@ import MappingClient from './components/mapping/MappingClient';
 import DeliveryList from './components/ListDelivery/DeliveryList';
 import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
 import DetailList from './components/deliverymanDetail/DetailList';
-
 import Partner from './components/partner/Partner';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
@@ -25,6 +24,7 @@ import InfosDashboard from './components/Dashboard/InfosDashboard';
 import LandingPage from './components/LandingPage/LandingPage';
 import DashboardClient from './components/Dashboard/DashboardClient';
 import MyOrdersClient from './components/Dashboard/MyOrdersClient';
+import InfosClient from './components/Dashboard/InfosClient';
 
 function App() {
   return (
@@ -56,7 +56,8 @@ function App() {
       <Route path="/detail-list" component={DetailList} />
       <Route path="/signature" component={SignatureZone} />
       <Route path="/annonces" component={Announcement} />
-      <Route path="/mes-infos" component={InfosDashboard} />
+      <Route path="/informations-pro" component={InfosDashboard} />
+      <Route path="/mes-infos" component={InfosClient} />
       <Route path="/demande-livraison" component={DeliveryClientForm} />
     </Switch>
   );

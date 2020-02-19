@@ -13,7 +13,6 @@
     flex-direction: row;
     align-items: center;
     width: 70%;
-    height: 100%;
 }
 
 .urlFooter{
@@ -31,12 +30,14 @@
 .column1Footer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: whitesmoke;
 }
 
 .column2Footer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: whitesmoke;
 }
 

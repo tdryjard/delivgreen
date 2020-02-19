@@ -9,7 +9,7 @@
     transition: left .35s;
 }
 
-.icon {
+.sidebar-icon {
     position: fixed;
     left: 16px;
     top: 16px;

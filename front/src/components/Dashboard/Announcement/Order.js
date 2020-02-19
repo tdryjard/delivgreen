@@ -42,7 +42,9 @@ const Order = () => {
                 </a>
               </div>
               <div className="contentAddressOrderEnd">
-                <h4 className="textOrderAddress">{order.end_address_name}</h4>
+                <h4 className="textOrderAddressEnd">
+                  {order.end_address_name}
+                </h4>
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
@@ -59,7 +61,9 @@ const Order = () => {
                 <h4 className="textOrderAddress">
                   date limite {order.limit_date}
                 </h4>
-                <h4 className="textOrderAddress">rapport {order.price}€</h4>
+                <h4 className="textOrderAddressRapport">
+                  rapport {order.price}€
+                </h4>
                 {buttonView === true ? (
                   <button
                     type="button"
