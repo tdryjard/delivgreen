@@ -49,7 +49,6 @@ Orders.updateOrder = (userId, orders, result) => {
       if (error) {
         return result(error, null);
       }
-
       if (dbResult.affectedRows) {
         return result(null, { orders });
       }

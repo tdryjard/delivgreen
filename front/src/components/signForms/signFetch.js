@@ -1,4 +1,4 @@
-import urlApi from '../../config';
+import urlApi from '../api/api';
 
 const signIn = async function signInFetching(myBody) {
   try {
