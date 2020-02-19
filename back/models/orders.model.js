@@ -1,15 +1,8 @@
 const db = require('./database');
 
 const Orders = function(orders) {
-  this.start_address_id = orders.address_start;
-  this.end_address_id = orders.arrival_point;
-  this.lngt = orders.lngt;
-  this.height = orders.height;
-  this.weight = orders.weight;
-  this.limit_date = orders.limit_date;
-  this.price = orders.price;
-  this.publish_date = orders.publish_date;
   this.delivery_man_id = orders.delivery_man_id;
+  this.name = orders.name;
 };
 
 Orders.findOrders = result => {
@@ -30,20 +23,36 @@ Orders.findOrders = result => {
   );
 };
 
-Orders.updateOrder = (userId, orders, result) => {
+Orders.findOrdersByUser = (userId, result) => {
   db.query(
-    `UPDATE orders SET delivery_man_id = ? WHERE id = ?`,
-    [userId, orders],
-    (error, response) => {
+    'SELECT orders.publish_date, orders.arrival_date, orders.id from orders where orders.user_id = ?',
+    userId,
+    (error, dbResult) => {
       if (error) {
         return result(error, null);
       }
 
-      if (response.affectedRows === 0) {
-        return result({ kind: 'not_found' }, null);
+      if (dbResult.length) {
+        return result(null, dbResult);
+      }
+      return result({ kind: 'not_found' }, null);
+    }
+  );
+};
+
+Orders.updateOrder = (userId, orders, result) => {
+  db.query(
+    `UPDATE orders SET delivery_man_id = ? WHERE id = ?`,
+    [userId, orders],
+    (error, dbResult) => {
+      if (error) {
+        return result(error, null);
       }
 
-      return result(null, { id: Number(userId), ...orders });
+      if (dbResult.length) {
+        return result(null, dbResult);
+      }
+      return result({ kind: 'not_found' }, null);
     }
   );
 };
