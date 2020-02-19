@@ -20,7 +20,6 @@ const Historical = () => {
       .then(res => res.json())
       .then(res => {
         setOrders(res);
-        console.log(res);
       });
   }, []);
 
