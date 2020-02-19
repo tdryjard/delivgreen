@@ -29,6 +29,7 @@ User.findAll = result => {
 };
 
 User.findById = (userId, result) => {
+  console.log('uierfuh');
   db.query(`SELECT * FROM users WHERE id = ${userId}`, (error, dbResult) => {
     if (error) {
       return result(error, null);
