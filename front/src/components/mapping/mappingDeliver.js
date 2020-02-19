@@ -82,25 +82,26 @@ const MappingDeliver = () => {
       >
         <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
 
-        {orders.map(order => {
-          return (
-            <Marker
-              className="dalu"
-              position={[order.start_address_lat, order.start_address_lng]}
-            >
-              <Popup>
-                <button
-                  className="popupButton"
-                  onClick={markerClick}
-                  id={order.id}
-                  type="button"
-                >
-                  Voir annonce
-                </button>
-              </Popup>
-            </Marker>
-          );
-        })}
+        {orders &&
+          orders.map(order => {
+            return (
+              <Marker
+                className="dalu"
+                position={[order.start_address_lat, order.start_address_lng]}
+              >
+                <Popup>
+                  <button
+                    className="popupButton"
+                    onClick={markerClick}
+                    id={order.id}
+                    type="button"
+                  >
+                    Voir annonce
+                  </button>
+                </Popup>
+              </Marker>
+            );
+          })}
         {orders.map(order => {
           return (
             <Marker position={[order.end_address_lat, order.end_address_lng]}>

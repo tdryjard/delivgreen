@@ -8,9 +8,9 @@ import NavBar from '../../NavBar/NavBar';
 import Footer from '../../footer/Footer'
 import Input from '../../formElements/Input';
 import signIn from '../signFetch';
+import useGlobalState from '../../../hooks/useGlobalState';
 
 function Signin() {
-
     const [infoMessage, setInfoMessage] = useState(null);
     const [redirection, setRedirection] = useState(null);
     const inputsRef = {

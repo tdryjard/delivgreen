@@ -36,9 +36,22 @@
 }
 
 .textOrderAddress{
-   color: white;
+    color: rgb(235, 235, 235);
+    width: 60%;
+ }
+
+ .textOrderAddressRapport{
+    color: rgb(235, 235, 235);
+    width: 60%;
+    font-weight: bold;
+    font-size: 20px;
+ }
+
+.textOrderAddressEnd{
+   color: #17B994;
    width: 60%;
 }
+
 .contentAddressOrder{
     display: flex;
     justify-content: center;
@@ -59,7 +72,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-color: rgb(218, 103, 103);
+    background-color: rgb(255, 255, 255);
     margin-right: 30px;
     padding: 5px;
     width: 30%;
