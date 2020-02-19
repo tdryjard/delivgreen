@@ -1,9 +1,9 @@
-import urlApi from '../../config';
+import urlApi from '../api/api';
 
 const signIn = async function signInFetching(myBody) {
   try {
     // Envoi de la requête
-    const response = await fetch(`${urlApi}/users`, {
+    const response = await fetch(`${urlApi}/api/users`, {
       method: 'POST',
       body: JSON.stringify(myBody),
       headers: {
@@ -16,6 +16,8 @@ const signIn = async function signInFetching(myBody) {
     const result = await response.json();
     // Récupération des informations de réponse de la requête
     const { inputs, alert, data } = result;
+
+    console.log(result);
 
     // Traitement de la réponse
     switch (status) {

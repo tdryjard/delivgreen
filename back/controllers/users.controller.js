@@ -25,6 +25,8 @@ exports.create = function createUser(request, response) {
     phone: phone || null
   });
 
+  console.log(user);
+
   // Verification qu'aucune entrée obligatoire n'est vide
   const emptyInputsErrorHandler = noEmptyInputs(user);
   if (emptyInputsErrorHandler) {
