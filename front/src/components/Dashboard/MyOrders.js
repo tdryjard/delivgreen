@@ -93,73 +93,75 @@ const MyOrders = () => {
         <div className="headerDashboardOrders">
           <HeaderDashboard />
         </div>
-        <div className="legendContainer">
-          <div className="legendIconAndText">
-            <p>Acceptée</p>
-            <FontAwesomeIcon
-              style={{ marginLeft: '2px', color: 'orange' }}
-              icon={faCircle}
-            />
+        <div className="legendAndContentContainer">
+          <div className="legendContainer">
+            <div className="legendIconAndText">
+              <p>Acceptée</p>
+              <FontAwesomeIcon
+                style={{ marginLeft: '2px', color: 'orange' }}
+                icon={faCircle}
+              />
+            </div>
+            <div className="legendIconAndText">
+              <p>Prise en charge</p>
+              <FontAwesomeIcon
+                style={{ marginLeft: '2px', color: '#3c9d9b' }}
+                icon={faCircle}
+              />
+            </div>
           </div>
-          <div className="legendIconAndText">
-            <p>Prise en charge</p>
-            <FontAwesomeIcon
-              style={{ marginLeft: '2px', color: '#3c9d9b' }}
-              icon={faCircle}
-            />
-          </div>
-        </div>
-        <div className="ordersCardContainer">
-          <div className="myOrdersContainerList">
-            <h1 className="titleMyOrders">Mes commandes en cours</h1>
-            <table className="tableMainContainerOrder">
-              <thead>
-                <tr>
-                  <th className="tableHeaderOrders" colSpan="1">
-                    Numéro
-                  </th>
-                  <th className="tableHeaderOrders" colSpan="1">
-                    Statut
-                  </th>
-                  <th className="tableHeaderOrders" colSpan="1">
-                    Date limite
-                  </th>
-                  <th className="tableHeaderOrders" colSpan="1">
-                    Détails
-                  </th>
-                </tr>
-              </thead>
-              {orderExample.map(order => {
-                return (
-                  <tbody className="itemsContainerOrder">
-                    <td className="itemTableOrders">
-                      <p className="itemListOrders">{order.number}</p>
-                    </td>
-                    <td className="itemTableOrders">
-                      <p className="itemListOrders">
-                        {order.status === 'Pris en charge' ? (
-                          <FontAwesomeIcon
-                            style={{ color: 'orange' }}
-                            icon={faCircle}
-                          />
-                        ) : (
-                          <FontAwesomeIcon
-                            style={{ color: '#3c9d9b' }}
-                            icon={faCircle}
-                          />
-                        )}
-                      </p>
-                    </td>
-                    <td className="itemTableOrders">
-                      <p className="itemListOrders">{order.limit_date}</p>
-                    </td>
-                    <td className="itemTableOrders">
-                      <p className="buttonActionOrder">Détails</p>
-                    </td>
-                  </tbody>
-                );
-              })}
-            </table>
+          <div className="ordersCardContainer">
+            <div className="myOrdersContainerList">
+              <h1 className="titleMyOrders">Mes commandes en cours</h1>
+              <table className="tableMainContainerOrder">
+                <thead>
+                  <tr>
+                    <th className="tableHeaderOrders" colSpan="1">
+                      Numéro
+                    </th>
+                    <th className="tableHeaderOrders" colSpan="1">
+                      Statut
+                    </th>
+                    <th className="tableHeaderOrders" colSpan="1">
+                      Date limite
+                    </th>
+                    <th className="tableHeaderOrders" colSpan="1">
+                      Détails
+                    </th>
+                  </tr>
+                </thead>
+                {orderExample.map(order => {
+                  return (
+                    <tbody className="itemsContainerOrder">
+                      <td className="itemTableOrders">
+                        <p className="itemListOrders">{order.number}</p>
+                      </td>
+                      <td className="itemTableOrders">
+                        <p className="itemListOrders">
+                          {order.status === 'Pris en charge' ? (
+                            <FontAwesomeIcon
+                              style={{ color: 'orange' }}
+                              icon={faCircle}
+                            />
+                          ) : (
+                            <FontAwesomeIcon
+                              style={{ color: '#3c9d9b' }}
+                              icon={faCircle}
+                            />
+                          )}
+                        </p>
+                      </td>
+                      <td className="itemTableOrders">
+                        <p className="itemListOrders">{order.limit_date}</p>
+                      </td>
+                      <td className="itemTableOrders">
+                        <p className="buttonActionOrder">Détails</p>
+                      </td>
+                    </tbody>
+                  );
+                })}
+              </table>
+            </div>
           </div>
         </div>
       </div>
