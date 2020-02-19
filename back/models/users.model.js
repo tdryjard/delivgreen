@@ -37,8 +37,11 @@ User.findDeliverInfo = (userId, result) => {
         return result(null, dbResult);
       }
       return result({ kind: 'not_found' }, null);
-      
- User.findProfessionalInfo = (userId, result) => {
+    }
+  );
+};
+
+User.findProfessionalInfo = (userId, result) => {
   db.query(
     `SELECT users.lastname, users.firstname, users.email, users.phone, users.professional_id, users.delivery_man_id,
       professional.id, professional.kbis, professional.siret, professional.tva,
@@ -110,7 +113,7 @@ User.update = (id, user, result) => {
     }
   );
 };
-      
+
 User.delete = (id, result) => {
   db.query('DELETE FROM users WHERE id = ?', id, (error, dbResult) => {
     if (error) {
