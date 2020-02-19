@@ -1,7 +1,7 @@
 const Users = require('../models/users.model');
 
-exports.findProfessionalInfo = (request, response) => {
-  Users.findProfessionalInfo(request.params.userId, (error, dbResult) => {
+exports.findPartInfo = (request, response) => {
+  Users.findPartInfo(request.params.userId, (error, dbResult) => {
     if (error) {
       console.log(error);
       if (error.kind === 'not_found') {
