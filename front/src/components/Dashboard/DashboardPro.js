@@ -7,10 +7,15 @@ import NavBarDashboard from './NavBarDashboard';
 import Chart from './Chart';
 import useWindowDimensions from './useWindowDimensions';
 import NavBarDashboardMobile from './NavBarDashboardMobile';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const DashboardPro = () => {
+  const { user } = useGlobalState;
   const { height, width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+
+  console.log(user);
+
   return (
     <div className="mySpaceMainContainer">
       {/*                   Pro Nav Bar                   */}
