@@ -9,49 +9,67 @@ const Adhesion = () => {
   return (
     <div className="contentAdhesion">
       <NavBar />
-      <h1 className="titleAdhesion">Demande d'adhesion</h1>
+      <div className="adhesion_logo">
+        <img src={require('../adhesion/images/form.svg')} alt="contact logo" />
+        <h1 className="titleAdhesion">Demande d'adhesion</h1>
+      </div>
+
       <form className="sign-form" action="">
         <div className="content-form">
           <div className="locationAdd">
-            <input type="text" name="lastname" placeholder="Nom" />
-            <input type="text" name="firstname" placeholder="Prénom" />
-            <input type="email" name="email" placeholder="Email" />
-            <input type="tel" placeholder="Téléphone" />
-            <input
-              className="longInput"
-              type="text"
-              name="ville"
-              placeholder="Ville"
-            />
-            <input
-              className="longInput"
-              type="text"
-              name="RIB"
-              placeholder="RIB"
-            />
+            <label>
+              Nom :
+              <input type="text" name="lastname" />
+            </label>
+
+            <label>
+              Prénom :
+              <input type="text" name="firstname" />
+            </label>
+
+            <label>
+              Email :
+              <input type="email" name="email" />
+            </label>
+
+            <label>
+              Téléphone :
+              <input type="tel" name="Télephone" />
+            </label>
+
+            <label>
+              Ville :
+              <input className="longInput" type="text" name="ville" />
+            </label>
+
+            <label>
+              RIB :
+              <input className="longInput" type="text" name="RIB" />
+            </label>
           </div>
 
           <div className="parcel-information">
-            <input
-              className="locationInput"
-              type="text"
-              name="perimeter"
-              placeholder="Périmètre"
-            />
+            <label>
+              Périmetre :
+              <input className="locationInput" type="text" name="perimeter" />
+            </label>
+
             {pro ? (
               <div className="containerPro">
-                <input
-                  className="contentFileInput"
-                  type="text"
-                  name="SIRET"
-                  placeholder="n° de SIRET"
-                />
-                <input
-                  className="contentFileInput"
-                  type="text"
-                  name="TVA"
-                  placeholder="n° de TVA"
-                />
+                <label>
+                  N° Siret :
+                  <input
+                    className="contentFileInput"
+                    type="text"
+                    name="SIRET"
+                  />
+                </label>
+
+                <label>
+                  TVA :
+                  <input className="contentFileInput" type="text" name="TVA" />
+                </label>
+
                 <div className="contentFileInput">
                   <label htmlFor="carteIdd" className="label-file">
                     Insérer Kbis de moins de 3 mois
