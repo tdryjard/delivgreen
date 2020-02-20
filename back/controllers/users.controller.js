@@ -166,3 +166,57 @@ exports.delete = (request, response) => {
     return response.send({ message: `user was deleted successfully!` });
   });
 };
+
+exports.findPartInfo = (request, response) => {
+  User.findPartInfo(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Pas d'info user id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `pas trouvé url user id ${request.params.userId}`
+        });
+      }
+    } else {
+      response.send(dbResult);
+    }
+  });
+};
+
+exports.findDeliverInfo = (request, response) => {
+  User.findDeliverInfo(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Pas d'info user id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `pas trouvé url user id ${request.params.userId}`
+        });
+      }
+    } else {
+      response.send(dbResult);
+    }
+  });
+};
+
+exports.findProfessionalInfo = (request, response) => {
+  User.findProfessionalInfo(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Pas d'info user id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `pas trouvé url user id ${request.params.userId}`
+        });
+      }
+    } else {
+      response.send(dbResult);
+    }
+  });
+};

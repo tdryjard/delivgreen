@@ -11,4 +11,10 @@ router.post('/', user.update);
 
 router.delete('/:userId', user.delete);
 
+router.get('/infos/pro/:userId', user.findProfessionalInfo);
+
+router.get('/infos/deliv/:userId', user.findDeliverInfo);
+
+router.get('/infos/part/:userId', user.findPartInfo);
+
 module.exports = router;
