@@ -11,6 +11,7 @@ import NavBarDashboardMobile from './NavBarDashboardMobile';
 const DashboardPro = () => {
   const { height, width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+
   return (
     <div className="mySpaceMainContainer">
       {/*                   Pro Nav Bar                   */}
