@@ -6,6 +6,7 @@ import {
   faClock
 } from '@fortawesome/free-solid-svg-icons';
 import './LandingPage.css';
+import { Link } from 'react-router-dom';
 import Footer from '../footer/Footer';
 import NavBar from '../NavBar/NavBar';
 
@@ -39,9 +40,13 @@ const LandingPage = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               vitae varius turpis.
             </h4>
-            <button type="button" className="buttonHeaderHomePage">
+            <Link
+              to="/demande-livraison"
+              type="button"
+              className="buttonHeaderHomePage"
+            >
               Proposer une course
-            </button>
+            </Link>
           </div>
         </div>
         <img
@@ -53,7 +58,7 @@ const LandingPage = () => {
 
       {/*     3 steps attempt     */}
 
-      <div className="threeStepsMainContainer">
+      <div className="threeStepsBigContainer">
         <h1 className="threeStepsTitle">3 étapes pour livrer un colis</h1>
         <h3>Faire livrer n'a jamais été aussi simple</h3>
         <div className="cardsContainerThreeSteps">
@@ -89,9 +94,13 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-        <button type="button" className="buttonThreeSteps">
+        <Link
+          to="/demande-livraison"
+          type="button"
+          className="buttonThreeSteps"
+        >
           Proposer une course
-        </button>
+        </Link>
       </div>
 
       {/*     Customer service     */}
@@ -125,9 +134,9 @@ const LandingPage = () => {
               <p className="textCustomerLandingPage">en 2h maxi</p>
             </div>
           </div>
-          <button type="button" className="buttonCustomerServices">
+          <Link to="/contact" type="button" className="buttonCustomerServices">
             Contactez-nous
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -167,9 +176,9 @@ const LandingPage = () => {
               Particuliers, coursiers ou transporteur rejoignez le réseau
               Deliv'Green et profitez d'une rémunération attractive
             </p>
-            <button type="button" className="buttonBecomePartner">
+            <Link to="/partner" type="button" className="buttonBecomePartner">
               Plus d'infos
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -14,7 +14,8 @@ exports.create = function createUser(request, response) {
     email,
     password,
     passwordVerification,
-    phone
+    phone,
+    role
   } = request.body;
 
   // Creer un utilisateur
@@ -23,7 +24,8 @@ exports.create = function createUser(request, response) {
     firstname: firstname || null,
     email: email || null,
     password: password || null,
-    phone: phone || null
+    phone: phone || null,
+    role: role || null
   });
 
   // Verification qu'aucune entrée obligatoire n'est vide
@@ -162,5 +164,59 @@ exports.delete = (request, response) => {
     }
 
     return response.send({ message: `user was deleted successfully!` });
+  });
+};
+
+exports.findPartInfo = (request, response) => {
+  User.findPartInfo(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Pas d'info user id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `pas trouvé url user id ${request.params.userId}`
+        });
+      }
+    } else {
+      response.send(dbResult);
+    }
+  });
+};
+
+exports.findDeliverInfo = (request, response) => {
+  User.findDeliverInfo(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Pas d'info user id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `pas trouvé url user id ${request.params.userId}`
+        });
+      }
+    } else {
+      response.send(dbResult);
+    }
+  });
+};
+
+exports.findProfessionalInfo = (request, response) => {
+  User.findProfessionalInfo(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Pas d'info user id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `pas trouvé url user id ${request.params.userId}`
+        });
+      }
+    } else {
+      response.send(dbResult);
+    }
   });
 };

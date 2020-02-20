@@ -14,4 +14,10 @@ router.delete('/:userId', user.delete);
 
 router.post('/login', login.connect);
 
+router.get('/infos/pro/:userId', user.findProfessionalInfo);
+
+router.get('/infos/deliv/:userId', user.findDeliverInfo);
+
+router.get('/infos/part/:userId', user.findPartInfo);
+
 module.exports = router;

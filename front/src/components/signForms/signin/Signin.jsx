@@ -10,7 +10,6 @@ import Input from '../../formElements/Input';
 import signIn from '../signFetch';
 
 function Signin() {
-
     const [infoMessage, setInfoMessage] = useState(null);
     const [redirection, setRedirection] = useState(null);
     const inputsRef = {
@@ -41,13 +40,14 @@ function Signin() {
             "email": inputsRef.email.current.value,
             "password": inputsRef.password.current.value,
             "passwordVerification": inputsRef.password_verification.current.value,
-            "phone": inputsRef.phone.current.value
+            "phone": inputsRef.phone.current.value,
+            "role": "part"
         }
         
         // Connexion (ref: signFetch.js)
         signIn(myBody)
         .then((result) => {
-            const { alert, status, type, inputs } = result;
+            const { alert, status, inputs } = result;
 
             setInfoMessage(alert);
 
@@ -64,9 +64,11 @@ function Signin() {
     }
 
     return (
+        <>
+            <NavBar />
+        
         <div className='sign-ctn'>
             { redirection }
-            <NavBar />
             <h1>Inscription</h1>
             {
                 infoMessage && (
@@ -110,8 +112,10 @@ function Signin() {
                 />
                 <button type='submit' className='btn'>S'inscrire</button>
             </form>
-            <Footer />
+            
         </div>
+        <Footer />
+        </>
     )
 }
 

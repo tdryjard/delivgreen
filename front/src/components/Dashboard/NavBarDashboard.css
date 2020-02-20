@@ -65,18 +65,11 @@
     color: #17B994;
 }
 
-.fa-tachometer-alt {
-    color: mediumpurple;
+.itemListNavBarDashboard .iconNavBarDashboard {
+    border: none;
+    color: #17B994;
 }
 
-.fa-truck-loading {
-    color: indianred;
-}
-
-.fa-file-alt {
-    color: cadetblue;
-}
-
-.fa-address-card {
-    color: orange;
+.iconNavBarDashboard {
+    color: #3a3a3a;
 }
