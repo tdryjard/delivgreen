@@ -170,7 +170,6 @@ exports.delete = (request, response) => {
 exports.findPartInfo = (request, response) => {
   User.findPartInfo(request.params.userId, (error, dbResult) => {
     if (error) {
-      console.log(error);
       if (error.kind === 'not_found') {
         response.status(404).send({
           message: `Pas d'info user id ${request.params.userId}.`
@@ -189,7 +188,6 @@ exports.findPartInfo = (request, response) => {
 exports.findDeliverInfo = (request, response) => {
   User.findDeliverInfo(request.params.userId, (error, dbResult) => {
     if (error) {
-      console.log(error);
       if (error.kind === 'not_found') {
         response.status(404).send({
           message: `Pas d'info user id ${request.params.userId}.`
@@ -208,7 +206,6 @@ exports.findDeliverInfo = (request, response) => {
 exports.findProfessionalInfo = (request, response) => {
   User.findProfessionalInfo(request.params.userId, (error, dbResult) => {
     if (error) {
-      console.log(error);
       if (error.kind === 'not_found') {
         response.status(404).send({
           message: `Pas d'info user id ${request.params.userId}.`
