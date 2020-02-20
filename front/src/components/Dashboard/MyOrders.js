@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCircle } from '@fortawesome/free-solid-svg-icons';
 import './MyOrders.css';
+// import axios from 'axios';
 import NavBarDashboard from './NavBarDashboard';
 import HeaderDashboard from './HeaderDashboard';
 import useWindowDimensions from './useWindowDimensions';
@@ -10,6 +11,20 @@ import NavBarDashboardMobile from './NavBarDashboardMobile';
 const MyOrders = () => {
   const { width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+  // const [clientOrders, setClientOrders] = useState(null);
+
+  // const getProducts = () => {
+  //   // let getUrl = `http://localhost:8000/api/orders/${clientId}`;
+  //   const getUrl = `http://localhost:8000/api/orders/1`;
+  //   axios
+  //     .get(getUrl)
+  //     .then(result => result.data)
+  //     .then(data => {
+  //       const stockOrders = data;
+  //       console.log(stockOrders);
+  //       setClientOrders(stockOrders);
+  //     });
+  // };
 
   const orderExample = [
     {
@@ -109,6 +124,7 @@ const MyOrders = () => {
                 icon={faCircle}
               />
             </div>
+            {/* <button onClick={getProducts}>Click</button> */}
           </div>
           <div className="ordersCardContainer">
             <div className="myOrdersContainerList">
