@@ -4,6 +4,7 @@ const verifyPassword = require('../middlewares/formValidity/verifyPassword');
 const noEmptyInputs = require('../middlewares/formValidity/noEmptyInputs');
 const verifyPhoneNumber = require('../middlewares/formValidity/verifyPhoneNumber');
 const regexValidity = require('../middlewares/formValidity/regexValidity');
+const regexList = require('../utils/regexList');
 
 // Creer un nouvel utilisateur
 exports.create = function createUser(request, response) {
@@ -25,8 +26,6 @@ exports.create = function createUser(request, response) {
     phone: phone || null
   });
 
-  console.log(user);
-
   // Verification qu'aucune entrée obligatoire n'est vide
   const emptyInputsErrorHandler = noEmptyInputs(user);
   if (emptyInputsErrorHandler) {
@@ -34,19 +33,18 @@ exports.create = function createUser(request, response) {
   }
 
   // Verification que des entrées n'ont que des lettres
-  const onlyLetters = new RegExp('^[A-Za-z]+$');
+  const { onlyLetters } = regexList;
   const invalidCharactersErrorHandler = regexValidity(
     { lastname, firstname },
     onlyLetters
   );
+
   if (invalidCharactersErrorHandler) {
     return response.status(400).send(invalidCharactersErrorHandler);
   }
 
   // Verification que des entrées n'ont que des lettres
-  const emailRegex = new RegExp(
-    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
-  );
+  const { emailRegex } = regexList;
   const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
   if (emailCharactersErrorHandler) {
     return response.status(400).send(emailCharactersErrorHandler);

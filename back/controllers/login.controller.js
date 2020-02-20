@@ -2,16 +2,24 @@ const bcrypt = require('bcrypt');
 const Login = require('../models/login.model');
 const regexValidity = require('../middlewares/formValidity/regexValidity');
 const clearNullProperty = require('../utils/clearNullObjectProperty');
+const regexList = require('../utils/regexList');
 
 exports.connect = function userConnectToTheWebsite(request, response) {
   const { email, password } = request.body;
+
+  // Schéma d'erreur
+  const errorScheme = {
+    text: 'Email ou mot de passe incorrect',
+    errorTarget: 'INPUT',
+    alertType: 'error',
+    inputs: ['email', 'password']
+  };
+
   // Verification que des entrées n'ont que des lettres
-  const emailRegex = new RegExp(
-    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
-  );
+  const { emailRegex } = regexList;
   const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
   if (emailCharactersErrorHandler) {
-    return response.status(400).send(emailCharactersErrorHandler);
+    return response.status(400).send(errorScheme);
   }
 
   // Fonction créant une erreur avec status et infos variables
@@ -34,14 +42,6 @@ exports.connect = function userConnectToTheWebsite(request, response) {
   };
 
   return Login.connect(email, (err, data) => {
-    // Schéma d'erreur
-    const errorScheme = {
-      text: 'Email ou mot de passe incorrect',
-      errorTarget: 'INPUT',
-      alertType: 'error',
-      inputs: ['email', 'password']
-    };
-
     // Decryptage du mot de passe en base de données et verification d'une correspondance avec celui que l'utilisateur a rentrer
     const samePassword = bcrypt.compareSync(password, data.password);
     if (!samePassword) return sendResponse(400, errorScheme);
