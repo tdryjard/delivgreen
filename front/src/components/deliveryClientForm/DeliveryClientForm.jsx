@@ -57,8 +57,6 @@ function DeliveryClientForm() {
 	}
 
 	
-
-	
 	return (
 		<div className='sign-ctn'>
 			<Navbar/>
