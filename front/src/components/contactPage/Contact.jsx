@@ -16,16 +16,35 @@ const Contact = () => {
           <h1>Contactez-nous !</h1>
         </div>
         <form className="sign-form" action="">
-          <input type="text" name="lastname" placeholder="Nom" />
-          <input type="text" name="firstname" placeholder="Prénom" />
-          <input type="email" name="email" placeholder="Email" />
-          <input type="tel" name="tel" placeholder="Téléphone" />
-          <textarea
+          <label>
+            Nom: 
+            <input type="text" name="lastname" />
+          </label>
+          
+          <label>
+            Prénom: 
+            <input type="text" name="firstname" />
+          </label>
+          
+          <label>
+            Email: 
+            <input type="email" name="email" />
+          </label>
+          
+          <label>
+            Téléphone: 
+            <input type="tel" name="tel" />
+          </label>
+         
+         <label>
+           Votre message: 
+           <textarea
             className="messageContact"
             type="text"
             name="message"
-            placeholder="Message"
           />
+         </label>
+          
           <button type="submit" className="btn">
             Envoyer !
           </button>
