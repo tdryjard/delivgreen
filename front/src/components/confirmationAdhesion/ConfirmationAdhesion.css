@@ -1,0 +1,32 @@
+.confirmation-page{
+    width:100%;
+}
+.text-confirmation-page{
+    text-align: center;
+    margin-top:2%;
+    
+}
+
+.btn-confirmation-page-adhesion{
+    margin: 5px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 3px;
+    background: var(--green);
+    padding: .5rem 1rem;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 2%;
+}
+.confirm_logo {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.confirm_logo img {
+    height:150px;
+    filter: drop-shadow(2px 2px 1px var(--gray));
+    
+}

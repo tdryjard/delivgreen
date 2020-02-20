@@ -25,6 +25,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import DashboardClient from './components/Dashboard/DashboardClient';
 import MyOrdersClient from './components/Dashboard/MyOrdersClient';
 import InfosClient from './components/Dashboard/InfosClient';
+import ConfirmationAdhesion from './components/confirmationAdhesion/ConfirmationAdhesion';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
       <Route path="/informations-pro" component={InfosDashboard} />
       <Route path="/mes-infos" component={InfosClient} />
       <Route path="/demande-livraison" component={DeliveryClientForm} />
+      <Route path="/confirmation-adhesion" component={ConfirmationAdhesion} />
     </Switch>
   );
 }
