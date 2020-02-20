@@ -47,3 +47,74 @@
 .footerAccueil{
     padding-bottom:2%;
 }
+
+.contentResultAddress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(187, 187, 187) 0px 20px 15px;
+    width: 100%;
+    animation: resultAddress 10s;
+}
+
+@keyframes resultAddress {
+    from {
+        height: 0px;
+        overflow: hidden;
+    }
+    to {
+        height: auto;
+        overflow: auto;
+    }
+}
+
+.labelAddress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px black solid;
+    width: 100%;
+    animation: labelAddress 5s
+}
+
+@keyframes labelAddress {
+    0% {
+        display: none
+    }
+    95%{
+        display: none
+    }
+    100%{
+        display: flex;
+    }
+}
+
+.titleInput{
+    font-size: 15px;
+}
+
+.contentAddressInput{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #17B994;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.containerInputAddress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1280px){
+    .containerInputAddress{
+        flex-direction: column;
+    }
+}
