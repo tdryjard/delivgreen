@@ -17,8 +17,6 @@ const signIn = async function signInFetching(myBody) {
     // Récupération des informations de réponse de la requête
     const { inputs, alert, data } = result;
 
-    console.log(result);
-
     // Traitement de la réponse
     switch (status) {
       case 400: {
