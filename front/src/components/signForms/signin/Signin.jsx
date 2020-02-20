@@ -58,7 +58,6 @@ function Signin() {
                     });
                 }
             } else if (status === 'SUCCESS') {
-                form.remove();
                 setTimeout(() => setRedirection(<Redirect to="/signup" />), 2500)
             }
         });
