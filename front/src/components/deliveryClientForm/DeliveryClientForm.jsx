@@ -16,6 +16,11 @@ function DeliveryClientForm() {
 	const [resultAddressEnd, setResultAddressEnd] = useState({})
 	const [addressSelectStart, setAdressSelectStart] = useState([])
 	const [addressSelectEnd, setAdressSelectEnd] = useState([])
+	const [lngtEnter, setLngtEnter] = useState()
+	const [heigthEnter, setHeightEnter] = useState()
+
+	const [weightEnter, setWeightEnter] = useState()
+	const [price, setPrice] = useState()
 
 	useEffect(() => {
 		fetch(`https://api-adresse.data.gouv.fr/search/?q=${addressEnterStart.replace(' ', '%20')}&type=housenumber&autocomplete=1`)
@@ -44,8 +49,6 @@ function DeliveryClientForm() {
 			}
 		})
 	}, [addressEnterEnd])
-
-	console.log(addressSelectStart, addressSelectEnd)
 	
 
 	const enterAddressStart = (event) => {
@@ -101,6 +104,20 @@ function DeliveryClientForm() {
 		}
 	}
 
+	function takeValue () {
+		setLngtEnter(inputsRef.lngt.current.value)
+		setHeightEnter(inputsRef.height.current.value)
+		setWeightEnter(inputsRef.weight.current.value)
+	}
+
+	useEffect(() => {
+		const coef = 0.66
+		if(lngtEnter > 100){
+			coef = 0.5
+		}
+		setPrice((weightEnter*coef))
+		console.log(price)
+	}, [])
 	
 	return (
 		<div className='sign-ctn' onClick={() => {setResultAddressEnd([]); setResultAddressStart([])}}>
@@ -109,7 +126,7 @@ function DeliveryClientForm() {
 				<img src={require('../images/delivery_client_form.svg')} alt="delivery logo" />
 				<h1>Faites-vous livrer un colis</h1>
 			</div>
-			<form className='sign-form' onSubmit={sendAnnounce}>
+			<form className='sign-form' onSubmit={sendAnnounce} onChange={takeValue}>
 				<div className="containerInputAddress">
 					<div className="containerAddressStart">
 						<div className="contentAddressInput">
@@ -148,7 +165,7 @@ function DeliveryClientForm() {
 					required
 					label={{for: 'delivery-pack-length', text: 'Longueur (cm)'}} 
 					attributes={{type: 'number', id: 'delivery-pack-length', name: 'delivery-pack-length', min:'0', max:'100', }} 
-					reference={inputsRef.lngt} 
+					reference={inputsRef.lngt}
 				/>
 				<Input 
 					required
