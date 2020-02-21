@@ -8,7 +8,7 @@ function Input({ label = {}, attributes, reference }) {
 
     return (
         <>
-            <label htmlFor={label.for}>
+            <label htmlFor={label.for} className={label.className}>
                 {label.text}
                 <input {...attributes} ref={reference} onChange={userTyping} />
             </label>
