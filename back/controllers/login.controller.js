@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const Login = require('../models/login.model');
 const regexValidity = require('../middlewares/formValidity/regexValidity');
 const clearNullProperty = require('../utils/clearNullObjectProperty');
@@ -51,9 +52,13 @@ exports.connect = function userConnectToTheWebsite(request, response) {
       return sendResponse(status, errorScheme);
     }
 
+    // Génération du jsonWebToken
+    const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
+
     return sendResponse(200, {
       text: 'Vous êtes connecté.',
       data,
+      token,
       alertType: 'success'
     });
   });
