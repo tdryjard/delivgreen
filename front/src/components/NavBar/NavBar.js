@@ -20,12 +20,14 @@ const NavBar = () => {
           />
           <h1 className="titleNavBarDelivgreen">DELIV'GREEN</h1>
         </Link>
-        <h3 className="submitAndSignIn connectButton">
-          <Link to="/signup">Connexion</Link>
-        </h3>
-        <h3 className="submitAndSignIn">
-          <Link to="/signin">Inscription</Link>
-        </h3>
+
+        <Link to="/signup" className="submitAndSignIn connectButton">
+          <h3>Connexion</h3>
+        </Link>
+        <Link to="/signin" className="submitAndSignIn">
+          <h3>Inscription</h3>
+        </Link>
+
         <div className={`${toggle ? 'listNavBar' : 'closedMenuBurger'}`}>
           <div className="burgerMenuContainer">
             <div
@@ -45,7 +47,7 @@ const NavBar = () => {
                 to="/"
               >
                 <h3 className="itemListNavBar" onClick={closeMenu}>
-                  <Link to="/">Accueil</Link>
+                  Accueil
                 </h3>
               </NavLink>
               <hr className="separatorNavBar separator1" />
@@ -55,7 +57,7 @@ const NavBar = () => {
                 to="/dashboard-pro"
               >
                 <h3 className="itemListNavBar" onClick={closeMenu}>
-                  <Link to="/dashboard-pro">Mon espace (livreur)</Link>
+                  Mon espace (livreur)
                 </h3>
               </NavLink>
               <hr className="separatorNavBar" />
@@ -75,7 +77,7 @@ const NavBar = () => {
                 to="/dashboard-pro"
               >
                 <h3 className="itemListNavBar" onClick={closeMenu}>
-                  <Link to="/demande-livraison">Proposer une course</Link>
+                  Proposer une course
                 </h3>
               </NavLink>
               <hr className="separatorNavBar" />
@@ -85,7 +87,7 @@ const NavBar = () => {
                 to="/"
               >
                 <h3 className="itemListNavBar" onClick={closeMenu}>
-                  <Link to="/adhesion">Devenir partenaire</Link>
+                  Devenir partenaire
                 </h3>
               </NavLink>
               <hr className="separatorNavBar" />
