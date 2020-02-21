@@ -64,6 +64,9 @@
     justify-content: center;
     align-items: center;
 }
+.buttonHeaderHomePage:hover {
+    transform: scale(1.1);
+}
 
 /*          CO2 saved           */
 
@@ -194,6 +197,9 @@
     justify-content: center;
     align-items: center;
 }
+.buttonThreeSteps:hover {
+    transform: scale(1.1);
+}
 
 .svgLandingPage1 {
     width: 100%;
@@ -255,6 +261,9 @@
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.buttonCustomerServices:hover {
+    transform: scale(1.1);
 }
 
 .subtitleSliderLandingPage {
@@ -353,6 +362,9 @@
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.buttonBecomePartner:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 1060px) {
