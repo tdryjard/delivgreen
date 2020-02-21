@@ -4,7 +4,8 @@ import {
   faTruckLoading,
   faAddressCard,
   faFileAlt,
-  faBullhorn
+  faBullhorn,
+  faMapMarkedAlt
 } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './NavBarDashboard.css';
@@ -28,6 +29,21 @@ const NavBarDashboard = () => {
               />
             </div>
             <p className="itemDashboardNavBar">Tableau de bord</p>
+          </div>
+        </NavLink>
+        <NavLink
+          className="navLinkDashboard"
+          activeClassName="itemListNavBarDashboard"
+          to="/map-deliver"
+        >
+          <div className="containerItemNavBarDashboard">
+            <div className="logoContainerDashboardNavBar">
+              <FontAwesomeIcon
+                className="fas fa-2x fa-bullhorn iconNavBarDashboard"
+                icon={faMapMarkedAlt}
+              />
+            </div>
+            <p className="itemDashboardNavBar">Map des annonces</p>
           </div>
         </NavLink>
         <NavLink
