@@ -27,7 +27,6 @@ exports.findOrders = (request, response) => {
     }
     return response.send(dbResult);
   });
-  return 0;
 };
 
 // Create a new order

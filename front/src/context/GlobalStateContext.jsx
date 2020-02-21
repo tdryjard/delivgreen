@@ -6,7 +6,9 @@ import GlobalStateReducer from '../reducers/GlobalStateReducer';
 export const GlobalStateContext = createContext();
 
 const initialState = {
-  user : null
+  user : {
+    id: 1
+  }
 };
 
 const GlobalStateProvider = ({children}) => {

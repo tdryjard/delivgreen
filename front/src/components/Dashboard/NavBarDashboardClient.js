@@ -34,7 +34,7 @@ const NavBarDashboardClient = () => {
             <div className="logoContainerDashboardNavBar">
               <FontAwesomeIcon className="fas fa-2x" icon={faTruckLoading} />
             </div>
-            <p className="itemDashboardNavBar">Commandes</p>
+            <p className="itemDashboardNavBar">Historique des commandes</p>
           </div>
         </NavLink>
         <NavLink

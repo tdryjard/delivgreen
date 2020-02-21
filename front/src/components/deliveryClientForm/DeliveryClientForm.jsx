@@ -1,15 +1,62 @@
-import React from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import apiUrl from '../api/api';
 import apiOrigin from '../api/origin';
 import '../signForms/Sign.css';
 import './DeliveryClientForm.css';
 import Input from '../formElements/Input';
-import { useState } from 'react';
-import { useRef } from 'react';
+import Navbar from '../NavBar/NavBar';
+import Footer from '../footer/Footer';
 
 function DeliveryClientForm() {
 
 	const [infoMessage, setInfoMessage] = useState(null);
+	const [addressEnterStart, setAddressEnterStart] = useState('')
+	const [addressEnterEnd, setAddressEnterEnd] = useState('')
+	const [resultAddressStart, setResultAddressStart] = useState({})
+	const [resultAddressEnd, setResultAddressEnd] = useState({})
+	const [addressSelectStart, setAdressSelectStart] = useState([])
+	const [addressSelectEnd, setAdressSelectEnd] = useState([])
+
+	useEffect(() => {
+		fetch(`https://api-adresse.data.gouv.fr/search/?q=${addressEnterStart.replace(' ', '%20')}&type=housenumber&autocomplete=1`)
+		.then(res => res.json())
+		.then(res => {
+			if(Array.isArray([res.features])){
+				setResultAddressStart(res.features)
+			}
+			else{
+				setResultAddressStart([])
+			}
+		})
+		
+	}, [addressEnterStart])
+
+
+	useEffect(() => {
+		fetch(`https://api-adresse.data.gouv.fr/search/?q=${addressEnterEnd.replace(' ', '%20')}&type=housenumber&autocomplete=1`)
+			.then(res => res.json())
+			.then(res => {
+			if(Array.isArray([res.features])){
+				setResultAddressEnd(res.features)
+			}
+			else{
+				setResultAddressEnd([])
+			}
+		})
+	}, [addressEnterEnd])
+
+	console.log(addressSelectStart, addressSelectEnd)
+	
+
+	const enterAddressStart = (event) => {
+		const address = event.target.value
+		setAddressEnterStart(address)
+	}
+
+	const enterAddressEnd = (event) => {
+		const address = event.target.value
+		setAddressEnterEnd(address)
+	}
 
 	const inputsRef={
 		lngt: useRef(null),
@@ -55,15 +102,48 @@ function DeliveryClientForm() {
 	}
 
 	
-
-	
 	return (
-		<div className='sign-ctn'>
+		<div className='sign-ctn' onClick={() => {setResultAddressEnd([]); setResultAddressStart([])}}>
+			<Navbar/>
 			<div className="delivery_heading">
 				<img src={require('../images/delivery_client_form.svg')} alt="delivery logo" />
 				<h1>Faites-vous livrer un colis</h1>
 			</div>
 			<form className='sign-form' onSubmit={sendAnnounce}>
+				<div className="containerInputAddress">
+					<div className="containerAddressStart">
+						<div className="contentAddressInput">
+							<h4 className="titleInput">adresse de départ</h4>
+							<input onChange={enterAddressStart} className="inputInfoPackageStart" placeholder="entrer adresse de départ" role="combobox" aria-autoComplete="list" value={addressEnterStart}/>
+						</div>
+						<div className="contentResultAddress">
+							{(Array.isArray(resultAddressStart) && addressSelectStart !== addressEnterStart) &&
+							resultAddressStart.map(address => {
+								return(
+								<div className="labelAddress">
+									<p onClick={() => {setAddressEnterStart(address.properties.label); setAdressSelectStart(address.properties.label)}}>{address.properties.label}</p> 
+								</div>
+								)
+								})}
+						</div>
+					</div>
+					<div className="containerAddressEnd">
+						<div className="contentAddressInputEnd">
+							<h4 className="titleInput">adresse d'arrivé</h4>
+							<input onChange={enterAddressEnd} className="inputInfoPackageEnd" placeholder="entrer adresse d'arrivé" role="combobox" aria-autoComplete="list" value={addressEnterEnd}/>
+						</div>
+						<div className="contentResultAddress">
+							{(Array.isArray(resultAddressEnd) && addressSelectEnd !== addressEnterEnd) &&
+							resultAddressEnd.map(address => {
+								return(
+								<div className="labelAddress">
+									<p onClick={() => {setAddressEnterEnd(address.properties.label); setAdressSelectEnd(address.properties.label)}}>{address.properties.label}</p> 
+								</div>
+								)
+								})}
+						</div>
+					</div>
+				</div>
 				<Input 
 					required
 					label={{for: 'delivery-pack-length', text: 'Longueur (cm)'}} 
@@ -103,6 +183,7 @@ function DeliveryClientForm() {
 
 				<button type='submit' className='btn'>Valider</button>
 			</form>
+			<Footer/>
 		</div>
 	)
 }
