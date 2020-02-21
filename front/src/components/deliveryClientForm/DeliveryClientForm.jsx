@@ -18,9 +18,11 @@ function DeliveryClientForm() {
 	const [addressSelectEnd, setAdressSelectEnd] = useState([])
 	const [lngtEnter, setLngtEnter] = useState()
 	const [heigthEnter, setHeightEnter] = useState()
-
 	const [weightEnter, setWeightEnter] = useState()
 	const [price, setPrice] = useState()
+	const [posStart, setPosStart] = useState([])
+	const [posEnd, setPosEnd] = useState([])
+	const [distKm, setDistKm] = useState()
 
 	useEffect(() => {
 		fetch(`https://api-adresse.data.gouv.fr/search/?q=${addressEnterStart.replace(' ', '%20')}&type=housenumber&autocomplete=1`)
@@ -36,7 +38,6 @@ function DeliveryClientForm() {
 		
 	}, [addressEnterStart])
 
-
 	useEffect(() => {
 		fetch(`https://api-adresse.data.gouv.fr/search/?q=${addressEnterEnd.replace(' ', '%20')}&type=housenumber&autocomplete=1`)
 			.then(res => res.json())
@@ -48,7 +49,24 @@ function DeliveryClientForm() {
 				setResultAddressEnd([])
 			}
 		})
+
+		distance(posStart[0], posStart[1], posEnd[0], posEnd[1])
+
+		
 	}, [addressEnterEnd])
+
+	const distance = (lat1, lon1, lat2, lon2) => {
+		let radlat1 = Math.PI * lat1 / 180
+        let radlat2 = Math.PI * lat2 / 180
+        let theta = lon1-lon2
+        let radtheta = Math.PI * theta / 180
+        let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta)
+        dist = Math.acos(dist)
+        dist = dist * 180/Math.PI
+        dist = dist * 60 * 1.1515
+		dist = dist * 1.609344
+		setDistKm(dist)
+	}
 	
 
 	const enterAddressStart = (event) => {
@@ -138,7 +156,7 @@ function DeliveryClientForm() {
 							resultAddressStart.map(address => {
 								return(
 								<div className="labelAddress">
-									<p onClick={() => {setAddressEnterStart(address.properties.label); setAdressSelectStart(address.properties.label)}}>{address.properties.label}</p> 
+									<p onClick={() => {setAddressEnterStart(address.properties.label); setPosStart(address.geometry.coordinates); setAdressSelectStart(address.properties.label)}}>{address.properties.label}</p> 
 								</div>
 								)
 								})}
@@ -154,7 +172,7 @@ function DeliveryClientForm() {
 							resultAddressEnd.map(address => {
 								return(
 								<div className="labelAddress">
-									<p onClick={() => {setAddressEnterEnd(address.properties.label); setAdressSelectEnd(address.properties.label)}}>{address.properties.label}</p> 
+									<p onClick={() => {setAddressEnterEnd(address.properties.label); setPosEnd(address.geometry.coordinates); setAdressSelectEnd(address.properties.label)}}>{address.properties.label}</p> 
 								</div>
 								)
 								})}
