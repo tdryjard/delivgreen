@@ -16,13 +16,6 @@ exports.connect = function userConnectToTheWebsite(request, response) {
     inputs: ['email', 'password']
   };
 
-  // Verification que des entrées n'ont que des lettres
-  const { emailRegex } = regexList;
-  const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
-  if (emailCharactersErrorHandler) {
-    return response.status(400).send(errorScheme);
-  }
-
   // Fonction créant une erreur avec status et infos variables
   const sendResponse = function responseSchemeForSending(
     status,
@@ -41,6 +34,13 @@ exports.connect = function userConnectToTheWebsite(request, response) {
       })
     );
   };
+
+  // Verification que des entrées n'ont que des lettres
+  const { emailRegex } = regexList;
+  const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
+  if (emailCharactersErrorHandler) {
+    return sendResponse(400, errorScheme);
+  }
 
   return Login.connect(email, (err, data) => {
     // Decryptage du mot de passe en base de données et verification d'une correspondance avec celui que l'utilisateur a rentrer
