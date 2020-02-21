@@ -31,7 +31,9 @@ function Signup() {
 
         signUp(myBody)
         .then(result => {
-            const { alert, status, inputs } = result;
+            const { alert, status, inputs, data } = result;
+
+            console.log(data)
 
             setInfoMessage(alert);
 

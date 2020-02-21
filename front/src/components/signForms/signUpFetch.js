@@ -24,7 +24,7 @@ const signUp = async function signUpFetching(myBody) {
         if (inputs) return { alert, type: 'INPUT', status: 'ERROR', inputs };
         break;
       }
-      case 201: {
+      case 200: {
         // En cas de bonne création du compte
         return { alert, data, status: 'SUCCESS' };
       }
