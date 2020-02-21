@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './MyOrders.css';
 import axios from 'axios';
 import NavBarDashboard from './NavBarDashboard';
@@ -12,6 +12,8 @@ const MyOrders = () => {
   const { width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
   const [clientOrders, setClientOrders] = useState(null);
+  const [moreDetails, setMoreDetails] = useState(false);
+  const [detailsIndex, setDetailsIndex] = useState(null);
 
   const getProducts = () => {
     // let getUrl = `http://localhost:8000/api/orders/${clientId}`;
@@ -22,7 +24,6 @@ const MyOrders = () => {
       .then(result => result.data)
       .then(data => {
         const stockOrders = data;
-        console.log(stockOrders);
         setClientOrders(stockOrders);
       });
   };
@@ -66,9 +67,6 @@ const MyOrders = () => {
                 icon={faCircle}
               />
             </div>
-            <button type="button" onClick={getProducts}>
-              Click
-            </button>
           </div>
           <div className="ordersCardContainer">
             <div className="myOrdersContainerList">
@@ -91,7 +89,7 @@ const MyOrders = () => {
                   </tr>
                 </thead>
                 {clientOrders
-                  ? clientOrders.map(order => {
+                  ? clientOrders.map((order, index) => {
                       return (
                         <tbody className="itemsContainerOrder">
                           <td className="itemTableOrders">
@@ -99,7 +97,7 @@ const MyOrders = () => {
                           </td>
                           <td className="itemTableOrders">
                             <p className="itemListOrders">
-                              {order.status === 'Pris en charge' ? (
+                              {order.status_name === 'Pris en charge' ? (
                                 <FontAwesomeIcon
                                   style={{ color: 'orange' }}
                                   icon={faCircle}
@@ -116,13 +114,146 @@ const MyOrders = () => {
                             <p className="itemListOrders">{order.limit_date}</p>
                           </td>
                           <td className="itemTableOrders">
-                            <p className="buttonActionOrder">Détails</p>
+                            <p
+                              onClick={() => {
+                                setMoreDetails(true);
+                                setDetailsIndex(index);
+                              }}
+                              className="buttonActionOrder"
+                            >
+                              Détails
+                            </p>
                           </td>
                         </tbody>
                       );
                     })
                   : null}
               </table>
+              {moreDetails ? (
+                <div className="moreDetailsContainer">
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className="fa-3x closeDetailsIcon"
+                    onClick={() => {
+                      setMoreDetails(false);
+                      setDetailsIndex(null);
+                    }}
+                  />
+                  <h1>Numéro commande : {clientOrders[detailsIndex].id}</h1>
+                  <div className="containerStatusBar">
+                    <div className="titleStatusBarContainer">
+                      <h4 className="titleStatusBar">En attente</h4>
+                      <h4 className="titleStatusBar">Accepté</h4>
+                      <h4 className="titleStatusBar">Pris en charge</h4>
+                      <h4 className="titleStatusBar">Livré</h4>
+                    </div>
+                    <div className="barStatusAndCircleContainer">
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        className={`circleStatusBar fa-3x ${
+                          clientOrders[detailsIndex].status_name ===
+                            'Acceptée' ||
+                          clientOrders[detailsIndex].status_name ===
+                            'Pris en charge'
+                            ? 'reachedStatus'
+                            : null
+                        }`}
+                      />
+                      <div
+                        className={`barStatusBar ${
+                          clientOrders[detailsIndex].status_name ===
+                            'Acceptée' ||
+                          clientOrders[detailsIndex].status_name ===
+                            'Pris en charge'
+                            ? 'reachedBar'
+                            : null
+                        }`}
+                      />
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        className={`circleStatusBar fa-3x ${
+                          clientOrders[detailsIndex].status_name ===
+                          'Pris en charge'
+                            ? 'reachedStatus'
+                            : null
+                        }`}
+                      />
+                      <div
+                        className={`barStatusBar ${
+                          clientOrders[detailsIndex].status_name ===
+                          'Pris en charge'
+                            ? 'reachedBar'
+                            : null
+                        }`}
+                      />
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        className={`circleStatusBar fa-3x ${
+                          clientOrders[detailsIndex].status_name ===
+                          'Pris en charge'
+                            ? 'reachedStatus'
+                            : null
+                        }`}
+                      />
+                      <div className="barStatusBar" />
+                      <FontAwesomeIcon
+                        icon={faCircle}
+                        className="circleStatusBar fa-3x"
+                      />
+                    </div>
+                  </div>
+                  <div className="addressContainerMyOrders">
+                    <div className="adressContainerSmall addressDepartureOrder">
+                      <h4 className="titleAdressOrders">Adresse de départ :</h4>
+                      <p>{clientOrders[detailsIndex].start_address_name}</p>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={`https://www.waze.com/livemap/directions?latlng=${clientOrders[
+                          detailsIndex
+                        ].start_address_lat.toString()}%${clientOrders[
+                          detailsIndex
+                        ].start_address_lng.toString()}$&navigate=yes&zoom=17`}
+                        className="wazeContainerOrders"
+                      >
+                        Itinéraire
+                        <img
+                          src={require('./Announcement/image/iconWaze.png')}
+                          alt="wazeIcon"
+                          className="wazeButtonOrder"
+                        />
+                      </a>
+                    </div>
+                    <div className="adressContainerSmall addressArrivalOrder">
+                      <h4 className="titleAdressOrders">Adresse d'arrivée :</h4>
+                      <p>{clientOrders[detailsIndex].end_address_name}</p>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={`https://www.waze.com/livemap/directions?latlng=${clientOrders[
+                          detailsIndex
+                        ].start_address_lat.toString()}%${clientOrders[
+                          detailsIndex
+                        ].start_address_lng.toString()}$&navigate=yes&zoom=17`}
+                        className="wazeContainerOrders"
+                      >
+                        Itinéraire
+                        <img
+                          src={require('./Announcement/image/iconWaze.png')}
+                          alt="wazeIcon"
+                          className="wazeButtonOrder"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <p>Date limite : {clientOrders[detailsIndex].limit_date}</p>
+                  <button className="buttonMoreDetailsMyOrders" type="button">
+                    {clientOrders[detailsIndex].status_name === 'Pris en charge'
+                      ? 'Livrer le colis'
+                      : 'Réceptionner le colis'}
+                  </button>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
