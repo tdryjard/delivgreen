@@ -16,7 +16,6 @@ const MyOrders = () => {
   const [detailsIndex, setDetailsIndex] = useState(null);
 
   const getProducts = () => {
-    // let getUrl = `http://localhost:8000/api/orders/${clientId}`;
     const userId = 1;
     const getUrl = `http://localhost:8000/api/orders?userId=${userId}`;
     axios
