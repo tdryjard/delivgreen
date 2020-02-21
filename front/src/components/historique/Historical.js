@@ -13,7 +13,7 @@ const Historical = () => {
   const [orders, setOrders] = useState([]);
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
 
-  const userId = 2;
+  const userId = 1;
 
   useEffect(() => {
     fetch(`${url}/api/orders?userId=${userId}`)

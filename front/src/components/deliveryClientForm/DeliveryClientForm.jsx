@@ -44,6 +44,8 @@ function DeliveryClientForm() {
 			}
 		})
 	}, [addressEnterEnd])
+
+	console.log(addressSelectStart, addressSelectEnd)
 	
 
 	const enterAddressStart = (event) => {
@@ -103,7 +105,7 @@ function DeliveryClientForm() {
 
 	
 	return (
-		<div className='sign-ctn'>
+		<div className='sign-ctn' onClick={() => {setResultAddressEnd([]); setResultAddressStart([])}}>
 			<Navbar/>
 			<div className="delivery_heading">
 				<img src={require('../images/delivery_client_form.svg')} alt="delivery logo" />
@@ -114,7 +116,7 @@ function DeliveryClientForm() {
 					<div className="containerAddressStart">
 						<div className="contentAddressInput">
 							<h4 className="titleInput">adresse de départ</h4>
-							<input onChange={enterAddressStart} className="inputAddress" placeholder="entrer adresse de départ" role="combobox" aria-autoComplete="list" value={addressEnterStart}/>
+							<input onChange={enterAddressStart} className="inputInfoPackageStart" placeholder="entrer adresse de départ" role="combobox" aria-autoComplete="list" value={addressEnterStart}/>
 						</div>
 						<div className="contentResultAddress">
 							{(Array.isArray(resultAddressStart) && addressSelectStart !== addressEnterStart) &&
@@ -128,9 +130,9 @@ function DeliveryClientForm() {
 						</div>
 					</div>
 					<div className="containerAddressEnd">
-						<div className="contentAddressInput">
+						<div className="contentAddressInputEnd">
 							<h4 className="titleInput">adresse d'arrivé</h4>
-							<input onChange={enterAddressEnd} className="inputAddress" placeholder="entrer adresse d'arrivé" role="combobox" aria-autoComplete="list" value={addressEnterEnd}/>
+							<input onChange={enterAddressEnd} className="inputInfoPackageEnd" placeholder="entrer adresse d'arrivé" role="combobox" aria-autoComplete="list" value={addressEnterEnd}/>
 						</div>
 						<div className="contentResultAddress">
 							{(Array.isArray(resultAddressEnd) && addressSelectEnd !== addressEnterEnd) &&
