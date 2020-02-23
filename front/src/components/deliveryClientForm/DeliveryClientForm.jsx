@@ -16,6 +16,7 @@ function DeliveryClientForm() {
 	const [resultAddressEnd, setResultAddressEnd] = useState({})
 	const [addressSelectStart, setAdressSelectStart] = useState([])
 	const [addressSelectEnd, setAdressSelectEnd] = useState([])
+	const [price, setPrice] = useState(0)
 	const [posStart, setPosStart] = useState([])
 	const [posEnd, setPosEnd] = useState([])
 	const [distKm, setDistKm] = useState()
@@ -31,6 +32,9 @@ function DeliveryClientForm() {
 				setResultAddressStart([])
 			}
 		})
+
+		distance(posStart[0], posStart[1], posEnd[0], posEnd[1])
+		takeValue()
 		
 	}, [addressEnterStart])
 
@@ -47,8 +51,8 @@ function DeliveryClientForm() {
 		})
 
 		distance(posStart[0], posStart[1], posEnd[0], posEnd[1])
+		takeValue()
 
-		
 	}, [addressEnterEnd])
 
 	const distance = (lat1, lon1, lat2, lon2) => {
@@ -61,7 +65,7 @@ function DeliveryClientForm() {
         dist = dist * 180/Math.PI
         dist = dist * 60 * 1.1515
 		dist = dist * 1.609344
-		setDistKm(dist)
+		setDistKm(Math.round(dist))
 	}
 	
 
@@ -118,6 +122,21 @@ function DeliveryClientForm() {
 		}
 	}
 
+	function takeValue () {
+		let lngt = (inputsRef.lngt.current.value)
+		let weight = (inputsRef.weight.current.value)
+		
+		if(lngt && weight && distKm){
+			let coefWeight = 0.15
+			let coefLngt = 0.15
+			if(lngt > 100){
+				coefWeight = 0.1
+				coefLngt = 0.1
+			}
+			const totalPrice = ((lngt*coefLngt)+(weight*coefWeight)+(distKm*0.4)+8)
+			setPrice(totalPrice.toFixed(2))
+		}
+	}
 	
 	return (
 		<div className='sign-ctn' onClick={() => {setResultAddressEnd([]); setResultAddressStart([])}}>
@@ -126,7 +145,7 @@ function DeliveryClientForm() {
 				<img src={require('../images/delivery_client_form.svg')} alt="delivery logo" />
 				<h1>Faites-vous livrer un colis</h1>
 			</div>
-			<form className='sign-form' onSubmit={sendAnnounce}>
+			<form className='sign-form' onSubmit={sendAnnounce} onChange={takeValue}>
 				<div className="containerInputAddress">
 					<div className="containerAddressStart">
 						<div className="contentAddressInput">
@@ -165,13 +184,7 @@ function DeliveryClientForm() {
 					required
 					label={{for: 'delivery-pack-length', text: 'Longueur (cm)'}} 
 					attributes={{type: 'number', id: 'delivery-pack-length', name: 'delivery-pack-length', min:'0', max:'100', }} 
-					reference={inputsRef.lngt} 
-				/>
-				<Input 
-					required
-					label={{for: 'delivery-height', text: 'Hauteur (cm)'}} 
-					attributes={{type: 'number', id: 'delivery-height', name: 'delivery-height', min:'0' }}
-					reference={inputsRef.height} 
+					reference={inputsRef.lngt}
 				/>
 				<Input 
 					required
@@ -187,7 +200,7 @@ function DeliveryClientForm() {
 				/>
 				<div className="delivery-client-price">
 					<div className="price-tip">Prix de la livraison : </div>
-					<div>50€</div>
+					<p>{price}€</p>
 				</div>
 
 				{
