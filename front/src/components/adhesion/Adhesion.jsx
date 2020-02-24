@@ -39,7 +39,7 @@ const Adhesion = () => {
       perimeter: inputsRef.perimeter.current.value || null,
       siret: inputsRef.siret.current.value || null,
       kbis: inputsRef.kbis.current.value || null,
-		}
+    }
 
 		// Si un input n'a pas été rempli
 		if (Object.values(myBody).includes(null)) setInfoMessage({ text: 'Champ(s) vide(s)' })
@@ -125,18 +125,14 @@ const Adhesion = () => {
                   <input className="contentFileInput" type="text" name="VAT" />
                 </label>
 
-                <div className="contentFileInput">
-                  <label htmlFor="carteIdd" className="label-file">
-                    Insérer Kbis de moins de 3 mois
+                  <label>
+                    Insérer Kbis de moins de 3 mois :
                     <input
-                      className="fileInput"
-                      type="file"
-                      id="carteIdd"
+                      className="contentFileInput"
+                      type="text"
                       name="CarteIdd"
-                      accept="image/png, image/jpeg"
                     />
                   </label>
-                </div>
               </div>
             ) : null}
             <div className="contentFileInput">
