@@ -64,7 +64,6 @@ const SignatureZone = () => {
           onClick={async () => {
             trim();
             saveImage();
-            // await setAsDone();
           }}
         >
           Sauvegarder
