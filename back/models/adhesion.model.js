@@ -1,17 +1,17 @@
 const db = require('./database');
 
 const Adhesion = function adhesionObject(adhesion) {
-  this.nom = adhesion.nom_id;
-  this.prenom = adhesion.prenom_id;
-  this.email = adhesion.email_id;
-  this.telephone = adhesion.telephone_id;
-  this.ville = adhesion.ville_id;
-  this.RIB = adhesion.RIB_id;
-  this.perimetre = adhesion.perimetre_id;
+  this.last_name_id = adhesion.last_name_id;
+  this.first_name_id = adhesion.first_name_id;
+  this.mail = adhesion.mail_id;
+  this.phone = adhesion.phone_id;
+  this.city = adhesion.city_id;
+  this.BIC = adhesion.BIC_id;
+  this.perimeter = adhesion.perimeter_id;
   this.siret = adhesion.siret_id;
-  this.TVA = adhesion.TVA_id;
+  this.VAT = adhesion.VAT_id;
   this.kbis = adhesion.kbi_id;
-  this.pieceID = adhesion.piece_id;
+  this.identity_document = adhesion.identity_document_id;
 };
 
 Adhesion.createNewAdhesion = (newAdhesion, result) => {

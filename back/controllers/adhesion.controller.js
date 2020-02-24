@@ -10,17 +10,19 @@ exports.createNewAdhesion = (request, response) => {
 
   // Create a adhesion
   const adhesion = new Adhesion({
-    nom: request.body.nom ? request.body.nom : null,
-    prenom: request.body.prenom ? request.body.prenom : null,
-    email: request.body.email ? request.body.email : null,
-    telephone: request.body.telephone ? request.body.telephone : null,
-    ville: request.body.ville ? request.body.ville : null,
-    RIB: request.body.RIB ? request.body.RIB : null,
-    perimetre: request.body.perimetre ? request.body.perimetre : null,
+    last_name: request.body.last_name ? request.body.last_name : null,
+    first_name: request.body.first_name ? request.body.first_name : null,
+    mail: request.body.mail ? request.body.mail : null,
+    phone: request.body.phone ? request.body.phone : null,
+    city: request.body.city ? request.body.city : null,
+    BIC: request.body.BIC ? request.body.BIC : null,
+    perimeter: request.body.perimeter ? request.body.perimeter : null,
     siret: request.body.siret ? request.body.siret : null,
-    TVA: request.body.TVA ? request.body.TVA : null,
+    VAT: request.body.VAT ? request.body.VAT : null,
     kbis: request.body.kbis ? request.body.kbis : null,
-    piece_id: request.body.piece_id ? request.body.piece_id : null
+    identity_document: request.body.identity_document
+      ? request.body.identity_document
+      : null
   });
 
   return Adhesion.createNewAdhesion(adhesion, (error, data) => {
