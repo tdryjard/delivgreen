@@ -27,7 +27,6 @@ const SignatureZone = () => {
       headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000' },
       data: {
         signature: sigPad.getTrimmedCanvas().toDataURL('image/png'),
-        // orderId,
         status_id: 4
       }
     })
@@ -36,19 +35,6 @@ const SignatureZone = () => {
         console.log(error);
       });
   };
-
-  // const setAsDone = () => {
-  //   const url = `http://localhost:8000/api/orders/${orderId}`;
-  //   Axios({
-  //     method: 'put',
-  //     url,
-  //     data: { status_id: 4 }
-  //   })
-  //     .then(response => console.log(response.data))
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
 
   return (
     <div className="signatureZoneContainer">
