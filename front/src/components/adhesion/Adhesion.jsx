@@ -10,6 +10,7 @@ const Adhesion = () => {
   const [pro] = useState(true);
 
   const [infoMessage, setInfoMessage] = useState(null);
+  const [userId] = useState(1)
 
 	const inputsRef={
 		last_name: useRef(null),
@@ -29,6 +30,7 @@ const Adhesion = () => {
     event.preventDefault();
     
 		const myBody = {
+      user_id: {userId},
 			last_name: inputsRef.last_name.current.value || null,
 			first_name: inputsRef.first_name.current.value || null,
 			mail: inputsRef.mail.current.value || null,
