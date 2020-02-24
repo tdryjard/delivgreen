@@ -9,7 +9,7 @@ import { useRef } from 'react';
 const Adhesion = () => {
   const [pro] = useState(true);
 
-  const [infoMessage, setInfoMessage] = useState(null);
+  const [setInfoMessage] = useState(null);
   const [userId] = useState(1)
 
 	const inputsRef={
