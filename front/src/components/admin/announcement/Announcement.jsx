@@ -1,7 +1,7 @@
 import React from 'react';
 import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AnnouncementCard from './announcementCard/AnnouncementCard';
+import AdminHeader from '../adminHeader/AdminHeader';
 import './Announcement.css';
 
 function Announcement() {
@@ -18,12 +18,7 @@ function Announcement() {
 
     return (
         <div className="announcement-ctn">
-            <header>
-                <FontAwesomeIcon icon={faBook} />
-                <div className="title">
-                    Liste des annonces
-                </div>
-            </header>
+            <AdminHeader icon={faBook} title="Liste des annonces" />
             <div className="annoucement-card-ctn">
                 <AnnouncementCard {...announceInfo} />
                 <AnnouncementCard {...announceInfo} />
