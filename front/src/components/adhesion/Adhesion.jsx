@@ -13,17 +13,16 @@ const Adhesion = () => {
   const [userId] = useState(1)
 
 	const inputsRef={
-		last_name: useRef(null),
-		first_name: useRef(null),
-		mail: useRef(null),
+		lastname: useRef(null),
+		firstname: useRef(null),
+		email: useRef(null),
 		phone: useRef(null),
     city: useRef(null),
-    BIC: useRef(null),
+    rib: useRef(null),
     perimeter: useRef(null),
     siret: useRef(null),
-    VAT: useRef(null),
-    kbis: useRef(null),
-    identity_document: useRef(null)
+    tva: useRef(null),
+    kbis: useRef(null)
 	}
 
 	async function sendAnnounce(event) {
@@ -31,17 +30,15 @@ const Adhesion = () => {
     
 		const myBody = {
       user_id: {userId},
-			last_name: inputsRef.last_name.current.value || null,
-			first_name: inputsRef.first_name.current.value || null,
-			mail: inputsRef.mail.current.value || null,
+			lastname: inputsRef.lastname.current.value || null,
+			firstname: inputsRef.firstname.current.value || null,
+			email: inputsRef.email.current.value || null,
 			phone: inputsRef.phone.current.value || null,
       city: inputsRef.city.current.value || null,
-      BIC: inputsRef.BIC.current.value || null,
+      rib: inputsRef.rib.current.value || null,
       perimeter: inputsRef.perimeter.current.value || null,
       siret: inputsRef.siret.current.value || null,
-      BIC: inputsRef.BIC.current.value || null,
       kbis: inputsRef.kbis.current.value || null,
-      identity_document: inputsRef.identity_document.current.value || null,
 		}
 
 		// Si un input n'a pas été rempli
@@ -77,17 +74,17 @@ const Adhesion = () => {
           <div className="locationAdd">
             <label>
               Nom :
-              <input type="text" name="last_name" />
+              <input type="text" name="lastname" />
             </label>
 
             <label>
               Prénom :
-              <input type="text" name="first_name" />
+              <input type="text" name="firstname" />
             </label>
 
             <label>
               Email :
-              <input type="email" name="mail" />
+              <input type="email" name="email" />
             </label>
 
             <label>
@@ -102,7 +99,7 @@ const Adhesion = () => {
 
             <label>
               RIB :
-              <input className="longInput" type="text" name="BIC" />
+              <input className="longInput" type="text" name="rib" />
             </label>
           </div>
 
