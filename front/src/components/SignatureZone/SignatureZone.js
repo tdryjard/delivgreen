@@ -29,11 +29,7 @@ const SignatureZone = () => {
         signature: sigPad.getTrimmedCanvas().toDataURL('image/png'),
         status_id: 4
       }
-    })
-      .then(response => console.log(response.data))
-      .catch(error => {
-        console.log(error);
-      });
+    });
   };
 
   return (

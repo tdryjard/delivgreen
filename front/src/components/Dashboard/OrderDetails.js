@@ -12,11 +12,7 @@ const OrderDetails = ({ order, hideDetails }) => {
       method: 'put',
       url,
       data: { status_id: 3 }
-    })
-      .then(response => console.log(response.data))
-      .catch(error => {
-        console.log(error);
-      });
+    });
   };
 
   return (
