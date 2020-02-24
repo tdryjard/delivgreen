@@ -32,9 +32,9 @@ const OrderDetails = ({ order, hideDetails }) => {
       <div className="containerStatusBar">
         <div className="titleStatusBarContainer">
           <h4 className="titleStatusBar">En attente</h4>
-          <h4 className="titleStatusBar">Accepté</h4>
-          <h4 className="titleStatusBar">Pris en charge</h4>
-          <h4 className="titleStatusBar">Livré</h4>
+          <h4 className="titleStatusBar">Acceptée</h4>
+          <h4 className="titleStatusBar">Prise en charge</h4>
+          <h4 className="titleStatusBar">Livrée</h4>
         </div>
         <div className="barStatusAndCircleContainer">
           <FontAwesomeIcon
@@ -56,9 +56,7 @@ const OrderDetails = ({ order, hideDetails }) => {
           />
           <FontAwesomeIcon
             icon={faCircle}
-            className={`circleStatusBar fa-3x ${
-              order.status_name === 'Pris en charge' ? 'reachedStatus' : null
-            }`}
+            className="circleStatusBar fa-3x reachedStatus"
           />
           <div
             className={`barStatusBar ${
