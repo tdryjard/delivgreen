@@ -1,0 +1,34 @@
+.orderConfirmationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #B3B3B3;
+    height: 100vh;
+    width: 100%;
+}
+
+.smallContainerOrderConfirmation {
+    background-color: white;
+    height: 40%;
+    width: 40%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.orderConfirmationMessage {
+    padding: 25px;
+}
+
+.linkToDashboard {
+    background-color: #17B994;
+    color: whitesmoke;
+    padding: 25px;
+    border-radius: 5px;
+}
+.linkToDashboard:hover {
+    transform: scale(1.1);
+}

@@ -1,4 +1,7 @@
+const fs = require('fs');
 const Orders = require('../models/orders.model');
+
+const filepath = './signatures/';
 
 exports.findOrders = (request, response) => {
   const { query } = request;
@@ -66,26 +69,42 @@ exports.create = (request, response) => {
 };
 
 exports.updateOrder = (request, response) => {
+  const { orderId } = request.params;
+
   if (!request.body) {
     response.status(400).send({
       message: 'Content can not be empty!'
     });
   }
-  Orders.updateOrder(
-    request.params.orderId,
-    request.body.delivery_man_id,
-    (error, data) => {
-      if (error) {
-        if (error.kind === 'not_found') {
-          return response.status(404).send({
-            message: `pas d'ordre à numéro ${request.params.orderId}.`
-          });
-        }
+
+  if (Object.keys(request.body).includes('signature')) {
+    const signatureFileName = `${filepath}signature_${orderId}.png`;
+    const base64Data = request.body.signature.split(
+      'data:image/png;base64,'
+    )[1];
+    fs.writeFile(signatureFileName, base64Data, 'base64', err => {
+      if (err) {
         return response.status(500).send({
-          message: `nous ne pouvons pas vous attribuer l'ordre n° ${request.params.orderId}`
+          message: `Impossible d'enregistrer la signature n° ${orderId}`
         });
       }
-      return response.status(200).send(data);
+      return 0;
+    });
+
+    request.body.signature = signatureFileName;
+  }
+
+  return Orders.updateOrder(orderId, request.body, (error, data) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        return response.status(404).send({
+          message: `pas d'ordre à numéro ${orderId}.`
+        });
+      }
+      return response.status(500).send({
+        message: `nous ne pouvons pas vous attribuer l'ordre n° ${orderId}`
+      });
     }
-  );
+    return response.status(200).send(data);
+  });
 };
