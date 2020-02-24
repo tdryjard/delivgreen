@@ -2,7 +2,7 @@ database
 node_modules
 yarn.lock
 package-lock.json
-signatures
+/signatures/*
 
 .env
 
