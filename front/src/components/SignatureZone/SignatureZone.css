@@ -19,6 +19,31 @@
     background-color: white;
 }
 
+.buttonsContainer {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.deleteButtonSignature {
+    border: none;
+    font-size: 22px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.saveButtonSignature {
+    border: none;
+    font-size: 22px;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    padding: 20px;
+}
+
 @media (max-width: 1060px) {
     .signatureSave {
         width: 80%;

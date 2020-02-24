@@ -1,0 +1,129 @@
+.moreDetailsContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #3a3a3a;
+    align-items: center;
+    justify-content: space-around;
+    top: 30%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 50%;
+}
+
+.buttonMoreDetailsMyOrders {
+    border: solid 1px #17B994;
+    color: #17B994;
+    background-color: transparent;
+    padding: 15px;
+    font-size: 18px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buttonMoreDetailsMyOrders:hover {
+    transform: scale(1.1);
+}
+
+/*          Addresses           */
+
+.addressContainerMyOrders {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.adressContainerSmall {
+    background-color: white;
+    border: 2px solid #B3B3B3;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.wazeContainerOrders {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #282c34;
+    cursor: pointer;
+    color: whitesmoke;
+    border-radius: 5px;
+    background-color: #17B994;
+}
+.wazeContainerOrders:hover {
+    transform: scale(1.1);
+}
+
+.wazeButtonOrder {
+    height: 25px;
+    padding: 5px;
+}
+
+.titleAdressOrders {
+    font-size: 20px;
+}
+
+/*          Status bar          */
+
+.containerStatusBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 100px;
+}
+
+.barStatusBar {
+    width: 200px;
+    background-color: lightgray;
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin: 0 -15px 0 -15px;
+    height: 20px;
+}
+
+.titleStatusBarContainer {
+    width: 90%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.barStatusAndCircleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circleStatusBar {
+    color: lightgrey;
+    z-index: 2;
+}
+
+.reachedStatus {
+    color: #17B994;
+}
+
+.reachedBar {
+    background-color: #17B994;
+}
+
+.titleStatusBar {
+    color: #282c34;
+    margin: 0;
+}
+
+.closeDetailsIcon {
+    color: #17B994;
+    position: absolute;
+    right: 3%;
+    top: 5%;
+    cursor: pointer;
+}
+.closeDetailsIcon:hover {
+    transform: scale(1.1);
+}

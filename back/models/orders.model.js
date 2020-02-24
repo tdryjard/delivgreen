@@ -47,16 +47,16 @@ Orders.findOrdersByUser = (userId, result) => {
   );
 };
 
-Orders.updateOrder = (userId, orders, result) => {
+Orders.updateOrder = (orderId, order, result) => {
   db.query(
-    `UPDATE orders SET delivery_man_id = ? WHERE id = ?`,
-    [userId, orders],
+    `UPDATE orders SET ? WHERE id = ?`,
+    [order, orderId],
     (error, dbResult) => {
       if (error) {
         return result(error, null);
       }
       if (dbResult.affectedRows) {
-        return result(null, { orders });
+        return result(null, { order });
       }
       return result({ kind: 'not_found' }, null);
     }

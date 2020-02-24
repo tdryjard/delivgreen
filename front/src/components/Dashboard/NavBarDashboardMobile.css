@@ -3,9 +3,8 @@
 .navBarMobileContainer {
     font-family: Roboto;
     position: absolute;
-    height: 70vh;
+    height: 100vh;
     width: 80%;
-    border-bottom: solid gray 1px;
     border-right: solid gray 1px;
     box-sizing: border-box;
     background-color: white;
