@@ -6,17 +6,12 @@ import { Link } from 'react-router-dom';
 import useWindowDimensions from '../Dashboard/useWindowDimensions';
 
 const SignatureZone = () => {
-  const [signatureImage, setSignatureImage] = useState(null);
   const { width } = useWindowDimensions();
   const [sigPad, setSigPad] = useState({});
   const orderId = window.location.search.split('orderId=')[1];
 
   const clear = () => {
     setSigPad(sigPad.clear);
-  };
-
-  const trim = () => {
-    setSignatureImage(sigPad.getTrimmedCanvas().toDataURL('image/png'));
   };
 
   const saveImage = () => {
@@ -61,21 +56,11 @@ const SignatureZone = () => {
         <Link
           to="/dashboard-pro"
           className="saveButtonSignature"
-          onClick={async () => {
-            trim();
-            saveImage();
-          }}
+          onClick={saveImage}
         >
           Sauvegarder
         </Link>
       </div>
-      {signatureImage ? (
-        <img
-          className="signatureSave"
-          src={signatureImage}
-          alt="signature png"
-        />
-      ) : null}
     </div>
   );
 };
