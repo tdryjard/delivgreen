@@ -12,34 +12,34 @@ const Adhesion = () => {
   const [infoMessage, setInfoMessage] = useState(null);
 
 	const inputsRef={
-		nom: useRef(null),
-		prenom: useRef(null),
-		email: useRef(null),
-		téléphone: useRef(null),
-    ville: useRef(null),
-    RIB: useRef(null),
-    perimetre: useRef(null),
+		last_name: useRef(null),
+		first_name: useRef(null),
+		mail: useRef(null),
+		phone: useRef(null),
+    city: useRef(null),
+    BIC: useRef(null),
+    perimeter: useRef(null),
     siret: useRef(null),
-    TVA: useRef(null),
+    VAT: useRef(null),
     kbis: useRef(null),
-    pieceID: useRef(null)
+    identity_document: useRef(null)
 	}
 
 	async function sendAnnounce(event) {
     event.preventDefault();
     
 		const myBody = {
-			nom: inputsRef.nom.current.value || null,
-			prenom: inputsRef.prenom.current.value || null,
-			email: inputsRef.email.current.value || null,
-			telephone: inputsRef.telephone.current.value || null,
-      ville: inputsRef.ville.current.value || null,
-      RIB: inputsRef.RIB.current.value || null,
-      perimetre: inputsRef.perimetre.current.value || null,
+			last_name: inputsRef.last_name.current.value || null,
+			first_name: inputsRef.first_name.current.value || null,
+			mail: inputsRef.mail.current.value || null,
+			phone: inputsRef.phone.current.value || null,
+      city: inputsRef.city.current.value || null,
+      BIC: inputsRef.BIC.current.value || null,
+      perimeter: inputsRef.perimeter.current.value || null,
       siret: inputsRef.siret.current.value || null,
-      TVA: inputsRef.TVA.current.value || null,
+      BIC: inputsRef.BIC.current.value || null,
       kbis: inputsRef.kbis.current.value || null,
-      pieceID: inputsRef.pieceID.current.value || null,
+      identity_document: inputsRef.identity_document.current.value || null,
 		}
 
 		// Si un input n'a pas été rempli
@@ -75,32 +75,32 @@ const Adhesion = () => {
           <div className="locationAdd">
             <label>
               Nom :
-              <input type="text" name="lastname" />
+              <input type="text" name="last_name" />
             </label>
 
             <label>
               Prénom :
-              <input type="text" name="firstname" />
+              <input type="text" name="first_name" />
             </label>
 
             <label>
               Email :
-              <input type="email" name="email" />
+              <input type="email" name="mail" />
             </label>
 
             <label>
               Téléphone :
-              <input type="tel" name="Télephone" />
+              <input type="tel" name="phone" />
             </label>
 
             <label>
               Ville :
-              <input className="longInput" type="text" name="ville" />
+              <input className="longInput" type="text" name="city" />
             </label>
 
             <label>
               RIB :
-              <input className="longInput" type="text" name="RIB" />
+              <input className="longInput" type="text" name="BIC" />
             </label>
           </div>
 
@@ -123,7 +123,7 @@ const Adhesion = () => {
 
                 <label>
                   TVA :
-                  <input className="contentFileInput" type="text" name="TVA" />
+                  <input className="contentFileInput" type="text" name="VAT" />
                 </label>
 
                 <div className="contentFileInput">
