@@ -37,7 +37,7 @@ function Signup() {
 
             // Initialisation du global state (user)
             if (data) {
-                const { id, firstname, lastname, role, deliveryManId, professionalId, email } = data;
+                const { id, firstname, lastname, role, email } = data;
                 userStateConnect({ id, firstname, lastname, role, deliveryManId, professionalId, email });
             }
 

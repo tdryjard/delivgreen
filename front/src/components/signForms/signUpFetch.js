@@ -18,19 +18,11 @@ const signUp = async function signUpFetching(myBody) {
     const { inputs, alert, data } = result;
 
     // Traitement de la réponse
-    switch (status) {
-      case 400: {
-        // En cas de si des entrées sont en erreur
-        if (inputs) return { alert, type: 'INPUT', status: 'ERROR', inputs };
-        break;
-      }
-      case 200: {
-        // En cas de bonne création du compte
-        return { alert, data, status: 'SUCCESS' };
-      }
-      default:
-        return result;
+    if (status === 400 || status === 500) {
+      return { alert, type: 'INPUT', status: 'ERROR', inputs };
     }
+    // En cas de bonne création du compte
+    return { alert, data, status: 'SUCCESS' };
   } catch (e) {
     console.error(e);
   }
