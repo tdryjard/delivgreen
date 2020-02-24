@@ -6,6 +6,7 @@ import Footer from '../../footer/Footer';
 import Navbar from '../../NavBar/NavBar';
 import Input from '../../formElements/Input';
 import signUp from '../signUpFetch';
+import useGlobalState from '../../../hooks/useGlobalState';
 import './Signup.css';
 import '../Sign.css';
 
@@ -13,13 +14,14 @@ function Signup() {
 
     const [infoMessage, setInfoMessage] = useState(null);
     const [redirection, setRedirection] = useState(null);
+    const { userStateConnect, user } = useGlobalState();
 
     const inputsRef = {
         email: useRef(null),
         password: useRef(null)
     }
 
-    const userConnect = function connectUser (event) {
+    const userConnect = async function connectUser (event) {
         event.preventDefault(); 
 
         Object.values(inputsRef).forEach(input => input.current.classList.remove('error'))
@@ -33,7 +35,11 @@ function Signup() {
         .then(result => {
             const { alert, status, inputs, data } = result;
 
-            console.log(data)
+            // Initialisation du global state (user)
+            if (data) {
+                const { id, firstname, lastname, role, deliveryManId, professionalId, email } = data;
+                userStateConnect({ id, firstname, lastname, role, deliveryManId, professionalId, email });
+            }
 
             setInfoMessage(alert);
 
