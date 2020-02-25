@@ -5,7 +5,7 @@ import './OrderDetails.css';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
-const OrderDetails = ({ order, hideDetails }) => {
+const OrderDetails = ({ status, order, hideDetails }) => {
   const setAsTaken = () => {
     const url = `http://localhost:8000/api/orders/${order.id}`;
     Axios({
@@ -106,26 +106,27 @@ const OrderDetails = ({ order, hideDetails }) => {
         </div>
       </div>
       <p>Date limite : {order.limit_date}</p>
-      {/*     TODO envoyer l'id en signature pour stocker en bdd l'image      */}
-      {order.status_name === 'Pris en charge' ? (
-        // The parcel is already took by the delivery man so we need the signature
-        <Link
-          className="buttonMoreDetailsMyOrders"
-          to={`/signature?orderId=${order.id}`}
-        >
-          Livrer le colis
-        </Link>
-      ) : (
-        // The delivery man is picking the parcel
+      {status === 2 ? (
+        order.status_name === 'Pris en charge' ? (
+          // The parcel is already took by the delivery man so we need the signature
+          <Link
+            className="buttonMoreDetailsMyOrders"
+            to={`/signature?orderId=${order.id}`}
+          >
+            Livrer le colis
+          </Link>
+        ) : (
+          // The delivery man is picking the parcel
 
-        <Link
-          className="buttonMoreDetailsMyOrders"
-          to={`/confirmation?orderId=${order.id}`}
-          onClick={setAsTaken}
-        >
-          Réceptionner le colis
-        </Link>
-      )}
+          <Link
+            className="buttonMoreDetailsMyOrders"
+            to={`/confirmation?orderId=${order.id}`}
+            onClick={setAsTaken}
+          >
+            Réceptionner le colis
+          </Link>
+        )
+      ) : null}
     </div>
   );
 };

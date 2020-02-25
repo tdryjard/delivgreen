@@ -138,6 +138,7 @@ const MyOrders = () => {
               </table>
               {moreDetails ? (
                 <OrderDetails
+                  status={2}
                   order={clientOrders[detailsIndex]}
                   hideDetails={setMoreDetails}
                 />
