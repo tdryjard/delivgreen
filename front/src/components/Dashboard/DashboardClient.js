@@ -25,7 +25,6 @@ const DashboardClient = () => {
       .then(data => {
         const stockOrders = data;
         setClientOrders(stockOrders);
-        console.log(stockOrders);
       });
   };
 
