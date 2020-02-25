@@ -1,17 +1,19 @@
 const db = require('./database');
 
 const Address = function createAddress(address) {
-  (this.name = address.name)((this.lat = address.lat))(
-    (this.lng = address.lng)
-  );
+  this.name = address.name;
+  this.lat = address.lat;
+  this.lng = address.lng;
 };
 
 const Orders = function orderObject(orders) {
-  (this.lngt = orders.lngt)((this.weight = orders.weight))(
-    (this.limit_date = orders.limit_date)
-  )((this.publish_date = orders.publish_date))((this.price = orders.price))(
-    (this.user_id = orders.user_id)
-  )((this.status_id = orders.status_id));
+  this.lngt = orders.lngt;
+  this.weight = orders.weight;
+  this.limit_date = orders.limit_date;
+  this.publish_date = orders.publish_date;
+  this.price = orders.price;
+  this.user_id = orders.user_id;
+  this.status_id = orders.status_id;
 };
 
 db.beginTransaction(function transaction(err) {
