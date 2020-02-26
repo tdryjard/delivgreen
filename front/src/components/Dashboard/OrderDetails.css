@@ -127,3 +127,22 @@
 .closeDetailsIcon:hover {
     transform: scale(1.1);
 }
+
+@media (max-width: 1060px) {
+    .moreDetailsContainer {
+        width: 85%;
+        margin-top: -100px;
+    }
+
+    .wazeContainerOrders {
+        padding: 5px;
+    }
+
+    .containerStatusBar {
+        width: 110%;
+    }
+
+    .barStatusBar {
+        width: 80px;
+    }
+}

@@ -22,7 +22,7 @@ function Signup() {
     }
 
     const userConnect = async function connectUser (event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         Object.values(inputsRef).forEach(input => input.current.classList.remove('error'))
 
@@ -37,8 +37,8 @@ function Signup() {
 
             // Initialisation du global state (user)
             if (data) {
-                const { id, firstname, lastname, role, email } = data;
-                userStateConnect({ id, firstname, lastname, role, email });
+                const { id, firstname, lastname, role } = data;
+                userStateConnect({ id, firstname, lastname, role });
             }
 
             setInfoMessage(alert);
@@ -71,14 +71,14 @@ function Signup() {
                     )
                 }
                 <form className='sign-form' onSubmit={userConnect}>
-                    <Input 
-                        label={{ for: 'signup-email', text: 'Email' }} 
-                        attributes={{ type:'email', name: 'email', id: 'signup-email' }} 
+                    <Input
+                        label={{ for: 'signup-email', text: 'Email' }}
+                        attributes={{ type:'email', name: 'email', id: 'signup-email' }}
                         reference={inputsRef.email}
                     />
-                    <Input 
-                        label={{ for: 'signup-password', text: 'Mot de passe' }} 
-                        attributes={{ type:'password', name: 'password', id: 'signup-password' }} 
+                    <Input
+                        label={{ for: 'signup-password', text: 'Mot de passe' }}
+                        attributes={{ type:'password', name: 'password', id: 'signup-password' }}
                         reference={inputsRef.password}
                     />
                     <button type='submit' className='btn'>Se connecter</button>
@@ -88,5 +88,5 @@ function Signup() {
         </>
     )
 }
-    
+
 export default Signup;
