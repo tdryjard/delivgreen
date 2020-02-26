@@ -35,7 +35,6 @@ CREATE TABLE delivery_man (
 CREATE TABLE orders (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     lngt FLOAT NOT NULL,
-    height FLOAT NOT NULL,
     weight FLOAT NOT NULL,
     limit_date VARCHAR(50) NOT NULL,
     publish_date VARCHAR(50) NOT NULL,
@@ -74,8 +73,7 @@ ALTER TABLE orders
     ADD CONSTRAINT fk_orders__start_address_id FOREIGN KEY (start_address_id) REFERENCES address(id),
     ADD CONSTRAINT fk_orders__end_address_id FOREIGN KEY (end_address_id) REFERENCES address(id),
     ADD CONSTRAINT fk_orders__user_id FOREIGN KEY (user_id) REFERENCES users(id),
-    ADD CONSTRAINT fk_orders__delivery_man_id FOREIGN KEY (delivery_man_id) REFERENCES delivery_man(id),
-    ADD CONSTRAINT fk_orders__status_id FOREIGN KEY (status) REFERENCES status(id);
+    ADD CONSTRAINT fk_orders__delivery_man_id FOREIGN KEY (delivery_man_id) REFERENCES delivery_man(id);
 
 ALTER TABLE users
     ADD CONSTRAINT fk_users__delivery_man_id FOREIGN KEY (delivery_man_id) REFERENCES delivery_man(id),

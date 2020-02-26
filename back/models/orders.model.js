@@ -1,8 +1,11 @@
 const db = require('./database');
 
 const Orders = function orderObject(orders) {
-  this.delivery_man_id = orders.delivery_man_id;
-  this.name = orders.name;
+  this.lngt = orders.lngt;
+  this.weight = orders.weight;
+  this.limit_date = orders.limit_date;
+  this.publish_date = orders.publish_date;
+  this.price = orders.price;
 };
 
 Orders.findOrders = result => {
