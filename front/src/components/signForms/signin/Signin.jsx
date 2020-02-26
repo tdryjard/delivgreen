@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavBar from '../../NavBar/NavBar';
 import Footer from '../../footer/Footer'
 import Input from '../../formElements/Input';
-import signIn from '../signFetch';
+import signIn from '../signInFetch';
 
 function Signin() {
     const [infoMessage, setInfoMessage] = useState(null);
@@ -30,7 +30,7 @@ function Signin() {
 
     const formSubmit = function sendElementsInfoToVerifying (event) {
         event.preventDefault();
-        const form = event.currentTarget;
+
         // Clean de tout les inputs (enlever les bordures rouges d'erreur)
         Object.values(inputsRef).forEach(input => input.current.classList.remove('error'));
 
