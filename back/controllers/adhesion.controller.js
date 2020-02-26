@@ -1,7 +1,7 @@
-const Adhesion = require('../models/adhesion.model');
+const { DeliveryMan, Professional, User } = require('../models/adhesion.model');
 
 // Create a new adhesion
-exports.createNewAdhesion = (request, response) => {
+exports.createNewDeliveryMan = (request, response) => {
   if (!request.body) {
     return response.status(400).send({
       message: 'Content can not be empty!'
@@ -9,20 +9,31 @@ exports.createNewAdhesion = (request, response) => {
   }
 
   // Create a adhesion
-  const adhesion = new Adhesion({
-    lastname: request.body.lastname ? request.body.lastname : null,
-    firstname: request.body.first_name ? request.body.firstname : null,
-    email: request.body.mail ? request.body.email : null,
-    phone: request.body.phone ? request.body.phone : null,
-    city: request.body.city ? request.body.city : null,
+  const deliveryMan = new DeliveryMan({
+    is_pro: request.body.is_pro,
     rib: request.body.rib ? request.body.rib : null,
-    perimeter: request.body.perimeter ? request.body.perimeter : null,
-    siret: request.body.siret ? request.body.siret : null,
-    tva: request.body.tva ? request.body.tva : null,
-    kbis: request.body.kbis ? request.body.kbis : null
+    accepted: request.body.accepted
   });
 
-  return Adhesion.createNewAdhesion(adhesion, (error, data) => {
+  return DeliveryMan.createNewDeliveryMan(deliveryMan, (error, data) => {
+    if (error) {
+      return response.status(500).send({
+        message:
+          error.message || 'Some error occurred while creating the adhesion.'
+      });
+    }
+    return response.status(201).send(data);
+  });
+};
+
+exports.createNewProfessional = (request, response) => {
+  const professional = new Professional({
+    kbis: request.body.kbis || null,
+    siret: request.body.siret ? request.body.siret : null,
+    tva: request.body.tva ? request.body.tva : null
+  });
+
+  return professional.createNewProfessional(professional, (error, data) => {
     if (error) {
       return response.status(500).send({
         message:
@@ -30,6 +41,23 @@ exports.createNewAdhesion = (request, response) => {
       });
     }
 
+    return response.status(201).send(data);
+  });
+};
+
+exports.updateUserAdhesion = (request, response) => {
+  User.updateUserAdhesion(request.params.userId, (error, data) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Not found user with id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `Error updating user with id ${request.params.userId}`
+        });
+      }
+    }
     return response.status(201).send(data);
   });
 };

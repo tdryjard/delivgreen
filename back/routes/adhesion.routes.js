@@ -3,16 +3,10 @@ const adhesion = require('../controllers/adhesion.controller.js');
 
 const router = express.Router();
 
-// Create adhesions
-router.post('/', adhesion.createNewAdhesion);
+router.post('/delivery-man', adhesion.createNewDeliveryMan);
 
-// Read all adhesion
-router.get('/', adhesion.findAllAdhesion);
+router.post('/professional', adhesion.createNewProfessional);
 
-// Read adhesions by ID
-router.get('/:adhesion_id', adhesion.findByIdAdhesion);
-
-// Delete adhesions
-router.delete('/:adhesion_id', adhesion.deleteAdhesion);
+router.get('/:userId', adhesion.updateUserAdhesion);
 
 module.exports = router;

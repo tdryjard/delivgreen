@@ -5,61 +5,140 @@ import './adhesion.css';
 import apiUrl from '../api/api';
 import apiOrigin from '../api/origin';
 import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { faInfoCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Adhesion = () => {
-  const [pro] = useState(true);
-
-  const [setInfoMessage] = useState(null);
+  const location = useLocation()
+  const proBool = location.professionnal
+  const [pro, setPro] = useState(false);
+  const [infoMessage, setInfoMessage] = useState(null);
   const [userId] = useState(1)
+  console.log(proBool)
 
-	const inputsRef={
+	const inputsRef = {
 		lastname: useRef(null),
 		firstname: useRef(null),
 		email: useRef(null),
 		phone: useRef(null),
-    city: useRef(null),
     rib: useRef(null),
-    perimeter: useRef(null),
     siret: useRef(null),
     tva: useRef(null),
     kbis: useRef(null)
-	}
+  }
 
 	async function sendAnnounce(event) {
     event.preventDefault();
     
-		const myBody = {
-      user_id: {userId},
-			lastname: inputsRef.lastname.current.value || null,
-			firstname: inputsRef.firstname.current.value || null,
-			email: inputsRef.email.current.value || null,
-			phone: inputsRef.phone.current.value || null,
-      city: inputsRef.city.current.value || null,
-      rib: inputsRef.rib.current.value || null,
-      perimeter: inputsRef.perimeter.current.value || null,
+    setPro(proBool)
+    console.log(proBool)
+    if(!proBool) {
+      const bodyDeliveryMan = {
+        accepted: false,
+        is_pro: proBool,
+        rib: inputsRef.rib.current.value || null
+      }
+
+      console.log(bodyDeliveryMan)
+
+      if (Object.values(bodyDeliveryMan).includes(null)){
+        setInfoMessage({ text: 'Champ(s) vide(s)' })
+        console.log('dalu')
+      } 
+  
+      else {
+  
+        try{
+          const response = await fetch(apiUrl + '/api/adhesion/delivery-man', {
+            method: 'POST',
+            headers: {
+              'Content-Type' :'application/json',
+              'Acces-Control-Allow-Origin' : {apiOrigin}	
+            },
+            body: JSON.stringify(bodyDeliveryMan)
+          });
+          const data = await response.json();
+          inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+        } catch (error)  {
+          console.log(error);
+        }
+        
+        try{
+          fetch(apiUrl + `/api/adhesion/${userId}`, {
+            method: 'PUT'
+          });
+        } catch (error)  {
+          console.log(error);
+        }
+      }
+      }
+
+    else if (pro === true) {
+
+    const bodyDeliveryMan = {
+      accepted: false,
+      is_pro: proBool,
+      rib: inputsRef.rib.current.value || null
+    }
+  
+    const bodyProfessionnal = {
       siret: inputsRef.siret.current.value || null,
       kbis: inputsRef.kbis.current.value || null,
+      tva: inputsRef.tva.current.value || null
     }
 
-		// Si un input n'a pas été rempli
-		if (Object.values(myBody).includes(null)) setInfoMessage({ text: 'Champ(s) vide(s)' })
+      if (Object.values(bodyDeliveryMan).includes(null) || Object.values(bodyProfessionnal).includes(null)){
+        setInfoMessage({ text: 'Champ(s) vide(s)' })
+        console.log('dalu')
+      } 
+  
+      else {
+  
+        try{
+          const response = await fetch(apiUrl + '/api/adhesion/delivery-man', {
+            method: 'POST',
+            headers: {
+              'Content-Type' :'application/json',
+              'Acces-Control-Allow-Origin' : {apiOrigin}	
+            },
+            body: JSON.stringify(bodyDeliveryMan)
+          });
+          const data = await response.json();
+          inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+        } catch (error)  {
+          console.log(error);
+        }
+    
+        try{
+          const response = await fetch(apiUrl + '/api/adhesion/professional', {
+            method: 'POST',
+            headers: {
+              'Content-Type' :'application/json',
+              'Acces-Control-Allow-Origin' : {apiOrigin}	
+            },
+            body: JSON.stringify(bodyProfessionnal)
+          });
+          const data = await response.json();
+          inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+        } catch (error)  {
+          console.log(error);
+        }
+        
+        try{
+          fetch(apiUrl + `/api/adhesion/${userId}`, {
+            method: 'PUT'
+          });
+        } catch (error)  {
+          console.log(error);
+        }
+      }
+      }
+    }
+		
 
 
-		try{
-			const response = await fetch(apiUrl + '/api/orders', {
-				method: 'POST',
-				headers: {
-					'Content-Type' :'application/json',
-					'Acces-Control-Allow-Origin' : {apiOrigin}	
-				},
-				body: JSON.stringify(myBody)
-			});
-			const data = await response.json();
-			inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
-		} catch (error)  {
-			console.log(error);
-		}
-	}
+		
 
   return (
     <div className="contentAdhesion">
@@ -68,46 +147,45 @@ const Adhesion = () => {
         <img src={require('../adhesion/images/form.svg')} alt="contact logo" />
         <h1 className="titleAdhesion">Demande d'adhesion</h1>
       </div>
-
-      <form className="sign-form" action="">
+      {
+                infoMessage && (
+                    <div className={`infoMessageAdhesion`}>
+                        <FontAwesomeIcon icon={faInfoCircle} className="icon"/>
+                        <span className="textInfoMessageAdhesion">{infoMessage.text}</span>
+                        <FontAwesomeIcon icon={faTimes} className="close" onClick={() => setInfoMessage(null) } />
+                    </div>
+                )
+      }
+      <form onSubmit={sendAnnounce} className="sign-form" action="">
         <div className="content-form">
           <div className="locationAdd">
             <label>
               Nom :
-              <input type="text" name="lastname" />
+              <input type="text" name="lastname" ref={inputsRef.lastname} />
             </label>
 
             <label>
               Prénom :
-              <input type="text" name="firstname" />
+              <input type="text" name="firstname" ref={inputsRef.firstname} />
             </label>
 
             <label>
               Email :
-              <input type="email" name="email" />
+              <input type="email" name="email" ref={inputsRef.email}/>
             </label>
 
             <label>
               Téléphone :
-              <input type="tel" name="phone" />
-            </label>
-
-            <label>
-              Ville :
-              <input className="longInput" type="text" name="city" />
+              <input type="tel" name="phone" ref={inputsRef.phone} />
             </label>
 
             <label>
               RIB :
-              <input className="longInput" type="text" name="rib" />
+              <input className="longInput" type="text" name="rib" ref={inputsRef.rib}/>
             </label>
           </div>
 
           <div className="parcel-information">
-            <label>
-              Périmetre :
-              <input className="locationInput" type="text" name="perimeter" />
-            </label>
 
             {pro ? (
               <div className="containerPro">
@@ -117,12 +195,13 @@ const Adhesion = () => {
                     className="contentFileInput"
                     type="text"
                     name="SIRET"
+                    ref={inputsRef.siret}
                   />
                 </label>
 
                 <label>
                   TVA :
-                  <input className="contentFileInput" type="text" name="VAT" />
+                  <input className="contentFileInput" type="text" name="VAT" ref={inputsRef.tva} />
                 </label>
 
                   <label>
@@ -131,22 +210,11 @@ const Adhesion = () => {
                       className="contentFileInput"
                       type="text"
                       name="CarteIdd"
+                      ref={inputsRef.kbis}
                     />
                   </label>
               </div>
             ) : null}
-            <div className="contentFileInput">
-              <label htmlFor="carteIdd" className="label-file">
-                Insérer pièce d'identité
-                <input
-                  className="fileInput"
-                  type="file"
-                  id="carteIdd"
-                  name="CarteIdd"
-                  accept="image/png, image/jpeg"
-                />
-              </label>
-            </div>
             <button type="submit" className="btn-send-adhesion">
               Envoyer
             </button>
