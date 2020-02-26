@@ -9,16 +9,18 @@ import NavBarDashboardClient from './NavBarDashboardClient';
 import './DashboardClient.css';
 import url from '../api/api';
 import OrderDetails from './OrderDetails';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const DashboardClient = () => {
   const { width } = useWindowDimensions();
+  const { user } = useGlobalState();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
   const [clientOrders, setClientOrders] = useState(null);
   const [moreDetails, setMoreDetails] = useState(false);
   const [detailsIndex, setDetailsIndex] = useState(null);
 
   const getProducts = () => {
-    const userId = 1;
+    const userId = user.id;
     axios
       .get(`${url}/api/orders?userId=${userId}`)
       .then(result => result.data)

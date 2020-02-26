@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './OrderDetails.css';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import axios from 'axios';
+import url from '../api/api';
 
 const OrderDetails = ({ status, order, hideDetails }) => {
   const setAsTaken = () => {
-    const url = `http://localhost:8000/api/orders/${order.id}`;
-    Axios({
+    axios({
       method: 'put',
-      url,
+      url: `${url}/api/orders/${order.id}`,
       data: { status_id: 3 }
     });
   };
