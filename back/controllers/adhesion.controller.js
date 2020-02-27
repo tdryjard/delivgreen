@@ -11,11 +11,12 @@ exports.createNewDeliveryMan = (request, response) => {
   // Create a adhesion
   const deliveryMan = new DeliveryMan({
     is_pro: request.body.is_pro,
-    rib: request.body.rib ? request.body.rib : null,
+    rib: request.body.rib,
     accepted: request.body.accepted
   });
 
   return DeliveryMan.createNewDeliveryMan(deliveryMan, (error, data) => {
+    console.log(deliveryMan);
     if (error) {
       return response.status(500).send({
         message:
@@ -33,7 +34,7 @@ exports.createNewProfessional = (request, response) => {
     tva: request.body.tva ? request.body.tva : null
   });
 
-  return professional.createNewProfessional(professional, (error, data) => {
+  return Professional.createNewProfessional(professional, (error, data) => {
     if (error) {
       return response.status(500).send({
         message:
@@ -46,7 +47,7 @@ exports.createNewProfessional = (request, response) => {
 };
 
 exports.updateUserAdhesion = (request, response) => {
-  User.updateUserAdhesion(request.params.userId, (error, data) => {
+  return User.updateUserAdhesion(request.params.userId, (error, data) => {
     if (error) {
       if (error.kind === 'not_found') {
         response.status(404).send({

@@ -34,29 +34,30 @@ const Adhesion = () => {
     setPro(proBool)
     console.log(proBool)
     if(!proBool) {
-      const bodyDeliveryMan = {
+
+      const DeliveryMan = {
         accepted: false,
         is_pro: proBool,
-        rib: inputsRef.rib.current.value || null
+        rib: inputsRef.rib.current.value
       }
 
-      console.log(bodyDeliveryMan)
+      console.log(DeliveryMan)
 
-      if (Object.values(bodyDeliveryMan).includes(null)){
+      if (Object.values(DeliveryMan).includes(null)){
         setInfoMessage({ text: 'Champ(s) vide(s)' })
-        console.log('dalu')
       } 
   
       else {
   
         try{
+          console.log('enter')
           const response = await fetch(apiUrl + '/api/adhesion/delivery-man', {
             method: 'POST',
             headers: {
               'Content-Type' :'application/json',
               'Acces-Control-Allow-Origin' : {apiOrigin}	
             },
-            body: JSON.stringify(bodyDeliveryMan)
+            body: JSON.stringify(DeliveryMan)
           });
           const data = await response.json();
           inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
@@ -72,23 +73,21 @@ const Adhesion = () => {
           console.log(error);
         }
       }
-      }
+    } else if (proBool === true) {
 
-    else if (pro === true) {
-
-    const bodyDeliveryMan = {
+    const DeliveryMan = {
       accepted: false,
       is_pro: proBool,
-      rib: inputsRef.rib.current.value || null
+      rib: inputsRef.rib.current.value
     }
   
-    const bodyProfessionnal = {
+    const Professionnal = {
       siret: inputsRef.siret.current.value || null,
       kbis: inputsRef.kbis.current.value || null,
       tva: inputsRef.tva.current.value || null
     }
 
-      if (Object.values(bodyDeliveryMan).includes(null) || Object.values(bodyProfessionnal).includes(null)){
+      if (Object.values(DeliveryMan).includes(null) || Object.values(Professionnal).includes(null)){
         setInfoMessage({ text: 'Champ(s) vide(s)' })
         console.log('dalu')
       } 
@@ -102,7 +101,7 @@ const Adhesion = () => {
               'Content-Type' :'application/json',
               'Acces-Control-Allow-Origin' : {apiOrigin}	
             },
-            body: JSON.stringify(bodyDeliveryMan)
+            body: JSON.stringify(DeliveryMan)
           });
           const data = await response.json();
           inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
@@ -117,7 +116,7 @@ const Adhesion = () => {
               'Content-Type' :'application/json',
               'Acces-Control-Allow-Origin' : {apiOrigin}	
             },
-            body: JSON.stringify(bodyProfessionnal)
+            body: JSON.stringify(Professionnal)
           });
           const data = await response.json();
           inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
@@ -158,7 +157,6 @@ const Adhesion = () => {
       }
       <form onSubmit={sendAnnounce} className="sign-form" action="">
         <div className="content-form">
-          <div className="locationAdd">
             <label>
               Nom :
               <input type="text" name="lastname" ref={inputsRef.lastname} />
@@ -183,16 +181,12 @@ const Adhesion = () => {
               RIB :
               <input className="longInput" type="text" name="rib" ref={inputsRef.rib}/>
             </label>
-          </div>
 
-          <div className="parcel-information">
-
-            {pro ? (
-              <div className="containerPro">
+            {proBool === true ? (
+              <div>
                 <label>
                   N° Siret :
                   <input
-                    className="contentFileInput"
                     type="text"
                     name="SIRET"
                     ref={inputsRef.siret}
@@ -215,10 +209,11 @@ const Adhesion = () => {
                   </label>
               </div>
             ) : null}
-            <button type="submit" className="btn-send-adhesion">
+
+
+          <button type="submit" className="btn-send-adhesion">
               Envoyer
-            </button>
-          </div>
+          </button>
         </div>
       </form>
       <Footer />

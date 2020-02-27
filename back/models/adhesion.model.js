@@ -1,22 +1,20 @@
 const db = require('./database');
 
 const Professional = function professionalObject(professional) {
-  this.id = professional.id;
-  this.kbis = professional.kbis_id;
-  this.siret = professional.siret_id;
-  this.tva = professional.tva_id;
+  this.kbis = professional.kbis;
+  this.siret = professional.siret;
+  this.tva = professional.tva;
 };
 
 const DeliveryMan = function deliveryManObject(deliveryMan) {
-  this.id = deliveryMan.id;
-  this.is_pro = deliveryMan.is_pro_id;
-  this.rib = deliveryMan.rib_id;
-  this.accepted = deliveryMan.accepted_id;
+  this.is_pro = deliveryMan.is_pro;
+  this.rib = deliveryMan.rib;
+  this.accepted = deliveryMan.accepted;
 };
 
 const User = function takeUser(user) {
   this.delivery_man_id = user.delivery_man_id;
-  this.professionnal_id = user.professionnal_id;
+  this.professional_id = user.professional_id;
 };
 
 db.beginTransaction(function transaction(err) {
@@ -25,12 +23,13 @@ db.beginTransaction(function transaction(err) {
   }
 
   let deliveryManId = 0;
-  let professionnalId = null;
+  let professionalId = null;
 
-  DeliveryMan.createNewDeliveryMan = (deliveryMan, result) => {
+  DeliveryMan.createNewDeliveryMan = (DeliveryManInfo, result) => {
+    console.log(DeliveryMan);
     db.query(
       'INSERT INTO delivery_man SET ?',
-      deliveryMan,
+      DeliveryManInfo,
       (error, dbResult) => {
         if (error) {
           return db.rollback(function rollback() {
@@ -38,38 +37,39 @@ db.beginTransaction(function transaction(err) {
           });
         }
         deliveryManId = dbResult.insertId;
-        return result(null, { id: dbResult.insertId, ...deliveryMan });
+        return result(null, { id: dbResult.insertId, ...DeliveryManInfo });
       }
     );
   };
 
-  Professional.createNewProfessionnal = (professionnal, result) => {
+  Professional.createNewProfessional = (ProfessionalInfo, result) => {
     db.query(
-      'INSERT INTO professionnal SET ?',
-      professionnal,
+      'INSERT INTO professional SET ?',
+      ProfessionalInfo,
       (error, dbResult) => {
         if (error) {
           return db.rollback(function rollback() {
             throw error;
           });
         }
-        professionnalId = dbResult.insertId;
-        return result(null, { id: dbResult.insertId, ...professionnal });
+        professionalId = dbResult.insertId;
+        return result(null, { id: dbResult.insertId, ...ProfessionalInfo });
       }
     );
   };
 
-  User.updateUserAdhesion = (userId, user, result) => {
+  User.updateUserAdhesion = (userId, result) => {
     db.query(
-      `UPDATE users set delivery_man_id = ${deliveryManId}, professionnal_id = ${professionnalId} where id = ?`,
-      userId,
+      `UPDATE users set delivery_man_id = ${deliveryManId}, professional_id = ${professionalId} where id = ?`,
+      [userId],
       (error, dbResult) => {
         if (error) {
-          return db.rollback(function rollback() {
-            throw error;
-          });
+          return result(error, null);
         }
-        return result(null, { id: dbResult.insertId, ...user });
+        if (dbResult.affectedRows) {
+          return result(null, { userId });
+        }
+        return result({ kind: 'not_found' }, null);
       }
     );
   };

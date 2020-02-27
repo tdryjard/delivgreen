@@ -7,6 +7,6 @@ router.post('/delivery-man', adhesion.createNewDeliveryMan);
 
 router.post('/professional', adhesion.createNewProfessional);
 
-router.get('/:userId', adhesion.updateUserAdhesion);
+router.put('/:userId', adhesion.updateUserAdhesion);
 
 module.exports = router;

@@ -33,7 +33,6 @@ CREATE TABLE delivery_man (
 CREATE TABLE orders (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     lngt FLOAT NOT NULL,
-    height FLOAT NOT NULL,
     weight FLOAT NOT NULL,
     limit_date VARCHAR(50) NOT NULL,
     publish_date VARCHAR(50) NOT NULL,
@@ -80,5 +79,3 @@ ALTER TABLE users
 ALTER TABLE orders_status
     ADD CONSTRAINT fk_orders_status__order_id FOREIGN KEY (order_id) REFERENCES orders(id),
     ADD CONSTRAINT fk_orders_status__status_id FOREIGN KEY (status_id) REFERENCES status(id);
-
-
