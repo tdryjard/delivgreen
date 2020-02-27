@@ -26,7 +26,7 @@ const NavBar = () => {
         {/*       Display sign in and login if not connected      */}
 
         {user ? (
-          <p className="bonjourUser">Bonjour {user.firstname}</p>
+          <p className="userWelcomeMessage">Bonjour {user.firstname}</p>
         ) : (
           <div className="containerSignupSignin">
             <Link to="/signup" className="submitAndSignIn connectButton">
