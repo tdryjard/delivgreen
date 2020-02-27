@@ -43,6 +43,7 @@ const Historical = () => {
           <div className="headerDashboardOrders">
             <HeaderDashboard />
           </div>
+
           <div className="historicalSmallContainer">
             <h4 className="titleHistorical">Historique de commande</h4>
             <div className="numberHistorical">
