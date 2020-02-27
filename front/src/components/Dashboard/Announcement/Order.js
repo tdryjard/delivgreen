@@ -30,7 +30,8 @@ const Order = () => {
         'Access-Control-Allow-Origin': `${origin}`
       },
       body: JSON.stringify({
-        delivery_man_id: userId
+        delivery_man_id: userId,
+        status_id: 2
       })
     });
   };

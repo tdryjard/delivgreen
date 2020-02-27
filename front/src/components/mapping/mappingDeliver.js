@@ -40,11 +40,10 @@ const MappingDeliver = () => {
         'Access-Control-Allow-Origin': `${origin}`
       },
       body: JSON.stringify({
-        delivery_man_id: userId
+        delivery_man_id: userId,
+        status_id: 2
       })
-    })
-      .then(response => response.json())
-      .then(response => console.log(response));
+    });
   };
 
   useEffect(() => {
@@ -52,7 +51,6 @@ const MappingDeliver = () => {
       .then(res => res.json())
       .then(res => {
         setOrders(res);
-        console.log(res);
       });
   }, []);
 
