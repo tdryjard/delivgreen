@@ -4,7 +4,7 @@ function TextInfo({ title, text }) {
 	return (
 		<div className="info">
 			<span className="info-title">{title}</span>
-			<span>{text}</span>
+			<span className="info-text">{text}</span>
 		</div>
 	)
 }

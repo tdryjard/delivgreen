@@ -12,17 +12,65 @@ import NavBar from '../NavBar/NavBar';
 
 const LandingPage = () => {
   const [co2Counter, setCo2Counter] = useState(0);
+  const [purchaseCounter, setPurchaseCounter] = useState(0);
+  const [roundTripCounter, setRoundTripCounter] = useState(0);
+  const [jobCreateCounter, setJobCreateCounter] = useState(0);
+  const [scrolling, setScrolling] = useState(0);
+  const [scrollAtCounter, setScrollAtCounter] = useState(false);
 
   useEffect(() => {
-    let counterAdd = 0;
-    const counter = setInterval(() => {
-      counterAdd += co2Counter + 50;
-      setCo2Counter(counterAdd);
-      if (counterAdd > 4506) {
-        clearInterval(counter);
+    if (scrollAtCounter === false) {
+      window.addEventListener('scroll', () => {
+        setScrolling(window.scrollY);
+      });
+      if (scrolling >= 2600) {
+        setScrollAtCounter(true);
       }
-    }, 20);
-  }, []);
+    }
+  }, [scrolling]);
+
+  useEffect(() => {
+    if (scrollAtCounter === true) {
+      let counterAdd = 0;
+      const counterCo2 = setInterval(() => {
+        counterAdd += co2Counter + 100;
+        setCo2Counter(counterAdd);
+        if (counterAdd > 14000) {
+          clearInterval(counterCo2);
+        }
+      }, 20);
+
+      counterAdd = 0;
+
+      const counterPurchase = setInterval(() => {
+        counterAdd += purchaseCounter + 5;
+        setPurchaseCounter(counterAdd);
+        if (counterAdd > 4500) {
+          clearInterval(counterPurchase);
+        }
+      }, 40);
+
+      counterAdd = 0;
+
+      const counterTrip = setInterval(() => {
+        counterAdd += roundTripCounter + 2;
+        setRoundTripCounter(counterAdd);
+        if (counterAdd > 1200) {
+          clearInterval(counterTrip);
+        }
+      }, 40);
+
+      counterAdd = 0;
+
+      const counterJob = setInterval(() => {
+        counterAdd += jobCreateCounter + 2;
+        setJobCreateCounter(counterAdd);
+        if (counterAdd > 565) {
+          clearInterval(counterJob);
+        }
+      }, 40);
+    }
+  }, [scrollAtCounter]);
 
   return (
     <div className="landingPageMainContainer">
@@ -154,9 +202,47 @@ const LandingPage = () => {
               />
             </div>
           </div>
-          <p className="typeCo2">Kg de Co2</p>
+          <p className="typeCo2">Co2 économisé</p>
         </div>
-        <p className="describeCo2">économisés avec Deliv'green</p>
+        <div className="contentNumberType">
+          <div className="contentNumberCo2">
+            <p className="numberCo2">{purchaseCounter}</p>
+            <div>
+              <img
+                className="ecoLogo"
+                src={require('./images/ecoLogo.png')}
+                alt="ecologie logo"
+              />
+            </div>
+          </div>
+          <p className="typeCo2">Courses réalisés</p>
+        </div>
+        <div className="contentNumberType">
+          <div className="contentNumberCo2">
+            <p className="numberCo2">{roundTripCounter}</p>
+            <div>
+              <img
+                className="ecoLogo"
+                src={require('./images/ecoLogo.png')}
+                alt="ecologie logo"
+              />
+            </div>
+          </div>
+          <p className="typeCo2">Aller-retour epargnés</p>
+        </div>
+        <div className="contentNumberType">
+          <div className="contentNumberCo2">
+            <p className="numberCo2">{jobCreateCounter}</p>
+            <div>
+              <img
+                className="ecoLogo"
+                src={require('./images/ecoLogo.png')}
+                alt="ecologie logo"
+              />
+            </div>
+          </div>
+          <p className="typeCo2">Emplois créés</p>
+        </div>
       </div>
 
       {/*     Become partner      */}

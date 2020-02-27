@@ -1,0 +1,36 @@
+.manage-card--min-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    padding: 16px 0;
+}
+
+.manage-card--min-info.sticky {
+    position: sticky;
+    top: 64px;
+    z-index: 0;
+}
+
+.manage-card .manage-card--header-title {
+    width: 100%;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1024px) {
+    .manage-card--min-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .manage-card .manage-card--header-title {
+        font-size: 16px;
+    }
+}

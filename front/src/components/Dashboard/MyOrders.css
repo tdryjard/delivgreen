@@ -115,6 +115,10 @@
     flex-direction: row;
 }
 
+.itemsContainerOrder {
+    overflow: auto;
+}
+
 .itemListOrders {
     text-align: center;
 }
