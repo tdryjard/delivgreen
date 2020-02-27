@@ -86,26 +86,3 @@ ALTER TABLE orders_status
 
 
 
-insert into address (name, lat, lng) values ('12 rue roger leclerc', 43, 1.2);
-insert into address (name, lat, lng) values ('9 rue de binguin ', 42, 1.5);
-insert into address (name, lat, lng) values ('25 rue des croix blanches', 42.5, 1.7);
-insert into users (lastname, firstname, email, password, phone, role) values ('dubois', 'robin', 'robin.dubois@gmail.com', 'kikou154', '0678459412', 'part');
-insert into users (lastname, firstname, email, password, phone, role, delivery_man_id) values ('dubelle', 'robine', 'robine.dubelles@gmail.com', 'kikette154', '0678459412', 'deliver_pro', 1);
-insert into users (lastname, firstname, email, password, phone, role, delivery_man_id, professional_id) values ('duboss', 'robinette', 'robinette.duboss@gmail.com', 'kikouke154', '0678459412', 'deliver_part', 2, 2);
-insert into orders (lngt, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date, status_id) values (5, 1.5, '20/10/2020', '15/10/2020', 5, 2, 1, 1, "20/10/2020", 2);
-insert into orders (lngt, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date, status_id) values (12, 13.5, '05/10/2020', '00/10/2020', 15, 1, 3, 4, '05/10/2020', 2);
-insert into orders (lngt, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date) values (123, 3.5, '10/10/2020', '05/10/2020', 12, 3, 2, 4, "10/10/2020");
-insert into address (name, lat, lng) values ('9 rue roger leclerc', 45, 1.5);
-insert into delivery_man (address, perimeter, is_pro, rib, accepted) values ('95 rue des croix en bois', 20, true, 'F4578164', true);
-insert into delivery_man (address, perimeter, is_pro, rib, accepted) values ('45 allé des twix', 25, true, 'F4578464', true);
-insert into professional (kbis, tva, siret) values ('kbiS154262', "FR45781549", 'SIRET124721446');
-insert into professional (kbis, tva, siret) values ('kbiS154262', "FR45781549", 'SIRET124721446');
-insert into professional (kbis, tva, siret) values ('kbiS154262', "FR45781549", 'SIRET124721446');
-insert into address (name, lat, lng) values ('12 rue de jeans fil', 42.56, 1.147);
-insert into address (name, lat, lng) values ('2 rue des renaud cest trois', 41.56, 1.047);
-insert into address (name, lat, lng) values ('124 rue de pand talon', 43.56, 1.447);
-insert into address (name, lat, lng) values ('25 rue des arnaud frage', 40.56, 0.947);
-insert into address (name, lat, lng) values ('124 rue de pand talon', 48.56, 1.447);
-insert into address (name, lat, lng) values ('25 rue des arnaud frage', 49.56, 0.947);
-update orders set start_address_id = 1 where id = 1;
-update orders set end_address_id = 2 where id = 2;
