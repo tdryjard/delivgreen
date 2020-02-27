@@ -16,7 +16,6 @@ exports.createNewDeliveryMan = (request, response) => {
   });
 
   return DeliveryMan.createNewDeliveryMan(deliveryMan, (error, data) => {
-    console.log(deliveryMan);
     if (error) {
       return response.status(500).send({
         message:
