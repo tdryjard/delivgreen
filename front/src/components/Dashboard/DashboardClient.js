@@ -18,6 +18,7 @@ const DashboardClient = () => {
   const [clientOrders, setClientOrders] = useState(null);
   const [moreDetails, setMoreDetails] = useState(false);
   const [detailsIndex, setDetailsIndex] = useState(null);
+  const [currentOrders, setCurrentOrders] = useState(null);
 
   const getProducts = () => {
     const userId = user.id;
@@ -26,6 +27,13 @@ const DashboardClient = () => {
       .then(result => result.data)
       .then(data => {
         const stockOrders = data;
+        let count = 0;
+        for (let i = 0; i < stockOrders.length; i++) {
+          if (stockOrders[i].status_id < 4) {
+            count++;
+          }
+        }
+        setCurrentOrders(count);
         setClientOrders(stockOrders);
       });
   };
@@ -74,13 +82,17 @@ const DashboardClient = () => {
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
                 <p className="titleStatsCardDashboard">Commandes en cours</p>
-                <p className="nbCommandesReal">4</p>
+                <p className="nbCommandesReal">
+                  {currentOrders ? currentOrders.length : 0}
+                </p>
               </div>
             </div>
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
                 <p className="titleStatsCardDashboard">Nombre de commandes</p>
-                <p className="generatedCash">23</p>
+                <p className="generatedCash">
+                  {clientOrders ? clientOrders.length : 0}
+                </p>
               </div>
             </div>
             <div className="cardHeaderDashboard">

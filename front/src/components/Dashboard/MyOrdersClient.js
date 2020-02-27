@@ -55,7 +55,7 @@ const MyOrdersClient = () => {
             <div className="contentNumber">
               <p className="titleNumberHisto">Déjà</p>
               <div className="numberHisto">
-                <p>35</p>
+                <p>{orders ? orders.length : 0}</p>
               </div>
               <p className="titleNumberHisto">commandes réalisées !</p>
             </div>
