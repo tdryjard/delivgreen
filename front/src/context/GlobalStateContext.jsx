@@ -6,17 +6,17 @@ import GlobalStateReducer from '../reducers/GlobalStateReducer';
 export const GlobalStateContext = createContext();
 
 const initialState = {
-  user : null
+  user: null
 };
 
-const GlobalStateProvider = ({children}) => {
+const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(GlobalStateReducer, initialState);
 
   return (
     <GlobalStateContext.Provider value={[state, dispatch]}>
       {children}
     </GlobalStateContext.Provider>
-  )
+  );
 };
 
 export default GlobalStateProvider;

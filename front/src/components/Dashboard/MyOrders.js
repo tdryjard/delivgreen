@@ -1,78 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCircle } from '@fortawesome/free-solid-svg-icons';
 import './MyOrders.css';
+import axios from 'axios';
 import NavBarDashboard from './NavBarDashboard';
 import HeaderDashboard from './HeaderDashboard';
 import useWindowDimensions from './useWindowDimensions';
 import NavBarDashboardMobile from './NavBarDashboardMobile';
+import OrderDetails from './OrderDetails';
+import url from '../api/api';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const MyOrders = () => {
   const { width } = useWindowDimensions();
+  const { user } = useGlobalState();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+  const [clientOrders, setClientOrders] = useState(null);
+  const [moreDetails, setMoreDetails] = useState(false);
+  const [detailsIndex, setDetailsIndex] = useState(null);
 
-  const orderExample = [
-    {
-      number: '253',
-      pick_up_date: '13/01/2020',
-      departure: '18 rue de la Choppe 45000 Orléans',
-      departure_date: '18/01/2020',
-      arrival: '12 rue de la Gare 45000 Orléans',
-      limit_date: '24/01/2020',
-      weight: 170,
-      length: 190,
-      height: 155,
-      status: 'Pris en charge'
-    },
-    {
-      number: '898',
-      pick_up_date: '',
-      departure: '18 rue de la Choppe 45000 Orléans',
-      departure_date: '18/01/2020',
-      arrival: '12 rue de la Gare 45000 Orléans',
-      limit_date: '12/02/2020',
-      weight: 170,
-      length: 190,
-      height: 155,
-      status: 'Acceptée'
-    },
-    {
-      number: '853',
-      pick_up_date: '13/01/2020',
-      departure: '18 rue de la Choppe 45000 Orléans',
-      departure_date: '18/01/2020',
-      arrival: '12 rue de la Gare 45000 Orléans',
-      limit_date: '24/01/2020',
-      weight: 170,
-      length: 190,
-      height: 155,
-      status: 'Pris en charge'
-    },
-    {
-      number: '253',
-      pick_up_date: '13/01/2020',
-      departure: '18 rue de la Choppe 45000 Orléans',
-      departure_date: '18/01/2020',
-      arrival: '12 rue de la Gare 45000 Orléans',
-      limit_date: '24/01/2020',
-      weight: 170,
-      length: 190,
-      height: 155,
-      status: 'Acceptée'
-    },
-    {
-      number: '256',
-      pick_up_date: '13/01/2020',
-      departure: '18 rue de la Choppe 45000 Orléans',
-      departure_date: '18/01/2020',
-      arrival: '12 rue de la Gare 45000 Orléans',
-      limit_date: '24/01/2020',
-      weight: 56,
-      length: 80,
-      height: 125,
-      status: 'Pris en charge'
-    }
-  ];
+  const getProducts = () => {
+    const userId = user.id;
+    axios
+      .get(`${url}/api/orders?userId=${userId}`)
+      .then(result => result.data)
+      .then(data => {
+        const stockOrders = data;
+        setClientOrders(stockOrders);
+      });
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div className="mySpaceMainContainer">
@@ -130,37 +90,61 @@ const MyOrders = () => {
                     </th>
                   </tr>
                 </thead>
-                {orderExample.map(order => {
-                  return (
-                    <tbody className="itemsContainerOrder">
-                      <td className="itemTableOrders">
-                        <p className="itemListOrders">{order.number}</p>
-                      </td>
-                      <td className="itemTableOrders">
-                        <p className="itemListOrders">
-                          {order.status === 'Pris en charge' ? (
-                            <FontAwesomeIcon
-                              style={{ color: 'orange' }}
-                              icon={faCircle}
-                            />
-                          ) : (
-                            <FontAwesomeIcon
-                              style={{ color: '#3c9d9b' }}
-                              icon={faCircle}
-                            />
-                          )}
-                        </p>
-                      </td>
-                      <td className="itemTableOrders">
-                        <p className="itemListOrders">{order.limit_date}</p>
-                      </td>
-                      <td className="itemTableOrders">
-                        <p className="buttonActionOrder">Détails</p>
-                      </td>
-                    </tbody>
-                  );
-                })}
+                {clientOrders
+                  ? clientOrders.map((order, index) => {
+                      if (
+                        order.status_name === 'Acceptée' ||
+                        order.status_name === 'Pris en charge'
+                      ) {
+                        return (
+                          <tbody className="itemsContainerOrder">
+                            <td className="itemTableOrders">
+                              <p className="itemListOrders">{order.id}</p>
+                            </td>
+                            <td className="itemTableOrders">
+                              <p className="itemListOrders">
+                                {order.status_name === 'Pris en charge' ? (
+                                  <FontAwesomeIcon
+                                    style={{ color: 'orange' }}
+                                    icon={faCircle}
+                                  />
+                                ) : (
+                                  <FontAwesomeIcon
+                                    style={{ color: '#3c9d9b' }}
+                                    icon={faCircle}
+                                  />
+                                )}
+                              </p>
+                            </td>
+                            <td className="itemTableOrders">
+                              <p className="itemListOrders">
+                                {order.limit_date}
+                              </p>
+                            </td>
+                            <td className="itemTableOrders">
+                              <p
+                                onClick={() => {
+                                  setMoreDetails(true);
+                                  setDetailsIndex(index);
+                                }}
+                                className="buttonActionOrder"
+                              >
+                                Détails
+                              </p>
+                            </td>
+                          </tbody>
+                        );
+                      }
+                    })
+                  : null}
               </table>
+              {moreDetails ? (
+                <OrderDetails
+                  status={2}
+                  order={clientOrders[detailsIndex]}
+                  hideDetails={setMoreDetails}
+                />
+              ) : null}
             </div>
           </div>
         </div>

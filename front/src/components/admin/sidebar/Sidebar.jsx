@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'; 
-import { faIdCard, faBook, faBars, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faIdCard, faBook, faBars, faTimesCircle, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Sidebar.css';
 
@@ -25,6 +25,10 @@ function Sidebar() {
 						<NavLink to="/admin/annonces" activeClassName="active-link" className="sidebar-link">
 							<FontAwesomeIcon icon={faBook} />
 							<li>Liste d'annonces</li>
+						</NavLink>
+						<NavLink to="/admin/liste-livreurs" activeClassName="active-link" className="sidebar-link">
+							<FontAwesomeIcon icon={faTruck} />
+							<li>Liste livreurs</li>
 						</NavLink>
 					</ul>
 				</div>

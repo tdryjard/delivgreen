@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const Login = require('../models/login.model');
 const regexValidity = require('../middlewares/formValidity/regexValidity');
 const clearNullProperty = require('../utils/clearNullObjectProperty');
@@ -14,13 +15,6 @@ exports.connect = function userConnectToTheWebsite(request, response) {
     alertType: 'error',
     inputs: ['email', 'password']
   };
-
-  // Verification que des entrées n'ont que des lettres
-  const { emailRegex } = regexList;
-  const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
-  if (emailCharactersErrorHandler) {
-    return response.status(400).send(errorScheme);
-  }
 
   // Fonction créant une erreur avec status et infos variables
   const sendResponse = function responseSchemeForSending(
@@ -41,6 +35,13 @@ exports.connect = function userConnectToTheWebsite(request, response) {
     );
   };
 
+  // Verification que des entrées n'ont que des lettres
+  const { emailRegex } = regexList;
+  const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
+  if (emailCharactersErrorHandler) {
+    return sendResponse(400, errorScheme);
+  }
+
   return Login.connect(email, (err, data) => {
     // Decryptage du mot de passe en base de données et verification d'une correspondance avec celui que l'utilisateur a rentrer
     const samePassword = bcrypt.compareSync(password, data.password);
@@ -51,9 +52,13 @@ exports.connect = function userConnectToTheWebsite(request, response) {
       return sendResponse(status, errorScheme);
     }
 
+    // Génération du jsonWebToken
+    const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
+
     return sendResponse(200, {
       text: 'Vous êtes connecté.',
       data,
+      token,
       alertType: 'success'
     });
   });
