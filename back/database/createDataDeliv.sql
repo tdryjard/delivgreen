@@ -35,7 +35,6 @@ CREATE TABLE delivery_man (
 CREATE TABLE orders (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     lngt FLOAT NOT NULL,
-    height FLOAT NOT NULL,
     weight FLOAT NOT NULL,
     limit_date VARCHAR(50) NOT NULL,
     publish_date VARCHAR(50) NOT NULL,
@@ -74,8 +73,7 @@ ALTER TABLE orders
     ADD CONSTRAINT fk_orders__start_address_id FOREIGN KEY (start_address_id) REFERENCES address(id),
     ADD CONSTRAINT fk_orders__end_address_id FOREIGN KEY (end_address_id) REFERENCES address(id),
     ADD CONSTRAINT fk_orders__user_id FOREIGN KEY (user_id) REFERENCES users(id),
-    ADD CONSTRAINT fk_orders__delivery_man_id FOREIGN KEY (delivery_man_id) REFERENCES delivery_man(id),
-    ADD CONSTRAINT fk_orders__status_id FOREIGN KEY (status) REFERENCES status(id);
+    ADD CONSTRAINT fk_orders__delivery_man_id FOREIGN KEY (delivery_man_id) REFERENCES delivery_man(id);
 
 ALTER TABLE users
     ADD CONSTRAINT fk_users__delivery_man_id FOREIGN KEY (delivery_man_id) REFERENCES delivery_man(id),
@@ -94,9 +92,9 @@ insert into address (name, lat, lng) values ('25 rue des croix blanches', 42.5, 
 insert into users (lastname, firstname, email, password, phone, role) values ('dubois', 'robin', 'robin.dubois@gmail.com', 'kikou154', '0678459412', 'part');
 insert into users (lastname, firstname, email, password, phone, role, delivery_man_id) values ('dubelle', 'robine', 'robine.dubelles@gmail.com', 'kikette154', '0678459412', 'deliver_pro', 1);
 insert into users (lastname, firstname, email, password, phone, role, delivery_man_id, professional_id) values ('duboss', 'robinette', 'robinette.duboss@gmail.com', 'kikouke154', '0678459412', 'deliver_part', 2, 2);
-insert into orders (lngt, height, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date) values (5, 2, 1.5, '20/10/2020', '15/10/2020', 5, 2, 1, 4, "20/10/2020");
-insert into orders (lngt, height, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date) values (12, 4, 13.5, '05/10/2020', '00/10/2020', 15, 1, 3, 4, '05/10/2020');
-insert into orders (lngt, height, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date) values (123, 40, 3.5, '10/10/2020', '05/10/2020', 12, 3, 2, 4, "10/10/2020");
+insert into orders (lngt, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date, status_id) values (5, 1.5, '20/10/2020', '15/10/2020', 5, 2, 1, 1, "20/10/2020", 2);
+insert into orders (lngt, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date, status_id) values (12, 13.5, '05/10/2020', '00/10/2020', 15, 1, 3, 4, '05/10/2020', 2);
+insert into orders (lngt, weight, limit_date, publish_date, price, start_address_id, end_address_id, user_id, arrival_date) values (123, 3.5, '10/10/2020', '05/10/2020', 12, 3, 2, 4, "10/10/2020");
 insert into address (name, lat, lng) values ('9 rue roger leclerc', 45, 1.5);
 insert into delivery_man (address, perimeter, is_pro, rib, accepted) values ('95 rue des croix en bois', 20, true, 'F4578164', true);
 insert into delivery_man (address, perimeter, is_pro, rib, accepted) values ('45 allé des twix', 25, true, 'F4578464', true);

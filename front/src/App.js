@@ -26,6 +26,7 @@ import DashboardClient from './components/Dashboard/DashboardClient';
 import MyOrdersClient from './components/Dashboard/MyOrdersClient';
 import InfosClient from './components/Dashboard/InfosClient';
 import ConfirmationAdhesion from './components/confirmationAdhesion/ConfirmationAdhesion';
+import OrderUpdateConfirmation from './components/Dashboard/OrderUpdateConfirmation';
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
       <Route path="/mes-infos" component={InfosClient} />
       <Route path="/demande-livraison" component={DeliveryClientForm} />
       <Route path="/confirmation-adhesion" component={ConfirmationAdhesion} />
+      <Route path="/confirmation" component={OrderUpdateConfirmation} />
     </Switch>
   );
 }

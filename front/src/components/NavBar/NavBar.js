@@ -64,10 +64,10 @@ const NavBar = () => {
               <NavLink
                 style={{ textDecoration: 'none' }}
                 activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
-                to="/dashboard-pro"
+                to="/dashboard-client"
               >
                 <h3 className="itemListNavBar" onClick={closeMenu}>
-                  <Link to="/dashboard-client">Mon espace (client)</Link>
+                  Mon espace client
                 </h3>
               </NavLink>
               <hr className="separatorNavBar" />
