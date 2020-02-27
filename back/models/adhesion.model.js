@@ -26,7 +26,6 @@ db.beginTransaction(function transaction(err) {
   let professionalId = null;
 
   DeliveryMan.createNewDeliveryMan = (DeliveryManInfo, result) => {
-    console.log(DeliveryMan);
     db.query(
       'INSERT INTO delivery_man SET ?',
       DeliveryManInfo,

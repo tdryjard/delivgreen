@@ -15,7 +15,6 @@ const Adhesion = () => {
   const [pro, setPro] = useState(false);
   const [infoMessage, setInfoMessage] = useState(null);
   const [userId] = useState(1)
-  console.log(proBool)
 
 	const inputsRef = {
 		lastname: useRef(null),
@@ -32,7 +31,6 @@ const Adhesion = () => {
     event.preventDefault();
     
     setPro(proBool)
-    console.log(proBool)
     if(!proBool) {
 
       const DeliveryMan = {
@@ -41,8 +39,6 @@ const Adhesion = () => {
         rib: inputsRef.rib.current.value
       }
 
-      console.log(DeliveryMan)
-
       if (Object.values(DeliveryMan).includes(null)){
         setInfoMessage({ text: 'Champ(s) vide(s)' })
       } 
@@ -50,7 +46,6 @@ const Adhesion = () => {
       else {
   
         try{
-          console.log('enter')
           const response = await fetch(apiUrl + '/api/adhesion/delivery-man', {
             method: 'POST',
             headers: {
@@ -89,7 +84,6 @@ const Adhesion = () => {
 
       if (Object.values(DeliveryMan).includes(null) || Object.values(Professionnal).includes(null)){
         setInfoMessage({ text: 'Champ(s) vide(s)' })
-        console.log('dalu')
       } 
   
       else {
