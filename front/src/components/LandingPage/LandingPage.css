@@ -442,12 +442,14 @@
     }
 
     .steps3Container {
+        justify-content: flex-start;
         width: 100%;
         margin: 25px 0 25px 0;
+        height: 400px;
     }
 
     .svgLandingPage1, .svgLandingPage2, .svgLandingPage3 {
-        display: none;
+        display: block;
     }
 
     .cardsContainerThreeSteps {
@@ -455,24 +457,34 @@
     }
 
     .textThreeStepContainer {
-        height: 100%;
+        margin-top: 20px;
+        height: 200px;
     }
 
     /*          Customer services           */
 
     .cardCustomerServiceContainer {
-        margin: 25px 0 50px 0;
-        width: 70%;
-        height: 120%;
+        margin: 25px 0 25px 0;
+        width: 80%;
+        height: 90%;
         text-align: center;
+    }
+
+    .customerServicesTitle{
+        margin-bottom: 0;
     }
 
     .customerServicesContainer {
         flex-direction: column;
     }
 
+    .customerServiceContainer{
+        background-image: url('./images/backContactMobile.jpg');
+    }
+
     .itemCustomer {
         margin: 15px;
+        margin-bottom: 8px;
     }
 
     /*        Partner        */
@@ -483,11 +495,20 @@
 
     .buttonCustomerServices {
         width: 220px;
-        height: 50px;
-        margin: 15px 0 25px 0;
+        height: 70px;
+        margin: 0px 0 25px 0;
     }
 
     .becomePartnerTextAndButton {
         text-align: start;
+    }
+
+    .textBecomePartner{
+        text-align: start;
+    }
+
+    .buttonBecomePartner{
+        width: 150px;
+        height: 50px;
     }
 }

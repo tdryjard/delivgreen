@@ -17,7 +17,7 @@ const NavBar = () => {
         <Link to="/" className="logoAndTitleNavBar">
           <img
             className="logoNavBar"
-            src={require('../LandingPage/images/logo-delivgreen-notext.png')}
+            src={require('./images/logoDeliv.png')}
             alt="logo"
           />
           <h1 className="titleNavBarDelivgreen">DELIV'GREEN</h1>
