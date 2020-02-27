@@ -18,46 +18,46 @@ const Adhesion = () => {
         <div className="content-form">
           <div className="locationAdd">
             <label>
-              Nom :
+              Nom:
               <input type="text" name="lastname" />
             </label>
 
             <label>
-              Prénom :
+              Prénom:
               <input type="text" name="firstname" />
             </label>
 
             <label>
-              Email :
+              Email:
               <input type="email" name="email" />
             </label>
 
             <label>
-              Téléphone :
+              Téléphone:
               <input type="tel" name="Télephone" />
             </label>
 
             <label>
-              Ville :
+              Ville:
               <input className="longInput" type="text" name="ville" />
             </label>
 
             <label>
-              RIB :
+              RIB:
               <input className="longInput" type="text" name="RIB" />
             </label>
           </div>
 
           <div className="parcel-information">
             <label>
-              Périmetre :
+              Périmetre:
               <input className="locationInput" type="text" name="perimeter" />
             </label>
 
             {pro ? (
               <div className="containerPro">
                 <label>
-                  N° Siret :
+                  N° Siret:
                   <input
                     className="contentFileInput"
                     type="text"
@@ -70,18 +70,14 @@ const Adhesion = () => {
                   <input className="contentFileInput" type="text" name="TVA" />
                 </label>
 
-                <div className="contentFileInput">
-                  <label htmlFor="carteIdd" className="label-file">
-                    Insérer Kbis de moins de 3 mois
+                  <label>
+                    Kbis de moins de 3 mois:
                     <input
-                      className="fileInput"
-                      type="file"
-                      id="carteIdd"
+                      className="contentFileInput"
+                      type="text"
                       name="CarteIdd"
-                      accept="image/png, image/jpeg"
                     />
                   </label>
-                </div>
               </div>
             ) : null}
             <div className="contentFileInput">
