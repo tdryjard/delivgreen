@@ -150,7 +150,8 @@ const Adhesion = () => {
                 )
       }
       <form onSubmit={sendAnnounce} className="sign-form" action="">
-        <div className="content-form">
+
+          <div className="parcel-information">
             <label>
               Nom :
               <input type="text" name="lastname" ref={inputsRef.lastname} />
@@ -179,7 +180,7 @@ const Adhesion = () => {
             {proBool === true ? (
               <div>
                 <label>
-                  N° Siret :
+                  N° Siret:
                   <input
                     type="text"
                     name="SIRET"
@@ -189,13 +190,13 @@ const Adhesion = () => {
 
                 <label>
                   TVA :
-                  <input className="contentFileInput" type="text" name="VAT" ref={inputsRef.tva} />
+                  <input className="longInput" type="text" name="VAT" ref={inputsRef.tva} />
                 </label>
 
                   <label>
-                    Insérer Kbis de moins de 3 mois :
+                    Kbis de moins de 3 mois:
                     <input
-                      className="contentFileInput"
+                      className="longInput"
                       type="text"
                       name="CarteIdd"
                       ref={inputsRef.kbis}

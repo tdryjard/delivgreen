@@ -1,6 +1,9 @@
 .delivery_heading {
     display: flex;
     align-items: center;
+    color: #828585;
+    text-align: center;
+    justify-content: center;
 }
 
 .delivery_heading img {
@@ -41,12 +44,9 @@
     bottom: 23px;
     right: 28px;
     width: 280px;
-  }
-  
-.sign-ctn{
-    height:100vh;
-    width:100%   
 }
+  
+
 
 .containerAddressStart, .containerAddressEnd {
     position: relative;
@@ -81,26 +81,32 @@
     font-size: 20px;
     margin : 0;
     margin-bottom: 10px;
+    align-items: center;
+    color: #828585;
 }
 
 .contentAddressInput{
-    display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
-    background-color: #17B994;
+    background-color: rgba(100, 179, 159, 0.466);
     padding: 15px;
-    border-radius: 5px;
+    display: flex;
+    color: #828585;
+    font-size: 14px;
+    line-height: 19px;
 }
 
 .contentAddressInputEnd{
-    display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
-    background-color: rgba(23, 185, 147, 0.568);
+    background-color: rgba(100, 179, 159, 0.466);
     padding: 15px;
-    border-radius: 5px;
+    display: flex;
+    color: #828585;
+    font-size: 14px;
+    line-height: 19px;
 }
 
 .containerInputAddress{

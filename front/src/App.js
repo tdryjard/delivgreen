@@ -12,9 +12,6 @@ import Historical from './components/historique/Historical';
 import MapDeliver from './components/mapping/mappingDeliver';
 import Admin from './components/admin/Admin';
 import MappingClient from './components/mapping/MappingClient';
-import DeliveryList from './components/ListDelivery/DeliveryList';
-import DetailListAdhesionPart from './components/detailAdhesionPart/DetailListAdhesionPart';
-import DetailList from './components/deliverymanDetail/DetailList';
 import Partner from './components/partner/Partner';
 import DashboardPro from './components/Dashboard/DashboardPro';
 import MyOrders from './components/Dashboard/MyOrders';
@@ -45,17 +42,11 @@ function App() {
       <Route path="/map-deliver" component={MapDeliver} />
       <Route path="/admin" component={Admin} />
       <Route path="/map-client" component={MappingClient} />
-      <Route path="/delivery-man" component={DeliveryList} />
       <Route path="/partner" component={Partner} />
-      <Route
-        path="/detail-adhesion-particulier"
-        component={DetailListAdhesionPart}
-      />
       <Route path="/dashboard-pro" component={DashboardPro} />
       <Route path="/dashboard-client" component={DashboardClient} />
       <Route path="/my-orders" component={MyOrders} />
       <Route path="/mes-commandes-client" component={MyOrdersClient} />
-      <Route path="/detail-list" component={DetailList} />
       <Route path="/signature" component={SignatureZone} />
       <Route path="/annonces" component={Announcement} />
       <Route path="/informations-pro" component={InfosDashboard} />
