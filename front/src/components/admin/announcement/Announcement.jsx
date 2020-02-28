@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import AnnouncementCard from './announcementCard/AnnouncementCard';
 import AdminHeader from '../adminHeader/AdminHeader';
+import urlApi from '../../api/api';
 import './Announcement.css';
 
 function Announcement() {
@@ -10,7 +11,7 @@ function Announcement() {
 
     useEffect(() => {
         (async () => {
-            const response = await fetch('http://localhost:8000/api/admin/announces');
+            const response = await fetch(apiUrl + 'api/admin/announces');
             const jsonResponse = await response.json();
             const { data } = jsonResponse;
             if (data)

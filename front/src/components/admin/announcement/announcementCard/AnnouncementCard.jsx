@@ -7,6 +7,7 @@ import ManageButton from '../../adminGlobalComponents/manageButton/ManageButton'
 import InfoList from '../../adminGlobalComponents/manageCard/infoList/InfoList';
 import ManageButtonContainer from '../../adminGlobalComponents/manageButton/manageButtonContainer/ManageButtonContainer';
 import ManageCardHeader from '../../adminGlobalComponents/manageCard/cardHeader/ManageCardHeader';
+import urlApi from '../../api/api';
 import './AnnouncementCard.css';
 
 function AnnouncementCard({ lastname, firstname, id , phone, startingPoint, endingPoint, arrival_date, price, deliveryMan }) {
@@ -15,7 +16,7 @@ function AnnouncementCard({ lastname, firstname, id , phone, startingPoint, endi
 
 	const deleteAnnounce = async function deleteAnAnnounce () {
 		console.log('id: ', id)
-		const response = await fetch(`http://localhost:8000/api/admin/announces/${id}`, {
+		const response = await fetch(`${urlApi}/api/admin/announces/${id}`, {
 			method: 'DELETE'
 		})
 		// Récupération du message d'état (supprimé ou erreur)
