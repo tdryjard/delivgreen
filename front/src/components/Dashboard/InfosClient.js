@@ -16,7 +16,7 @@ const InfosClient = () => {
             <h1>Mes informations</h1>
             <div className="inputsContainerMyInfos">
               <label className="inputLabelDashboard" htmlFor="lastName">
-                Nom
+                Nom:
                 <input
                   className="inputMyInfosDashboard"
                   id="lastName"
@@ -24,8 +24,9 @@ const InfosClient = () => {
                   value="Dubois"
                 />
               </label>
+
               <label className="inputLabelDashboard" htmlFor="firstName">
-                Prénom
+                Prénom:
                 <input
                   className="inputMyInfosDashboard"
                   id="firstName"
@@ -33,8 +34,9 @@ const InfosClient = () => {
                   value="Franck"
                 />
               </label>
+
               <label className="inputLabelDashboard" htmlFor="eMail">
-                Email
+                Email:
                 <input
                   className="inputMyInfosDashboard"
                   id="eMail"
@@ -43,8 +45,9 @@ const InfosClient = () => {
                 />
                 <FontAwesomeIcon className="far editIcon fa-2x" icon={faEdit} />
               </label>
+
               <label className="inputLabelDashboard" htmlFor="phone">
-                Téléphone
+                Téléphone:
                 <input
                   className="inputMyInfosDashboard"
                   id="phone"

@@ -96,22 +96,18 @@ User.findById = (userId, result) => {
 };
 
 User.update = (id, user, result) => {
-  db.query(
-    'UPDATE users SET name = ? WHERE id = ?',
-    [User.name, id],
-    (error, response) => {
-      if (error) {
-        return result(error, null);
-      }
-
-      if (response.affectedRows === 0) {
-        // Utilisateur non trouvé
-        return result({ kind: 'not_found' }, null);
-      }
-
-      return result(null, { id: Number(id), ...User });
+  db.query('UPDATE users SET ? WHERE id = ?', [user, id], (error, response) => {
+    if (error) {
+      return result(error, null);
     }
-  );
+
+    if (response.affectedRows === 0) {
+      // Utilisateur non trouvé
+      return result({ kind: 'not_found' }, null);
+    }
+
+    return result(null, { id: Number(id), ...User });
+  });
 };
 
 User.delete = (id, result) => {

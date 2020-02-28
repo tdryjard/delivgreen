@@ -25,8 +25,6 @@ CREATE TABLE professional (
 
 CREATE TABLE delivery_man (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    address VARCHAR(100) NOT NULL,
-    perimeter INT NOT NULL,
     is_pro BOOLEAN,
     rib VARCHAR(50) NOT NULL,
     accepted BOOLEAN
