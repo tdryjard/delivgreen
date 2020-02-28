@@ -7,7 +7,7 @@ import ManageButton from '../../adminGlobalComponents/manageButton/ManageButton'
 import InfoList from '../../adminGlobalComponents/manageCard/infoList/InfoList';
 import ManageButtonContainer from '../../adminGlobalComponents/manageButton/manageButtonContainer/ManageButtonContainer';
 import ManageCardHeader from '../../adminGlobalComponents/manageCard/cardHeader/ManageCardHeader';
-import urlApi from '../../api/api';
+import urlApi from '../../../api/api';
 import './AnnouncementCard.css';
 
 function AnnouncementCard({ lastname, firstname, id , phone, startingPoint, endingPoint, arrival_date, price, deliveryMan }) {
