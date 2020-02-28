@@ -20,7 +20,6 @@ const DashboardPro = () => {
 
   const getProducts = () => {
     const userId = user.id;
-    console.log(userId);
     axios
       .get(`${url}/api/orders?userId=${userId}`)
       .then(result => result.data)
