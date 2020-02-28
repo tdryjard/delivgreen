@@ -7,16 +7,16 @@ import NavBarDashboard from '../Dashboard/NavBarDashboard';
 import HeaderDashboard from '../Dashboard/HeaderDashboard';
 import useWindowDimensions from '../Dashboard/useWindowDimensions';
 import NavBarDashboardMobile from '../Dashboard/NavBarDashboardMobile';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const Historical = () => {
   const { width } = useWindowDimensions();
   const [orders, setOrders] = useState([]);
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
-
-  const userId = 1;
+  const { user } = useGlobalState();
 
   useEffect(() => {
-    fetch(`${url}/api/orders?userId=${userId}`)
+    fetch(`${url}/api/orders?userId=${user.id}`)
       .then(res => res.json())
       .then(res => {
         setOrders(res);
@@ -43,48 +43,53 @@ const Historical = () => {
           <div className="headerDashboardOrders">
             <HeaderDashboard />
           </div>
+
           <div className="historicalSmallContainer">
-            <h4 className="titleHistorical">Historique de commande</h4>
+            <h4 className="titleHistorical">Historique de commandes</h4>
             <div className="numberHistorical">
               <img
                 className="iconNumberHisto"
                 src={require('./image/iconNumber.svg')}
                 alt="iconNumber"
               />
-              <div className="contentNumber">
-                <p className="titleNumberHisto">Déjà</p>
-                <div className="numberHisto">
-                  <p>35</p>
+              {orders && (
+                <div className="contentNumber">
+                  <p className="titleNumberHisto">Déjà</p>
+                  <div className="numberHisto">
+                    {orders && orders.length}
+                    {!orders && 0}
+                  </div>
+                  <p className="titleNumberHisto">commandes réalisées !</p>
                 </div>
-                <p className="titleNumberHisto">commandes réalisées !</p>
-              </div>
+              )}
             </div>
             <div className="containerHisto">
-              {orders.map((order, i) => {
-                return (
-                  <div className="contentHisto" key={i}>
-                    <div className="contentInfoHisto">
-                      <div className="textHisto">
-                        <p>Commandé le : </p>
-                        <p className="dateHisto">{order.publish_date}</p>
+              {orders.length &&
+                orders.map((order, i) => {
+                  return (
+                    <div className="contentHisto" key={i}>
+                      <div className="contentInfoHisto">
+                        <div className="textHisto">
+                          <p>Commandé le : </p>
+                          <p className="dateHisto">{order.publish_date}</p>
+                        </div>
+                        <div className="textHisto">
+                          <p>Reçu le : </p>
+                          <p className="dateHisto">{order.arrival_date}</p>
+                        </div>
+                        <div className="textHisto">
+                          <p>Commande : </p>
+                          <p className="dateHisto">n°{order.id}</p>
+                        </div>
                       </div>
-                      <div className="textHisto">
-                        <p>Reçu le : </p>
-                        <p className="dateHisto">{order.arrival_date}</p>
-                      </div>
-                      <div className="textHisto">
-                        <p>Commande : </p>
-                        <p className="dateHisto">n°{order.id}</p>
+                      <div className="detailHisto">
+                        <button type="button" className="detailHistoButton">
+                          Voir facture
+                        </button>
                       </div>
                     </div>
-                    <div className="detailHisto">
-                      <button type="button" className="detailHistoButton">
-                        Voir facture
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           </div>
         </div>

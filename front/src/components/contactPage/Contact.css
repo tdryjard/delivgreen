@@ -5,7 +5,6 @@
   align-items: center;
   flex-direction: column;
   height:100%;
-  
 }
 
 .FormContact .messageContact{
@@ -29,42 +28,26 @@
 }
 
 .messageContact{
-  text-rendering: auto;
-  color: -internal-light-dark-color(black, white);
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
   text-indent: 0px;
-  text-shadow: none;
   display: inline-block;
   text-align: start;
-  -webkit-appearance: textfield;
-  background-color: -internal-light-dark-color(white, black);
-  -webkit-rtl-ordering: logical;
   cursor: text;
   margin: 0em;
   font: 400 13.3333px Arial;
-  padding: 1px 0px;
-  border-width: 2px;
-  border-style: inset;
-  border-color: initial;
-  border-image: initial;
   height:70px;
+  border: 1px solid #e8ebeb;
 }
 
 .contact_logo {
     display: flex;
     align-items: center;
+    color: #828585;
 }
 
 .contact_logo img {
     height: 64px;
     margin-right: 20px;
     filter: drop-shadow(2px 2px 1px var(--gray));
-}
-
-@media and screen (min-width:1060px){
-
 }
 
 

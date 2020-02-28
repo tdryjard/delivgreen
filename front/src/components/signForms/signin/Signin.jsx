@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavBar from '../../NavBar/NavBar';
 import Footer from '../../footer/Footer'
 import Input from '../../formElements/Input';
-import signIn from '../signFetch';
+import signIn from '../signInFetch';
 
 function Signin() {
     const [infoMessage, setInfoMessage] = useState(null);
@@ -30,7 +30,7 @@ function Signin() {
 
     const formSubmit = function sendElementsInfoToVerifying (event) {
         event.preventDefault();
-        const form = event.currentTarget;
+
         // Clean de tout les inputs (enlever les bordures rouges d'erreur)
         Object.values(inputsRef).forEach(input => input.current.classList.remove('error'));
 
@@ -82,32 +82,32 @@ function Signin() {
             <form className='sign-form' onSubmit={formSubmit} onChange={checkSamePassword}>
                 <Input 
                     label={{ for: 'signin-lastname', text: 'Nom :' }} 
-                    attributes={{ type:'text', id:'signin-lastname', name:'lastname', placeholder:'Nom' }} 
+                    attributes={{ type:'text', id:'signin-lastname', name:'lastname' }} 
                     reference={inputsRef.lastname}
                 />
                 <Input 
                     label={{ for: 'signin-firstname', text: 'Prénom :' }} 
-                    attributes={{ type:'text', id:'signin-firstname', name:'firstname', placeholder:'Prénom' }} 
+                    attributes={{ type:'text', id:'signin-firstname', name:'firstname'}} 
                     reference={inputsRef.firstname}
                 />
                 <Input 
                     label={{ for: 'signin-email', text: 'Email :' }} 
-                    attributes={{ type:'email', id:'signin-email', name:'email', placeholder:'Email' }} 
+                    attributes={{ type:'email', id:'signin-email', name:'email' }} 
                     reference={inputsRef.email}
                 />
                 <Input 
                     label={{ for: 'signin-telephone', text: 'Téléphone :' }} 
-                    attributes={{ type:'tel', id:'signin-telephone', name:'telephone', placeholder:'Téléphone' }} 
+                    attributes={{ type:'tel', id:'signin-telephone', name:'telephone' }} 
                     reference={inputsRef.phone}
                 />
                 <Input 
                     label={{ for: 'signin-password', text: 'Mot de passe :' }} 
-                    attributes={{ type:'password', id:'signin-password', name:'password', placeholder:'Mot de passe' }} 
+                    attributes={{ type:'password', id:'signin-password', name:'password' }} 
                     reference={inputsRef.password}
                 />
                 <Input 
                     label={{ for: 'signin-password-verification', text: 'Repetez le mot de passe :' }} 
-                    attributes={{ type:'password', id:'signin-password-verification', name:'password-verification', placeholder:'Retapez votre mot de passe' }} 
+                    attributes={{ type:'password', id:'signin-password-verification', name:'password-verification'}} 
                     reference={inputsRef.password_verification} 
                 />
                 <button type='submit' className='btn'>S'inscrire</button>

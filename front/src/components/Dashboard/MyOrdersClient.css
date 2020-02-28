@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: row;
 }
+.ordersClientMainContainer .dashboardBody {
+    background-color: lightgrey;
+}
 
 .myOrdersClientBody {
     display: flex;
@@ -12,4 +15,16 @@
     background-color: lightgrey;
     height: 100vh;
     width: 100%;
+}
+
+.noOrdersClient {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 54vh;
+    width: 100%;
+}
+
+.noOrdersClientText {
+    margin: 0;
 }

@@ -2,9 +2,136 @@ import React, { useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../footer/Footer';
 import './adhesion.css';
+import apiUrl from '../api/api';
+import apiOrigin from '../api/origin';
+import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { faInfoCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Adhesion = () => {
-  const [pro] = useState(true);
+  const location = useLocation()
+  const proBool = location.professionnal
+  const [pro, setPro] = useState(false);
+  const [infoMessage, setInfoMessage] = useState(null);
+  const [userId] = useState(1)
+
+	const inputsRef = {
+		lastname: useRef(null),
+		firstname: useRef(null),
+		email: useRef(null),
+		phone: useRef(null),
+    rib: useRef(null),
+    siret: useRef(null),
+    tva: useRef(null),
+    kbis: useRef(null)
+  }
+
+	async function sendAnnounce(event) {
+    event.preventDefault();
+    
+    setPro(proBool)
+    if(!proBool) {
+
+      const DeliveryMan = {
+        accepted: false,
+        is_pro: proBool,
+        rib: inputsRef.rib.current.value
+      }
+
+      if (Object.values(DeliveryMan).includes(null)){
+        setInfoMessage({ text: 'Champ(s) vide(s)' })
+      } 
+  
+      else {
+  
+        try{
+          const response = await fetch(apiUrl + '/api/adhesion/delivery-man', {
+            method: 'POST',
+            headers: {
+              'Content-Type' :'application/json',
+              'Acces-Control-Allow-Origin' : {apiOrigin}	
+            },
+            body: JSON.stringify(DeliveryMan)
+          });
+          const data = await response.json();
+          inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+        } catch (error)  {
+          console.log(error);
+        }
+        
+        try{
+          fetch(apiUrl + `/api/adhesion/${userId}`, {
+            method: 'PUT'
+          });
+        } catch (error)  {
+          console.log(error);
+        }
+      }
+    } else if (proBool === true) {
+
+    const DeliveryMan = {
+      accepted: false,
+      is_pro: proBool,
+      rib: inputsRef.rib.current.value
+    }
+  
+    const Professionnal = {
+      siret: inputsRef.siret.current.value || null,
+      kbis: inputsRef.kbis.current.value || null,
+      tva: inputsRef.tva.current.value || null
+    }
+
+      if (Object.values(DeliveryMan).includes(null) || Object.values(Professionnal).includes(null)){
+        setInfoMessage({ text: 'Champ(s) vide(s)' })
+      } 
+  
+      else {
+  
+        try{
+          const response = await fetch(apiUrl + '/api/adhesion/delivery-man', {
+            method: 'POST',
+            headers: {
+              'Content-Type' :'application/json',
+              'Acces-Control-Allow-Origin' : {apiOrigin}	
+            },
+            body: JSON.stringify(DeliveryMan)
+          });
+          const data = await response.json();
+          inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+        } catch (error)  {
+          console.log(error);
+        }
+    
+        try{
+          const response = await fetch(apiUrl + '/api/adhesion/professional', {
+            method: 'POST',
+            headers: {
+              'Content-Type' :'application/json',
+              'Acces-Control-Allow-Origin' : {apiOrigin}	
+            },
+            body: JSON.stringify(Professionnal)
+          });
+          const data = await response.json();
+          inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+        } catch (error)  {
+          console.log(error);
+        }
+        
+        try{
+          fetch(apiUrl + `/api/adhesion/${userId}`, {
+            method: 'PUT'
+          });
+        } catch (error)  {
+          console.log(error);
+        }
+      }
+      }
+    }
+		
+
+
+		
 
   return (
     <div className="contentAdhesion">
@@ -13,93 +140,75 @@ const Adhesion = () => {
         <img src={require('../adhesion/images/form.svg')} alt="contact logo" />
         <h1 className="titleAdhesion">Demande d'adhesion</h1>
       </div>
+      {
+                infoMessage && (
+                    <div className={`infoMessageAdhesion`}>
+                        <FontAwesomeIcon icon={faInfoCircle} className="icon"/>
+                        <span className="textInfoMessageAdhesion">{infoMessage.text}</span>
+                        <FontAwesomeIcon icon={faTimes} className="close" onClick={() => setInfoMessage(null) } />
+                    </div>
+                )
+      }
+      <form onSubmit={sendAnnounce} className="sign-form" action="">
 
-      <form className="sign-form" action="">
-        <div className="content-form">
-          <div className="locationAdd">
+          <div className="parcel-information">
             <label>
               Nom :
-              <input type="text" name="lastname" />
+              <input type="text" name="lastname" ref={inputsRef.lastname} />
             </label>
 
             <label>
               Prénom :
-              <input type="text" name="firstname" />
+              <input type="text" name="firstname" ref={inputsRef.firstname} />
             </label>
 
             <label>
               Email :
-              <input type="email" name="email" />
+              <input type="email" name="email" ref={inputsRef.email}/>
             </label>
 
             <label>
               Téléphone :
-              <input type="tel" name="Télephone" />
-            </label>
-
-            <label>
-              Ville :
-              <input className="longInput" type="text" name="ville" />
+              <input type="tel" name="phone" ref={inputsRef.phone} />
             </label>
 
             <label>
               RIB :
-              <input className="longInput" type="text" name="RIB" />
-            </label>
-          </div>
-
-          <div className="parcel-information">
-            <label>
-              Périmetre :
-              <input className="locationInput" type="text" name="perimeter" />
+              <input className="longInput" type="text" name="rib" ref={inputsRef.rib}/>
             </label>
 
-            {pro ? (
-              <div className="containerPro">
+            {proBool === true ? (
+              <div>
                 <label>
-                  N° Siret :
+                  N° Siret:
                   <input
-                    className="contentFileInput"
                     type="text"
                     name="SIRET"
+                    ref={inputsRef.siret}
                   />
                 </label>
 
                 <label>
                   TVA :
-                  <input className="contentFileInput" type="text" name="TVA" />
+                  <input className="longInput" type="text" name="VAT" ref={inputsRef.tva} />
                 </label>
 
-                <div className="contentFileInput">
-                  <label htmlFor="carteIdd" className="label-file">
-                    Insérer Kbis de moins de 3 mois
+                  <label>
+                    Kbis de moins de 3 mois:
                     <input
-                      className="fileInput"
-                      type="file"
-                      id="carteIdd"
+                      className="longInput"
+                      type="text"
                       name="CarteIdd"
-                      accept="image/png, image/jpeg"
+                      ref={inputsRef.kbis}
                     />
                   </label>
-                </div>
               </div>
             ) : null}
-            <div className="contentFileInput">
-              <label htmlFor="carteIdd" className="label-file">
-                Insérer pièce d'identité
-                <input
-                  className="fileInput"
-                  type="file"
-                  id="carteIdd"
-                  name="CarteIdd"
-                  accept="image/png, image/jpeg"
-                />
-              </label>
-            </div>
-            <button type="submit" className="btn-send-adhesion">
+
+
+          <button type="submit" className="btn-send-adhesion">
               Envoyer
-            </button>
-          </div>
+          </button>
         </div>
       </form>
       <Footer />

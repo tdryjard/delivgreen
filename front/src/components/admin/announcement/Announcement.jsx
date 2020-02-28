@@ -1,32 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AnnouncementCard from './announcementCard/AnnouncementCard';
+import AdminHeader from '../adminHeader/AdminHeader';
+import apiUrl from '../../api/api';
 import './Announcement.css';
 
 function Announcement() {
 
-    const announceInfo = {
-        lastname: "PROVOT",
-        firstname: "Alexis",
-        deliveryID: "52135645",
-        telephone: "06 78 95 48 21",
-        startingPoint: "15 rue des Poupola 45000 Orleans",
-        endingPoint: "1 rue du Nirile 45000 Orleans",
-        limitDate: "25/06/2020 à 13h50"
-    }
+    const [announces, setAnnounces] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const response = await fetch(apiUrl + '/api/admin/announces');
+            const jsonResponse = await response.json();
+            const { data } = jsonResponse;
+            if (data)
+                setAnnounces(data)
+        })();
+    }, [])
 
     return (
         <div className="announcement-ctn">
-            <header>
-                <FontAwesomeIcon icon={faBook} />
-                <div className="title">
-                    Liste des annonces
-                </div>
-            </header>
-            <div className="annoucement-card-ctn">
-                <AnnouncementCard {...announceInfo} />
-                <AnnouncementCard {...announceInfo} />
+            <AdminHeader icon={faBook} title="Liste des annonces" />
+            <div className="announcement-card-ctn">
+                { announces.length ?
+                    announces.map((announce, i) => <AnnouncementCard key={i} {...announce} />)
+                    :
+                    <div className="admin-no-content-message">Pas d'annonce</div>
+                }
             </div>
         </div>
     )

@@ -37,7 +37,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
     height: 35%;
     width: 30%;
     left: 10%;
@@ -64,6 +64,9 @@
     justify-content: center;
     align-items: center;
 }
+.buttonHeaderHomePage:hover {
+    transform: scale(1.1);
+}
 
 /*          CO2 saved           */
 
@@ -76,6 +79,7 @@
 .typeCo2 {
     margin-top: 5px;
     color: white;
+    text-align: center;
 }
 
 .describeCo2 {
@@ -86,12 +90,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    height: 280px;
     width: 100%;
     background-color: #3a3a3a;
     z-index: 3;
     box-shadow: rgb(0, 0, 0) 0 -3px 8px inset, rgb(0, 0, 0) 0 3px 8px inset;
+    font-size: 20px;
 }
+
+
 
 .contentNumberType {
     display: flex;
@@ -102,12 +110,16 @@
     box-shadow: white 0 0 10px;
     border-radius: 50px;
     margin-top: 20px;
-    width: 150px;
+    margin-bottom: 20px;
+    margin-right: 80px;
+    width: 230px;
+    height: 150px;
 }
 
 .numberCo2 {
-    margin: 0 0 20px 20px;
+    margin-left: 20px;
     font-size: 25px;
+    letter-spacing: 4px;
     font-weight: bold;
     color: rgb(255, 255, 255);
     text-shadow: white 0 0 3px;
@@ -118,12 +130,30 @@
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    height: 50px;
+}
+
+@media screen and (max-width: 1280px){
+    .numberCo2Content{
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 80%;
+    }
+    .contentNumberType{
+        width: 40%;
+        height: 35%;
+        margin-right: 3%;
+        margin-left: 3%;
+    }
+    .numberCo2{
+        font-size: 20px;
+    }
 }
 
 /*          3 steps attempt         */
 
 .threeStepsBigContainer {
-    background-color: #E3E4E6;
+    background-color: whitesmoke;
     width: 100%;
     height: 120vh;
     display: flex;
@@ -194,6 +224,9 @@
     justify-content: center;
     align-items: center;
 }
+.buttonThreeSteps:hover {
+    transform: scale(1.1);
+}
 
 .svgLandingPage1 {
     width: 100%;
@@ -255,6 +288,9 @@
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.buttonCustomerServices:hover {
+    transform: scale(1.1);
 }
 
 .subtitleSliderLandingPage {
@@ -354,6 +390,9 @@
     justify-content: center;
     align-items: center;
 }
+.buttonBecomePartner:hover {
+    transform: scale(1.1);
+}
 
 @media (max-width: 1060px) {
     /*          Slider          */
@@ -403,12 +442,14 @@
     }
 
     .steps3Container {
+        justify-content: flex-start;
         width: 100%;
         margin: 25px 0 25px 0;
+        height: 400px;
     }
 
     .svgLandingPage1, .svgLandingPage2, .svgLandingPage3 {
-        display: none;
+        display: block;
     }
 
     .cardsContainerThreeSteps {
@@ -416,24 +457,34 @@
     }
 
     .textThreeStepContainer {
-        height: 100%;
+        margin-top: 20px;
+        height: 200px;
     }
 
     /*          Customer services           */
 
     .cardCustomerServiceContainer {
-        margin: 25px 0 50px 0;
-        width: 70%;
-        height: 120%;
+        margin: 25px 0 25px 0;
+        width: 80%;
+        height: 90%;
         text-align: center;
+    }
+
+    .customerServicesTitle{
+        margin-bottom: 0;
     }
 
     .customerServicesContainer {
         flex-direction: column;
     }
 
+    .customerServiceContainer{
+        background-image: url('./images/backContactMobile.jpg');
+    }
+
     .itemCustomer {
         margin: 15px;
+        margin-bottom: 8px;
     }
 
     /*        Partner        */
@@ -444,11 +495,20 @@
 
     .buttonCustomerServices {
         width: 220px;
-        height: 50px;
-        margin: 15px 0 25px 0;
+        height: 70px;
+        margin: 0px 0 25px 0;
     }
 
     .becomePartnerTextAndButton {
         text-align: start;
+    }
+
+    .textBecomePartner{
+        text-align: start;
+    }
+
+    .buttonBecomePartner{
+        width: 150px;
+        height: 50px;
     }
 }
