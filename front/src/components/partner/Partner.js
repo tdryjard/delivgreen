@@ -55,7 +55,10 @@ const Partner = () => {
 
       <div className="threecards2">
         <div className="stepsContainer2">
-          <Link to="/adhesion" className="particularimg">
+          <Link
+            to={{ pathname: '/adhesion', professionnal: false }}
+            className="particularimg"
+          >
             Particular
           </Link>
           <h3 className="subtitleThreeSteps2">
@@ -65,7 +68,10 @@ const Partner = () => {
         </div>
 
         <div className="stepsContainer2">
-          <Link to="/adhesion" className="steedimg">
+          <Link
+            to={{ pathname: '/adhesion', professionnal: false }}
+            className="steedimg"
+          >
             Steed
           </Link>
           <h3 className="subtitleThreeSteps2">
@@ -74,7 +80,10 @@ const Partner = () => {
         </div>
 
         <div className="stepsContainer2">
-          <Link to="/adhesion" className="carrierimg">
+          <Link
+            to={{ pathname: '/adhesion', professionnal: true }}
+            className="carrierimg"
+          >
             Carrier
           </Link>
 

@@ -16,10 +16,11 @@ function DeliveryClientForm() {
 	const [resultAddressEnd, setResultAddressEnd] = useState({})
 	const [addressSelectStart, setAdressSelectStart] = useState([])
 	const [addressSelectEnd, setAdressSelectEnd] = useState([])
-	const [price, setPrice] = useState(0)
+	const [priceFixed, setPriceFixed] = useState(0)
 	const [posStart, setPosStart] = useState([])
 	const [posEnd, setPosEnd] = useState([])
 	const [distKm, setDistKm] = useState()
+	const [userId] = useState(1)
 
 	useEffect(() => {
 		fetch(`https://api-adresse.data.gouv.fr/search/?q=${addressEnterStart.replace(' ', '%20')}&type=housenumber&autocomplete=1`)
@@ -82,7 +83,6 @@ function DeliveryClientForm() {
 	const inputsRef={
 		lngt: useRef(null),
 		weight: useRef(null),
-		height: useRef(null),
 		date: useRef(null),
 		price_delivery: useRef(null)
 	}
@@ -95,19 +95,65 @@ function DeliveryClientForm() {
 
 		const myBody = {
 			lngt: inputsRef.lngt.current.value || null,
-			height: inputsRef.height.current.value || null,
 			weight: inputsRef.weight.current.value || null,
 			limit_date: inputsRef.date.current.value || null,
 			publish_date: `${dateString} ${dateTime}`,
-			price: 50
+			price: priceFixed,
+			user_id : userId,
+			status_id : 1
+		}
+
+		const addressStart = {
+			nameStart : addressSelectStart || null,
+			latStart : posStart[0] || null,
+			lngStart : posStart[1] || null
+		}
+
+		const addressEnd = {
+			nameEnd : addressSelectEnd || null,
+			latEnd : posEnd[0] || null,
+			lngEnd : posEnd[1] || null
 		}
 
 		// Si un input n'a pas été rempli
-		if (Object.values(myBody).includes(null)) setInfoMessage({ text: 'Champ(s) vide(s)' })
+		if ((Object.values(myBody).includes(null) || Object.values(addressStart).includes(null) || Object.values(addressEnd).includes(null))) {
+			setInfoMessage({ text: 'Champ(s) vide(s)' })
+		}
 
+		else{
 
 		try{
-			const response = await fetch(apiUrl + '/api/orders', {
+			const response = await fetch(apiUrl + '/api/createOrder/addressStart', {
+				method: 'POST',
+				headers: {
+					'Content-Type' :'application/json',
+					'Acces-Control-Allow-Origin' : {apiOrigin}	
+				},
+				body: JSON.stringify(addressStart)
+			});
+			const data = await response.json();
+			inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+		} catch (error)  {
+			console.log(error);
+		}
+
+		try{
+			const response = await fetch(apiUrl + '/api/createOrder/addressEnd', {
+				method: 'POST',
+				headers: {
+					'Content-Type' :'application/json',
+					'Acces-Control-Allow-Origin' : {apiOrigin}	
+				},
+				body: JSON.stringify(addressEnd)
+			});
+			const data = await response.json();
+			inputsRef[data.inputs[0]].current.style.border = 'solid red 3px'
+		} catch (error)  {
+			console.log(error);
+		}
+
+		try{
+			const response = await fetch(apiUrl + '/api/createOrder/order', {
 				method: 'POST',
 				headers: {
 					'Content-Type' :'application/json',
@@ -121,6 +167,7 @@ function DeliveryClientForm() {
 			console.log(error);
 		}
 	}
+}
 
 	function takeValue () {
 		let lngt = (inputsRef.lngt.current.value)
@@ -134,7 +181,7 @@ function DeliveryClientForm() {
 				coefLngt = 0.1
 			}
 			const totalPrice = ((lngt*coefLngt)+(weight*coefWeight)+(distKm*0.4)+8)
-			setPrice(totalPrice.toFixed(2))
+			setPriceFixed(totalPrice.toFixed(2))
 		}
 	}
 	
@@ -200,7 +247,7 @@ function DeliveryClientForm() {
 				/>
 				<div className="delivery-client-price">
 					<div className="price-tip">Prix de la livraison : </div>
-					<p>{price}€</p>
+					<p>{priceFixed}€</p>
 				</div>
 
 				{

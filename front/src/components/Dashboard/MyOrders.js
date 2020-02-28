@@ -9,16 +9,18 @@ import useWindowDimensions from './useWindowDimensions';
 import NavBarDashboardMobile from './NavBarDashboardMobile';
 import OrderDetails from './OrderDetails';
 import url from '../api/api';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const MyOrders = () => {
   const { width } = useWindowDimensions();
+  const { user } = useGlobalState();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
   const [clientOrders, setClientOrders] = useState(null);
   const [moreDetails, setMoreDetails] = useState(false);
   const [detailsIndex, setDetailsIndex] = useState(null);
 
   const getProducts = () => {
-    const userId = 1;
+    const userId = user.id;
     axios
       .get(`${url}/api/orders?userId=${userId}`)
       .then(result => result.data)
@@ -138,6 +140,7 @@ const MyOrders = () => {
               </table>
               {moreDetails ? (
                 <OrderDetails
+                  status={2}
                   order={clientOrders[detailsIndex]}
                   hideDetails={setMoreDetails}
                 />

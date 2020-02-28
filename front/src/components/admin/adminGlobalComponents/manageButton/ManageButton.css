@@ -1,0 +1,43 @@
+@import '../../../Variables.css';
+
+.manage-btn-ctn {
+    flex-shrink: 0;
+}
+
+.manage-btn {
+    border: none;
+    padding: 8px 12px;
+    background: var(--light-black);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 16px;
+    border-radius: 3px;
+}
+
+.accept-btn, .create-btn {
+    background: var(--green);
+}
+
+.update-btn {
+    background: var(--orange);
+}
+
+.delete-btn {
+    background: var(--red);
+}
+
+.manage-btn:hover {
+    text-decoration: underline;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .manage-btn {
+        font-size: 14px;
+    }
+}
