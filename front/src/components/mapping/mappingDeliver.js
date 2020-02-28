@@ -40,7 +40,8 @@ const MappingDeliver = () => {
         'Access-Control-Allow-Origin': `${origin}`
       },
       body: JSON.stringify({
-        delivery_man_id: userId
+        delivery_man_id: userId,
+        status_id: 2
       })
     })
       .then(response => response.json())
@@ -110,47 +111,49 @@ const MappingDeliver = () => {
           >
             <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
 
-            {orders &&
-              orders.map(order => {
-                return (
-                  <Marker
-                    className="dalu"
-                    position={[
-                      order.start_address_lat,
-                      order.start_address_lng
-                    ]}
-                  >
-                    <Popup>
-                      <button
-                        className="popupButton"
-                        onClick={markerClick}
-                        id={order.id}
-                        type="button"
-                      >
-                        Voir annonce
-                      </button>
-                    </Popup>
-                  </Marker>
-                );
-              })}
-            {orders.map(order => {
-              return (
-                <Marker
-                  position={[order.end_address_lat, order.end_address_lng]}
-                >
-                  <Popup>
-                    <button
-                      className="popupButton"
-                      onClick={markerClick}
-                      id={order.id}
-                      type="button"
+            {orders
+              ? orders.map(order => {
+                  return (
+                    <Marker
+                      position={[
+                        order.start_address_lat,
+                        order.start_address_lng
+                      ]}
                     >
-                      Voir annonce
-                    </button>
-                  </Popup>
-                </Marker>
-              );
-            })}
+                      <Popup>
+                        <button
+                          className="popupButton"
+                          onClick={markerClick}
+                          id={order.id}
+                          type="button"
+                        >
+                          Voir annonce
+                        </button>
+                      </Popup>
+                    </Marker>
+                  );
+                })
+              : null}
+            {orders
+              ? orders.map(order => {
+                  return (
+                    <Marker
+                      position={[order.end_address_lat, order.end_address_lng]}
+                    >
+                      <Popup>
+                        <button
+                          className="popupButton"
+                          onClick={markerClick}
+                          id={order.id}
+                          type="button"
+                        >
+                          Voir annonce
+                        </button>
+                      </Popup>
+                    </Marker>
+                  );
+                })
+              : null}
           </LeafletMap>
           {anoncement === true && (
             <div className="advert">
