@@ -16,7 +16,7 @@ Orders.findOrders = result => {
               FROM orders
               JOIN address AS start ON orders.start_address_id = start.id
               JOIN address AS end ON orders.end_address_id = end.id
-              WHERE orders.status_id = 2`,
+              WHERE orders.status_id = 1`,
     (error, dbResult) => {
       if (error) {
         return result(error, null);
@@ -29,14 +29,13 @@ Orders.findOrders = result => {
 
 Orders.findOrdersByUser = (userId, result) => {
   db.query(
-    `SELECT orders.lngt, orders.id, orders.height, orders.weight, orders.publish_date, orders.limit_date, orders.price, status.name AS status_name,
+    `SELECT orders.lngt, orders.id, orders.weight, orders.publish_date, orders.limit_date, orders.price,
               orders.start_address_id, start.name AS start_address_name, start.lat AS start_address_lat, start.lng AS start_address_lng,
               orders.end_address_id, end.name AS end_address_name, end.lat AS end_address_lat, end.lng AS end_address_lng
               FROM orders
-              JOIN status as status ON status.id = orders.status_id
               JOIN address AS start ON orders.start_address_id = start.id
               JOIN address AS end ON orders.end_address_id = end.id
-              WHERE orders.user_id = ?`,
+              WHERE orders.user_id = ? AND status_id = 4`,
     userId,
     (error, dbResult) => {
       if (error) {

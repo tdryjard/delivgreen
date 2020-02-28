@@ -21,7 +21,6 @@ import InfosDashboard from './components/Dashboard/InfosDashboard';
 import LandingPage from './components/LandingPage/LandingPage';
 import DashboardClient from './components/Dashboard/DashboardClient';
 import MyOrdersClient from './components/Dashboard/MyOrdersClient';
-import InfosClient from './components/Dashboard/InfosClient';
 import ConfirmationAdhesion from './components/confirmationAdhesion/ConfirmationAdhesion';
 import OrderUpdateConfirmation from './components/Dashboard/OrderUpdateConfirmation';
 
@@ -50,7 +49,7 @@ function App() {
       <Route path="/signature" component={SignatureZone} />
       <Route path="/annonces" component={Announcement} />
       <Route path="/informations-pro" component={InfosDashboard} />
-      <Route path="/mes-infos" component={InfosClient} />
+      <Route path="/mes-infos" component={InfosDashboard} />
       <Route path="/demande-livraison" component={DeliveryClientForm} />
       <Route path="/confirmation-adhesion" component={ConfirmationAdhesion} />
       <Route path="/confirmation" component={OrderUpdateConfirmation} />
