@@ -1,16 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './DashboardPro.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import NavBarDashboard from './NavBarDashboard';
 import Chart from './Chart';
 import useWindowDimensions from './useWindowDimensions';
 import NavBarDashboardMobile from './NavBarDashboardMobile';
+import url from '../api/api';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const DashboardPro = () => {
   const { height, width } = useWindowDimensions();
+  const { user } = useGlobalState();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+  const [currentOrders, setCurrentOrders] = useState(null);
+  const [currentMoney, setCurrentMoney] = useState(null);
+
+  const getProducts = () => {
+    const userId = user.id;
+    axios
+      .get(`${url}/api/orders?userId=${userId}`)
+      .then(result => result.data)
+      .then(data => {
+        const stockOrders = data;
+        let ordersCount = 0;
+        let moneyCounter = 0;
+        for (let i = 0; i < stockOrders.length; i++) {
+          if (
+            stockOrders[i].status_name === 'Pris en charge' ||
+            stockOrders[i].status_name === 'Acceptée'
+          ) {
+            ordersCount++;
+          }
+          if (stockOrders[i].status_name === 'Livrée') {
+            moneyCounter += stockOrders[i].price;
+          }
+        }
+        setCurrentMoney(moneyCounter);
+        setCurrentOrders(ordersCount);
+      });
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div className="mySpaceMainContainer">
@@ -51,22 +86,19 @@ const DashboardPro = () => {
           <div className="doubleCardHeaderDashboard">
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
-                <p className="titleStatsCardDashboard">Commandes réalisées</p>
-                <p className="subtitleStatsCardDashboard">ce mois</p>
-                <p className="nbCommandesReal">76</p>
+                <p className="titleStatsCardDashboard">Commandes en cours</p>
+                <p className="nbCommandesReal">{currentOrders}</p>
               </div>
             </div>
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
                 <p className="titleStatsCardDashboard">Revenus générés</p>
-                <p className="subtitleStatsCardDashboard">ce mois</p>
-                <p className="generatedCash">340,3€</p>
+                <p className="generatedCash">{currentMoney} €</p>
               </div>
             </div>
             <div className="cardHeaderDashboard">
               <div className="containerInCardDashboard">
                 <p className="titleStatsCardDashboard">Nouvelles commandes</p>
-                <p className="subtitleStatsCardDashboard">ce mois</p>
                 <p className="percentPlus">+67%</p>
               </div>
             </div>
