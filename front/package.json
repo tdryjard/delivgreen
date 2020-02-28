@@ -95,8 +95,7 @@
       "jsx-a11y/no-static-element-interactions": "off",
       "react/jsx-one-expression-per-line": "off",
       "array-callback-return": "off",
-      "consistent-return": "off",
-      "prettier/prettier": "off"
+      "consistent-return": "off"
     }
   },
   "browserslist": {
