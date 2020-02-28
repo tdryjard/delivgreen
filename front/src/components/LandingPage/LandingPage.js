@@ -23,7 +23,7 @@ const LandingPage = () => {
       window.addEventListener('scroll', () => {
         setScrolling(window.scrollY);
       });
-      if (scrolling >= 2600) {
+      if (scrolling >= 2300) {
         setScrollAtCounter(true);
       }
     }
@@ -45,7 +45,7 @@ const LandingPage = () => {
       const counterPurchase = setInterval(() => {
         counterAdd += purchaseCounter + 5;
         setPurchaseCounter(counterAdd);
-        if (counterAdd > 4500) {
+        if (counterAdd > 4100) {
           clearInterval(counterPurchase);
         }
       }, 40);
@@ -115,8 +115,7 @@ const LandingPage = () => {
             <div className="textThreeStepContainer">
               <h1 className="textThreeStepsAttempt">Informations du colis</h1>
               <h3 className="subtitleThreeSteps">
-                Je renseigne les détails de mon colis (hauteur, longueur,
-                largeur et poids)
+                Je renseigne les détails de mon colis
               </h3>
             </div>
           </div>
@@ -125,8 +124,7 @@ const LandingPage = () => {
             <div className="textThreeStepContainer">
               <h1 className="textThreeStepsAttempt">Départ et arrivée</h1>
               <h3 className="subtitleThreeSteps">
-                Je renseigne les coordonnées de départ et d'arrivée ainsi que la
-                date maximale
+                Je renseigne les coordonnées de départ et d'arrivée
               </h3>
             </div>
           </div>
