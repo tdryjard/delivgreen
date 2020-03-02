@@ -145,4 +145,10 @@
     .barStatusBar {
         width: 80px;
     }
+    .closeDetailsIcon{
+        height: 35px;
+        width: auto;
+        top: 1%;
+        right: 2%;
+    }
 }

@@ -7,4 +7,6 @@ router.get('/', orders.findOrders);
 
 router.put('/:orderId', orders.updateOrder);
 
+router.get('/myOrders/:userId', orders.findMyOrders);
+
 module.exports = router;

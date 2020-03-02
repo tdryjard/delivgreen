@@ -19,19 +19,14 @@ const MyOrders = () => {
   const [moreDetails, setMoreDetails] = useState(false);
   const [detailsIndex, setDetailsIndex] = useState(null);
 
-  const getProducts = () => {
+  useEffect(() => {
     const userId = user.id;
     axios
-      .get(`${url}/api/orders?userId=${userId}`)
+      .get(`${url}/api/orders/myOrders/${userId}`)
       .then(result => result.data)
       .then(data => {
-        const stockOrders = data;
-        setClientOrders(stockOrders);
+        setClientOrders(data);
       });
-  };
-
-  useEffect(() => {
-    getProducts();
   }, []);
 
   return (
@@ -90,53 +85,45 @@ const MyOrders = () => {
                     </th>
                   </tr>
                 </thead>
-                {clientOrders
-                  ? clientOrders.map((order, index) => {
-                      if (
-                        order.status_name === 'Acceptée' ||
-                        order.status_name === 'Pris en charge'
-                      ) {
-                        return (
-                          <tbody className="itemsContainerOrder">
-                            <td className="itemTableOrders">
-                              <p className="itemListOrders">{order.id}</p>
-                            </td>
-                            <td className="itemTableOrders">
-                              <p className="itemListOrders">
-                                {order.status_name === 'Pris en charge' ? (
-                                  <FontAwesomeIcon
-                                    style={{ color: 'orange' }}
-                                    icon={faCircle}
-                                  />
-                                ) : (
-                                  <FontAwesomeIcon
-                                    style={{ color: '#3c9d9b' }}
-                                    icon={faCircle}
-                                  />
-                                )}
-                              </p>
-                            </td>
-                            <td className="itemTableOrders">
-                              <p className="itemListOrders">
-                                {order.limit_date}
-                              </p>
-                            </td>
-                            <td className="itemTableOrders">
-                              <p
-                                onClick={() => {
-                                  setMoreDetails(true);
-                                  setDetailsIndex(index);
-                                }}
-                                className="buttonActionOrder"
-                              >
-                                Détails
-                              </p>
-                            </td>
-                          </tbody>
-                        );
-                      }
-                    })
-                  : null}
+                {clientOrders &&
+                  clientOrders.map((order, index) => {
+                    return (
+                      <tbody className="itemsContainerOrder">
+                        <td className="itemTableOrders">
+                          <p className="itemListOrders">{order.id}</p>
+                        </td>
+                        <td className="itemTableOrders">
+                          <p className="itemListOrders">
+                            {order.status_name === 'Pris en charge' ? (
+                              <FontAwesomeIcon
+                                style={{ color: 'orange' }}
+                                icon={faCircle}
+                              />
+                            ) : (
+                              <FontAwesomeIcon
+                                style={{ color: '#3c9d9b' }}
+                                icon={faCircle}
+                              />
+                            )}
+                          </p>
+                        </td>
+                        <td className="itemTableOrders">
+                          <p className="itemListOrders">{order.limit_date}</p>
+                        </td>
+                        <td className="itemTableOrders">
+                          <p
+                            onClick={() => {
+                              setMoreDetails(true);
+                              setDetailsIndex(index);
+                            }}
+                            className="buttonActionOrder"
+                          >
+                            Détails
+                          </p>
+                        </td>
+                      </tbody>
+                    );
+                  })}
               </table>
               {moreDetails ? (
                 <OrderDetails
