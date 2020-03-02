@@ -6,90 +6,70 @@ import './Partner.css';
 
 const Partner = () => {
   return (
-    <div className="partner-container">
+    <div className="partnerContainer">
       <NavBar />
-      <div className="threeStepsMainContainer">
+
+      <div className="titlePartner">
         <h1 className="threeStepsTitle">
-          Devenir partenaire chez Deliv'green en 3 étapes
+          Devenir partenaire chez Deliv'green en choisissant votre catégorie !
         </h1>
-        <h3>Devenir partenaire chez Deliv'green n'a jamais été aussi simple</h3>
-        <div className="threecards">
-          <div className="stepsContainer">
-            <div className="img1" />
-            <div className="textTitle">
-              <h1 className="textContextOfTiltle">Demande d'adhésion</h1>
-              <h3 className="subtitleThreeSteps">
-                Je renseigne mes informations (nom, prénom, email, kbis de moins
-                de 3ans...)
-              </h3>
-            </div>
-          </div>
-          <div className="stepsContainer">
-            <div className="img2" />
-            <div className="textTitle">
-              <h1 className="textContextOfTiltle">
-                Je choisis les courses qui me conviennent
-              </h1>
-              <h3 className="subtitleThreeSteps">
-                Selon mon trajet et mes possibilités de déplacement
-              </h3>
-            </div>
-          </div>
-          <div className="stepsContainer">
-            <div className="img3" />
-            <div className="textTitle">
-              <h1 className="textContextOfTiltle">
-                Je livre la commande et je reçois mon argent
-              </h1>
-              <h3 className="subtitleThreeSteps">
-                Livrez de manière sécuriser avec signature apres reception du
-                colis
-              </h3>
-            </div>
-          </div>
-        </div>
-        <Link to="/adhesion" type="button" className="buttonPartner">
-          Devenir partenaire
-        </Link>
       </div>
 
-      <div className="threecards2">
+      <div className="threeCards2">
         <div className="stepsContainer2">
+          <Link to={{ pathname: '/adhesion', professionnal: false }}>
+            <div className="titleStepsContainer2">Devenir particulier</div>
+          </Link>
+
           <Link
             to={{ pathname: '/adhesion', professionnal: false }}
-            className="particularimg"
-          >
-            Particular
+            className="particularImg"
+          />
+
+          <Link to={{ pathname: '/adhesion', professionnal: false }}>
+            <h3 className="subtitleThreeSteps2">
+              Je renseigne mes informations
+              <br />
+              (nom, prénom, email, téléphone et RIB)
+            </h3>
           </Link>
-          <h3 className="subtitleThreeSteps2">
-            Je renseigne mes informations (nom, prénom, email, kbis de moins de
-            3ans...)
-          </h3>
         </div>
 
         <div className="stepsContainer2">
+          <Link to={{ pathname: '/adhesion', professionnal: false }}>
+            <div className="titleStepsContainer2">Devenir coursier</div>
+          </Link>
+
           <Link
             to={{ pathname: '/adhesion', professionnal: false }}
-            className="steedimg"
-          >
-            Steed
+            className="steedImg"
+          />
+
+          <Link to={{ pathname: '/adhesion', professionnal: false }}>
+            <h3 className="subtitleThreeSteps2">
+              Selon mon trajet et mes possibilités de déplacement
+            </h3>
           </Link>
-          <h3 className="subtitleThreeSteps2">
-            Selon mon trajet et mes possibilités de déplacement
-          </h3>
         </div>
 
         <div className="stepsContainer2">
+          <Link to={{ pathname: '/adhesion', professionnal: true }}>
+            <div className="titleStepsContainer2">
+              Devenir transporteur professionnel
+            </div>
+          </Link>
+
           <Link
             to={{ pathname: '/adhesion', professionnal: true }}
-            className="carrierimg"
-          >
-            Carrier
-          </Link>
+            className="carrierImg"
+          />
 
-          <h3 className="subtitleThreeSteps2">
-            Livrez de manière sécuriser avec signature apres reception du colis
-          </h3>
+          <Link to={{ pathname: '/adhesion', professionnal: true }}>
+            <h3 className="subtitleThreeSteps2">
+              Livrez de manière sécurisée avec signature après réception du
+              colis
+            </h3>
+          </Link>
         </div>
       </div>
       <Footer />
