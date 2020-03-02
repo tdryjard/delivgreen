@@ -6,6 +6,8 @@ import './DeliveryClientForm.css';
 import Input from '../formElements/Input';
 import Navbar from '../NavBar/NavBar';
 import Footer from '../footer/Footer';
+import useGlobalState from '../../hooks/useGlobalState';
+import { Redirect } from 'react-router-dom';
 
 function DeliveryClientForm() {
 
@@ -20,7 +22,10 @@ function DeliveryClientForm() {
 	const [posStart, setPosStart] = useState([])
 	const [posEnd, setPosEnd] = useState([])
 	const [distKm, setDistKm] = useState()
-	const [userId] = useState(1)
+	const { user } = useGlobalState();
+	const [post, setPost] = useState(false)
+	const [redirection, setRedirection] = useState(null);
+	const [contentAnnoucement, setContentAnnoucement] = useState("contentAnnoucement")
 
 	useEffect(() => {
 		fetch(`https://api-adresse.data.gouv.fr/search/?q=${addressEnterStart.replace(' ', '%20')}&type=housenumber&autocomplete=1`)
@@ -99,7 +104,7 @@ function DeliveryClientForm() {
 			limit_date: inputsRef.date.current.value || null,
 			publish_date: `${dateString} ${dateTime}`,
 			price: priceFixed,
-			user_id : userId,
+			user_id : user.id,
 			status_id : 1
 		}
 
@@ -166,6 +171,13 @@ function DeliveryClientForm() {
 		} catch (error)  {
 			console.log(error);
 		}
+
+		if ((!Object.values(myBody).includes(null) || !Object.values(addressStart).includes(null) || !Object.values(addressEnd).includes(null))){
+			setPost(true)
+			setContentAnnoucement("contentAnnoucementOff")
+			setTimeout(() => setRedirection(<Redirect to="/my-orders" />), 2500)
+		}
+		
 	}
 }
 
@@ -187,12 +199,18 @@ function DeliveryClientForm() {
 	
 	return (
 		<div onClick={() => {setResultAddressEnd([]); setResultAddressStart([])}}>
+				{post &&
+					<div className="contentPostAnnoucement">
+						<p className="textAnnoucementPost">annonce postée</p>
+					</div>
+				}
 			<Navbar/>
-			<div className="delivery_heading">
+			<div className={`delivery_heading ${contentAnnoucement}`}>
 				<img src={require('../images/delivery_client_form.svg')} alt="delivery logo" />
 				<h1>Faites-vous livrer un colis</h1>
 			</div>
-			<form className='sign-form' onSubmit={sendAnnounce} onChange={takeValue}>
+			{ redirection }
+			<form className={`sign-form ${contentAnnoucement}`} onSubmit={sendAnnounce} onChange={takeValue}>
 				<div className="containerInputAddress">
 					<div className="containerAddressStart">
 						<div className="contentAddressInput">
