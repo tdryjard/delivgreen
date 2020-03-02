@@ -8,29 +8,46 @@ import './Announcement.css';
 function Announcement() {
 
     const [announces, setAnnounces] = useState([]);
+    const [noAnnounceError, setNoAnnounceError] = useState(null);
 
     useEffect(() => {
         (async () => {
             const response = await fetch(apiUrl + '/api/admin/announces');
             const jsonResponse = await response.json();
-            const { data } = jsonResponse;
-            if (data)
+            const { data, message } = jsonResponse;
+
+            if (data) {
                 setAnnounces(data)
+                return;
+            }
+            setNoAnnounceError(
+                <div className="admin-no-content-message">{message}</div>
+            );
         })();
-    }, [])
+    }, []);
+
+    // Fonction passée à <AnnounceCard /> 
+    const removeAnnounceFromState = function deleteTheSelectedAnnounce (id) {  
+        setAnnounces(
+            announces.filter(announce => announce.id !== id)
+        );
+    }
 
     return (
         <div className="announcement-ctn">
             <AdminHeader icon={faBook} title="Liste des annonces" />
             <div className="announcement-card-ctn">
                 { announces.length ?
-                    announces.map((announce, i) => <AnnouncementCard key={i} {...announce} />)
-                    :
-                    <div className="admin-no-content-message">Pas d'annonce</div>
+                    announces.map((announce, i) => <AnnouncementCard 
+                                                        key={i} 
+                                                        {...announce} 
+                                                        removeAnnounce={() => removeAnnounceFromState(announce.id)} 
+                    />) : null
                 }
+                { noAnnounceError }
             </div>
         </div>
-    )
+    );
 }
 
 export default Announcement;
