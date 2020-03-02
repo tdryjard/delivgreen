@@ -10,108 +10,12 @@
     height:100vh;
     width:100%;
 }
-.threeStepsMainContainer {
-    background-color: #E3E4E6;
-    width: 100%;
-    height: 120vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
-.threeStepsTitle {
-    color: #17B994;
-    font-family: 'Archivo';
-}
-
-.threecards {
-    display: flex;
-    width: 100%;
-    height: 60%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.stepsContainer {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 90%;
-    width: 25%;
-    box-shadow: 0 1px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
-}
-
-.img1 {
-    width: 100%;
-    height: 40%;
-    background-image: url("../partner/images/img1.png");
-    background-size: 120%;
-    background-repeat: no-repeat;
-}
-
-.img2 {
-    width: 100%;
-    height: 40%;
-    background-image: url("../partner/images/img2.jpg");
-    background-size: 120%;
-    background-repeat: no-repeat;
-}
-
-.img3 {
-    width: 100%;
-    height: 40%;
-    background-image: url("../partner/images/img3.jpg");
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-}
-
-.textTitle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.titlePartner{
     text-align: center;
-    font-size: 10px;
-    background-color: white;
-    height: 60%;
-    width: 80%;
+    margin-top:5%;
 }
 
-.textContextOfTiltle {
-    font-family: 'Archivo';
-    font-size: 28px;
-    margin: 15px;
-    color: #282c34;
-}
-
-.subtitleThreeSteps {
-    font-size: 16px;
-    color: #3a3a3a;
-}
-
-.threeStepsTitle {
-    color: #17B994;
-    font-family: 'Archivo';
-}
-
-.buttonPartner {
-    font-family: 'Archivo';
-    font-size: 24px;
-    margin: 25px 0 25px 0;
-    width: 250px;
-    height: 70px;
-    border: none;
-    border-radius: 5px;
-    background-color: #17B994;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .threecards2 {
     display: flex;
     width: 100%;
@@ -133,8 +37,6 @@
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
-    -webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
@@ -202,6 +104,53 @@
 	transition: .3s ease-in-out;
 }
 
+.titleStepsContainer2{
+    font-size: 20px;
+    color: #17B994;
+    text-align: center;
+    font-weight: 800;
+    margin-top:2%;
+    margin-bottom: 2%;
+}
+
+.PutButtonInLine{
+    display: flex;
+    align-items: right;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top:25%;
+}
+.buttonpar{
+    font-family: 'Archivo';
+    font-size: 15px;
+    margin: 10px 0 10px 0;
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right:5%;
+}
+
+.buttonpro{
+    font-family: 'Archivo';
+    font-size: 15px;
+    margin: 10px 0 10px 0;
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #17B994;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1060px) {
 
     .partner-container{
@@ -209,14 +158,18 @@
         width:100%;
     }
 
+    .titlePartner{
+        text-align: center;
+        margin-top:5%;
+        margin:3%;
+        font-size:10px;
+    }
+
     .subtitleThreeSteps2 {
         font-size: 15px;
         color: #3a3a3a;
         text-align: center;
-    }
-
-    .threeStepsMainContainer {
-       display: none !important;
+        margin-bottom: 15%;
     }
 
     .threecards2 {
@@ -229,7 +182,7 @@
 
     .stepsContainer2 {
         background-color: white;
-        display: flex;
+        display:flex;
         flex-direction: column;
         align-items: center;
         height:35%;
