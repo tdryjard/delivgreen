@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
   faCheckCircle,
-  faClock
+  faClock,
+  faChevronRight,
+  faBox
 } from '@fortawesome/free-solid-svg-icons';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
@@ -94,6 +96,10 @@ const LandingPage = () => {
               className="buttonHeaderHomePage"
             >
               Proposer une course
+              <FontAwesomeIcon
+                icon={faBox}
+                className="arrowIconButton boxIcon"
+              />
             </Link>
           </div>
         </div>
@@ -143,46 +149,38 @@ const LandingPage = () => {
         <Link
           to="/demande-livraison"
           type="button"
-          className="buttonThreeSteps"
+          className="buttonHeaderHomePage"
         >
           Proposer une course
+          <FontAwesomeIcon icon={faBox} className="arrowIconButton boxIcon" />
         </Link>
       </div>
 
-      {/*     Customer service     */}
+      {/*     Become partner      */}
 
-      <div className="customerServiceContainer">
-        <div className="cardCustomerServiceContainer">
-          <h1 className="customerServicesTitle">Deliv'Green à votre écoute</h1>
-          <div className="customerServicesContainer">
-            <div className="itemCustomer">
+      <div className="becomePartnaireSection">
+        <div className="cardBecomePartner">
+          <img
+            src={require('./images/truckDelivgreen.jpg')}
+            alt="van become partner"
+            className="vanImagePartner"
+          />
+          <div className="becomePartnerTextAndButton">
+            <h1 style={{ margin: '15px', color: '#17B994' }}>
+              Devenir partenaire
+            </h1>
+            <p className="textBecomePartner">
+              Particuliers, coursiers ou transporteur rejoignez le réseau
+              Deliv'Green et profitez d'une rémunération attractive
+            </p>
+            <Link to="/partner" type="button" className="buttonBecomePartner">
+              Plus d'infos
               <FontAwesomeIcon
-                icon={faCheckCircle}
-                className="far fa-5x iconCustomerSection"
+                icon={faChevronRight}
+                className="arrowIconButton"
               />
-              <p className="textCustomerLandingPage">Livraison garantie</p>
-              <p className="textCustomerLandingPage">satisfait ou remboursé</p>
-            </div>
-            <div className="itemCustomer">
-              <FontAwesomeIcon
-                icon={faEnvelope}
-                className="far fa-5x iconCustomerSection"
-              />
-              <p className="textCustomerLandingPage">Service client</p>
-              <p className="textCustomerLandingPage"> disponible 24/7</p>
-            </div>
-            <div className="itemCustomer">
-              <FontAwesomeIcon
-                icon={faClock}
-                className="far fa-5x iconCustomerSection"
-              />
-              <p className="textCustomerLandingPage">Réactivité garantie</p>
-              <p className="textCustomerLandingPage">en 2h maxi</p>
-            </div>
+            </Link>
           </div>
-          <Link to="/contact" type="button" className="buttonCustomerServices">
-            Contactez-nous
-          </Link>
         </div>
       </div>
 
@@ -243,27 +241,41 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/*     Become partner      */}
+      {/*     Customer service     */}
 
-      <div className="becomePartnaireSection">
-        <div className="cardBecomePartner">
-          <img
-            src={require('./images/truckDelivgreen.jpg')}
-            alt="van become partner"
-            className="vanImagePartner"
-          />
-          <div className="becomePartnerTextAndButton">
-            <h1 style={{ margin: '15px', color: '#17B994' }}>
-              Devenir partenaire
-            </h1>
-            <p className="textBecomePartner">
-              Particuliers, coursiers ou transporteur rejoignez le réseau
-              Deliv'Green et profitez d'une rémunération attractive
-            </p>
-            <Link to="/partner" type="button" className="buttonBecomePartner">
-              Plus d'infos
-            </Link>
+      <div className="customerServiceContainer">
+        <div className="cardCustomerServiceContainer">
+          <h1 className="customerServicesTitle">Deliv'Green à votre écoute</h1>
+          <div className="customerServicesContainer">
+            <div className="itemCustomer">
+              <FontAwesomeIcon
+                icon={faCheckCircle}
+                className="far fa-5x iconCustomerSection"
+              />
+              <p className="textCustomerLandingPage">Livraison garantie</p>
+              <p className="textCustomerLandingPage">satisfait ou remboursé</p>
+            </div>
+            <div className="itemCustomer">
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="far fa-5x iconCustomerSection"
+              />
+              <p className="textCustomerLandingPage">Service client</p>
+              <p className="textCustomerLandingPage"> disponible 24/7</p>
+            </div>
+            <div className="itemCustomer">
+              <FontAwesomeIcon
+                icon={faClock}
+                className="far fa-5x iconCustomerSection"
+              />
+              <p className="textCustomerLandingPage">Réactivité garantie</p>
+              <p className="textCustomerLandingPage">en 2h maxi</p>
+            </div>
           </div>
+          <Link to="/contact" type="button" className="buttonCustomerServices">
+            Contactez-nous
+            <FontAwesomeIcon icon={faEnvelope} className="envelopeIconButton" />
+          </Link>
         </div>
       </div>
 
