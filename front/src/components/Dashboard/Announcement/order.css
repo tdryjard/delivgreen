@@ -123,6 +123,12 @@
     color: white;
 }
 
+.firstTextOrder{
+    width: 100px;
+    text-align: center;
+    color: white;
+}
+
 .contentSeeMore{
     display: flex;
     justify-content: center;

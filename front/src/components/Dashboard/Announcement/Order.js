@@ -4,9 +4,10 @@ import apiUrl from '../../api/api';
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
-  const [buttonView, setButtonView] = useState(true);
-  const [view, setView] = useState(false);
+  const [buttonView, setButtonView] = useState();
   const [userId] = useState(1);
+  const [update, setUpdate] = useState(0);
+  const [announceView, setAnnounceView] = useState();
 
   useEffect(() => {
     fetch(`${apiUrl}/api/orders`)
@@ -14,32 +15,35 @@ const Order = () => {
       .then(res => {
         setOrders(res);
       });
-  }, []);
-
-  const viewMore = () => {
-    setButtonView(!buttonView);
-    setView(!view);
-  };
+  }, [update]);
 
   const engagementAnnounce = event => {
     const orderId = event.target.id;
-    fetch(`${apiUrl}/api/orders/${orderId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': `${origin}`
-      },
-      body: JSON.stringify({
-        delivery_man_id: userId,
-        status_id: 2
-      })
-    });
+    if (
+      window.confirm(
+        `Voulez-vous vraiment vous engager sur la commande #${orderId}`
+      )
+    ) {
+      fetch(`${apiUrl}/api/orders/${orderId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': `${origin}`
+        },
+        body: JSON.stringify({
+          delivery_man_id: userId,
+          status_id: 2
+        })
+      });
+      setAnnounceView(null);
+      setUpdate(update + 1);
+    }
   };
 
   return (
     <div className="ordersContent">
       {orders &&
-        orders.map(order => {
+        orders.map((order, index) => {
           return (
             <div className="contentOrder">
               <div className="contentPrincipalInfoOrder">
@@ -76,16 +80,17 @@ const Order = () => {
                   </a>
                 </div>
                 <div className="contentSeeMore">
-                  <h4 className="textOrderAddress">
+                  <h4 className="firstTextOrder">
                     date limite {order.limit_date}
                   </h4>
-                  <h4 className="textOrderAddressRapport">
-                    rapport {order.price}€
-                  </h4>
-                  {buttonView === true ? (
+                  <h4 className="firstTextOrder">rapport {order.price}€</h4>
+                  {announceView !== index ? (
                     <button
                       type="button"
-                      onClick={viewMore}
+                      onClick={() => {
+                        setAnnounceView(index);
+                        setButtonView(!buttonView);
+                      }}
                       className="buttonViewMore"
                     >
                       Voir plus
@@ -93,7 +98,10 @@ const Order = () => {
                   ) : (
                     <button
                       type="button"
-                      onClick={viewMore}
+                      onClick={() => {
+                        setAnnounceView(null);
+                        setButtonView(!buttonView);
+                      }}
                       className="buttonViewMore"
                     >
                       Voir moins
@@ -101,7 +109,7 @@ const Order = () => {
                   )}
                 </div>
               </div>
-              {view === true && (
+              {announceView === index && (
                 <div className="contentSecondInfoOrder">
                   <h4 className="textOrder">
                     date publication {order.publish_date}
