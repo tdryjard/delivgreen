@@ -29,8 +29,6 @@ const MyOrders = () => {
       });
   }, []);
 
-  console.log(clientOrders);
-
   return (
     <div className="mySpaceMainContainer">
       {width > 1060 ? <NavBarDashboard /> : null}
