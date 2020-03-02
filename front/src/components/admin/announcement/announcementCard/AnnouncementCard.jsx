@@ -20,7 +20,7 @@ function AnnouncementCard({ lastname, firstname, id , phone, email, startingPoin
 				method: 'DELETE'
 			});
 			const { status, message } = response.json();
-			console.log(status)
+			
 			if (status === 200) alert(message);
 
 			// Suppression (front) de l'annonce
