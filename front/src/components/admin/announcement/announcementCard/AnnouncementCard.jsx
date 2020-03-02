@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faCaretDown, faCaretUp, faPhone, faUserTie, faMoneyBillWaveAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faCaretDown, faCaretUp, faPhone, faUserTie, faMoneyBillWaveAlt, faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
 import TextInfo from '../../adminGlobalComponents/textInfo/TextInfo';
 import ManageCard from '../../adminGlobalComponents/manageCard/ManageCard';
 import ManageButton from '../../adminGlobalComponents/manageButton/ManageButton';
@@ -10,17 +10,23 @@ import ManageCardHeader from '../../adminGlobalComponents/manageCard/cardHeader/
 import urlApi from '../../../api/api';
 import './AnnouncementCard.css';
 
-function AnnouncementCard({ lastname, firstname, id , phone, startingPoint, endingPoint, arrival_date, price, deliveryMan }) {
+function AnnouncementCard({ lastname, firstname, id , phone, email, startingPoint, endingPoint, arrival_date, price, removeAnnounce }) {
 
 	const [showMoreInfo, setShowMoreInfo] = useState(false);
 
 	const deleteAnnounce = async function deleteAnAnnounce () {
-		console.log('id: ', id)
-		const response = await fetch(`${urlApi}/api/admin/announces/${id}`, {
-			method: 'DELETE'
-		})
-		// Récupération du message d'état (supprimé ou erreur)
-		const { message } = await response.json();
+		if (window.confirm(`Voulez-vous bien supprimez l'annonce #${id} ?`)) {
+			const response = await fetch(`${urlApi}/api/admin/announces/${id}`, {
+				method: 'DELETE'
+			});
+			const { status, message } = response.json();
+			console.log(status)
+			if (status === 200) alert(message);
+
+			// Suppression (front) de l'annonce
+			setShowMoreInfo(false);
+			removeAnnounce(id);
+		}
 	}
 
 	return (
@@ -31,7 +37,7 @@ function AnnouncementCard({ lastname, firstname, id , phone, startingPoint, endi
 				sticky
 			>
 				<ManageButtonContainer>
-					<ManageButton icon={faTrash} className="delete-btn" onClick={deleteAnnounce} />
+					<ManageButton icon={faTrash} className="delete-btn" onClick={() => { deleteAnnounce(); }} />
 					<ManageButton icon={showMoreInfo ? faCaretUp : faCaretDown} onClick={() => setShowMoreInfo(!showMoreInfo)} />
 				</ManageButtonContainer>
 			</ManageCardHeader>
@@ -41,6 +47,7 @@ function AnnouncementCard({ lastname, firstname, id , phone, startingPoint, endi
 				<TextInfo title={<FontAwesomeIcon icon={faMoneyBillWaveAlt} />} text={`${price} €`} />
 				<TextInfo title="Date limite : " text={arrival_date} />
 				<TextInfo title={<FontAwesomeIcon icon={faUserTie} />} text={`${lastname} ${firstname}`} />
+				<TextInfo title={<FontAwesomeIcon icon={faEnvelopeOpen} />} text={`${email}`} />
 				<TextInfo title="N°" text={id} />
 				<TextInfo title={<FontAwesomeIcon icon={faPhone} />} text={phone} />
 			</InfoList>
