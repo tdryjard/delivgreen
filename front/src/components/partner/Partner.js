@@ -11,7 +11,7 @@ const Partner = () => {
 
       <div className="titlePartner">
         <h1 className="threeStepsTitle">
-          Devenir partenaire chez Deliv'green en choississant votre cathégorie !
+          Devenir partenaire chez Deliv'green en choisissant votre catégorie !
         </h1>
       </div>
 
@@ -66,7 +66,7 @@ const Partner = () => {
 
           <Link to={{ pathname: '/adhesion', professionnal: true }}>
             <h3 className="subtitleThreeSteps2">
-              Livrez de manière sécuriser avec signature apres reception du
+              Livrez de manière sécurisée avec signature après réception du
               colis
             </h3>
           </Link>
