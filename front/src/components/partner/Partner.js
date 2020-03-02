@@ -6,7 +6,7 @@ import './Partner.css';
 
 const Partner = () => {
   return (
-    <div className="partner-container">
+    <div className="partnerContainer">
       <NavBar />
 
       <div className="titlePartner">
@@ -15,7 +15,7 @@ const Partner = () => {
         </h1>
       </div>
 
-      <div className="threecards2">
+      <div className="threeCards2">
         <div className="stepsContainer2">
           <Link to={{ pathname: '/adhesion', professionnal: false }}>
             <div className="titleStepsContainer2">Devenir particulier</div>
@@ -23,7 +23,7 @@ const Partner = () => {
 
           <Link
             to={{ pathname: '/adhesion', professionnal: false }}
-            className="particularimg"
+            className="particularImg"
           />
 
           <Link to={{ pathname: '/adhesion', professionnal: false }}>
@@ -42,7 +42,7 @@ const Partner = () => {
 
           <Link
             to={{ pathname: '/adhesion', professionnal: false }}
-            className="steedimg"
+            className="steedImg"
           />
 
           <Link to={{ pathname: '/adhesion', professionnal: false }}>
@@ -61,7 +61,7 @@ const Partner = () => {
 
           <Link
             to={{ pathname: '/adhesion', professionnal: true }}
-            className="carrierimg"
+            className="carrierImg"
           />
 
           <Link to={{ pathname: '/adhesion', professionnal: true }}>
