@@ -26,7 +26,10 @@ Admin.deleteAnnounce = (announceId, result) => {
   db.query('DELETE FROM orders WHERE id = ?', announceId, err => {
     if (err) return result({ message: err.message, status: 500 }, null);
 
-    return result(null, { message: `Annonce #${announceId} supprimée` });
+    return result(null, {
+      message: `Annonce #${announceId} supprimée`,
+      status: 200
+    });
   });
 };
 

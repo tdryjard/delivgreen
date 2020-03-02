@@ -20,9 +20,6 @@ function Announcement() {
                 setAnnounces(data)
                 return;
             }
-            setNoAnnounceError(
-                <div className="admin-no-content-message">{message}</div>
-            );
         })();
     }, []);
 
@@ -42,9 +39,8 @@ function Announcement() {
                                                         key={i} 
                                                         {...announce} 
                                                         removeAnnounce={() => removeAnnounceFromState(announce.id)} 
-                    />) : null
+                    />) : <div className="admin-no-content-message">Aucune Annonce</div>
                 }
-                { noAnnounceError }
             </div>
         </div>
     );
