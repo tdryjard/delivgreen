@@ -19,8 +19,8 @@ function AnnouncementCard({ lastname, firstname, id , phone, email, startingPoin
 			const response = await fetch(`${urlApi}/api/admin/announces/${id}`, {
 				method: 'DELETE'
 			});
-			const { status, message } = response.json();
-			
+			const { status, message } = await response.json();
+
 			if (status === 200) alert(message);
 
 			// Suppression (front) de l'annonce
