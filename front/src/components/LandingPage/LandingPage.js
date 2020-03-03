@@ -11,9 +11,11 @@ import './LandingPage.css';
 import { Link } from 'react-router-dom';
 import Footer from '../footer/Footer';
 import NavBar from '../NavBar/NavBar';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const LandingPage = () => {
   const [co2Counter, setCo2Counter] = useState(0);
+  const { user } = useGlobalState();
   const [purchaseCounter, setPurchaseCounter] = useState(0);
   const [roundTripCounter, setRoundTripCounter] = useState(0);
   const [jobCreateCounter, setJobCreateCounter] = useState(0);
@@ -90,17 +92,27 @@ const LandingPage = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               vitae varius turpis.
             </h4>
-            <Link
-              to="/demande-livraison"
-              type="button"
-              className="buttonHeaderHomePage"
-            >
-              Proposer une course
-              <FontAwesomeIcon
-                icon={faBox}
-                className="arrowIconButton boxIcon"
-              />
-            </Link>
+            {user ? (
+              <Link
+                to="/demande-livraison"
+                type="button"
+                className="buttonHeaderHomePage"
+              >
+                Proposer une course
+                <FontAwesomeIcon
+                  icon={faBox}
+                  className="arrowIconButton boxIcon"
+                />
+              </Link>
+            ) : (
+              <Link to="/signup" type="button" className="buttonHeaderHomePage">
+                Proposer une course
+                <FontAwesomeIcon
+                  icon={faBox}
+                  className="arrowIconButton boxIcon"
+                />
+              </Link>
+            )}
           </div>
         </div>
         <img
