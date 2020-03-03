@@ -9,6 +9,16 @@ exports.announceFindAll = (request, response) => {
   });
 };
 
+exports.adhesionFindAll = (request, response) => {
+  return Admin.deliveryManFindAll((err, result) => {
+    if (err !== null) {
+      return response.status(err.status).send(err);
+    }
+
+    return response.status(200).send(result);
+  });
+};
+
 exports.deleteAnnounce = (request, response) => {
   const { announceId } = request.params;
   Admin.deleteAnnounce(announceId, (err, result) => {

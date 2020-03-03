@@ -14,6 +14,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .manage-card {
+        padding: 0;
+        margin: 0;
+    }
     .manage-card--header-title {
         margin-bottom: 8px;
     }

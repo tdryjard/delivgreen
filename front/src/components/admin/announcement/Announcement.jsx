@@ -39,7 +39,9 @@ function Announcement() {
                                                         key={i} 
                                                         {...announce} 
                                                         removeAnnounce={() => removeAnnounceFromState(announce.id)} 
-                    />) : <div className="admin-no-content-message">Aucune Annonce</div>
+                    />)
+                     : 
+                    <div className="admin-no-content-message">{noAnnounceError}</div>
                 }
             </div>
         </div>
