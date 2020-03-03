@@ -84,15 +84,27 @@ const NavBar = () => {
                 </NavLink>
               ) : null}
               {user ? <hr className="separatorNavBar" /> : null}
-              <NavLink
-                style={{ textDecoration: 'none' }}
-                activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
-                to="/demande-livraison"
-              >
-                <h3 className="itemListNavBar" onClick={closeMenu}>
-                  Proposer une course
-                </h3>
-              </NavLink>
+              {user ? (
+                <NavLink
+                  style={{ textDecoration: 'none' }}
+                  activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
+                  to="/demande-livraison"
+                >
+                  <h3 className="itemListNavBar" onClick={closeMenu}>
+                    Proposer une course
+                  </h3>
+                </NavLink>
+              ) : (
+                <NavLink
+                  style={{ textDecoration: 'none' }}
+                  activeStyle={{ fontWeight: 'bold', color: 'indianred' }}
+                  to="/signup"
+                >
+                  <h3 className="itemListNavBar" onClick={closeMenu}>
+                    Proposer une course
+                  </h3>
+                </NavLink>
+              )}
               <hr className="separatorNavBar" />
               <NavLink
                 style={{ textDecoration: 'none' }}

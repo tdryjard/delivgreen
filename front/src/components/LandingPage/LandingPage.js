@@ -158,14 +158,21 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-        <Link
-          to="/demande-livraison"
-          type="button"
-          className="buttonHeaderHomePage"
-        >
-          Proposer une course
-          <FontAwesomeIcon icon={faBox} className="arrowIconButton boxIcon" />
-        </Link>
+        {user ? (
+          <Link
+            to="/demande-livraison"
+            type="button"
+            className="buttonHeaderHomePage"
+          >
+            Proposer une course
+            <FontAwesomeIcon icon={faBox} className="arrowIconButton boxIcon" />
+          </Link>
+        ) : (
+          <Link to="/signup" type="button" className="buttonHeaderHomePage">
+            Proposer une course
+            <FontAwesomeIcon icon={faBox} className="arrowIconButton boxIcon" />
+          </Link>
+        )}
       </div>
 
       {/*     Become partner      */}
