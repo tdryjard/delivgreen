@@ -1,16 +1,25 @@
 import React from 'react';
 import './footer.css';
 import { Link } from 'react-router-dom';
+import useGlobalState from '../../hooks/useGlobalState';
 
 const Footer = () => {
+  const { user } = useGlobalState();
+
   return (
     <div className="footerContainer">
       <footer className="footerAccueil">
         <div className="column1Footer">
           <h1 style={{ color: '#17B994' }}>Deliv'Green</h1>
-          <Link to="/demande-livraison" className="urlFooter">
-            Proposer une course
-          </Link>
+          {user ? (
+            <Link to="/demande-livraison" className="urlFooter">
+              Proposer une course
+            </Link>
+          ) : (
+            <Link to="/signup" className="urlFooter">
+              Proposer une course
+            </Link>
+          )}
           <Link to="/signin" className="urlFooter">
             Inscription
           </Link>
