@@ -175,7 +175,7 @@ function DeliveryClientForm() {
 		if ((!Object.values(myBody).includes(null) || !Object.values(addressStart).includes(null) || !Object.values(addressEnd).includes(null))){
 			setPost(true)
 			setContentAnnoucement("contentAnnoucementOff")
-			setTimeout(() => setRedirection(<Redirect to="/my-orders" />), 2500)
+			setTimeout(() => setRedirection(<Redirect to="/dashboard-client" />), 2500)
 		}
 		
 	}
