@@ -16,7 +16,6 @@ function Adhesion() {
 			const { data, message } = await response.json();
 			
 			if (data) {
-				console.log(data);
 				setAdhesions(data);
 				return;
 			}
