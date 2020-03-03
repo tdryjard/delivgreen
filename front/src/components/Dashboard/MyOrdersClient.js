@@ -17,7 +17,7 @@ const MyOrdersClient = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`${url}/api/orders?userId=${user.id}`)
+      fetch(`${url}/api/orders/myOrdersClient/${user.id}`)
         .then(res => res.json())
         .then(res => {
           setOrders(res);

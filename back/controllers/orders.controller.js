@@ -51,6 +51,24 @@ exports.findMyOrders = (request, response) => {
   });
 };
 
+exports.findMyOrdersClient = (request, response) => {
+  Orders.findMyOrdersClient(request.params.userId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === 'not_found') {
+        response.status(404).send({
+          message: `Not found order with id ${request.params.userId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: `Error retrieving order with id ${request.params.userId}`
+        });
+      }
+    }
+    // Envoi de la réponse
+    return response.status(200).send(dbResult);
+  });
+};
+
 exports.updateOrder = (request, response) => {
   const { orderId } = request.params;
 
