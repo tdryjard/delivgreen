@@ -42,17 +42,15 @@ const Partner = () => {
           {user ? (
             <Link to={{ pathname: '/adhesion', professionnal: false }}>
               <h3 className="subtitleThreeSteps2">
-                Je renseigne mes informations
-                <br />
-                (nom, prénom, email, téléphone et RIB)
+                Je souhaite réaliser des livraisons occasionnellement durant mon
+                temps libre afin de me créer un complément de revenus.
               </h3>
             </Link>
           ) : (
-            <Link to={{ pathname: '/signup' }}>
+            <Link to={{ pathname: '/adhesion', professionnal: false }}>
               <h3 className="subtitleThreeSteps2">
-                Je renseigne mes informations
-                <br />
-                (nom, prénom, email, téléphone et RIB)
+                Je souhaite réaliser des livraisons occasionnellement durant mon
+                temps libre afin de me créer un complément de revenus.
               </h3>
             </Link>
           )}
@@ -81,13 +79,15 @@ const Partner = () => {
           {user ? (
             <Link to={{ pathname: '/adhesion', professionnal: false }}>
               <h3 className="subtitleThreeSteps2">
-                Selon mon trajet et mes possibilités de déplacement
+                Je suis un particulier engager qui souhaite réaliser des courses
+                régulièrement.
               </h3>
             </Link>
           ) : (
-            <Link to={{ pathname: '/signup' }}>
+            <Link to={{ pathname: '/adhesion', professionnal: false }}>
               <h3 className="subtitleThreeSteps2">
-                Selon mon trajet et mes possibilités de déplacement
+                Je suis un particulier engager qui souhaite réaliser des courses
+                régulièrement.
               </h3>
             </Link>
           )}
@@ -120,15 +120,13 @@ const Partner = () => {
           {user ? (
             <Link to={{ pathname: '/adhesion', professionnal: true }}>
               <h3 className="subtitleThreeSteps2">
-                Livrez de manière sécurisée avec signature après réception du
-                colis
+                Je suis un transporteur professionnel et déclaré.
               </h3>
             </Link>
           ) : (
-            <Link to={{ pathname: '/signup' }}>
+            <Link to={{ pathname: '/adhesion', professionnal: true }}>
               <h3 className="subtitleThreeSteps2">
-                Livrez de manière sécurisée avec signature après réception du
-                colis
+                Je suis un transporteur professionnel et déclaré.
               </h3>
             </Link>
           )}
