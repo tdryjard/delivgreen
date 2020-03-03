@@ -25,6 +25,7 @@ const MappingDeliver = () => {
   const [userId] = useState(1);
   const { width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
+  const [update, setUpdate] = useState(0);
 
   const onMapClick = async function onMapClicked(e) {
     const position = [e.latlng.lat, e.latlng.lng];
@@ -33,17 +34,25 @@ const MappingDeliver = () => {
   };
 
   const engagementOrder = () => {
-    fetch(`${apiUrl}/api/orders/${orderId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': `${origin}`
-      },
-      body: JSON.stringify({
-        delivery_man_id: userId,
-        status_id: 2
-      })
-    });
+    if (
+      window.confirm(
+        `Voulez-vous vraiment vous engager sur la commande #${orderId}`
+      )
+    ) {
+      fetch(`${apiUrl}/api/orders/${orderId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': `${origin}`
+        },
+        body: JSON.stringify({
+          delivery_man_id: userId,
+          status_id: 2
+        })
+      });
+      setUpdate(update + 1);
+      setAnoncement(false);
+    }
   };
 
   useEffect(() => {
@@ -52,7 +61,7 @@ const MappingDeliver = () => {
       .then(res => {
         setOrders(res);
       });
-  }, []);
+  }, [update]);
 
   const markerClick = event => {
     const { id } = event.target;
@@ -113,8 +122,8 @@ const MappingDeliver = () => {
                   return (
                     <Marker
                       position={[
-                        order.start_address_lat,
-                        order.start_address_lng
+                        order.start_address_lng,
+                        order.start_address_lat
                       ]}
                     >
                       <Popup>

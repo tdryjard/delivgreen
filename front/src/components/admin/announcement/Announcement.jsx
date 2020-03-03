@@ -20,9 +20,6 @@ function Announcement() {
                 setAnnounces(data)
                 return;
             }
-            setNoAnnounceError(
-                <div className="admin-no-content-message">{message}</div>
-            );
         })();
     }, []);
 

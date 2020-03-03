@@ -7,6 +7,7 @@ import Navbar from '../../NavBar/NavBar';
 import Input from '../../formElements/Input';
 import signUp from '../signUpFetch';
 import useGlobalState from '../../../hooks/useGlobalState';
+import { Link } from 'react-router-dom';
 import './Signup.css';
 import '../Sign.css';
 
@@ -81,6 +82,7 @@ function Signup() {
                         attributes={{ type:'password', name: 'password', id: 'signup-password' }}
                         reference={inputsRef.password}
                     />
+                    <Link to="/signin" className="toSignin">s'inscrire</Link>
                     <button type='submit' className='btn'>Se connecter</button>
                 </form>
             </div>
