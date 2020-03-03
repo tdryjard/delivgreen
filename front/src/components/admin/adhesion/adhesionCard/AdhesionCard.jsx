@@ -9,7 +9,7 @@ import ManageButtonContainer from '../../adminGlobalComponents/manageButton/mana
 import ManageCardHeader from '../../adminGlobalComponents/manageCard/cardHeader/ManageCardHeader';
 import './AdhesionCard.css';
 
-function AdhesionCard({ type, civilState, lastname, firstname, email, telephone, rib, Kbis, tva, siret, isPro }) {
+function AdhesionCard({ role, lastname, firstname, email, phone, rib, kbis, tva, siret, is_pro }) {
 
 	const [showMoreInfo, setShowMoreInfo] = useState(false);
 
@@ -25,18 +25,17 @@ function AdhesionCard({ type, civilState, lastname, firstname, email, telephone,
 				</ManageButtonContainer>
 			</ManageCardHeader>
 			<InfoList moreInfo={showMoreInfo ? 'more-info' : ''}>
-				<TextInfo title="Statut : " text={type} />
-				<TextInfo title="Etat civil : " text={civilState} />
+				<TextInfo title="Statut : " text={role} />
 				<TextInfo title={<FontAwesomeIcon icon={faUserTie} />} text={`${lastname} ${firstname}`} />
 				<TextInfo title="Email : " text={email} />
-				<TextInfo title="Télephone : " text={telephone} />
+				<TextInfo title="Télephone : " text={phone} />
 				<TextInfo title="RIB : " text={rib} />
-				{ isPro && 
+				{ is_pro ? 
 					<>
-						<TextInfo title="Kbis : " text={Kbis} />
+						<TextInfo title="Kbis : " text={kbis} />
 						<TextInfo title="Siret : " text={siret} />
 						<TextInfo title="TVA : " text={tva} />
-					</>	
+					</>	: null
 				}
 			</InfoList>
 		</ManageCard>

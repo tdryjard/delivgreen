@@ -30,4 +30,33 @@ Admin.deleteAnnounce = (announceId, result) => {
   });
 };
 
+Admin.deliveryManFindAll = result => {
+  db.query(
+    `SELECT u.id AS user_id, u.*, pro.*, pro.id AS professional_id, dm.*
+    FROM users AS u 
+    JOIN delivery_man AS dm ON u.delivery_man_id=dm.id
+    LEFT JOIN professional AS pro ON u.professional_id=pro.id`,
+    (err, dbResult) => {
+      if (err) return result({ message: err.message, status: 500 });
+
+      if (!dbResult.length)
+        return result({ message: 'Aucune adhésion', status: 404 }, null);
+
+      return result(null, { data: dbResult });
+    }
+  );
+};
+
+Admin.professionalFindAll = result => {
+  db.query(
+    `SELECT pro.*, pro.id AS professional_id
+    FROM users AS u 
+    JOIN delivery_man AS dm ON u.delivery_man_id=dm.id 
+    JOIN professional AS pro ON u.professional_id=pro.id WHERE dm.is_pro=1`,
+    (err, dbResult) => {
+      return result(null, dbResult);
+    }
+  );
+};
+
 module.exports = Admin;

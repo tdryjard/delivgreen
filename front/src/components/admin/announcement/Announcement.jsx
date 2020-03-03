@@ -42,9 +42,10 @@ function Announcement() {
                                                         key={i} 
                                                         {...announce} 
                                                         removeAnnounce={() => removeAnnounceFromState(announce.id)} 
-                    />) : null
+                    />)
+                     : 
+                    <div className="admin-no-content-message">{noAnnounceError}</div>
                 }
-                { noAnnounceError }
             </div>
         </div>
     );
