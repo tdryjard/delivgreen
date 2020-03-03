@@ -8,13 +8,14 @@ import { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { faInfoCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useGlobalState from '../../hooks/useGlobalState';
 
 const Adhesion = () => {
   const location = useLocation()
   const proBool = location.professionnal
   const [pro, setPro] = useState(false);
   const [infoMessage, setInfoMessage] = useState(null);
-  const [userId] = useState(1)
+  const { user } = useGlobalState();
 
 	const inputsRef = {
 		lastname: useRef(null),
@@ -61,7 +62,7 @@ const Adhesion = () => {
         }
         
         try{
-          fetch(apiUrl + `/api/adhesion/${userId}`, {
+          fetch(apiUrl + `/api/adhesion/${user.id}`, {
             method: 'PUT'
           });
         } catch (error)  {
@@ -119,7 +120,7 @@ const Adhesion = () => {
         }
         
         try{
-          fetch(apiUrl + `/api/adhesion/${userId}`, {
+          fetch(apiUrl + `/api/adhesion/${user.id}`, {
             method: 'PUT'
           });
         } catch (error)  {

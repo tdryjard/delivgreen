@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './order.css';
 import apiUrl from '../../api/api';
+import useGlobalState from '../../../hooks/useGlobalState';
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
   const [buttonView, setButtonView] = useState();
-  const [userId] = useState(1);
+  const { user } = useGlobalState();
   const [update, setUpdate] = useState(0);
   const [announceView, setAnnounceView] = useState();
 
@@ -31,7 +32,7 @@ const Order = () => {
           'Access-Control-Allow-Origin': `${origin}`
         },
         body: JSON.stringify({
-          delivery_man_id: userId,
+          delivery_man_id: user.id,
           status_id: 2
         })
       });

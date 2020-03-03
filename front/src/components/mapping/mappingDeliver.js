@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import NavBarDashboard from '../Dashboard/NavBarDashboard';
 import HeaderDashboard from '../Dashboard/HeaderDashboard';
-
+import useGlobalState from '../../hooks/useGlobalState';
 import useWindowDimensions from '../Dashboard/useWindowDimensions';
 import NavBarDashboardMobile from '../Dashboard/NavBarDashboardMobile';
 import './mapping.css';
@@ -22,7 +21,7 @@ const MappingDeliver = () => {
   const [positionMarkerEnd, setPositionMarkerEnd] = useState([]);
   const [orders, setOrders] = useState([]);
   const [orderId, setOrderId] = useState(1);
-  const [userId] = useState(1);
+  const { user } = useGlobalState();
   const { width } = useWindowDimensions();
   const [toggleNavBarMobile, setToggleNavBarMobile] = useState(false);
   const [update, setUpdate] = useState(0);
@@ -46,7 +45,7 @@ const MappingDeliver = () => {
           'Access-Control-Allow-Origin': `${origin}`
         },
         body: JSON.stringify({
-          delivery_man_id: userId,
+          delivery_man_id: user.id,
           status_id: 2
         })
       });
