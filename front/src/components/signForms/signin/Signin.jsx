@@ -106,7 +106,7 @@ function Signin() {
                     reference={inputsRef.password}
                 />
                 <Input 
-                    label={{ for: 'signin-password-verification', text: 'Repetez le mot de passe :' }} 
+                    label={{ for: 'signin-password-verification', text: 'Confirmer le mot de passe :' }} 
                     attributes={{ type:'password', id:'signin-password-verification', name:'password-verification'}} 
                     reference={inputsRef.password_verification} 
                 />

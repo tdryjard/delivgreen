@@ -259,7 +259,7 @@ function DeliveryClientForm() {
 				/>
 				<Input 
 					required
-					label={{for: 'delivery-date', text: 'Date'}} 
+					label={{for: 'delivery-date', text: `Date limite d'expiration de l'annonce`}} 
 					attributes={{type: 'date', id: 'delivery-date', name: 'delivery-date'}} 
 					reference={inputsRef.date}
 				/>
