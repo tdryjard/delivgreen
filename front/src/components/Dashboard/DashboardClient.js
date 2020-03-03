@@ -21,9 +21,8 @@ const DashboardClient = () => {
   const [currentOrders, setCurrentOrders] = useState(null);
 
   const getProducts = () => {
-    const userId = user.id;
     axios
-      .get(`${url}/api/orders?userId=${userId}`)
+      .get(`${url}/api/orders/myOrdersClient/${user.id}`)
       .then(result => result.data)
       .then(data => {
         const stockOrders = data;
